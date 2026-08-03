@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      # Catches a lockfile that installs on macOS but breaks `npm ci` on linux
+      # (pruned @emnapi peer nodes) with an actionable message, before npm's cryptic EUSAGE.
+      - run: node scripts/check-lockfile.ts
+
+      - run: npm ci
+
+      # Type-check (svelte-check + tsc), then the vitest unit suite. e2e is excluded by
+      # design — it drives a real licensed Foundry + world, unavailable on the runner.
+      - run: npm run check
+      - run: npm test
