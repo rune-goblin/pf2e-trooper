@@ -1,12 +1,12 @@
 {
   "_id": "pmtOpenExample01",
   "_key": "!macros!pmtOpenExample01",
-  "name": "PF2e Module Template: Open Example",
+  "name": "PF2e Trooper: Open Example",
   "type": "script",
   "author": "pmtTemplateUser1",
   "img": "icons/svg/dice-target.svg",
   "scope": "global",
-  "command": "game.modules.get('pf2e-module-template')?.api?.open();",
+  "command": "game.modules.get('pf2e-trooper')?.api?.open();",
   "ownership": {
     "default": 0
   },

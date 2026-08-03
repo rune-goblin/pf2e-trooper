@@ -1,4 +1,4 @@
-# PF2e Module Template
+# PF2e Trooper
 
 A starting point for **Pathfinder 2e Foundry VTT** modules. Ship compendium content
 (`packs/`) and a scripted esmodule (`src/`) — a **Svelte 5** UI in an **ApplicationV2**
@@ -16,7 +16,7 @@ shell — from one repo.
 
 - **Svelte 5 in ApplicationV2, wired up.** A working window (`src/ui/ExampleApp.ts`)
   `mount()`s a runes component and `unmount()`s it on close. Open it from the console:
-  `game.modules.get('pf2e-module-template').api.open()`.
+  `game.modules.get('pf2e-trooper').api.open()`.
 
 - **Vite Hot Module Reload.** `src/index.ts` compiles to `dist/<id>.{js,css}`, the artifacts
   `module.json` loads. `npm run dev` serves with hot module reload (HMR); `npm run check` runs `svelte-check` and `tsc`.
@@ -49,80 +49,6 @@ shell — from one repo.
 - **Sensible defaults.** Localization (`lang/en.json`), a public `api` surface, the
   `module.<id>` socket channel, and license and author metadata all key off the module id.
 
-<!-- TEMPLATE:START -->
-
-## Starting with Claude Code
-
-Install and authenticate the [GitHub CLI](https://cli.github.com) (`gh auth login`)
-before you start. This is optional. The UI flow works without it, but the CLI lets
-Claude create and clone your repo with no browser steps.
-
-In a new session, fill in the blanks and paste this:
-
-```text
-Smoothest Path: Set up a new Foundry VTT PF2e module from this template, following its
-README's "Use this template manually" section:
-https://github.com/rune-goblin/runegoblin-foundrytemplate
-
-GitHub repo:  https://github.com/<account>, or "local only"
-local path:   <containing folder, e.g. ~/repos/>
-module id:    <my-module>   (lowercase + hyphens; usually the repo name)
-title:        <My Module>
-
-Default to the GitHub CLI flow; with no gh, fall back to the README's UI flow. If
-Foundry is installed locally, also run npm run setup. Then tell me how to open the
-example window.
-```
-
-## Use this template manually
-
-This is a GitHub **template repository**, and like the prompt above you pick one of two
-paths: create **a GitHub repo** (recommended — `npm run init` auto-fills your owner and
-author from the repo's `origin`) or go **local only**. Either way, `npm run init` renames
-the module.
-
-**GitHub repo — CLI (recommended)** — needs the [GitHub CLI](https://cli.github.com), authed once via `gh auth login`. Creates, clones, and detaches history in one step (no `gh`? use the UI flow below):
-
-```bash
-gh repo create <your-org>/pf2e-my-module \
-  --template rune-goblin/runegoblin-foundrytemplate \
-  --private --clone
-cd pf2e-my-module
-npm run init -- pf2e-my-module --title "PF2e My Module"
-npm install && npm run build && npm run check
-```
-
-**GitHub repo — UI (no `gh` needed)** — **Use this template → Create a new repository**, then:
-
-```bash
-git clone git@github.com:<your-org>/pf2e-my-module.git
-cd pf2e-my-module
-npm run init -- pf2e-my-module --title "PF2e My Module"
-npm install && npm run build && npm run check
-```
-
-**Local only** — no GitHub repo yet, so pass your owner with `--org` (or add it later —
-`npm run setup` offers to, once an `origin` exists):
-
-```bash
-git clone git@github.com:rune-goblin/runegoblin-foundrytemplate.git pf2e-my-module
-cd pf2e-my-module
-rm -rf .git && git init -b main                                         # detach template history first
-npm run init -- pf2e-my-module --title "PF2e My Module" --org <your-org>
-npm install && npm run build && npm run check
-```
-
-`npm run init -- <id> [--title "..."] [--org <github-owner>] [--author "Name"]` rewrites the
-id and title across the repo, then removes itself and the template's `CHANGELOG.md` (your
-module starts its own history). It fills the `module.json` author and `url`/`manifest`/`download`
-URLs from your GitHub owner (auto-detected from the repo's `origin` remote) and `git config
-user.name`; pass `--org`/`--author` to override, or when there's no `origin` yet (the local-only
-clone above detaches it). It leaves `.claude/` (the bundled skill) alone and derives the title
-from the id when omitted.
-
-Then `npm run setup` links the module into Foundry for local development — see [Develop](#develop).
-
-<!-- TEMPLATE:END -->
 ## Layout
 
 ```
@@ -133,7 +59,7 @@ src/                 TypeScript + Svelte source (entry: src/index.ts)
   ui/ExampleApp.ts                       ApplicationV2 shell that mounts a Svelte component
   ui/components/example/Example.svelte         sample Svelte 5 component (runes)
   ui/components/example/RuneGoblinBadge.svelte example: art referenced by served path (img + fetched SVG)
-  styles.css         global styles → dist/pf2e-module-template.css
+  styles.css         global styles → dist/pf2e-trooper.css
   app.d.ts           ambient *.svelte declaration
 assets/              module art — one source, one output, served at modules/<id>/assets/…
 dist/                build output (gitignored) — what module.json loads
@@ -254,7 +180,7 @@ claude mcp add -s project svelte -- npx -y @sveltejs/mcp  # or commit for collab
 The window is a thin `ApplicationV2` subclass; Svelte renders. `_renderHTML` calls
 `mount()` into a detached element, `_replaceHTML` inserts it, `_preClose` calls
 `unmount()`. See `src/ui/ExampleApp.ts`. Open the sample from the console:
-`game.modules.get('pf2e-module-template').api.open()`.
+`game.modules.get('pf2e-trooper').api.open()`.
 
 ## Compendium packs (fvtt CLI)
 

@@ -1,5 +1,5 @@
 {
-  "name": "pf2e-module-template",
+  "name": "pf2e-trooper",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -9,7 +9,6 @@
     "node": ">=22.18.0"
   },
   "scripts": {
-    "init": "node scripts/init.ts",
     "remove-example-files": "node scripts/removeExampleFiles.ts",
     "build": "node scripts/pack.ts && vite build",
     "dev": "vite",

@@ -12,7 +12,7 @@ import { execFileSync } from 'node:child_process';
 
 const repo = process.cwd();
 const home = homedir();
-const ID = 'pf2e-module-template';
+const ID = 'pf2e-trooper';
 const CONFIG = join(repo, '.dev-paths.json');
 
 // Same resolution order as scripts/setup.ts: env override, cached dev path, then the

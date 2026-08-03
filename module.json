@@ -1,19 +1,19 @@
 {
-  "id": "pf2e-module-template",
-  "title": "PF2e Module Template",
+  "id": "pf2e-trooper",
+  "title": "PF2e Trooper",
   "description": "A Pathfinder 2e Foundry VTT module template: compendium content plus a scripted esmodule with a Svelte 5 UI mounted in ApplicationV2.",
   "version": "0.1.0",
   "license": "MIT",
   "authors": [
     {
-      "name": "<your-name>"
+      "name": "Mark Pearce"
     }
   ],
   "esmodules": [
-    "dist/pf2e-module-template.js"
+    "dist/pf2e-trooper.js"
   ],
   "styles": [
-    "dist/pf2e-module-template.css"
+    "dist/pf2e-trooper.css"
   ],
   "languages": [
     {
@@ -25,7 +25,7 @@
   "packs": [
     {
       "name": "macros",
-      "label": "PF2e Module Template Macros",
+      "label": "PF2e Trooper Macros",
       "path": "packs/macros",
       "type": "Macro"
     }
@@ -45,7 +45,7 @@
     "minimum": "14",
     "verified": "14"
   },
-  "url": "https://github.com/<your-org>/pf2e-module-template",
-  "manifest": "https://github.com/<your-org>/pf2e-module-template/releases/latest/download/module.json",
-  "download": "https://github.com/<your-org>/pf2e-module-template/releases/latest/download/pf2e-module-template.zip"
+  "url": "https://github.com/rune-goblin/pf2e-trooper",
+  "manifest": "https://github.com/rune-goblin/pf2e-trooper/releases/latest/download/module.json",
+  "download": "https://github.com/rune-goblin/pf2e-trooper/releases/latest/download/pf2e-trooper.zip"
 }

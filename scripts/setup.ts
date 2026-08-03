@@ -20,7 +20,7 @@ import { ownerFromOrigin, authorName, isValidOwner } from './git-identity.ts';
 
 const repo = process.cwd();
 const home = homedir();
-const ID = 'pf2e-module-template';
+const ID = 'pf2e-trooper';
 
 const PF2E_REPO = 'https://github.com/foundryvtt/pf2e.git';
 const CONFIG = join(repo, '.dev-paths.json');
