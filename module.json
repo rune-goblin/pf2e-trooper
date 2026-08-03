@@ -28,6 +28,13 @@
       "label": "PF2e Trooper Macros",
       "path": "packs/macros",
       "type": "Macro"
+    },
+    {
+      "name": "troop-effects",
+      "label": "PF2e Trooper Effects",
+      "path": "packs/troop-effects",
+      "type": "Item",
+      "system": "pf2e"
     }
   ],
   "relationships": {

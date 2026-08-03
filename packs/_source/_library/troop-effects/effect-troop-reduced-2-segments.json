@@ -1,0 +1,48 @@
+{
+  "_id": "pmtTroopReduced2",
+  "_key": "!items!pmtTroopReduced2",
+  "name": "Troop Reduced (2 Segments)",
+  "type": "effect",
+  "img": "systems/pf2e/icons/default-icons/army.svg",
+  "system": {
+    "slug": "troop-reduced-2-segments",
+    "description": {
+      "value": "<p>The troop has dropped below its lower Hit Point threshold and lost another segment, leaving two segments (8 squares). The threshold is the troop's new maximum Hit Points: while this effect is present, healing cannot raise the troop's Hit Points above it.</p><p>This effect persists between encounters to track the unit's strength. To restore lost segments and maximum Hit Points, the troop needs downtime to use long-term treatment on casualties or recruit new members — remove this effect when it recovers.</p>"
+    },
+    "duration": {
+      "expiry": null,
+      "sustained": false,
+      "unit": "unlimited",
+      "value": -1
+    },
+    "level": {
+      "value": 0
+    },
+    "publication": {
+      "license": "ORC",
+      "remaster": true,
+      "title": "PF2e Trooper"
+    },
+    "rules": [
+      {
+        "key": "RollOption",
+        "domain": "all",
+        "option": "troop:segments:2"
+      }
+    ],
+    "start": {
+      "initiative": null,
+      "value": 0
+    },
+    "tokenIcon": {
+      "show": true
+    },
+    "traits": {
+      "value": []
+    }
+  },
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

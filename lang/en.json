@@ -1,5 +1,15 @@
 {
   "pf2e-trooper": {
-    "title": "PF2e Trooper"
+    "title": "PF2e Trooper",
+    "settings": {
+      "arrangeSeconds": {
+        "name": "Advisory area duration (seconds)",
+        "hint": "After a troop unit move, valid segment placements are highlighted for this long. While the highlight is visible, dragging a segment to a spot inside it repositions only that segment; dragging outside it (or after it fades) moves the whole formation."
+      }
+    },
+    "troopReduced": {
+      "message": "<strong>{name}</strong> is reduced to {segments} segments. Maximum Hit Points are capped at {hp} until the troop recovers (remove the Troop Reduced effect after downtime recovery).",
+      "healCapped": "{name}: healing capped at {hp} HP while the troop is reduced."
+    }
   }
 }

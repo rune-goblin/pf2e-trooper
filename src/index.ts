@@ -1,5 +1,6 @@
 import './styles.css';
 import { MODULE_ID } from './constants';
+import { registerTroopHooks } from './troops';
 import { ExampleApp } from './ui/ExampleApp';
 
 interface ModuleApi {
@@ -9,6 +10,7 @@ interface ModuleApi {
 
 Hooks.once('init', () => {
   console.log(`${MODULE_ID} | init`);
+  registerTroopHooks();
 });
 
 Hooks.once('ready', () => {
