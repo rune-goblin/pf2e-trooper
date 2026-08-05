@@ -1,13 +1,26 @@
-import type { TokenDocumentPF2e } from 'foundry-pf2e';
-import { arrangeDisposition, resetArrangeTimer, showArrangeArea } from './arrange';
+import type { TokenDocumentPF2e, TokenPF2e } from 'foundry-pf2e';
+import {
+  activeArrangeTroopId,
+  arrangeDisposition,
+  arrangeRejectsMove,
+  isArrangeAnchor,
+  pauseArrangeTimer,
+  resetArrangeTimer,
+  resumeArrangeTimer,
+  showArrangeArea,
+} from './arrange';
 import { troopFlags } from './context';
 import { followMoves } from './logic';
 
-// Formation movement only — selection is left entirely to Foundry. Dragging one
-// segment translates the rest of the formation by the same offset and paints the
-// advisory wiggle-room area (see arrange.ts). While that area is visible, a drag
-// landing inside it repositions only the dragged segment; landing outside it is a
-// fresh unit move.
+// Formation movement, plus one selection rule: at most one segment of a troop is
+// ever controlled (newest control wins). A native multi-segment drag would give
+// every piece its own ruler and no leader — no formation follow, no advisory
+// area — so rubber-bands and shift-clicks dedupe down to a single segment.
+// Dragging that segment translates the rest of the formation by the same offset
+// and paints the advisory wiggle-room area (see arrange.ts). While that area is
+// visible, the anchor (the segment whose move opened it) is locked in place; a
+// drag of another segment landing inside the area repositions only that segment,
+// landing outside it is a fresh unit move.
 
 /** Operation key marking follower moves so they don't re-trigger the formation. */
 const FOLLOW_OPTION = 'pf2eTrooperFollow';
@@ -19,10 +32,32 @@ const MOVED_KEY = 'pf2eTrooperMoved';
 type HookOptions = Record<string, unknown>;
 type PriorMap = Record<string, { x: number; y: number }>;
 
-function onPreUpdateToken(doc: TokenDocumentPF2e, changed: Record<string, unknown>, options: HookOptions): void {
+function onControlToken(token: TokenPF2e, controlled: boolean): void {
+  if (!controlled) return;
+  const troop = troopFlags(token.document);
+  if (!troop) return;
+  for (const other of [...canvas.tokens.controlled]) {
+    if (other !== token && troopFlags(other.document)?.id === troop.id) other.release();
+  }
+}
+
+function onPreUpdateToken(doc: TokenDocumentPF2e, changed: Record<string, unknown>, options: HookOptions): boolean | void {
   if (options[FOLLOW_OPTION]) return;
   if (typeof changed.x !== 'number' && typeof changed.y !== 'number') return;
-  if (!troopFlags(doc)) return;
+  const troop = troopFlags(doc);
+  if (!troop) return;
+  if (isArrangeAnchor(doc.id, doc.parent?.id)) return false;
+  // Refuse a reshape that would leave this segment detached from the troop: the drop
+  // is rejected outright and the segment springs back, rather than committing a layout
+  // the area would then have to flag.
+  const scene = doc.parent;
+  if (scene) {
+    const final = {
+      x: typeof changed.x === 'number' ? changed.x : doc._source.x,
+      y: typeof changed.y === 'number' ? changed.y : doc._source.y,
+    };
+    if (arrangeRejectsMove(doc.id, troop.id, scene.id, final, doc.width, doc.height)) return false;
+  }
   const prior = (options[PRIOR_KEY] ??= {}) as PriorMap;
   prior[doc.id] = { x: doc._source.x, y: doc._source.y };
 }
@@ -86,7 +121,25 @@ function onUpdateToken(doc: TokenDocumentPF2e, changed: Record<string, unknown>,
   }
 }
 
+function onCanvasPointerDown(event: PointerEvent): void {
+  if (event.target !== canvas.app?.view) return;
+  const troopId = activeArrangeTroopId();
+  if (!troopId) return;
+  const hovered = (canvas.tokens as unknown as { hover: TokenPF2e | null }).hover;
+  if (hovered && troopFlags(hovered.document)?.id === troopId) pauseArrangeTimer();
+}
+
+function onCanvasPointerUp(): void {
+  resumeArrangeTimer();
+}
+
 export function registerFormationControls(): void {
+  Hooks.on('controlToken', onControlToken);
   Hooks.on('preUpdateToken', onPreUpdateToken);
   Hooks.on('updateToken', onUpdateToken);
+  document.addEventListener('pointerdown', onCanvasPointerDown);
+  document.addEventListener('pointerup', onCanvasPointerUp);
+  // Without this a pointer released off-window never resumes, freezing the area forever.
+  document.addEventListener('pointercancel', onCanvasPointerUp);
+  window.addEventListener('blur', onCanvasPointerUp);
 }

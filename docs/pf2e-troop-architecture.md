@@ -338,10 +338,15 @@ open in another client at the same time.
 
 ### Formation movement (`src/troops/formation.ts`)
 
-Design decision (revised): **movement only, no selection handling**. Selection is
-left entirely to Foundry — an earlier iteration deduplicated selection to one segment
-per troop, but it added a behavior layer without buying anything the movement hooks
-don't already provide, and was removed.
+Design decision (re-revised): **movement plus selection dedupe**. An earlier
+iteration deduplicated selection to one segment per troop, was removed as
+apparently redundant, then restored: with several segments controlled, a drag is a
+*native* multi-token move — every piece gets its own ruler, no segment is the
+leader, so no formation follow and no advisory area. Dedupe (`controlToken`: on
+control, release any other controlled segment of the same troop — newest wins)
+guarantees the leader+follow path is the only way a troop moves. The
+"siblings moved in the same operation" guard below stays as a backstop for
+batch updates from macros or other clients.
 
 - **Formation follow** (`preUpdateToken` + `updateToken`): when a segment moves
   (drag, arrow keys, or an undo), the pre-update hook stashes its prior position in
@@ -382,17 +387,23 @@ keybinding, no toggle button:
      per remaining segment. This keeps the area anchored to the troop no matter
      how far the drag was — it can never spread across the map.
 
-   Rendered as one PIXI container on `canvas.interface`: a hatch-textured
-   `TilingSprite` masked to the area's squares, with a border stroked only along
-   the area's outer edge. It is anchored once when it opens and **never redraws**
+   Rendered as two PIXI containers on `canvas.interface` (which sorts children by
+   `zIndex`): the hatch-textured area — a `TilingSprite` masked to the area's
+   squares with a border stroked only along its outer edge — sits **beneath** the
+   tokens, while the amber **anchor marker** — outlining the moved segment at its
+   final position, the piece the rest of the troop regroups around — gets its own
+   container z-indexed **above** the token layer, so it reads through the token
+   sitting on it. Both are drawn once when the area opens and **never redraw**
    while segments are repositioned.
 2. While the area is **visible** (default 3 s + 0.5 s fade, world setting
-   `arrangeSeconds`), the drag's destination disambiguates: landing **inside** the
-   shaded squares repositions only that segment and resets the countdown; landing
-   **outside** is a fresh unit move — so you're never stuck waiting for the fade to
-   move the unit again. The moved segment's origin square is marked in a distinct
-   color so the move that created the area stays readable while pieces are placed.
-3. At expiry the overlay fades (0.5 s) and every drag is a unit move again.
+   `arrangeSeconds`), the anchor is **locked**: drags of it are cancelled in
+   `preUpdateToken` (with a warning toast), since the regroup is defined relative
+   to where it stopped. Any other segment's drag destination disambiguates:
+   landing **inside** the shaded squares repositions only that segment and resets
+   the countdown; landing **outside** is a fresh unit move — so you're never stuck
+   waiting for the fade to move the unit again.
+3. At expiry the overlay fades (0.5 s), the anchor unlocks, and every drag is a
+   unit move again.
 
 The area math is pure and vitest-covered in `logic.ts`: `reachablePlacements`
 (budget union with the diagonal rule injected), `attachablePlacements` (the
@@ -405,9 +416,10 @@ overlay tears down with the canvas.
 
 **Advisory by design** (a deliberate scope decision): the hatching visualizes the
 RAW limit — followers regroup adjacent to the moved segment, and "none of them moves
-farther than the moving segment" — but nothing is blocked or validated. It doesn't
-prevent an off-pattern drop, doesn't wall-test candidates, doesn't track occupancy,
-and doesn't measure the distance budget. The GM adjudicates; the module just paints
-the reference.
+farther than the moving segment" — but follower placement is never blocked or
+validated. It doesn't prevent an off-pattern drop, doesn't wall-test candidates,
+doesn't track occupancy, and doesn't measure the distance budget. The GM
+adjudicates; the module just paints the reference. The single hard rule is the
+anchor lock above — the area's geometry is meaningless if its reference point moves.
 
 Next: threshold-driven segment removal.

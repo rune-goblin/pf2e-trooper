@@ -5,9 +5,11 @@ import {
   type ThresholdEntry,
   adjacentPlacements,
   attachablePlacements,
+  connectsToAnchor,
   footprintCells,
   hpCapForStatus,
   isContiguous,
+  layoutFaults,
   reachablePlacements,
   segmentsForHp,
   sharesEdge,
@@ -92,6 +94,74 @@ describe('isContiguous', () => {
 
   it('rejects a split formation even when each half is internally connected', () => {
     expect(isContiguous([seg(0, 0), seg(2, 0), seg(6, 0), seg(8, 0)])).toBe(false);
+  });
+});
+
+describe('connectsToAnchor', () => {
+  it('accepts a segment touching the anchor directly', () => {
+    expect(connectsToAnchor(seg(0, 0), seg(2, 0), [])).toBe(true);
+  });
+
+  it('accepts a segment chained to the anchor through another segment', () => {
+    expect(connectsToAnchor(seg(0, 0), seg(4, 0), [seg(2, 0)])).toBe(true);
+  });
+
+  it('rejects a segment with only diagonal contact', () => {
+    expect(connectsToAnchor(seg(0, 0), seg(2, 2), [])).toBe(false);
+  });
+
+  it('rejects a segment chained only to a stranded segment, not the anchor', () => {
+    expect(connectsToAnchor(seg(0, 0), seg(8, 0), [seg(6, 0)])).toBe(false);
+  });
+
+  // The anti-deadlock property: a stranded sibling must never veto an otherwise legal
+  // placement, or no move could clear the fault.
+  it('accepts a placement beside the anchor even while another segment is stranded', () => {
+    expect(connectsToAnchor(seg(0, 0), seg(2, 0), [seg(20, 20)])).toBe(true);
+  });
+});
+
+describe('layoutFaults', () => {
+  // A generous area so containment never fires unless a test places a segment far out.
+  const area = footprintCells([{ x: -6, y: -6, w: 16, h: 16 }]);
+
+  it('reports nothing for a contiguous troop sitting inside the area', () => {
+    expect(layoutFaults(seg(0, 0), [seg(2, 0), seg(4, 0)], area)).toEqual([]);
+  });
+
+  it('reports detached when a follower loses edge contact with the group', () => {
+    expect(layoutFaults(seg(0, 0), [seg(2, 0), seg(6, 0)], area)).toEqual(['detached']);
+  });
+
+  // Diagonal contact reads as touching but is not RAW contiguity.
+  it('reports detached for diagonal-only contact', () => {
+    expect(layoutFaults(seg(0, 0), [seg(2, 2)], area)).toEqual(['detached']);
+  });
+
+  it('reports outside when a follower sits beyond the area, even while contiguous', () => {
+    const tight = footprintCells([seg(0, 0), seg(2, 0)]);
+    expect(layoutFaults(seg(0, 0), [seg(2, 0), seg(4, 0)], tight)).toEqual(['outside']);
+  });
+
+  // Partial overlap is not enough: every square of a follower must be in the area.
+  it('reports a follower straddling the area edge as outside, not partially in', () => {
+    const halfColumn = footprintCells([{ x: 2, y: 0, w: 1, h: 2 }]);
+    expect(layoutFaults(seg(0, 0), [seg(2, 0)], halfColumn)).toEqual(['outside']);
+  });
+
+  // The anchor's own squares are excluded from the painted cells by construction, so
+  // testing it for containment would fault every layout.
+  it('exempts the anchor from the area test', () => {
+    expect(layoutFaults(seg(0, 0), [seg(2, 0)], footprintCells([seg(2, 0)]))).toEqual([]);
+  });
+
+  it('reports both faults independently', () => {
+    const tight = footprintCells([seg(2, 0)]);
+    expect(layoutFaults(seg(0, 0), [seg(2, 0), seg(8, 0)], tight)).toEqual(['detached', 'outside']);
+  });
+
+  it('a lone anchor with no followers is always valid', () => {
+    expect(layoutFaults(seg(0, 0), [], new Set())).toEqual([]);
   });
 });
 
