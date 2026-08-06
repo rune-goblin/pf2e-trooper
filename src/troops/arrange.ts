@@ -1,4 +1,5 @@
-import type { ScenePF2e } from 'foundry-pf2e';
+import type { ScenePF2e, TokenDocumentPF2e } from 'foundry-pf2e';
+import { MODULE_ID } from '../constants';
 import {
   type ArrangeTimer,
   holdTimer,
@@ -11,7 +12,6 @@ import { troopFlags } from './context';
 import {
   type GridRect,
   attachablePlacements,
-  connectsToAnchor,
   footprintCells,
   layoutFaults,
   reachablePlacements,
@@ -25,10 +25,15 @@ import {
 // must share at least one full square edge with the troop (chains through other
 // segments allowed), so the area grows outward from the moved segment through
 // budget-valid placements only and never spreads across the map. Drawn once when
-// it opens; reshape drags reset the timer, and an illegal layout (segments detached,
-// or a follower outside the area) holds it open until the player fixes it. Advisory
-// except for one thing: the anchor (the moved segment, at its final position) is
-// locked in place while the area is visible — everything else is painted, not enforced.
+// it opens; reshape drags reset the timer.
+//
+// Inside the area you shape the formation by dragging freely and the colour reports the
+// verdict: an illegal layout (segments detached or stacked) paints the area red and holds
+// it open, and it only turns green and resumes fading once the troop is legal again.
+// The area's edge is the hard boundary — while it is up the anchor cannot move at all and
+// no other segment may leave, so a drop outside is refused and the segment springs back.
+// Once it fades, dragging any segment is an ordinary unit move again; Escape dismisses it
+// early, which is the only way out if the area's squares admit no legal arrangement.
 
 /** PIXI display-object names — stable handles for e2e specs; `npm run init` rewrites the id. */
 export const AREA_NAME = 'pf2e-trooper:arrange-area';
@@ -79,25 +84,20 @@ let ticking = false;
 
 /**
  * How a troop segment's drag destination relates to the visible area (fade included —
- * as long as the shading is on screen, it governs the drag): 'inside' means the whole
- * footprint lands in the shaded squares, so the drag is a reshape; 'outside' (or
- * 'none') means it's a fresh unit move.
+ * as long as the shading is on screen, it governs the drag). 'inside': the whole
+ * footprint lands in the shaded squares, so the drag is a reshape. 'outside': it would
+ * leave the area, which is refused while the area is up. 'none': no area governs this
+ * troop, so the drag is an ordinary unit move and the rest of the formation follows.
  */
 export function arrangeDisposition(
+  doc: TokenDocumentPF2e,
   troopId: string,
   sceneId: string,
   finalPx: { x: number; y: number },
-  w: number,
-  h: number,
 ): 'none' | 'inside' | 'outside' {
   if (!active || active.troopId !== troopId || active.sceneId !== sceneId) return 'none';
-  const px = canvas.grid.size;
-  const gx = Math.round(finalPx.x / px);
-  const gy = Math.round(finalPx.y / px);
-  for (let x = gx; x < gx + w; x++) {
-    for (let y = gy; y < gy + h; y++) {
-      if (!active.cells.has(`${x},${y}`)) return 'outside';
-    }
+  for (const cell of occupiedCells(doc, finalPx)) {
+    if (!active.cells.has(cell)) return 'outside';
   }
   return 'inside';
 }
@@ -160,6 +160,35 @@ export function clearArrangeArea(): void {
   active = null;
 }
 
+// Grid coordinates come from the grid object, never from px/size arithmetic: that assumed
+// squares anchored at the origin and a token footprint of exactly width×height. Foundry's
+// GridOffset is {i: row, j: column}, so it transposes into our "x,y" cell keys.
+
+function toCell(point: { x: number; y: number }): { x: number; y: number } {
+  const { i, j } = canvas.grid.getOffset(point);
+  return { x: j, y: i };
+}
+
+/** Inverse of toCell — the square's top-left in pixels. */
+function cellTopLeft(cx: number, cy: number): { x: number; y: number } {
+  return canvas.grid.getTopLeftPoint({ i: cy, j: cx });
+}
+
+/**
+ * The squares a segment actually occupies. getSize() resolves the token's real footprint
+ * and getOffsetRange() maps that rectangle onto the grid, so this holds for tokens whose
+ * size isn't a plain whole-square block.
+ */
+function occupiedCells(doc: TokenDocumentPF2e, at: { x: number; y: number }): Set<string> {
+  const size = doc.getSize();
+  const [i0, j0, i1, j1] = canvas.grid.getOffsetRange(
+    new PIXI.Rectangle(at.x, at.y, size.width, size.height),
+  );
+  const cells = new Set<string>();
+  for (let i = i0; i < i1; i++) for (let j = j0; j < j1; j++) cells.add(`${j},${i}`);
+  return cells;
+}
+
 /** Grid distance of a square offset, in squares, using the scene grid's own diagonal rule. */
 function offsetMeasurer(): (dx: number, dy: number) => number {
   const px = canvas.grid.size;
@@ -192,22 +221,18 @@ function buildOverlay(scene: ScenePF2e, ctx: ArrangeContext): BuiltOverlay | nul
   const leader = scene.tokens.get(ctx.leaderId);
   if (!leader || ctx.origins.length === 0) return null;
   const px = canvas.grid.size;
-  const toGrid = (v: number): number => Math.round(v / px);
   const measure = offsetMeasurer();
 
+  const finalCell = toCell(ctx.leaderFinal);
+  const priorCell = toCell(ctx.leaderPrior);
   const budget = Math.min(
-    measure(toGrid(ctx.leaderFinal.x) - toGrid(ctx.leaderPrior.x), toGrid(ctx.leaderFinal.y) - toGrid(ctx.leaderPrior.y)),
+    measure(finalCell.x - priorCell.x, finalCell.y - priorCell.y),
     MAX_BUDGET_SQUARES,
   );
   if (budget <= 0) return null;
 
-  const leaderRect: GridRect = {
-    x: toGrid(ctx.leaderFinal.x),
-    y: toGrid(ctx.leaderFinal.y),
-    w: leader.width,
-    h: leader.height,
-  };
-  const origins = ctx.origins.map((o) => ({ x: toGrid(o.x), y: toGrid(o.y) }));
+  const leaderRect: GridRect = { ...finalCell, w: leader.width, h: leader.height };
+  const origins = ctx.origins.map(toCell);
   const reachable = reachablePlacements(origins, budget, measure, leader.width, [leaderRect]);
   // Both RAW constraints: within budget AND attached to the moved segment (chains allowed).
   const placements = attachablePlacements(leaderRect, reachable, ctx.origins.length);
@@ -225,15 +250,19 @@ function buildOverlay(scene: ScenePF2e, ctx: ArrangeContext): BuiltOverlay | nul
   container.name = AREA_NAME;
   container.eventMode = 'none';
 
+  const origin = cellTopLeft(minX, minY);
   const sprite = new PIXI.TilingSprite(getHatchTexture(), (maxX - minX + 1) * px, (maxY - minY + 1) * px);
   sprite.name = HATCH_NAME;
-  sprite.position.set(minX * px, minY * px);
+  sprite.position.set(origin.x, origin.y);
   sprite.tint = HATCH_COLOR;
   sprite.alpha = HATCH_ALPHA;
 
   const mask = new PIXI.Graphics();
   mask.beginFill(0xffffff);
-  for (const [cx, cy] of cellList) mask.drawRect(cx * px, cy * px, px, px);
+  for (const [cx, cy] of cellList) {
+    const tl = cellTopLeft(cx, cy);
+    mask.drawRect(tl.x, tl.y, px, px);
+  }
   mask.endFill();
   sprite.mask = mask;
 
@@ -244,10 +273,11 @@ function buildOverlay(scene: ScenePF2e, ctx: ArrangeContext): BuiltOverlay | nul
   borders.tint = HATCH_COLOR;
   borders.lineStyle(2, 0xffffff, BORDER_ALPHA);
   for (const [cx, cy] of cellList) {
-    if (!cells.has(`${cx},${cy - 1}`)) borders.moveTo(cx * px, cy * px).lineTo((cx + 1) * px, cy * px);
-    if (!cells.has(`${cx},${cy + 1}`)) borders.moveTo(cx * px, (cy + 1) * px).lineTo((cx + 1) * px, (cy + 1) * px);
-    if (!cells.has(`${cx - 1},${cy}`)) borders.moveTo(cx * px, cy * px).lineTo(cx * px, (cy + 1) * px);
-    if (!cells.has(`${cx + 1},${cy}`)) borders.moveTo((cx + 1) * px, cy * px).lineTo((cx + 1) * px, (cy + 1) * px);
+    const { x, y } = cellTopLeft(cx, cy);
+    if (!cells.has(`${cx},${cy - 1}`)) borders.moveTo(x, y).lineTo(x + px, y);
+    if (!cells.has(`${cx},${cy + 1}`)) borders.moveTo(x, y + px).lineTo(x + px, y + px);
+    if (!cells.has(`${cx - 1},${cy}`)) borders.moveTo(x, y).lineTo(x, y + px);
+    if (!cells.has(`${cx + 1},${cy}`)) borders.moveTo(x + px, y).lineTo(x + px, y + px);
   }
 
   container.addChild(sprite, mask, borders);
@@ -257,7 +287,9 @@ function buildOverlay(scene: ScenePF2e, ctx: ArrangeContext): BuiltOverlay | nul
   const anchorMark = new PIXI.Graphics();
   anchorMark.lineStyle(3, ANCHOR_COLOR, 0.9);
   anchorMark.beginFill(ANCHOR_COLOR, 0.12);
-  anchorMark.drawRect(leaderRect.x * px, leaderRect.y * px, leader.width * px, leader.height * px);
+  const anchorTopLeft = cellTopLeft(leaderRect.x, leaderRect.y);
+  const anchorSize = leader.getSize();
+  anchorMark.drawRect(anchorTopLeft.x, anchorTopLeft.y, anchorSize.width, anchorSize.height);
   anchorMark.endFill();
   const anchor = new PIXI.Container();
   anchor.eventMode = 'none';
@@ -289,8 +321,8 @@ function ensureTicker(): void {
 }
 
 interface SegmentLayout {
-  anchor: GridRect;
-  followers: { id: string; rect: GridRect }[];
+  anchor: Set<string>;
+  followers: Set<string>[];
 }
 
 /**
@@ -304,16 +336,14 @@ function segmentLayout(
 ): SegmentLayout | null {
   const scene = canvas.scene;
   if (!scene || scene.id !== area.sceneId) return null;
-  const px = canvas.grid.size;
-  let anchor: GridRect | null = null;
-  const followers: { id: string; rect: GridRect }[] = [];
+  let anchor: Set<string> | null = null;
+  const followers: Set<string>[] = [];
   for (const id of area.segmentIds) {
     const doc = scene.tokens.get(id);
     if (!doc) continue;
-    const at = overrides.get(id) ?? { x: doc._source.x, y: doc._source.y };
-    const rect = { x: Math.round(at.x / px), y: Math.round(at.y / px), w: doc.width, h: doc.height };
-    if (id === area.anchorTokenId) anchor = rect;
-    else followers.push({ id, rect });
+    const cells = occupiedCells(doc, overrides.get(id) ?? { x: doc._source.x, y: doc._source.y });
+    if (id === area.anchorTokenId) anchor = cells;
+    else followers.push(cells);
   }
   return anchor ? { anchor, followers } : null;
 }
@@ -337,28 +367,6 @@ function draggedPositions(): Map<string, { x: number; y: number }> {
   return positions;
 }
 
-/**
- * Whether a drop must be refused: the segment would land inside the area but detached
- * from the troop. Fresh unit moves (landing outside the area) are never refused — they
- * open a new area instead of reshaping this one.
- */
-export function arrangeRejectsMove(
-  tokenId: string,
-  troopId: string,
-  sceneId: string,
-  finalPx: { x: number; y: number },
-  w: number,
-  h: number,
-): boolean {
-  if (!active || active.troopId !== troopId || active.sceneId !== sceneId) return false;
-  if (arrangeDisposition(troopId, sceneId, finalPx, w, h) !== 'inside') return false;
-  const layout = segmentLayout(active, new Map([[tokenId, finalPx]]));
-  const subject = layout?.followers.find((f) => f.id === tokenId);
-  if (!layout || !subject) return false;
-  const others = layout.followers.filter((f) => f.id !== tokenId).map((f) => f.rect);
-  return !connectsToAnchor(layout.anchor, subject.rect, others);
-}
-
 function onTick(): void {
   if (!active) return;
   const now = Date.now();
@@ -369,8 +377,7 @@ function onTick(): void {
   // than appearing only once it has landed.
   const layout = segmentLayout(active, draggedPositions());
   const faulted =
-    layout !== null &&
-    layoutFaults(layout.anchor, layout.followers.map((f) => f.rect), active.cells).length > 0;
+    layout !== null && layoutFaults(layout.anchor, layout.followers, active.cells).length > 0;
   active.timer = faulted
     ? holdTimer(active.timer, 'layout', now)
     : releaseTimer(active.timer, 'layout', now);
@@ -390,6 +397,23 @@ function onTick(): void {
 }
 
 export function registerArrangeOverlay(): void {
+  // The escape hatch. While the area is up the anchor is frozen and no segment may leave,
+  // so a troop with no legal arrangement available inside a cramped area would otherwise
+  // have no way out. Dismissing drops the area and restores ordinary unit movement.
+  game.keybindings.register(MODULE_ID, 'dismissArrangeArea', {
+    name: `${MODULE_ID}.keybindings.dismissArrangeArea.name`,
+    hint: `${MODULE_ID}.keybindings.dismissArrangeArea.hint`,
+    editable: [{ key: 'Escape', modifiers: [] }],
+    // Ahead of core's Escape, but only consumed when an area is actually up — otherwise
+    // Escape still clears selection and opens the menu as usual.
+    precedence: CONST.KEYBINDING_PRECEDENCE.PRIORITY,
+    onDown: () => {
+      if (!active) return false;
+      clearArrangeArea();
+      return true;
+    },
+  });
+
   Hooks.on('canvasTearDown', () => {
     clearArrangeArea();
     canvas.app.ticker.remove(onTick);

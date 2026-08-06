@@ -5,8 +5,8 @@ import {
   type ThresholdEntry,
   adjacentPlacements,
   attachablePlacements,
-  connectsToAnchor,
   footprintCells,
+  footprintsShareEdge,
   hpCapForStatus,
   isContiguous,
   layoutFaults,
@@ -97,71 +97,102 @@ describe('isContiguous', () => {
   });
 });
 
-describe('connectsToAnchor', () => {
-  it('accepts a segment touching the anchor directly', () => {
-    expect(connectsToAnchor(seg(0, 0), seg(2, 0), [])).toBe(true);
+describe('footprintsShareEdge', () => {
+  /** A segment's occupied squares, the shape arrange.ts reads off the grid. */
+  const fp = (x: number, y: number, w = 2, h = 2) => footprintCells([{ x, y, w, h }]);
+
+  it('is true for footprints sharing a full square edge', () => {
+    expect(footprintsShareEdge(fp(0, 0), fp(2, 0))).toBe(true);
+    expect(footprintsShareEdge(fp(0, 0), fp(0, 2))).toBe(true);
   });
 
-  it('accepts a segment chained to the anchor through another segment', () => {
-    expect(connectsToAnchor(seg(0, 0), seg(4, 0), [seg(2, 0)])).toBe(true);
+  it('is true when only part of the edge is shared', () => {
+    expect(footprintsShareEdge(fp(0, 0), fp(2, 1))).toBe(true);
   });
 
-  it('rejects a segment with only diagonal contact', () => {
-    expect(connectsToAnchor(seg(0, 0), seg(2, 2), [])).toBe(false);
+  // The distinction canvas.grid.testAdjacency would get wrong for troops: on a grid with
+  // legal diagonals it calls corner contact adjacent, RAW does not.
+  it('is false for corner contact only', () => {
+    expect(footprintsShareEdge(fp(0, 0), fp(2, 2))).toBe(false);
   });
 
-  it('rejects a segment chained only to a stranded segment, not the anchor', () => {
-    expect(connectsToAnchor(seg(0, 0), seg(8, 0), [seg(6, 0)])).toBe(false);
+  it('is false across a gap', () => {
+    expect(footprintsShareEdge(fp(0, 0), fp(3, 0))).toBe(false);
   });
 
-  // The anti-deadlock property: a stranded sibling must never veto an otherwise legal
-  // placement, or no move could clear the fault.
-  it('accepts a placement beside the anchor even while another segment is stranded', () => {
-    expect(connectsToAnchor(seg(0, 0), seg(2, 0), [seg(20, 20)])).toBe(true);
+  it('handles a footprint that is not a square block', () => {
+    expect(footprintsShareEdge(fp(0, 0, 1, 3), fp(1, 2, 2, 2))).toBe(true);
+    expect(footprintsShareEdge(fp(0, 0, 1, 3), fp(1, 3, 2, 2))).toBe(false);
   });
 });
 
 describe('layoutFaults', () => {
+  const fp = (x: number, y: number) => footprintCells([{ x, y, w: 2, h: 2 }]);
   // A generous area so containment never fires unless a test places a segment far out.
   const area = footprintCells([{ x: -6, y: -6, w: 16, h: 16 }]);
 
   it('reports nothing for a contiguous troop sitting inside the area', () => {
-    expect(layoutFaults(seg(0, 0), [seg(2, 0), seg(4, 0)], area)).toEqual([]);
+    expect(layoutFaults(fp(0, 0), [fp(2, 0), fp(4, 0)], area)).toEqual([]);
   });
 
   it('reports detached when a follower loses edge contact with the group', () => {
-    expect(layoutFaults(seg(0, 0), [seg(2, 0), seg(6, 0)], area)).toEqual(['detached']);
+    expect(layoutFaults(fp(0, 0), [fp(2, 0), fp(6, 0)], area)).toEqual(['detached']);
   });
 
   // Diagonal contact reads as touching but is not RAW contiguity.
   it('reports detached for diagonal-only contact', () => {
-    expect(layoutFaults(seg(0, 0), [seg(2, 2)], area)).toEqual(['detached']);
+    expect(layoutFaults(fp(0, 0), [fp(2, 2)], area)).toEqual(['detached']);
+  });
+
+  // The case that made a hand-written e2e fixture wrong: a segment can sit diagonally
+  // off the anchor and still be legal, because a third segment bridges the two.
+  it('accepts a diagonal segment when another bridges it back to the anchor', () => {
+    expect(layoutFaults(fp(0, 0), [fp(0, -2), fp(-2, -2)], area)).toEqual([]);
+    // Remove the bridge and the same placement is detached.
+    expect(layoutFaults(fp(0, 0), [fp(-2, -2)], area)).toEqual(['detached']);
+  });
+
+  it('reports overlapping when two segments are stacked', () => {
+    expect(layoutFaults(fp(0, 0), [fp(2, 0), fp(2, 0)], area)).toEqual(['overlapping']);
+  });
+
+  it('reports overlapping for a partial stack, not just an exact one', () => {
+    expect(layoutFaults(fp(0, 0), [fp(2, 0), fp(3, 1)], area)).toEqual(['overlapping']);
+  });
+
+  it('catches a follower stacked on the anchor', () => {
+    expect(layoutFaults(fp(0, 0), [fp(0, 0)], area)).toEqual(['overlapping']);
+  });
+
+  // Touching along an edge is the goal state, not a stack.
+  it('does not confuse edge contact with overlap', () => {
+    expect(layoutFaults(fp(0, 0), [fp(2, 0)], area)).toEqual([]);
   });
 
   it('reports outside when a follower sits beyond the area, even while contiguous', () => {
-    const tight = footprintCells([seg(0, 0), seg(2, 0)]);
-    expect(layoutFaults(seg(0, 0), [seg(2, 0), seg(4, 0)], tight)).toEqual(['outside']);
+    const tight = footprintCells([{ x: 0, y: 0, w: 4, h: 2 }]);
+    expect(layoutFaults(fp(0, 0), [fp(2, 0), fp(4, 0)], tight)).toEqual(['outside']);
   });
 
   // Partial overlap is not enough: every square of a follower must be in the area.
   it('reports a follower straddling the area edge as outside, not partially in', () => {
     const halfColumn = footprintCells([{ x: 2, y: 0, w: 1, h: 2 }]);
-    expect(layoutFaults(seg(0, 0), [seg(2, 0)], halfColumn)).toEqual(['outside']);
+    expect(layoutFaults(fp(0, 0), [fp(2, 0)], halfColumn)).toEqual(['outside']);
   });
 
   // The anchor's own squares are excluded from the painted cells by construction, so
   // testing it for containment would fault every layout.
   it('exempts the anchor from the area test', () => {
-    expect(layoutFaults(seg(0, 0), [seg(2, 0)], footprintCells([seg(2, 0)]))).toEqual([]);
+    expect(layoutFaults(fp(0, 0), [fp(2, 0)], footprintCells([{ x: 2, y: 0, w: 2, h: 2 }]))).toEqual([]);
   });
 
   it('reports both faults independently', () => {
-    const tight = footprintCells([seg(2, 0)]);
-    expect(layoutFaults(seg(0, 0), [seg(2, 0), seg(8, 0)], tight)).toEqual(['detached', 'outside']);
+    const tight = footprintCells([{ x: 2, y: 0, w: 2, h: 2 }]);
+    expect(layoutFaults(fp(0, 0), [fp(2, 0), fp(8, 0)], tight)).toEqual(['detached', 'outside']);
   });
 
   it('a lone anchor with no followers is always valid', () => {
-    expect(layoutFaults(seg(0, 0), [], new Set())).toEqual([]);
+    expect(layoutFaults(fp(0, 0), [], new Set())).toEqual([]);
   });
 });
 

@@ -1,6 +1,12 @@
 {
   "pf2e-trooper": {
     "title": "PF2e Trooper",
+    "keybindings": {
+      "dismissArrangeArea": {
+        "name": "Dismiss Troop Arrangement Area",
+        "hint": "Clears the advisory area shown after a troop moves, releasing the anchor and letting segments move freely again."
+      }
+    },
     "troopReduced": {
       "message": "<strong>{name}</strong> is reduced to {segments} segments. Maximum Hit Points are capped at {hp} until the troop recovers (remove the Troop Reduced effect after downtime recovery).",
       "healCapped": "{name}: healing capped at {hp} HP while the troop is reduced."

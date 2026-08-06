@@ -36,6 +36,7 @@ stays green after `npm run remove-example-files`. Add your own specs and it goes
 npm run setup              # once — caches the Foundry data path in .dev-paths.json
 npm run test:e2e:setup     # once — builds test/foundry-data/ (isolated; gitignored)
 npx playwright install chromium   # once
+npm run test:e2e:seed -- <world> [--refresh]   # copy/re-copy a world into the test data path
 TEST_WORLD=<your-pf2e-world> npm run test:e2e       # build dist + run specs
 TEST_WORLD=<your-pf2e-world> npm run test:e2e:run   # skip the rebuild (dist must be current)
 npm run test:e2e:ui        # Playwright UI mode
@@ -55,8 +56,18 @@ playwright test
 
 The harness serves the **built** `dist/` bundle from the test Foundry (this repo's `npm run dev` is
 a reverse proxy, not a bundle server), so `test:e2e` rebuilds first. Test data lives in
-`test/foundry-data/` with `systems`/`modules`/`worlds` **symlinked** from the real data dir and
-**no `admin.txt`** (specs join a world as a user, never `/setup`).
+`test/foundry-data/` with **no `admin.txt`** (specs join a world as a user, never `/setup`), and:
+
+- `systems`/`modules` **symlinked** from the real data dir — gigabytes, and read the same either way.
+- `worlds` **copied**, one world per `TEST_WORLD`. LevelDB takes an *exclusive lock per database
+  directory*, so a symlinked world could only be opened by one Foundry at a time — meaning e2e
+  used to demand you quit the desktop app, and failed with `No active world at this port` if you
+  hadn't. Each world is tens of MB, so copying it is the cheap fix. **You can now run e2e with
+  Foundry open on the same world.** Two bonuses: specs can't touch the real world's data, and the
+  module-enabling flip on first run lands on the copy.
+
+The copy is a snapshot, seeded on demand by `start-test-env.sh`. To pick up changes you made in the
+real world: `npm run test:e2e:seed -- <world> --refresh`.
 
 ### Preconditions (e2e fails loud, but know them up front)
 
@@ -65,9 +76,10 @@ a reverse proxy, not a bundle server), so `test:e2e` rebuilds first. Test data l
 - `TEST_WORLD` points at a **pf2e** world whose GM has **no password**, already migrated to the
   running core/system version (`--world` won't auto-launch a world that needs migration —
   `global-setup` then reports `No active world at this port`; fix by opening it once in desktop
-  Foundry to migrate).
-- First run flips `core.moduleConfiguration` to enable the module in that world and reloads — benign,
-  but it does mutate the world.
+  Foundry to migrate, then `--refresh` the copy).
+- First run flips `core.moduleConfiguration` to enable the module and reloads. This mutates the
+  **copy** under `test/foundry-data/`, not your real world.
+- The world does **not** need to be closed in desktop Foundry — the copy makes them independent.
 
 This is why **vitest is the CI tier**: e2e can't run in vanilla CI (no licensed Foundry, no world).
 
@@ -79,7 +91,8 @@ locally, so a stray Foundry on a port gets silently reused. Before trusting an e
 - `global-setup.ts` asserts `game.world.id === TEST_WORLD` and `game.system.id === 'pf2e'` and logs
   the world + module version it exercised. A stale/wrong server fails loud — read that log line.
 - Kill strays if anything looks off: `lsof -ti:30005 | xargs kill` (also check `:30000`/`:30001`).
-- Make sure the test world isn't open in your desktop Foundry (LevelDB lock).
+- Remember the world is a **copy**: a change you just made in desktop Foundry isn't there until you
+  `--refresh` it. A spec asserting against data you only edited in the real world will fail.
 - If a result surprises you (passes a test you expected to fail, or vice versa), suspect the harness
   before believing the result.
 

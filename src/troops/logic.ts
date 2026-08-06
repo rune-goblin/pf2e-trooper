@@ -158,54 +158,86 @@ export function attachablePlacements(leader: GridRect, candidates: GridRect[], m
   return accepted;
 }
 
+export type LayoutFault = 'detached' | 'overlapping' | 'outside';
+
+/** The squares a token occupies, as "x,y" keys — what the caller reads off the grid. */
+export type Footprint = Set<string>;
+
+const ORTHOGONAL: readonly (readonly [number, number])[] = [
+  [1, 0],
+  [-1, 0],
+  [0, 1],
+  [0, -1],
+];
+
 /**
- * Whether `subject` would be edge-connected to the anchor, chaining through `others`.
- * This — not whole-layout validity — is the drop test: refusing a drop because some
- * *other* segment is still misplaced would deadlock the player, since no position for
- * the segment in hand could ever clear the fault. Judging only the piece being placed
- * always leaves an escape: dropping it beside the anchor.
+ * RAW troop contiguity between two footprints: at least one shared full square edge.
+ *
+ * Deliberately not `canvas.grid.testAdjacency`, which answers a different question —
+ * *movement* adjacency, where diagonal neighbours count on any grid that permits
+ * diagonals. PF2e's 5-10-5 permits them, so that API reports two segments touching only
+ * at a corner as adjacent, while the troop rule treats them as detached.
  */
-export function connectsToAnchor(anchor: GridRect, subject: GridRect, others: GridRect[]): boolean {
-  const rects = [anchor, ...others, subject];
-  const subjectIndex = rects.length - 1;
+export function footprintsShareEdge(a: Footprint, b: Footprint): boolean {
+  for (const key of a) {
+    const [x, y] = key.split(',').map(Number);
+    for (const [dx, dy] of ORTHOGONAL) if (b.has(`${x + dx},${y + dy}`)) return true;
+  }
+  return false;
+}
+
+/** Whether two segments are stacked on the same square(s) — legal to drag into, not to rest in. */
+export function footprintsOverlap(a: Footprint, b: Footprint): boolean {
+  for (const cell of a) if (b.has(cell)) return true;
+  return false;
+}
+
+/** Whether every footprint is reachable from the first by chaining edge-sharing neighbours. */
+export function footprintsContiguous(footprints: Footprint[]): boolean {
+  if (footprints.length <= 1) return true;
   const seen = new Set([0]);
   const queue = [0];
   while (queue.length > 0) {
     const i = queue.pop() as number;
-    for (let j = 0; j < rects.length; j++) {
-      if (!seen.has(j) && sharesEdge(rects[i], rects[j])) {
+    for (let j = 0; j < footprints.length; j++) {
+      if (!seen.has(j) && footprintsShareEdge(footprints[i], footprints[j])) {
         seen.add(j);
         queue.push(j);
       }
     }
   }
-  return seen.has(subjectIndex);
-}
-
-export type LayoutFault = 'detached' | 'outside';
-
-function rectWithin(rect: GridRect, cells: Set<string>): boolean {
-  for (let x = rect.x; x < rect.x + rect.w; x++) {
-    for (let y = rect.y; y < rect.y + rect.h; y++) if (!cells.has(`${x},${y}`)) return false;
-  }
-  return true;
+  return seen.size === footprints.length;
 }
 
 /**
  * Why the troop's current layout is not a legal resting state, if it isn't.
- * 'detached': the segments no longer form one edge-connected group. 'outside': a
- * follower sits beyond the advisory area, i.e. further than the move's budget allowed.
- * The anchor is exempt from the area test — it defines the area rather than sitting in
- * it (its own squares are excluded from the painted cells).
+ * 'detached': the segments no longer form one edge-connected group. 'overlapping': two
+ * segments are stacked on the same squares. 'outside': a follower sits beyond the
+ * advisory area, i.e. further than the move's budget allowed. The anchor is exempt from
+ * the area test — it defines the area rather than sitting in it (its own squares are
+ * excluded from the painted cells).
  */
 export function layoutFaults(
-  anchor: GridRect,
-  followers: GridRect[],
+  anchor: Footprint,
+  followers: Footprint[],
   areaCells: Set<string>,
 ): LayoutFault[] {
   const faults: LayoutFault[] = [];
-  if (!isContiguous([anchor, ...followers])) faults.push('detached');
-  if (followers.some((f) => !rectWithin(f, areaCells))) faults.push('outside');
+  const all = [anchor, ...followers];
+  if (!footprintsContiguous(all)) faults.push('detached');
+
+  let overlapping = false;
+  for (let i = 0; i < all.length && !overlapping; i++) {
+    for (let j = i + 1; j < all.length; j++) {
+      if (footprintsOverlap(all[i], all[j])) {
+        overlapping = true;
+        break;
+      }
+    }
+  }
+  if (overlapping) faults.push('overlapping');
+
+  if (followers.some((f) => ![...f].every((cell) => areaCells.has(cell)))) faults.push('outside');
   return faults;
 }
 

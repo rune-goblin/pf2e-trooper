@@ -2,7 +2,6 @@ import type { TokenDocumentPF2e, TokenPF2e } from 'foundry-pf2e';
 import {
   activeArrangeTroopId,
   arrangeDisposition,
-  arrangeRejectsMove,
   isArrangeAnchor,
   pauseArrangeTimer,
   resetArrangeTimer,
@@ -47,17 +46,20 @@ function onPreUpdateToken(doc: TokenDocumentPF2e, changed: Record<string, unknow
   const troop = troopFlags(doc);
   if (!troop) return;
   if (isArrangeAnchor(doc.id, doc.parent?.id)) return false;
-  // Refuse a reshape that would leave this segment detached from the troop: the drop
-  // is rejected outright and the segment springs back, rather than committing a layout
-  // the area would then have to flag.
+
+  // While the area is up the troop is mid-arrangement, so a segment may not leave it:
+  // the drop is refused and the segment springs back to where it was. Without this,
+  // dragging a follower out read as a fresh unit move and the whole troop chased it,
+  // silently promoting that segment to anchor.
   const scene = doc.parent;
   if (scene) {
     const final = {
       x: typeof changed.x === 'number' ? changed.x : doc._source.x,
       y: typeof changed.y === 'number' ? changed.y : doc._source.y,
     };
-    if (arrangeRejectsMove(doc.id, troop.id, scene.id, final, doc.width, doc.height)) return false;
+    if (arrangeDisposition(doc, troop.id, scene.id, final) === 'outside') return false;
   }
+
   const prior = (options[PRIOR_KEY] ??= {}) as PriorMap;
   prior[doc.id] = { x: doc._source.x, y: doc._source.y };
 }
@@ -84,10 +86,9 @@ function onUpdateToken(doc: TokenDocumentPF2e, changed: Record<string, unknown>,
     y: typeof changed.y === 'number' ? changed.y : prior.y,
   };
 
-  // Spatial disambiguation while the area is visible: landing inside the shaded
-  // squares repositions just this segment (and resets the countdown); landing
-  // outside is a fresh unit move.
-  if (arrangeDisposition(troop.id, scene.id, final, doc.width, doc.height) === 'inside') {
+  // With an area up, the only drops that reach here are reshapes — leaving it was
+  // refused in preUpdate. Everything else is a unit move: no area governs this troop.
+  if (arrangeDisposition(doc, troop.id, scene.id, final) === 'inside') {
     resetArrangeTimer();
     return;
   }

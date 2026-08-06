@@ -21,6 +21,7 @@
     "test:e2e": "npm run build && playwright test",
     "test:e2e:run": "playwright test",
     "test:e2e:setup": "node scripts/setup-test-env.ts",
+    "test:e2e:seed": "node scripts/seed-test-world.ts",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:report": "playwright show-report",
     "test:foundry": "bash scripts/start-test-env.sh",

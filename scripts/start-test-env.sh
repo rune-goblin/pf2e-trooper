@@ -35,8 +35,6 @@ if [ -z "${FOUNDRY_APP:-}" ] || [ ! -f "$FOUNDRY_APP/main.js" ]; then
     exit 1
 fi
 
-cd "$FOUNDRY_APP"
-
 ARGS=(
     --dataPath="$TEST_DATA"
     --port="$PORT"
@@ -44,9 +42,14 @@ ARGS=(
 )
 
 if [ -n "${TEST_WORLD:-}" ]; then
+    # The test instance opens its own copy, so this boots even while the desktop app
+    # holds the original world open. No-op once seeded.
+    node "$REPO_ROOT/scripts/seed-test-world.ts" "$TEST_WORLD"
     ARGS+=(--world="$TEST_WORLD")
     echo "Auto-launching world: $TEST_WORLD"
 fi
+
+cd "$FOUNDRY_APP"
 
 echo "Starting Foundry from $FOUNDRY_APP on port $PORT"
 exec node main.js "${ARGS[@]}"
