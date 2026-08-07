@@ -39,12 +39,17 @@ import {
 export const AREA_NAME = 'pf2e-trooper:arrange-area';
 export const HATCH_NAME = 'pf2e-trooper:arrange-hatch';
 
-export const HATCH_COLOR = 0x9cf29c;
-/** The same pastel weight as HATCH_COLOR so only the hue reads as the change. */
-export const INVALID_COLOR = 0xf29c9c;
+export const HATCH_COLOR = 0x2fe04a;
+/** The same saturation and weight as HATCH_COLOR so only the hue reads as the change. */
+export const INVALID_COLOR = 0xff2f2f;
 const ANCHOR_COLOR = 0xffc94d;
-const HATCH_ALPHA = 0.5;
-const BORDER_ALPHA = 0.8;
+const HATCH_ALPHA = 0.75;
+/** A wash under the hatching so the area reads as a filled region, not just stripes. */
+const FILL_ALPHA = 0.22;
+const BORDER_WIDTH = 4;
+/** Black halo under the coloured edge — keeps the outline legible over bright map art. */
+const BORDER_BACKING_WIDTH = 8;
+const BORDER_BACKING_ALPHA = 0.55;
 /** Enumeration cap in squares — a cross-map teleport doesn't need a scene-wide area. */
 const MAX_BUDGET_SQUARES = 30;
 
@@ -69,6 +74,7 @@ interface ArrangeArea {
   anchor: PIXI.Container;
   /** Re-tinted in place when the layout goes illegal — cheaper than rebuilding the overlay. */
   sprite: PIXI.TilingSprite;
+  fill: PIXI.Graphics;
   borders: PIXI.Graphics;
   faulted: boolean;
   timer: ArrangeTimer;
@@ -129,6 +135,7 @@ export function showArrangeArea(scene: ScenePF2e, troopId: string, ctx: ArrangeC
     area: built.area,
     anchor: built.anchor,
     sprite: built.sprite,
+    fill: built.fill,
     borders: built.borders,
     faulted: false,
     timer: startTimer(Date.now()),
@@ -213,6 +220,7 @@ interface BuiltOverlay {
   area: PIXI.Container;
   anchor: PIXI.Container;
   sprite: PIXI.TilingSprite;
+  fill: PIXI.Graphics;
   borders: PIXI.Graphics;
   cells: Set<string>;
 }
@@ -258,29 +266,39 @@ function buildOverlay(scene: ScenePF2e, ctx: ArrangeContext): BuiltOverlay | nul
   sprite.alpha = HATCH_ALPHA;
 
   const mask = new PIXI.Graphics();
+  const fill = new PIXI.Graphics();
+  fill.tint = HATCH_COLOR;
+  fill.beginFill(0xffffff, FILL_ALPHA);
   mask.beginFill(0xffffff);
   for (const [cx, cy] of cellList) {
     const tl = cellTopLeft(cx, cy);
     mask.drawRect(tl.x, tl.y, px, px);
+    fill.drawRect(tl.x, tl.y, px, px);
   }
   mask.endFill();
+  fill.endFill();
   sprite.mask = mask;
 
   // Outline only the area's outer edge: a cell side is drawn when no neighbor cell abuts it.
   // Stroked white and tinted, like the hatch texture — tint multiplies, so a coloured
-  // stroke could never be re-tinted to the invalid red.
+  // stroke could never be re-tinted to the invalid red. The backing pass is its own
+  // untinted Graphics for the same reason: a tint applies to the whole object.
+  const backing = new PIXI.Graphics();
+  backing.lineStyle(BORDER_BACKING_WIDTH, 0x000000, BORDER_BACKING_ALPHA);
   const borders = new PIXI.Graphics();
   borders.tint = HATCH_COLOR;
-  borders.lineStyle(2, 0xffffff, BORDER_ALPHA);
+  borders.lineStyle(BORDER_WIDTH, 0xffffff, 1);
   for (const [cx, cy] of cellList) {
     const { x, y } = cellTopLeft(cx, cy);
-    if (!cells.has(`${cx},${cy - 1}`)) borders.moveTo(x, y).lineTo(x + px, y);
-    if (!cells.has(`${cx},${cy + 1}`)) borders.moveTo(x, y + px).lineTo(x + px, y + px);
-    if (!cells.has(`${cx - 1},${cy}`)) borders.moveTo(x, y).lineTo(x, y + px);
-    if (!cells.has(`${cx + 1},${cy}`)) borders.moveTo(x + px, y).lineTo(x + px, y + px);
+    for (const g of [backing, borders]) {
+      if (!cells.has(`${cx},${cy - 1}`)) g.moveTo(x, y).lineTo(x + px, y);
+      if (!cells.has(`${cx},${cy + 1}`)) g.moveTo(x, y + px).lineTo(x + px, y + px);
+      if (!cells.has(`${cx - 1},${cy}`)) g.moveTo(x, y).lineTo(x, y + px);
+      if (!cells.has(`${cx + 1},${cy}`)) g.moveTo(x + px, y).lineTo(x + px, y + px);
+    }
   }
 
-  container.addChild(sprite, mask, borders);
+  container.addChild(fill, sprite, mask, backing, borders);
 
   // Anchor marker: the moved segment at its final position — the piece the rest of
   // the troop regroups around, locked in place while the area is visible.
@@ -295,14 +313,14 @@ function buildOverlay(scene: ScenePF2e, ctx: ArrangeContext): BuiltOverlay | nul
   anchor.eventMode = 'none';
   anchor.addChild(anchorMark);
 
-  return { area: container, anchor, sprite, borders, cells };
+  return { area: container, anchor, sprite, fill, borders, cells };
 }
 
 function getHatchTexture(): PIXI.Texture {
   if (hatchTexture) return hatchTexture;
   const s = 16;
   const g = new PIXI.Graphics();
-  g.lineStyle(3, 0xffffff, 1);
+  g.lineStyle(5, 0xffffff, 1);
   // Two 45° strokes so the pattern tiles without seams.
   g.moveTo(-s / 2, s / 2).lineTo(s / 2, -s / 2);
   g.moveTo(s / 2, s * 1.5).lineTo(s * 1.5, s / 2);
@@ -383,8 +401,10 @@ function onTick(): void {
     : releaseTimer(active.timer, 'layout', now);
   if (faulted !== active.faulted) {
     active.faulted = faulted;
-    active.sprite.tint = faulted ? INVALID_COLOR : HATCH_COLOR;
-    active.borders.tint = faulted ? INVALID_COLOR : HATCH_COLOR;
+    const tint = faulted ? INVALID_COLOR : HATCH_COLOR;
+    active.sprite.tint = tint;
+    active.fill.tint = tint;
+    active.borders.tint = tint;
   }
 
   const alpha = timerAlpha(active.timer, now);

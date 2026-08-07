@@ -388,8 +388,9 @@ keybinding, no toggle button:
      how far the drag was — it can never spread across the map.
 
    Rendered as two PIXI containers on `canvas.interface` (which sorts children by
-   `zIndex`): the hatch-textured area — a `TilingSprite` masked to the area's
-   squares with a border stroked only along its outer edge — sits **beneath** the
+   `zIndex`): the hatch-textured area — a colour wash under a `TilingSprite`
+   masked to the area's squares, with a heavy border stroked only along its outer
+   edge over a black halo so it stays legible on bright map art — sits **beneath** the
    tokens, while the amber **anchor marker** — outlining the moved segment at its
    final position, the piece the rest of the troop regroups around — gets its own
    container z-indexed **above** the token layer, so it reads through the token

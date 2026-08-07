@@ -21,8 +21,8 @@ interface Seg {
 // Mirrors src/troops/arrange.ts. `npm run init` rewrites the module id in both.
 const AREA_NAME = 'pf2e-trooper:arrange-area';
 const HATCH_NAME = 'pf2e-trooper:arrange-hatch';
-const HATCH_COLOR = 0x9cf29c;
-const INVALID_COLOR = 0xf29c9c;
+const HATCH_COLOR = 0x2fe04a;
+const INVALID_COLOR = 0xff2f2f;
 
 /** A fresh activated scene holding one 4-segment troop, ready to drive. */
 async function createTroopScene(
