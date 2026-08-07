@@ -61,6 +61,13 @@ Code style: global `~/.claude/CLAUDE.md` — comment only the non-obvious *why*.
 
 - Module id `pf2e-trooper`; flags, settings, the socket channel (`module.<id>`),
   and pack names (`<id>.<pack>`) all key off it. Use `const MODULE_ID`.
+- **Troop art lives in `assets/troops/`** — `official/<slug>/`, plus `infantry/<slug>/` and
+  `cavalry/<slug>/` for generated troops; each folder holds `<slug>_{portrait,token,strategy}.webp`.
+  The layout is **append-only**: pf2e-reignmaker bakes `modules/pf2e-trooper/assets/troops/…`
+  into its shipped troop data, so renaming a slug folder breaks released RM worlds. Slug rule:
+  lowercase, every run of non-alphanumerics → one hyphen (deliberately not PF2e's `sluggify`,
+  which drops apostrophes instead of breaking on them). `npm run build:art-manifest` regenerates
+  the served `assets/troops/official-art-manifest.json` after adding or removing art.
 - Public API: `game.modules.get(MODULE_ID).api = {...}` (cast — `api` isn't typed on `Module`).
 - Strings: `lang/en.json` under `pf2e-trooper.*`; `game.i18n.localize/format`. No hard-coded strings.
 - compatibility `minimum "14"`, `verified "14"`; MIT license. Author and the `url`/`manifest`/`download` org come from `npm run init` (committed as `<your-name>`/`<your-org>` placeholders until then).
