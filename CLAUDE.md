@@ -68,6 +68,13 @@ Code style: global `~/.claude/CLAUDE.md` — comment only the non-obvious *why*.
   lowercase, every run of non-alphanumerics → one hyphen (deliberately not PF2e's `sluggify`,
   which drops apostrophes instead of breaking on them). `npm run build:art-manifest` regenerates
   the served `assets/troops/official-art-manifest.json` after adding or removing art.
+- **Siege-engine art lives in `assets/siege-engines/`** — flat, one `<slug>.webp` per engine, no
+  subfolders. One image fills all three slots (sheet portrait, battle token, kingdom-map piece);
+  the triple layout used for troops would mean duplicate files for art that doesn't exist yet.
+  Append-only for the same reason as `assets/troops/`: pf2e-reignmaker bakes
+  `modules/pf2e-trooper/assets/siege-engines/<slug>.webp` into its shipped siege-weapon compendium
+  and into live worlds. No api covers these — the paths are baked at RM's pack-build time, so
+  nothing looks them up by name; this module hosts the files and nothing more.
 - **This module decides what art exists for a published troop name**, and answers through
   `game.modules.get('pf2e-trooper').api.troopArt(name)` / `.troopArtSlugs()` (`src/art/`).
   Registered at `init`, not `ready`: ReignMaker calls `troopArt()` synchronously and Foundry
