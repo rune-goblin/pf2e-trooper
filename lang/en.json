@@ -10,6 +10,17 @@
     "troopReduced": {
       "message": "<strong>{name}</strong> is reduced to {segments} segments. Maximum Hit Points are capped at {hp} until the troop recovers (remove the Troop Reduced effect after downtime recovery).",
       "healCapped": "{name}: healing capped at {hp} HP while the troop is reduced."
+    },
+    "settings": {
+      "dropArt": {
+        "name": "Art for dropped troops",
+        "hint": "Which piece a troop token gets when it is dropped on a map without art of its own. Tactical is the battle token; strategy is the map piece. Either can be swapped per token from the token HUD.",
+        "tactical": "Tactical (battle token)",
+        "strategy": "Strategy (map piece)"
+      }
+    },
+    "dropArt": {
+      "swap": "Swap tactical / strategy art"
     }
   }
 }

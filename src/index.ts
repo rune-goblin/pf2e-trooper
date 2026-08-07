@@ -2,6 +2,7 @@ import './styles.css';
 import { MODULE_ID } from './constants';
 import { registerTroopHooks } from './troops';
 import { officialTroopArt, officialTroopArtSlugs, type TroopArt } from './art/officialTroopArt';
+import { registerTroopArt } from './art';
 import { ExampleApp } from './ui/ExampleApp';
 
 interface ModuleApi {
@@ -30,4 +31,5 @@ Hooks.once('init', () => {
 
   console.log(`${MODULE_ID} | init (v${version}, art for ${officialTroopArtSlugs().length} troops)`);
   registerTroopHooks();
+  registerTroopArt();
 });
