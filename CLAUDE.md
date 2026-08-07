@@ -68,6 +68,11 @@ Code style: global `~/.claude/CLAUDE.md` — comment only the non-obvious *why*.
   lowercase, every run of non-alphanumerics → one hyphen (deliberately not PF2e's `sluggify`,
   which drops apostrophes instead of breaking on them). `npm run build:art-manifest` regenerates
   the served `assets/troops/official-art-manifest.json` after adding or removing art.
+- **This module decides what art exists for a published troop name**, and answers through
+  `game.modules.get('pf2e-trooper').api.troopArt(name)` / `.troopArtSlugs()` (`src/art/`).
+  Registered at `init`, not `ready`: ReignMaker calls `troopArt()` synchronously and Foundry
+  does not await async hook callbacks. Consumers decide what to *do* with the answer — RM owns
+  its own clone-door precedence and kingdom-scene coercion.
 - Public API: `game.modules.get(MODULE_ID).api = {...}` (cast — `api` isn't typed on `Module`).
 - Strings: `lang/en.json` under `pf2e-trooper.*`; `game.i18n.localize/format`. No hard-coded strings.
 - compatibility `minimum "14"`, `verified "14"`; MIT license. Author and the `url`/`manifest`/`download` org come from `npm run init` (committed as `<your-name>`/`<your-org>` placeholders until then).
