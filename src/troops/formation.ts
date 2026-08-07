@@ -2,12 +2,14 @@ import type { TokenDocumentPF2e, TokenPF2e } from 'foundry-pf2e';
 import {
   activeArrangeTroopId,
   arrangeDisposition,
+  clearArrangeArea,
   isArrangeAnchor,
   pauseArrangeTimer,
   resetArrangeTimer,
   resumeArrangeTimer,
   showArrangeArea,
 } from './arrange';
+import { independentMovement, registerBreakFormation } from './break-formation';
 import { troopFlags } from './context';
 import { followMoves } from './logic';
 
@@ -20,6 +22,8 @@ import { followMoves } from './logic';
 // visible, the anchor (the segment whose move opened it) is locked in place; a
 // drag of another segment landing inside the area repositions only that segment,
 // landing outside it is a fresh unit move.
+//
+// Holding the break-formation key opts out of all of it for one gesture — see break-formation.ts.
 
 /** Operation key marking follower moves so they don't re-trigger the formation. */
 const FOLLOW_OPTION = 'pf2eTrooperFollow';
@@ -33,6 +37,9 @@ type PriorMap = Record<string, { x: number; y: number }>;
 
 function onControlToken(token: TokenPF2e, controlled: boolean): void {
   if (!controlled) return;
+  // The break-formation key keeps a multi-segment selection alive: those segments are about to move
+  // independently of each other, so there is no leader to dedupe down to.
+  if (independentMovement()) return;
   const troop = troopFlags(token.document);
   if (!troop) return;
   for (const other of [...canvas.tokens.controlled]) {
@@ -45,20 +52,30 @@ function onPreUpdateToken(doc: TokenDocumentPF2e, changed: Record<string, unknow
   if (typeof changed.x !== 'number' && typeof changed.y !== 'number') return;
   const troop = troopFlags(doc);
   if (!troop) return;
-  if (isArrangeAnchor(doc.id, doc.parent?.id)) return false;
+
+  const scene = doc.parent;
+  const final = {
+    x: typeof changed.x === 'number' ? changed.x : doc._source.x,
+    y: typeof changed.y === 'number' ? changed.y : doc._source.y,
+  };
+  const disposition = scene ? arrangeDisposition(doc, troop.id, scene.id, final) : 'none';
+
+  // Break-formation held: this segment moves alone. Recording no prior position is what carries that
+  // through — onUpdateToken keys off the prior, so nothing follows and no area opens. A drop
+  // beyond a visible area ends the arrangement outright: left up, it would hold itself open
+  // and red over a segment that has deliberately left.
+  if (independentMovement()) {
+    if (disposition === 'outside') clearArrangeArea();
+    return;
+  }
+
+  if (isArrangeAnchor(doc.id, scene?.id)) return false;
 
   // While the area is up the troop is mid-arrangement, so a segment may not leave it:
   // the drop is refused and the segment springs back to where it was. Without this,
   // dragging a follower out read as a fresh unit move and the whole troop chased it,
   // silently promoting that segment to anchor.
-  const scene = doc.parent;
-  if (scene) {
-    const final = {
-      x: typeof changed.x === 'number' ? changed.x : doc._source.x,
-      y: typeof changed.y === 'number' ? changed.y : doc._source.y,
-    };
-    if (arrangeDisposition(doc, troop.id, scene.id, final) === 'outside') return false;
-  }
+  if (disposition === 'outside') return false;
 
   const prior = (options[PRIOR_KEY] ??= {}) as PriorMap;
   prior[doc.id] = { x: doc._source.x, y: doc._source.y };
@@ -135,6 +152,7 @@ function onCanvasPointerUp(): void {
 }
 
 export function registerFormationControls(): void {
+  registerBreakFormation();
   Hooks.on('controlToken', onControlToken);
   Hooks.on('preUpdateToken', onPreUpdateToken);
   Hooks.on('updateToken', onUpdateToken);

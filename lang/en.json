@@ -2,6 +2,10 @@
   "pf2e-trooper": {
     "title": "PF2e Trooper",
     "keybindings": {
+      "breakFormation": {
+        "name": "Break Formation (hold)",
+        "hint": "Hold while dragging a troop segment to move it on its own: the rest of the formation stays put, no arrangement area opens, and an area already up neither locks its anchor nor refuses the drop. Keep it held across several drags to reshape a troop that is not moving anywhere — shift the segments you want and leave one where it is, as Troop Movement allows. Nothing checks the result, so mind that the segments still share edges and none end up stacked. Held over a rubber-band selection it keeps every segment selected instead of narrowing to one, so a whole army can be picked up and moved at once."
+      },
       "dismissArrangeArea": {
         "name": "Dismiss Troop Arrangement Area",
         "hint": "Clears the advisory area shown after a troop moves, releasing the anchor and letting segments move freely again."
@@ -12,11 +16,14 @@
       "healCapped": "{name}: healing capped at {hp} HP while the troop is reduced."
     },
     "settings": {
-      "dropArt": {
-        "name": "Art for dropped troops",
-        "hint": "Which piece a troop token gets when it is dropped on a map without art of its own. Tactical is the battle token; strategy is the map piece. Either can be swapped per token from the token HUD.",
-        "tactical": "Tactical (battle token)",
-        "strategy": "Strategy (map piece)"
+      "troopMovement": {
+        "name": "Enable troop movement",
+        "hint": "Move a troop as a unit: dragging one segment carries the rest of the formation with it, and paints the advisory area the segments may rearrange within. Hold the Break Formation key (B by default) while dragging to move a single segment on its own, ignoring the formation and the area. Turn off to leave every segment moving on its own. Segment sync and the Troop Reduced automation are unaffected."
+      },
+      "useStrategyTokens": {
+        "name": "Use strategy tokens for troops",
+        "hint": "Dress a dropped troop in its strategy map piece instead of its tactical battle token. Either can be swapped per token from the token HUD.",
+        "reignmakerLocked": "Locked: PF2e ReignMaker is active and assigns strategy art for its own troops."
       }
     },
     "dropArt": {

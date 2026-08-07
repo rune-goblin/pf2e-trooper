@@ -3,6 +3,7 @@ import { MODULE_ID } from './constants';
 import { registerTroopHooks } from './troops';
 import { officialTroopArt, officialTroopArtSlugs, type TroopArt } from './art/officialTroopArt';
 import { registerTroopArt } from './art';
+import { registerSettings } from './settings';
 import { ExampleApp } from './ui/ExampleApp';
 
 interface ModuleApi {
@@ -30,6 +31,8 @@ Hooks.once('init', () => {
   if (module) (module as { api?: ModuleApi }).api = api;
 
   console.log(`${MODULE_ID} | init (v${version}, art for ${officialTroopArtSlugs().length} troops)`);
+  // Before the registrations that read it — `registerTroopHooks` gates on troop movement.
+  registerSettings();
   registerTroopHooks();
   registerTroopArt();
 });

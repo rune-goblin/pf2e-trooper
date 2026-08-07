@@ -1,18 +1,12 @@
 import type { ActorPF2e, TokenDocumentPF2e } from 'foundry-pf2e';
-import { MODULE_ID } from '@/constants';
-import { dropArtFor, togglePiece, type DropArtMode } from './dropArt';
-
-const DROP_ART_SETTING = 'dropArt';
-const REIGNMAKER_ID = 'pf2e-reignmaker';
+import { MODULE_ID, REIGNMAKER_ID } from '@/constants';
+import { dropArtMode } from '@/settings';
+import { dropArtFor, togglePiece } from './dropArt';
 
 // Troop art on drop: a troop dropped on a map arrives on the system's blank npc.svg, and the
 // art for it is already installed. Applying it is silent and unprompted — a modal on every drop
 // would be worse than either default. Strategy art is the opt-in, through the world setting or
 // the per-token HUD toggle; nothing here asks a question mid-drop.
-
-function dropArtMode(): DropArtMode {
-  return (game.settings.get(MODULE_ID, DROP_ART_SETTING) as DropArtMode) ?? 'tactical';
-}
 
 /**
  * ReignMaker owns art on its kingdom map. Asked rather than guessed — and only when it's there,
@@ -78,19 +72,6 @@ function onRenderTokenHUD(_hud: unknown, html: HTMLElement, data: { _id?: string
 }
 
 export function registerTroopArt(): void {
-  game.settings.register(MODULE_ID, DROP_ART_SETTING, {
-    name: `${MODULE_ID}.settings.dropArt.name`,
-    hint: `${MODULE_ID}.settings.dropArt.hint`,
-    scope: 'world',
-    config: true,
-    type: String,
-    choices: {
-      tactical: `${MODULE_ID}.settings.dropArt.tactical`,
-      strategy: `${MODULE_ID}.settings.dropArt.strategy`,
-    },
-    default: 'tactical',
-  });
-
   Hooks.on('preCreateToken', onPreCreateToken);
   Hooks.on('renderTokenHUD', onRenderTokenHUD);
 }

@@ -337,6 +337,168 @@ test.describe('Arrange area', () => {
     await expect.poll(hatchTint, { timeout: 10_000 }).toBe(HATCH_COLOR);
   });
 
+  // The opt-out, driven through the real keyboard so the registered keybinding is what answers:
+  // held, Break Formation makes the next move that one segment's business. Nothing follows it,
+  // the area's boundary stops refusing it, and the anchor lock lifts.
+  test('Break Formation moves a single segment and ends the arrangement', async ({ gmPage }) => {
+    const ids = await createTroopScene(gmPage, 'independent', { x: 1000, y: 1000 });
+
+    const segments = (): Promise<Seg[]> =>
+      gmPage.evaluate(
+        ({ sceneId }) =>
+          game.scenes
+            .get(sceneId)
+            .tokens.filter((t: any) => t.flags?.pf2e?.troop)
+            .map((t: any) => ({ id: t.id, x: t._source.x, y: t._source.y })),
+        ids,
+      );
+
+    const areaPresent = () =>
+      gmPage.evaluate(
+        (areaName) => (canvas.interface as any).children.some((c: any) => c.name === areaName),
+        AREA_NAME,
+      );
+
+    const move = (tokenId: string, x: number, y: number) =>
+      gmPage.evaluate(
+        async ({ sceneId, tokenId, x, y }) => {
+          const tok = game.scenes.get(sceneId).tokens.get(tokenId);
+          await tok.update({ x, y }).catch(() => null);
+        },
+        { ...ids, tokenId, x, y },
+      );
+
+    const openArea = async (anchorId: string): Promise<void> => {
+      const anchor = (await segments()).find((s) => s.id === anchorId)!;
+      await move(anchorId, anchor.x + 600, anchor.y);
+      await expect.poll(areaPresent, { timeout: 15_000 }).toBe(true);
+    };
+
+    /** Held only for the gesture under test — an area can't even be opened while it is down. */
+    const withBreakFormation = async (fn: () => Promise<void>): Promise<void> => {
+      await gmPage.keyboard.down('b');
+      try {
+        await fn();
+      } finally {
+        await gmPage.keyboard.up('b');
+      }
+    };
+
+    const anchorId = (await segments())[0].id;
+    await openArea(anchorId);
+
+    await test.step('a segment leaves the area, alone, and the area goes with it', async () => {
+      const before = await segments();
+      const follower = before.find((s) => s.id !== anchorId)!;
+      // The same destination the unmodified spec proves is refused and sprung back.
+      const target = { x: follower.x + 1200, y: follower.y + 900 };
+
+      await withBreakFormation(() => move(follower.id, target.x, target.y));
+
+      await expect
+        .poll(async () => {
+          const s = (await segments()).find((seg) => seg.id === follower.id)!;
+          return { x: s.x, y: s.y };
+        }, { timeout: 10_000 })
+        .toEqual(target);
+      // Everyone else stayed exactly put: no formation follow, no new anchor.
+      expect((await segments()).filter((s) => s.id !== follower.id)).toEqual(
+        before.filter((s) => s.id !== follower.id),
+      );
+      await expect.poll(areaPresent, { timeout: 5000 }).toBe(false);
+    });
+
+    await test.step('the anchor lock lifts too', async () => {
+      await openArea(anchorId);
+      const before = (await segments()).find((s) => s.id === anchorId)!;
+
+      await withBreakFormation(() => move(anchorId, before.x + 100, before.y));
+
+      await expect
+        .poll(async () => (await segments()).find((s) => s.id === anchorId)!.x, { timeout: 10_000 })
+        .toBe(before.x + 100);
+    });
+
+    // Released, the troop is a unit again — the key governed those gestures only.
+    await test.step('ordinary unit movement returns once the key is up', async () => {
+      // Whether that last broken-formation move left an area up depends on where it landed;
+      // clear it either way so this step tests unit movement and not the anchor lock.
+      await gmPage.keyboard.press('Escape');
+      await expect.poll(areaPresent, { timeout: 5000 }).toBe(false);
+
+      const before = await segments();
+      const anchor = before.find((s) => s.id === anchorId)!;
+      await move(anchorId, anchor.x + 200, anchor.y);
+      await expect
+        .poll(async () => {
+          const after = await segments();
+          return after.filter((s) => s.id !== anchorId).every((s) => {
+            const was = before.find((b) => b.id === s.id)!;
+            return s.x === was.x + 200 && s.y === was.y;
+          });
+        }, { timeout: 10_000 })
+        .toBe(true);
+    });
+  });
+
+  // The other half of the selection rule. A rubber-band normally dedupes to a single segment,
+  // because a multi-segment drag has no leader to follow. Held, Break Formation says nobody is
+  // following anybody — so the whole marquee survives and moves together, which is how you pick
+  // up an entire army. selectObjects() is the method the marquee's own drop calls.
+  test('Break Formation keeps a rubber-band selection whole', async ({ gmPage }) => {
+    const ids = await createTroopScene(gmPage, 'marquee', { x: 1000, y: 1000 });
+
+    const segments = (): Promise<Seg[]> =>
+      gmPage.evaluate(
+        ({ sceneId }) =>
+          game.scenes
+            .get(sceneId)
+            .tokens.filter((t: any) => t.flags?.pf2e?.troop)
+            .map((t: any) => ({ id: t.id, x: t._source.x, y: t._source.y })),
+        ids,
+      );
+
+    /** Marquee the whole scene — the throwaway scene holds nothing but this troop. */
+    const marqueeAll = (): Promise<number> =>
+      gmPage.evaluate(() => {
+        canvas.tokens.releaseAll();
+        canvas.tokens.selectObjects({ x: 0, y: 0, width: canvas.scene.width, height: canvas.scene.height });
+        return canvas.tokens.controlled.length as number;
+      });
+
+    expect(await marqueeAll()).toBe(1);
+
+    await gmPage.keyboard.down('b');
+    try {
+      expect(await marqueeAll()).toBe(4);
+
+      // And the selection moves as a selection: one operation carrying every segment, with no
+      // segment promoted to leader and nothing following.
+      await test.step('the whole selection moves, none of it following', async () => {
+        const before = await segments();
+        await gmPage.evaluate(
+          async ({ sceneId, updates }) => {
+            await game.scenes.get(sceneId).updateEmbeddedDocuments('Token', updates);
+          },
+          { ...ids, updates: before.map((s) => ({ _id: s.id, x: s.x + 300 })) },
+        );
+
+        // Exactly the requested offset: a follow would have doubled it for the non-leaders.
+        expect(await segments()).toEqual(before.map((s) => ({ ...s, x: s.x + 300 })));
+        expect(
+          await gmPage.evaluate(
+            (areaName) => (canvas.interface as any).children.some((c: any) => c.name === areaName),
+            AREA_NAME,
+          ),
+        ).toBe(false);
+      });
+    } finally {
+      await gmPage.keyboard.up('b');
+    }
+
+    expect(await marqueeAll()).toBe(1);
+  });
+
   // The safety valve. A held red area freezes the troop — anchor locked, nobody may leave
   // — so if its squares admit no legal arrangement there would be no way out without this.
   test('Escape dismisses a held area and restores ordinary movement', async ({ gmPage }) => {

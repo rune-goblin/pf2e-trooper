@@ -23,7 +23,7 @@ const newTroopActor = `async () => {
 test.describe('a troop dropped on a map', () => {
     test.afterAll(async ({ gmPage }) => {
         await gmPage.evaluate(async (ids) => {
-            await game.settings.set('pf2e-trooper', 'dropArt', 'tactical');
+            await game.settings.set('pf2e-trooper', 'useStrategyTokens', false);
             for (const id of ids.sceneIds) await game.scenes.get(id)?.delete();
             for (const id of ids.actorIds) await game.actors.get(id)?.delete();
         }, created);
@@ -63,7 +63,7 @@ test.describe('a troop dropped on a map', () => {
             .poll(() => gmPage.evaluate((id) => game.actors.get(id).img as string, actorId))
             .toBe(`${ART}_portrait.webp`);
 
-        await gmPage.evaluate(() => game.settings.set('pf2e-trooper', 'dropArt', 'strategy'));
+        await gmPage.evaluate(() => game.settings.set('pf2e-trooper', 'useStrategyTokens', true));
         expect(await place(actorId, 2000), 'strategy piece once the world asks for it').toBe(
             `${ART}_strategy.webp`
         );
@@ -101,11 +101,14 @@ test.describe('a troop dropped on a map', () => {
         ).not.toContain('pf2e-trooper');
     });
 
-    test('registers the drop-art setting on this module', async ({ gmPage }) => {
-        const setting = await gmPage.evaluate(
-            (id) => game.settings.settings.get(`${id}.dropArt`)?.default,
+    test('registers its world settings on this module', async ({ gmPage }) => {
+        const defaults = await gmPage.evaluate(
+            (id) => ({
+                movement: game.settings.settings.get(`${id}.troopMovement`)?.default,
+                strategy: game.settings.settings.get(`${id}.useStrategyTokens`)?.default,
+            }),
             MODULE_ID
         );
-        expect(setting).toBe('tactical');
+        expect(defaults).toEqual({ movement: true, strategy: false });
     });
 });
