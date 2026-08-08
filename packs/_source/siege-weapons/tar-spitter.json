@@ -167,7 +167,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(manipulate) @Damage[4d8[bludgeoning]] plus @Damage[4d8[acid]] and @Damage[1d8[persistent,acid]], 60-foot line or 30-foot cone, @Check[reflex|dc:27|options:area-effect]. A creature on the ground who fails its save is also immobilized by the tar (Escape DC 27). Switching between the tar spitter’s line or cone mode takes an Interact action, and any of the crew can perform the action.</p>"
+          "value": "<p>(manipulate) @Damage[4d8[bludgeoning]] plus @Damage[4d8[acid]] and @Damage[1d8[persistent,acid]], @Template[line|distance:60] or @Template[cone|distance:30], @Check[reflex|dc:27|options:area-effect]. A creature on the ground who fails its save is also immobilized by the tar (Escape DC 27). Switching between the tar spitter’s line or cone mode takes an Interact action, and any of the crew can perform the action.</p>"
         },
         "publication": {
           "title": "Battlecry!",

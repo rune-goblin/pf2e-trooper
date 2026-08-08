@@ -167,7 +167,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(attack, manipulate, range increment 250 feet) @Damage[6d12[sonic]] damage, 60-foot cone, @Check[fortitude|dc:25|options:area-effect]. Creatures that fail or critically fail the save are also deafened for 3d6 rounds.</p>"
+          "value": "<p>(attack, manipulate, range increment 250 feet) @Damage[6d12[sonic]] damage, @Template[cone|distance:60], @Check[fortitude|dc:25|options:area-effect]. Creatures that fail or critically fail the save are also deafened for [[/gmr 3d6 #rounds]]{3d6 rounds}.</p>"
         },
         "publication": {
           "title": "Howl of the Wild",

@@ -167,7 +167,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(attack, manipulate, range increment 200 feet) 10d10 damage (no damage type), 30-foot burst, @Check[reflex|dc:33|options:area-effect]. The seasplinter capsule must land in saltwater for this damage to occur. Any creature in the burst radius whose body is not in saltwater takes no damage and doesn't need to attempt a Reflex save. A creature reduced to 0 HP by this damage disintegrates into a skeleton. \n<strong>Success</strong> The target takes half damage. \n<strong>Failure</strong> The target takes full damage and is stunned 1. \n<strong>Critical Failure</strong> The target takes double damage and is stunned 2.</p>"
+          "value": "<p>(attack, manipulate, range increment 200 feet) @Damage[10d10] damage (no damage type), @Template[burst|distance:30], @Check[reflex|dc:33|options:area-effect]. The seasplinter capsule must land in saltwater for this damage to occur. Any creature in the burst radius whose body is not in saltwater takes no damage and doesn't need to attempt a Reflex save. A creature reduced to 0 HP by this damage disintegrates into a skeleton. \n<strong>Success</strong> The target takes half damage. \n<strong>Failure</strong> The target takes full damage and is stunned 1. \n<strong>Critical Failure</strong> The target takes double damage and is stunned 2.</p>"
         },
         "publication": {
           "title": "Howl of the Wild",

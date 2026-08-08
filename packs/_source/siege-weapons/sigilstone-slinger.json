@@ -165,7 +165,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(attack, manipulate, range increment 250 feet) @Damage[7d12[void]], 20-foot burst, @Check[fortitude|dc:31|options:area-effect]. At the start of your next turn and each following turn for 1 minute, the poltergeists inside the _sigilstone_ ammunition hurl nearby debris about. Each creature within a 20-foot burst from the point of impact takes @Damage[3d10+10[bludgeoning]] damage (@Check[reflex|dc:31|basic|options:area-effect] save).</p>"
+          "value": "<p>(attack, manipulate, range increment 250 feet) @Damage[7d12[void]], @Template[burst|distance:20], @Check[fortitude|dc:31|options:area-effect]. At the start of your next turn and each following turn for 1 minute, the poltergeists inside the _sigilstone_ ammunition hurl nearby debris about. Each creature within a @Template[burst|distance:20] from the point of impact takes @Damage[3d10+10[bludgeoning]] damage (@Check[reflex|dc:31|basic|options:area-effect] save).</p>"
         },
         "publication": {
           "title": "Battlecry!",

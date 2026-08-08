@@ -197,7 +197,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(attack, manipulate, range increment 200 feet) @Damage[8d12[piercing]], single target, @Check[reflex|dc:29|options:area-effect]. At the start of your next turn, a tightly wound internal spring inside the clockwork ballista bolt deploys several bladed arms that last for 1 minute. Each creature who begins their turn in or moves through a 5-foot emanation from the original square of the targeted creature takes @Damage[4d8[slashing]] damage (@Check[reflex|dc:28|basic|options:area-effect] save) for the duration.</p>"
+          "value": "<p>(attack, manipulate, range increment 200 feet) @Damage[8d12[piercing]], single target, @Check[reflex|dc:29|options:area-effect]. At the start of your next turn, a tightly wound internal spring inside the clockwork ballista bolt deploys several bladed arms that last for 1 minute. Each creature who begins their turn in or moves through a @Template[emanation|distance:5] from the original square of the targeted creature takes @Damage[4d8[slashing]] damage (@Check[reflex|dc:28|basic|options:area-effect] save) for the duration.</p>"
         },
         "publication": {
           "title": "Battlecry!",

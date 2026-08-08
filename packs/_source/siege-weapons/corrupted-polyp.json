@@ -167,7 +167,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(attack, manipulate, range increment 200 feet) @Damage[10d10[poison]] and @Damage[4d6[persistent,poison]], 50-foot burst, @Check[reflex|dc:38|options:area-effect]. Because a _corrupted polyp_ launches its spore clusters at a high angle, the cluster descends on the center of the burst from above, not in a straight line from the polyp. This affects whether creatures have cover from the launch.</p>"
+          "value": "<p>(attack, manipulate, range increment 200 feet) @Damage[10d10[poison]] and @Damage[4d6[persistent,poison]], @Template[burst|distance:50], @Check[reflex|dc:38|options:area-effect]. Because a _corrupted polyp_ launches its spore clusters at a high angle, the cluster descends on the center of the burst from above, not in a straight line from the polyp. This affects whether creatures have cover from the launch.</p>"
         },
         "publication": {
           "title": "Battlecry!",

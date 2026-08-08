@@ -167,7 +167,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(attack, magical, manipulate, range increment 100 feet) @Damage[15d6[acid]] and @Damage[2d6[persistent,acid]], 30-foot burst, @Check[reflex|dc:35|options:area-effect]. Because a disgorger launches its gob at a high angle, the gob descends on the center of the burst from above, not in a straight line from the disgorger. This affects whether creatures have cover from the launch.</p>"
+          "value": "<p>(attack, magical, manipulate, range increment 100 feet) @Damage[15d6[acid]] and @Damage[2d6[persistent,acid]], @Template[burst|distance:30], @Check[reflex|dc:35|options:area-effect]. Because a disgorger launches its gob at a high angle, the gob descends on the center of the burst from above, not in a straight line from the disgorger. This affects whether creatures have cover from the launch.</p>"
         },
         "publication": {
           "title": "Battlecry!",

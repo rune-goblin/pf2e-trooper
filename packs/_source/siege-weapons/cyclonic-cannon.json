@@ -167,7 +167,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(attack, manipulate) @Damage[9d10[piercing]], 250-foot line, @Check[reflex|dc:31|options:area-effect], ignores 5 points of an object’s Hardness</p>"
+          "value": "<p>(attack, manipulate) @Damage[9d10[piercing]], @Template[line|distance:250], @Check[reflex|dc:31|options:area-effect], ignores 5 points of an object’s Hardness</p>"
         },
         "publication": {
           "title": "Pathfinder #223: Hell's Destiny",

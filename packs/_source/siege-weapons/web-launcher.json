@@ -167,7 +167,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(attack, manipulate, range increment 120 feet) @Damage[5d8[bludgeoning]], 20-foot burst, @Check[reflex|dc:23|options:area-effect]. Creatures that fail their saving throw also take a –10-foot circumstance penalty to their Speeds for 1 minute from the sticky webbing, which can be removed with two Interact actions or if the creature takes at least 10 fire damage from a single source. In addition, creatures who attempt Athletics checks to Climb in the area affected by the webbing gain a +4 circumstance bonus to the check for 1 hour after the _web launcher_ has been fired or until the webbing is removed, whichever comes first.</p>"
+          "value": "<p>(attack, manipulate, range increment 120 feet) @Damage[5d8[bludgeoning]], @Template[burst|distance:20], @Check[reflex|dc:23|options:area-effect]. Creatures that fail their saving throw also take a –10-foot circumstance penalty to their Speeds for 1 minute from the sticky webbing, which can be removed with two Interact actions or if the creature takes at least 10 fire damage from a single source. In addition, creatures who attempt Athletics checks to Climb in the area affected by the webbing gain a +4 circumstance bonus to the check for 1 hour after the _web launcher_ has been fired or until the webbing is removed, whichever comes first.</p>"
         },
         "publication": {
           "title": "Battlecry!",

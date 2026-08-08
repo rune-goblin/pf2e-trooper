@@ -3,6 +3,7 @@ import type { DropArtMode } from './art/dropArt';
 
 export const TROOP_MOVEMENT_SETTING = 'troopMovement';
 export const STRATEGY_TOKENS_SETTING = 'useStrategyTokens';
+export const PREFER_TROOPER_ART_SETTING = 'preferTrooperArt';
 
 /**
  * Strategy art is ReignMaker's when ReignMaker is there: it assigns troop art itself and coerces
@@ -17,6 +18,9 @@ export const reignmakerActive = (): boolean => game.modules.get(REIGNMAKER_ID)?.
 
 export const troopMovementEnabled = (): boolean =>
   game.settings.get(MODULE_ID, TROOP_MOVEMENT_SETTING) === true;
+
+export const preferTrooperArt = (): boolean =>
+  game.settings.get(MODULE_ID, PREFER_TROOPER_ART_SETTING) === true;
 
 export const dropArtMode = (): DropArtMode =>
   dropArtModeFor(
@@ -59,6 +63,15 @@ export function registerSettings(): void {
   game.settings.register(MODULE_ID, STRATEGY_TOKENS_SETTING, {
     name: `${MODULE_ID}.settings.useStrategyTokens.name`,
     hint: `${MODULE_ID}.settings.useStrategyTokens.hint`,
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: false,
+  });
+
+  game.settings.register(MODULE_ID, PREFER_TROOPER_ART_SETTING, {
+    name: `${MODULE_ID}.settings.preferTrooperArt.name`,
+    hint: `${MODULE_ID}.settings.preferTrooperArt.hint`,
     scope: 'world',
     config: true,
     type: Boolean,

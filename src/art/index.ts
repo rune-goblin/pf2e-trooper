@@ -1,7 +1,7 @@
 import type { ActorPF2e, TokenDocumentPF2e } from 'foundry-pf2e';
 import { MODULE_ID, REIGNMAKER_ID } from '@/constants';
-import { dropArtMode } from '@/settings';
-import { dropArtFor, togglePiece } from './dropArt';
+import { dropArtMode, preferTrooperArt } from '@/settings';
+import { dropArtFor, packArtFrom, togglePiece, type PackArt } from './dropArt';
 
 // Troop art on drop: a troop dropped on a map arrives on the system's blank npc.svg, and the
 // art for it is already installed. Applying it is silent and unprompted — a modal on every drop
@@ -30,6 +30,21 @@ function actorContext(actor: ActorPF2e | null, img: string | null | undefined) {
   };
 }
 
+/**
+ * The art a token pack's compendium-art mapping dressed this actor with before we saw it —
+ * looked up by the actor's compendium source in both registries a pack can register through.
+ * Null unless the world prefers trooper art: otherwise mapped art is a choice we honour.
+ */
+function mappedPackArt(worldActor: ActorPF2e | null): PackArt | null {
+  if (!worldActor || !preferTrooperArt()) return null;
+  const source = worldActor._stats?.compendiumSource;
+  if (!source?.startsWith('Compendium.')) return null;
+  return packArtFrom(
+    game.compendiumArt?.get(source),
+    game.pf2e?.system?.moduleArt?.map?.get(source as `Compendium.${string}.Actor.${string}`)
+  );
+}
+
 function onPreCreateToken(doc: TokenDocumentPF2e, data: Record<string, unknown>): void {
   // The portrait belongs to the world actor. `doc.actor` on an unlinked token is the delta's
   // synthetic copy, and a write to that is discarded with the delta — which is exactly what
@@ -39,18 +54,23 @@ function onPreCreateToken(doc: TokenDocumentPF2e, data: Record<string, unknown>)
   const decision = dropArtFor({
     tokenSrc: (data.texture as { src?: string } | undefined)?.src ?? doc.texture?.src,
     actor: actorContext(doc.actor, worldActor?.img ?? doc.actor?.img),
+    packArt: mappedPackArt(worldActor),
     isKingdomScene: isReignmakerKingdomScene(doc.parent?.id),
     mode: dropArtMode(),
   });
   if (!decision) return;
 
-  doc.updateSource({ 'texture.src': decision.tokenSrc });
+  doc.updateSource({ 'texture.src': decision.tokenSrc, ...decision.tokenReset });
   // Not part of the same updateSource — it's a different document — and deliberately not awaited:
   // this hook's return value gates the drop, and a portrait is not worth blocking it on.
   if (decision.actor && worldActor) {
+    const prototypeReset = Object.fromEntries(
+      Object.entries(decision.actor.prototypeReset).map(([k, v]) => [`prototypeToken.${k}`, v])
+    );
     void worldActor.update({
       img: decision.actor.img,
       'prototypeToken.texture.src': decision.actor.prototypeSrc,
+      ...prototypeReset,
     });
   }
 }

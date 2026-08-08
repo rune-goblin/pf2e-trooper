@@ -105,7 +105,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p><strong>Requirements</strong> The other member of the crew has Readied to Stride on your order; <strong>Effect</strong> You and the other crew member Stride, with a maximum distance equal to the slowest crew member's Speed, then make a melee Strike with the ram against a structure or an unattended, stationary object. This Strike deals bludgeoning damage equal to 2d8 + the highest Strength modifier among members of the crew.</p>"
+          "value": "<p><strong>Requirements</strong> The other member of the crew has Readied to Stride on your order; <strong>Effect</strong> You and the other crew member Stride, with a maximum distance equal to the slowest crew member's Speed, then make a melee Strike with the ram against a structure or an unattended, stationary object. This Strike deals bludgeoning damage equal to @Damage[2d8[bludgeoning]]{2d8} + the highest Strength modifier among members of the crew.</p>"
         },
         "publication": {
           "title": "Guns & Gears (Remastered)",

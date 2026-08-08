@@ -167,7 +167,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(manipulate, range increment 100 feet) @Damage[5d10[slashing]], 20-foot burst, DC 21. Because a mortar launches its round at a high angle, the mortar round descends on the center of the burst from above, not in a straight line from the mortar. This affects whether creatures have cover from the mortar launch.</p>"
+          "value": "<p>(manipulate, range increment 100 feet) @Damage[5d10[slashing]], @Template[burst|distance:20], DC 21. Because a mortar launches its round at a high angle, the mortar round descends on the center of the burst from above, not in a straight line from the mortar. This affects whether creatures have cover from the mortar launch.</p>"
         },
         "publication": {
           "title": "Guns & Gears (Remastered)",

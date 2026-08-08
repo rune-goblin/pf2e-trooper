@@ -496,6 +496,27 @@ test.describe('Arrange area', () => {
       await gmPage.keyboard.up('b');
     }
 
+    // The override outlives the key: an operation carrying several segments can only
+    // come from a Break-Formation selection, so even with the key released before the
+    // drop nothing follows and no area opens.
+    await test.step('the group still moves as a group after the key is released', async () => {
+      const before = await segments();
+      await gmPage.evaluate(
+        async ({ sceneId, updates }) => {
+          await game.scenes.get(sceneId).updateEmbeddedDocuments('Token', updates);
+        },
+        { ...ids, updates: before.map((s) => ({ _id: s.id, x: s.x + 300 })) },
+      );
+
+      expect(await segments()).toEqual(before.map((s) => ({ ...s, x: s.x + 300 })));
+      expect(
+        await gmPage.evaluate(
+          (areaName) => (canvas.interface as any).children.some((c: any) => c.name === areaName),
+          AREA_NAME,
+        ),
+      ).toBe(false);
+    });
+
     expect(await marqueeAll()).toBe(1);
   });
 

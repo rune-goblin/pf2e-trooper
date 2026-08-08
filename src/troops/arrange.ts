@@ -38,6 +38,7 @@ import {
 /** PIXI display-object names — stable handles for e2e specs; `npm run init` rewrites the id. */
 export const AREA_NAME = 'pf2e-trooper:arrange-area';
 export const HATCH_NAME = 'pf2e-trooper:arrange-hatch';
+export const ANCHOR_LOCK_NAME = 'pf2e-trooper:arrange-anchor-lock';
 
 export const HATCH_COLOR = 0x2fe04a;
 /** The same saturation and weight as HATCH_COLOR so only the hue reads as the change. */
@@ -309,11 +310,42 @@ function buildOverlay(scene: ScenePF2e, ctx: ArrangeContext): BuiltOverlay | nul
   const anchorSize = leader.getSize();
   anchorMark.drawRect(anchorTopLeft.x, anchorTopLeft.y, anchorSize.width, anchorSize.height);
   anchorMark.endFill();
+  const lock = buildLockIcon(
+    { x: anchorTopLeft.x + anchorSize.width / 2, y: anchorTopLeft.y + anchorSize.height / 2 },
+    Math.min(anchorSize.width, anchorSize.height) * 0.32,
+  );
   const anchor = new PIXI.Container();
   anchor.eventMode = 'none';
-  anchor.addChild(anchorMark);
+  anchor.addChild(anchorMark, lock);
 
   return { area: container, anchor, sprite, fill, borders, cells };
+}
+
+/** Padlock centered on the anchor token — says "frozen", where the outline alone reads as mere highlight. */
+function buildLockIcon(center: { x: number; y: number }, size: number): PIXI.Graphics {
+  const g = new PIXI.Graphics();
+  g.name = ANCHOR_LOCK_NAME;
+  const bodyW = size;
+  const bodyH = size * 0.72;
+  const shackleR = size * 0.3;
+  const stroke = size * 0.16;
+  // Center the glyph's full extent (shackle + body), not the body alone.
+  const bodyTop = (shackleR + stroke / 2) / 2 - bodyH / 2;
+  // Dark chip behind the glyph — keeps it legible over any token art.
+  g.beginFill(0x000000, 0.55);
+  g.drawCircle(0, 0, size * 0.85);
+  g.endFill();
+  g.lineStyle(stroke, ANCHOR_COLOR, 1);
+  g.arc(0, bodyTop, shackleR, Math.PI, 2 * Math.PI);
+  g.lineStyle(0);
+  g.beginFill(ANCHOR_COLOR, 1);
+  g.drawRoundedRect(-bodyW / 2, bodyTop, bodyW, bodyH, stroke * 0.6);
+  g.endFill();
+  g.beginFill(0x000000, 0.9);
+  g.drawCircle(0, bodyTop + bodyH / 2, stroke * 0.45);
+  g.endFill();
+  g.position.set(center.x, center.y);
+  return g;
 }
 
 function getHatchTexture(): PIXI.Texture {

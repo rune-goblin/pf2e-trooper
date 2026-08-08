@@ -167,7 +167,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(attack, manipulate, range increment 250 feet) @Damage[11d10[bludgeoning]], 20-foot burst, @Check[reflex|dc:34|options:area-effect]. Because a flute rocket launches its rocket at a high angle, the rocket descends on the center of the burst from above, not in a straight line from the flute rocket. This affects whether creatures have cover from the flute rocket launch.</p>"
+          "value": "<p>(attack, manipulate, range increment 250 feet) @Damage[11d10[bludgeoning]], @Template[burst|distance:20], @Check[reflex|dc:34|options:area-effect]. Because a flute rocket launches its rocket at a high angle, the rocket descends on the center of the burst from above, not in a straight line from the flute rocket. This affects whether creatures have cover from the flute rocket launch.</p>"
         },
         "publication": {
           "title": "Battlecry!",

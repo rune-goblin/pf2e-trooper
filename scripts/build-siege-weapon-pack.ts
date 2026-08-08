@@ -146,6 +146,24 @@ function enrichCombat(text: string): string {
       return `@Check[${opts.join('|')}]`;
     },
   );
+  // Damage the dice-type rule can't see: "bludgeoning damage equal to 7d8" (rams, type
+  // before dice — label keeps the prose reading), then bare "10d6 damage" (type varies
+  // by ammo or is absent; the lookahead keeps it off dice already inside an enricher).
+  s = s.replace(
+    new RegExp(`\\b(${DMG_TYPES})( damage equal to )(\\d+d\\d+)\\b`, 'gi'),
+    (_m, type: string, mid: string, dice: string) => `${type}${mid}@Damage[${dice}[${type.toLowerCase()}]]{${dice}}`,
+  );
+  s = s.replace(/\b(\d+d\d+)(?= damage\b)/gi, '@Damage[$1]');
+  s = s.replace(/\b(\d+) splash damage\b/gi, '@Damage[$1]{$1 splash damage}');
+  // Dice durations are GM-blind rolls, not damage (matches the system packs' convention).
+  s = s.replace(/\b(\d+d\d+) rounds\b/gi, '[[/gmr $1 #rounds]]{$1 rounds}');
+  s = s.replace(
+    /\b(\d+)-foot (burst|cone|emanation|line)(s?)\b/gi,
+    (_m, dist: string, shape: string, plural: string) => {
+      const tpl = `@Template[${shape.toLowerCase()}|distance:${dist}]`;
+      return plural ? `${tpl}{${dist}-foot ${shape}s}` : tpl;
+    },
+  );
   return s;
 }
 

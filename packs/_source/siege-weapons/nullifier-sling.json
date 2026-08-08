@@ -167,7 +167,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(attack, magical, manipulate, range increment 400 feet) @Damage[4d10[bludgeoning]], 20-foot burst, @Check[reflex|dc:27|options:area-effect]. In addition, the _nullifier stone_ attempts a counteract check against each active spell and unattended magic item within the burst. A _nullifier stone_ has a counteract modifier of +19 and a counteract rank of 5th. At the GM’s discretion, more powerful (and more expensive) _nullifier stones_ may exist.</p>"
+          "value": "<p>(attack, magical, manipulate, range increment 400 feet) @Damage[4d10[bludgeoning]], @Template[burst|distance:20], @Check[reflex|dc:27|options:area-effect]. In addition, the _nullifier stone_ attempts a counteract check against each active spell and unattended magic item within the burst. A _nullifier stone_ has a counteract modifier of +19 and a counteract rank of 5th. At the GM’s discretion, more powerful (and more expensive) _nullifier stones_ may exist.</p>"
         },
         "publication": {
           "title": "Battlecry!",

@@ -167,7 +167,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(attack, manipulate, olfactory) 80-foot line or 40-foot cone, @Check[will|dc:20|options:area-effect]. Switching between the line or cone mode takes an Interact action, which any of the crew can perform. Designated kinds of animals that fail their save experience the following effects, depending on dilution.\n<ul><li><strong>Low Dilution</strong> Affected creatures are stunned 2.</li><li><strong>Medium Dilution</strong> Affected creatures are fascinated by the scent of the pheromones and off-guard until the end of their next turn.</li><li><strong>High Dilution</strong> Affected creatures are slowed 1 for 1 minute.</li></ul></p>"
+          "value": "<p>(attack, manipulate, olfactory) @Template[line|distance:80] or @Template[cone|distance:40], @Check[will|dc:20|options:area-effect]. Switching between the line or cone mode takes an Interact action, which any of the crew can perform. Designated kinds of animals that fail their save experience the following effects, depending on dilution.\n<ul><li><strong>Low Dilution</strong> Affected creatures are stunned 2.</li><li><strong>Medium Dilution</strong> Affected creatures are fascinated by the scent of the pheromones and off-guard until the end of their next turn.</li><li><strong>High Dilution</strong> Affected creatures are slowed 1 for 1 minute.</li></ul></p>"
         },
         "publication": {
           "title": "Howl of the Wild",

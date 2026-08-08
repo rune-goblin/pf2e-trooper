@@ -167,7 +167,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(manipulate, range increment 300 feet) @Damage[4d8[piercing]], 20-foot burst, @Check[reflex|dc:18|options:area-effect]. If you loaded at least 70 hwacha arrows, the area increases to a 25-foot burst. If you loaded 100 hwacha arrows, the area increases to a 30-foot burst and the damage to @Damage[5d8[piercing]].</p>"
+          "value": "<p>(manipulate, range increment 300 feet) @Damage[4d8[piercing]], @Template[burst|distance:20], @Check[reflex|dc:18|options:area-effect]. If you loaded at least 70 hwacha arrows, the area increases to a @Template[burst|distance:25]. If you loaded 100 hwacha arrows, the area increases to a @Template[burst|distance:30] and the damage to @Damage[5d8[piercing]].</p>"
         },
         "publication": {
           "title": "Guns & Gears (Remastered)",

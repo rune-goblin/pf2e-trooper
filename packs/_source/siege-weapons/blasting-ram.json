@@ -137,7 +137,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p><strong>Requirements</strong> The other members of the crew have Readied to Stride on your order; <strong>Effect</strong> You and the crew Stride, with a maximum distance equal to the slowest crew member's Speed. Then, make a melee Strike with the ram against a structure or unattended stationary object. As you do, the black powder in the steel reservoir explodes, significantly increasing the damage of your attack. Due to the black powder’s additional force, this Strike deals bludgeoning damage equal to 7d8 + the highest Strength modifier among members of the crew.</p>"
+          "value": "<p><strong>Requirements</strong> The other members of the crew have Readied to Stride on your order; <strong>Effect</strong> You and the crew Stride, with a maximum distance equal to the slowest crew member's Speed. Then, make a melee Strike with the ram against a structure or unattended stationary object. As you do, the black powder in the steel reservoir explodes, significantly increasing the damage of your attack. Due to the black powder’s additional force, this Strike deals bludgeoning damage equal to @Damage[7d8[bludgeoning]]{7d8} + the highest Strength modifier among members of the crew.</p>"
         },
         "publication": {
           "title": "Guns & Gears (Remastered)",

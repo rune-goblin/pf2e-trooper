@@ -24,6 +24,10 @@
         "name": "Use strategy tokens for troops",
         "hint": "Dress a dropped troop in its strategy map piece instead of its tactical battle token. Either can be swapped per token from the token HUD.",
         "reignmakerLocked": "Locked: PF2e ReignMaker is active and assigns strategy art for its own troops."
+      },
+      "preferTrooperArt": {
+        "name": "Prefer trooper artwork and tokens",
+        "hint": "When a token pack has already given a dropped troop its portrait and token through compendium art, replace them with this module's trooper art. Art picked by hand on an actor or token is always left alone."
       }
     },
     "dropArt": {

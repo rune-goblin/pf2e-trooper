@@ -167,7 +167,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(attack, manipulate, range increment 1,000 feet) @Damage[20d6[bludgeoning]], 150-foot line, @Check[reflex|dc:39|options:area-effect]. Items of 2 to 5 Bulk deal @Damage[22d6[bludgeoning]], and items of 6 to 10 Bulk deal @Damage[24d6[bludgeoning]].</p>"
+          "value": "<p>(attack, manipulate, range increment 1,000 feet) @Damage[20d6[bludgeoning]], @Template[line|distance:150], @Check[reflex|dc:39|options:area-effect]. Items of 2 to 5 Bulk deal @Damage[22d6[bludgeoning]], and items of 6 to 10 Bulk deal @Damage[24d6[bludgeoning]].</p>"
         },
         "publication": {
           "title": "Battlecry!",

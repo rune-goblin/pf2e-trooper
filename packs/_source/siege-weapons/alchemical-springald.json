@@ -167,7 +167,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(manipulate, range increment 100 feet) 10d6 damage and 3 splash damage, three different targets within a 15-foot burst, @Check[reflex|dc:30|options:area-effect]. The damage type depends on the alchemical ammunition used: acid, cold, electricity, or fire. Creatures take the splash damage only once from the launch, even if they're in the area of more than one of the three splashes.</p>"
+          "value": "<p>(manipulate, range increment 100 feet) @Damage[10d6] damage and @Damage[3]{3 splash damage}, three different targets within a @Template[burst|distance:15], @Check[reflex|dc:30|options:area-effect]. The damage type depends on the alchemical ammunition used: acid, cold, electricity, or fire. Creatures take the splash damage only once from the launch, even if they're in the area of more than one of the three splashes.</p>"
         },
         "publication": {
           "title": "Guns & Gears (Remastered)",

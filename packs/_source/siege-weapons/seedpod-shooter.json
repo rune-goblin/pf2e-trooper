@@ -167,7 +167,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(attack, auditory, manipulate, range increment 300 feet) @Damage[8d12[slashing]], 30-foot burst, @Check[reflex|dc:27|options:area-effect]. A creature that fails their Reflex save becomes sickened 2.</p>"
+          "value": "<p>(attack, auditory, manipulate, range increment 300 feet) @Damage[8d12[slashing]], @Template[burst|distance:30], @Check[reflex|dc:27|options:area-effect]. A creature that fails their Reflex save becomes sickened 2.</p>"
         },
         "publication": {
           "title": "Howl of the Wild",

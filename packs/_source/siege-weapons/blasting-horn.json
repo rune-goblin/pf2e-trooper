@@ -167,7 +167,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(attack, manipulate) @Damage[5d8[bludgeoning]] and @Damage[6d8[sonic]], 60-foot cone, @Check[reflex|dc:30|options:area-effect], on a critical failure the creature is deafened for 1 minute</p>"
+          "value": "<p>(attack, manipulate) @Damage[5d8[bludgeoning]] and @Damage[6d8[sonic]], @Template[cone|distance:60], @Check[reflex|dc:30|options:area-effect], on a critical failure the creature is deafened for 1 minute</p>"
         },
         "publication": {
           "title": "Battlecry!",

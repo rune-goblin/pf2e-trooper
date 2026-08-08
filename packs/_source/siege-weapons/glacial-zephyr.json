@@ -167,7 +167,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(attack, cold, manipulate) @Damage[10d8[cold]] and @Damage[2d8[persistent,cold]], 60-foot cone, @Check[reflex|dc:33|options:area-effect]</p>"
+          "value": "<p>(attack, cold, manipulate) @Damage[10d8[cold]] and @Damage[2d8[persistent,cold]], @Template[cone|distance:60], @Check[reflex|dc:33|options:area-effect]</p>"
         },
         "publication": {
           "title": "Battlecry!",

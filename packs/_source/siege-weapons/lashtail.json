@@ -167,7 +167,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(attack, manipulate, range increment 120 feet) @Damage[8d8[bludgeoning]], 30-foot cone, @Check[reflex|dc:25|options:area-effect]. A creature that fails its Reflex save is off-guard until the end of their next turn. On a critical failure, a creature is instead knocked prone by the chain.</p>"
+          "value": "<p>(attack, manipulate, range increment 120 feet) @Damage[8d8[bludgeoning]], @Template[cone|distance:30], @Check[reflex|dc:25|options:area-effect]. A creature that fails its Reflex save is off-guard until the end of their next turn. On a critical failure, a creature is instead knocked prone by the chain.</p>"
         },
         "publication": {
           "title": "Howl of the Wild",

@@ -167,7 +167,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(air, attack, manipulate, range increment 60 feet) @Damage[6d8[bludgeoning]], 15-foot cone, @Check[reflex|dc:22|options:area-effect]. A creature that fails its Reflex save is pushed 25 feet away from the _kickback spring_ as air rapidly vents from the device. On a critical failure, a creature falls prone after being pushed back.</p>"
+          "value": "<p>(air, attack, manipulate, range increment 60 feet) @Damage[6d8[bludgeoning]], @Template[cone|distance:15], @Check[reflex|dc:22|options:area-effect]. A creature that fails its Reflex save is pushed 25 feet away from the _kickback spring_ as air rapidly vents from the device. On a critical failure, a creature falls prone after being pushed back.</p>"
         },
         "publication": {
           "title": "Howl of the Wild",

@@ -167,7 +167,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(manipulate) @Damage[8d6[fire]] plus @Damage[1d6[persistent,fire]], 60-foot line or 30-foot cone, @Check[reflex|dc:23|options:area-effect]. Switching between the firedrake's line or cone mode takes an Interact action, and any of the crew can perform the action.</p>"
+          "value": "<p>(manipulate) @Damage[8d6[fire]] plus @Damage[1d6[persistent,fire]], @Template[line|distance:60] or @Template[cone|distance:30], @Check[reflex|dc:23|options:area-effect]. Switching between the firedrake's line or cone mode takes an Interact action, and any of the crew can perform the action.</p>"
         },
         "publication": {
           "title": "Guns & Gears (Remastered)",
