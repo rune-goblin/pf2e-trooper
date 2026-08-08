@@ -1,6 +1,7 @@
 import { troopMovementEnabled } from '@/settings';
 import { registerArrangeOverlay } from './arrange';
 import { registerFormationControls } from './formation';
+import { registerMovementHistorySuppression } from './movement-history';
 import { registerSegmentSync } from './sync';
 import { registerThresholdAutomation } from './thresholds';
 
@@ -12,4 +13,5 @@ export function registerTroopHooks(): void {
   if (!troopMovementEnabled()) return;
   registerFormationControls();
   registerArrangeOverlay();
+  registerMovementHistorySuppression();
 }
