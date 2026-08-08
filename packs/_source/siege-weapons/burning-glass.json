@@ -1,0 +1,222 @@
+{
+  "_id": "TWWeZWsM6LIChXg6",
+  "_key": "!actors!TWWeZWsM6LIChXg6",
+  "name": "Burning Glass",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/burning-glass.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/burning-glass.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 32,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 5,
+      "hp": {
+        "value": 180,
+        "max": 180,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>The burning glass is a legendary weapon, whose record of use is often exaggerated by victims of its burning beam. It was reportedly designed and …</p>",
+      "level": {
+        "value": 15
+      },
+      "price": 11500,
+      "crew": "4 to 6",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 15,
+        "wide": 12,
+        "high": 14
+      },
+      "speed": "10 feet (pulled or pushed)",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 28,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "rare",
+      "size": {
+        "value": "huge"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "burning-glass",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "simple",
+        "usage": "mounted",
+        "ammunition": "<%EQUIPMENT%3021%%><i>everlight crystal</i><%END> (15 gp, L Bulk)",
+        "reflexSave": 18,
+        "priceText": "11,500 gp",
+        "aonId": "siege-weapon-49",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=49",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 101",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/burning-glass.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>rotate 45°</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "YFqonX7taB5GXEuG",
+      "_key": "!actors.items!TWWeZWsM6LIChXg6.YFqonX7taB5GXEuG"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 10 times, requires a successful @Check[arcana|dc:33] check or DC 30 Engineering Lore check. If the _burning glass_ is in an area of natural sunlight, it needs to be Loaded only 8 times, a crew member can also attempt a @Check[nature|dc:33] check in addition to the other listed skills, and its Launch loses the magical trait.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "b6IAo864CiV54ybI",
+      "_key": "!actors.items!TWWeZWsM6LIChXg6.b6IAo864CiV54ybI"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, fire, magical, manipulate) @Damage[16d6[fire]], 150- foot line, @Check[reflex|dc:33|options:area-effect]</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack"
+          ]
+        }
+      },
+      "_id": "tPREqL7ltO9iYtzH",
+      "_key": "!actors.items!TWWeZWsM6LIChXg6.tPREqL7ltO9iYtzH"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "NJMFfGxRfg6KezP7",
+      "_key": "!actors.items!TWWeZWsM6LIChXg6.NJMFfGxRfg6KezP7"
+    }
+  ]
+}

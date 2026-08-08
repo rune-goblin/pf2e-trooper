@@ -1,0 +1,43 @@
+{
+  "name": "Aquatic Disintegrator",
+  "slug": "aquatic-disintegrator",
+  "level": 15,
+  "rarity": "rare",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Alchemical",
+    "Mounted",
+    "Rare"
+  ],
+  "size": [
+    "Large"
+  ],
+  "usage": "mounted (black powder)",
+  "price": "12,500 gp",
+  "ammunition": "seasplinter capsule (1,200 gp, 4 Bulk)",
+  "crew": "2-4",
+  "space": "6 feet long, 4 feet wide, 3 feet high",
+  "speed": "20 feet (pulled or pushed)",
+  "defenses": {
+    "ac": 30,
+    "fortitudeSave": 32,
+    "reflexSave": 18,
+    "hardness": 17,
+    "hp": 200,
+    "immunities": [
+      "object immunities"
+    ]
+  },
+  "source": {
+    "book": "Howl of the Wild",
+    "page": "Howl of the Wild pg. 114",
+    "releaseDate": "2024-05-29",
+    "aonId": "siege-weapon-22",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=22"
+  },
+  "summary": "Originally developed as a means of deterring kaiju rampages, aquatic disintegrators are specialized cannons designed to fire capsules containing …",
+  "text": "Aquatic Disintegrator Source Howl of the Wild pg. 114 Price 12,500 gp Ammunition seasplinter capsule (1,200 gp, 4 Bulk) --- Usage mounted (black powder) Space 6 feet long, 4 feet wide, 3 feet high Crew 2-4 Proficiency martial --- AC 30 Fort +32 Ref +18 Hardness 17 HP 200 Immunities object immunities --- Speed 20 feet (pulled or pushed) --- Originally developed as a means of deterring kaiju rampages, aquatic disintegrators are specialized cannons designed to fire capsules containing seasplinter, a compound that is harmless on land but erupts in saltwater, causing a chain reaction that devastates any beings that contain salt in their bodies (which is most creatures). While aquatic disintegrators have never put a permanent end to any known kaiju, the damage they inflict upon other marine life has generated mass outcry, with athamarus and other advocates of the world's oceans calling for their complete ban. Despite the controversy, these lethal weapons have found popularity on the black market with marine hunters and pirates who care little about ecological impact when it comes to battling titans of the deep. Aim Three Actions 100 feet, minimum distance 50 feet Load Two Actions (manipulate) 2 times, requires a successful DC 20 Athletics check Launch Single Action (attack, manipulate, range increment 200 feet) 10d10 damage (no damage type), 30-foot burst, DC 33 Reflex. The seasplinter capsule must land in saltwater for this damage to occur. Any creature in the burst radius whose body is not in saltwater takes no damage and doesn't need to attempt a Reflex save. A creature reduced to 0 HP by this damage disintegrates into a skeleton. Success The target takes half damage. Failure The target takes full damage and is stunned 1. Critical Failure The target takes double damage and is stunned 2.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 15\">[Aquatic Disintegrator](/SiegeWeapons.aspx?ID=22)</title>\r\n\r\n<traits>\r\n<trait label=\"Rare\" url=\"/Traits.aspx?ID=683\" />\r\n<trait label=\"Large\" />\r\n<trait label=\"Alchemical\" url=\"/Traits.aspx?ID=528\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Howl of the Wild](/Sources.aspx?ID=226) pg. 114\r\n\r\n<row gap=\"medium\">\r\n**Price** 12,500 gp\r\n\r\n**Ammunition** seasplinter capsule (1,200 gp, 4 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted (black powder)\n\n**Space** 6 feet long, 4 feet wide, 3 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 2-4\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 30\r\n\r\n**Fort** +32\r\n\r\n**Ref** +18\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 17\r\n\r\n**HP** 200\r\n\r\n**Immunities** object immunities\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 20 feet (pulled or pushed)\r\n\r\n---\r\n\r\nOriginally developed as a means of deterring kaiju rampages, aquatic disintegrators are specialized cannons designed to fire capsules containing seasplinter, a compound that is harmless on land but erupts in saltwater, causing a chain reaction that devastates any beings that contain salt in their bodies (which is most creatures). While aquatic disintegrators have never put a permanent end to any known kaiju, the damage they inflict upon other marine life has generated mass outcry, with [athamarus](/Ancestries.aspx?ID=71) and other advocates of the world's oceans calling for their complete ban. Despite the controversy, these lethal weapons have found popularity on the black market with marine hunters and pirates who care little about ecological impact when it comes to battling titans of the deep. \n\n**Aim** <actions string=\"Three Actions\" /> 100 feet, minimum distance 50 feet \n\n**Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 2 times, requires a successful DC 20 [Athletics](/Skills.aspx?ID=36) check \n\n**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), [manipulate](/Traits.aspx?ID=645), [range increment 200 feet](/Rules.aspx?ID=2195)) 10d10 damage (no damage type), 30-foot burst, DC 33 Reflex. The seasplinter capsule must land in saltwater for this damage to occur. Any creature in the burst radius whose body is not in saltwater takes no damage and doesn't need to attempt a Reflex save. A creature reduced to 0 HP by this damage disintegrates into a skeleton. <br />**Success** The target takes half damage. <br />**Failure** The target takes full damage and is [stunned](/Conditions.aspx?ID=93) 1. <br />**Critical Failure** The target takes double damage and is stunned 2."
+}

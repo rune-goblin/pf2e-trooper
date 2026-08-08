@@ -1,0 +1,222 @@
+{
+  "_id": "ZCsYeJte56JvRrPy",
+  "_key": "!actors!ZCsYeJte56JvRrPy",
+  "name": "Volley Gun",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/volley-gun.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/volley-gun.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 36,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 15,
+      "hp": {
+        "value": 240,
+        "max": 240,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Another design originating from a snow-covered land, the volley gun trades the power of black-powder cannons for a high rate of fire at …</p>",
+      "level": {
+        "value": 17
+      },
+      "price": 27000,
+      "crew": "1 to 3",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 6,
+        "wide": 4,
+        "high": 5
+      },
+      "speed": "20 feet (pulled or pushed)",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 30,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "med"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "volley-gun",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted (black powder)",
+        "ammunition": "nine-barrel block (5 gp, L Bulk)",
+        "reflexSave": 22,
+        "priceText": "27,000 gp",
+        "aonId": "siege-weapon-66",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=66",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 107",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/volley-gun.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": null,
+        "description": {
+          "value": "<p>rotate 45°</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "6i3Lhjy1pMraPavG",
+      "_key": "!actors.items!ZCsYeJte56JvRrPy.6i3Lhjy1pMraPavG"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/ThreeActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 3
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 1 time, requires a successful @Check[athletics|dc:20] check</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "KZYwKmMtUKUywKZp",
+      "_key": "!actors.items!ZCsYeJte56JvRrPy.KZYwKmMtUKUywKZp"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate) @Damage[18d6[piercing]], 120-foot line, @Check[reflex|dc:35|options:area-effect]</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack"
+          ]
+        }
+      },
+      "_id": "spJFDhBGDJxPkQpl",
+      "_key": "!actors.items!ZCsYeJte56JvRrPy.spJFDhBGDJxPkQpl"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "uXJoL7OhLPX12BDH",
+      "_key": "!actors.items!ZCsYeJte56JvRrPy.uXJoL7OhLPX12BDH"
+    }
+  ]
+}

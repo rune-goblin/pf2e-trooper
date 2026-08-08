@@ -1,0 +1,42 @@
+{
+  "name": "Crossbow Catapult",
+  "slug": "crossbow-catapult",
+  "level": 3,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Medium"
+  ],
+  "usage": "mounted",
+  "price": "120 gp",
+  "ammunition": "bolts (1 sp for 10, L Bulk)",
+  "crew": "1 to 4",
+  "space": "5 feet long, 4 feet wide, 6 feet high",
+  "speed": "20 feet (pulled or pushed)",
+  "defenses": {
+    "ac": 13,
+    "fortitudeSave": 9,
+    "reflexSave": 4,
+    "hardness": 5,
+    "hp": 40,
+    "immunities": [
+      " object immunities "
+    ]
+  },
+  "source": {
+    "book": "Battlecry!",
+    "page": "Battlecry! pg. 102",
+    "releaseDate": "2025-07-31",
+    "aonId": "siege-weapon-47",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=47"
+  },
+  "summary": "A less explosive version of black-powder weapons such as the ribauldequin and hwacha, the crossbow catapult consists of 16 crossbows arrayed in a …",
+  "text": "Crossbow Catapult Source Battlecry! pg. 102 Price 120 gp Ammunition bolts (1 sp for 10, L Bulk) --- Usage mounted Space 5 feet long, 4 feet wide, 6 feet high Crew 1 to 4 Proficiency martial --- AC 13 Fort +9 Ref +4 Hardness 5 HP 40 Immunities object immunities --- Speed 20 feet (pulled or pushed) --- A less explosive version of black-powder weapons such as the ribauldequin and hwacha, the crossbow catapult consists of 16 crossbows arrayed in a square on a wooden frame with two large wheels. Aiming is done from behind, sighting through the center and wheeling the face back and forth. All the crossbow triggers are connected in sequence, firing a volley of bolts with a single pull of a wire. Aim Single Action 40 feet, minimum distance 30 feet Load Three Actions (manipulate) 4 times Launch Single Action (attack, manipulate, range increment 80 feet) 3d6 piercing, 10-foot burst, DC 17 Reflex",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 3\">[Crossbow Catapult](/SiegeWeapons.aspx?ID=47)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Medium\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Battlecry!](/Sources.aspx?ID=268) pg. 102\r\n\r\n<row gap=\"medium\">\r\n**Price** 120 gp\r\n\r\n**Ammunition** bolts (1 sp for 10, L Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted\n\n**Space** 5 feet long, 4 feet wide, 6 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 1 to 4\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 13\r\n\r\n**Fort** +9\r\n\r\n**Ref** +4\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 5\r\n\r\n**HP** 40\r\n\r\n**Immunities**  object immunities \r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 20 feet (pulled or pushed)\r\n\r\n---\r\n\r\nA less explosive version of black-powder weapons such as the ribauldequin and hwacha, the crossbow catapult consists of 16 crossbows arrayed in a square on a wooden frame with two large wheels. Aiming is done from behind, sighting through the center and wheeling the face back and forth. All the crossbow triggers are connected in sequence, firing a volley of bolts with a single pull of a wire.<br />**Aim** <actions string=\"Single Action\" /> 40 feet, minimum distance 30 feet <br />**Load** <actions string=\"Three Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 4 times <br />**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), manipulate, [range increment 80 feet](/Traits.aspx?ID=248)) 3d6 piercing, 10-foot [burst](/Rules.aspx?ID=2385), DC 17 Reflex"
+}

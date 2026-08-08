@@ -1,0 +1,191 @@
+{
+  "_id": "F5iRMdfm95zqSSG1",
+  "_key": "!actors!F5iRMdfm95zqSSG1",
+  "name": "Trapdoor Actuator",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/trapdoor-actuator.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/trapdoor-actuator.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 16,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 5,
+      "hp": {
+        "value": 40,
+        "max": 40,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Trapdoor actuators are designed to be well hidden (usually as part of a cliff face) and operated by small, untrained crews. Cleverly designed springs …</p>",
+      "level": {
+        "value": 3
+      },
+      "price": 140,
+      "crew": "2",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 10,
+        "wide": 4,
+        "high": 6
+      },
+      "speed": "",
+      "publication": {
+        "title": "Howl of the Wild",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 12,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "lg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "trapdoor-actuator",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "simple",
+        "usage": "mounted",
+        "ammunition": "iron rod (5 gp, 4 Bulk)",
+        "reflexSave": 4,
+        "priceText": "140 gp",
+        "aonId": "siege-weapon-33",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=33",
+        "sourceBook": "Howl of the Wild",
+        "sourcePage": "Howl of the Wild pg. 117",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/trapdoor-actuator.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>25 feet, minimum distance 10 feet</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "voLgMMVGnB0MnpjY",
+      "_key": "!actors.items!F5iRMdfm95zqSSG1.voLgMMVGnB0MnpjY"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times, requires a successful @Check[athletics|dc:20] check</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "KRY4DIYl5TLHnvpT",
+      "_key": "!actors.items!F5iRMdfm95zqSSG1.KRY4DIYl5TLHnvpT"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, range increment 100 feet) @Damage[3d10[bludgeoning]], single target, @Check[reflex|dc:18]</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack",
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "pc4ydKIaXad7SrIl",
+      "_key": "!actors.items!F5iRMdfm95zqSSG1.pc4ydKIaXad7SrIl"
+    }
+  ]
+}

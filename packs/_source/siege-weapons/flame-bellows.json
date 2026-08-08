@@ -1,0 +1,220 @@
+{
+  "_id": "We8BDBZdpxFc4D9Z",
+  "_key": "!actors!We8BDBZdpxFc4D9Z",
+  "name": "Flame Bellows",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/flame-bellows.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/flame-bellows.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 15,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 5,
+      "hp": {
+        "value": 20,
+        "max": 20,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>A flame bellows turns the common alchemist’s fire into a spray of burning destruction. Consisting of a wheel or wagonmounted reservoir and bellows, …</p>",
+      "level": {
+        "value": 3
+      },
+      "price": 100,
+      "crew": "2",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 10,
+        "wide": 5,
+        "high": 5
+      },
+      "speed": "20 feet (pulled or pushed)",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 9,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "med"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "flame-bellows",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted",
+        "ammunition": "<%EQUIPMENT%3287%%>lesser alchemist's fire<%END> (3 gp, L Bulk)",
+        "reflexSave": 7,
+        "priceText": "100 gp",
+        "aonId": "siege-weapon-52",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=52",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 103",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/flame-bellows.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": null,
+        "description": {
+          "value": "<p>rotate 30°</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "7R0GRQDyhTcniYzh",
+      "_key": "!actors.items!We8BDBZdpxFc4D9Z.7R0GRQDyhTcniYzh"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "Lqpe6Ys85QW3AjPw",
+      "_key": "!actors.items!We8BDBZdpxFc4D9Z.Lqpe6Ys85QW3AjPw"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(manipulate) @Damage[3d6[fire]] plus @Damage[1d4[persistent,fire]], 30- foot line or 15-foot cone, @Check[reflex|dc:17|options:area-effect]; switching between the flame bellows’ line or cone mode takes an Interact action, and any of the crew can perform the action</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "YNH46w5iUhj8M0j5",
+      "_key": "!actors.items!We8BDBZdpxFc4D9Z.YNH46w5iUhj8M0j5"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "SXWeTLLzvHzvB0R4",
+      "_key": "!actors.items!We8BDBZdpxFc4D9Z.SXWeTLLzvHzvB0R4"
+    }
+  ]
+}

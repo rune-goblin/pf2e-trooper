@@ -1,0 +1,43 @@
+{
+  "name": "Flame Bellows",
+  "slug": "flame-bellows",
+  "level": 3,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Alchemical",
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Medium"
+  ],
+  "usage": "mounted",
+  "price": "100 gp",
+  "ammunition": "<%EQUIPMENT%3287%%>lesser alchemist's fire<%END> (3 gp, L Bulk)",
+  "crew": "2",
+  "space": "10 feet long, 5 feet wide, 5 feet high",
+  "speed": "20 feet (pulled or pushed)",
+  "defenses": {
+    "ac": 15,
+    "fortitudeSave": 9,
+    "reflexSave": 7,
+    "hardness": 5,
+    "hp": 20,
+    "immunities": [
+      " object immunities "
+    ]
+  },
+  "source": {
+    "book": "Battlecry!",
+    "page": "Battlecry! pg. 103",
+    "releaseDate": "2025-07-31",
+    "aonId": "siege-weapon-52",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=52"
+  },
+  "summary": "A flame bellows turns the common alchemist’s fire into a spray of burning destruction. Consisting of a wheel or wagonmounted reservoir and bellows, …",
+  "text": "Flame Bellows Source Battlecry! pg. 103 Price 100 gp Ammunition lesser alchemist's fire (3 gp, L Bulk) --- Usage mounted Space 10 feet long, 5 feet wide, 5 feet high Crew 2 Proficiency martial --- AC 15 Fort +9 Ref +7 Hardness 5 HP 20 Immunities object immunities --- Speed 20 feet (pulled or pushed) --- A flame bellows turns the common alchemist’s fire into a spray of burning destruction. Consisting of a wheel or wagonmounted reservoir and bellows, and a long tube through which the substance is directed, it’s as simple as it is effective. Unfortunately, it’s also incredibly dangerous to operate, with volatile and highly flammable chemicals housed in delicate mechanisms, one mistake away from consuming the whole team and the bellows in a super-heated blaze. The bellows are intended to be wheeled into the thick of battle rather than fired from a distance. Flame bellows teams are known as marked men, with all but the luckiest ending their career as a pile of ash, the victims of their own weapon. Despite not being a black powder weapon, a flame bellows can misfire like one. Aim Single Action rotate 30° Load Single Action (manipulate) 2 times Launch Single Action (manipulate) 3d6 fire plus 1d4 persistent fire, 30- foot line or 15-foot cone, DC 17 Reflex; switching between the flame bellows’ line or cone mode takes an Interact action, and any of the crew can perform the action",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 3\">[Flame Bellows](/SiegeWeapons.aspx?ID=52)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Medium\" />\r\n<trait label=\"Alchemical\" url=\"/Traits.aspx?ID=6\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Battlecry!](/Sources.aspx?ID=268) pg. 103\r\n\r\n<row gap=\"medium\">\r\n**Price** 100 gp\r\n\r\n**Ammunition** [lesser alchemist's fire](/Equipment.aspx?ID=3287) (3 gp, L Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted\n\n**Space** 10 feet long, 5 feet wide, 5 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 2\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 15\r\n\r\n**Fort** +9\r\n\r\n**Ref** +7\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 5\r\n\r\n**HP** 20\r\n\r\n**Immunities**  object immunities \r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 20 feet (pulled or pushed)\r\n\r\n---\r\n\r\nA flame bellows turns the common alchemist’s fire into a spray of burning destruction. Consisting of a wheel or wagonmounted reservoir and bellows, and a long tube through which the substance is directed, it’s as simple as it is effective. Unfortunately, it’s also incredibly dangerous to operate, with volatile and highly flammable chemicals housed in delicate mechanisms, one mistake away from consuming the whole team and the bellows in a super-heated blaze. The bellows are intended to be wheeled into the thick of battle rather than fired from a distance. Flame bellows teams are known as marked men, with all but the luckiest ending their career as a pile of ash, the victims of their own weapon. Despite not being a black powder weapon, a flame bellows can [misfire](/Rules.aspx?ID=1657) like one. <br />**Aim** <actions string=\"Single Action\" /> rotate 30° <br />**Load** <actions string=\"Single Action\" /> ([manipulate](/Traits.aspx?ID=645)) 2 times <br />**Launch** <actions string=\"Single Action\" /> (manipulate) 3d6 fire plus 1d4 [persistent fire](/Conditions.aspx?ID=86), 30- foot [line](/Rules.aspx?ID=2388) or 15-foot [cone](/Rules.aspx?ID=2386), DC 17 Reflex; switching between the flame bellows’ line or cone mode takes an Interact action, and any of the crew can perform the action"
+}

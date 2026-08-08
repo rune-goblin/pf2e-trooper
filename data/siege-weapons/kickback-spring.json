@@ -1,0 +1,42 @@
+{
+  "name": "Kickback Spring",
+  "slug": "kickback-spring",
+  "level": 7,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Magical",
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Gargantuan"
+  ],
+  "usage": "mounted",
+  "price": "700 gp",
+  "ammunition": "kickback charge (2 gp, 1 Bulk)",
+  "crew": "2",
+  "space": "18 feet long, 5 feet wide, 7 feet high",
+  "defenses": {
+    "ac": 20,
+    "fortitudeSave": 16,
+    "reflexSave": 13,
+    "hardness": 10,
+    "hp": 50,
+    "immunities": [
+      "object immunities"
+    ]
+  },
+  "source": {
+    "book": "Howl of the Wild",
+    "page": "Howl of the Wild pg. 115",
+    "releaseDate": "2024-05-29",
+    "aonId": "siege-weapon-25",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=25"
+  },
+  "summary": "A smaller version of the kickback spring was first deployed as a deterrent to keep crops safe from nuisance foragers like moose . These larger …",
+  "text": "Kickback Spring Source Howl of the Wild pg. 115 Price 700 gp Ammunition kickback charge (2 gp, 1 Bulk) --- Usage mounted Space 18 feet long, 5 feet wide, 7 feet high Crew 2 Proficiency martial --- AC 20 Fort +16 Ref +13 Hardness 10 HP 50 Immunities object immunities --- A smaller version of the kickback spring was first deployed as a deterrent to keep crops safe from nuisance foragers like moose. These larger versions often line walls or other defensive points, providing a final layer of protection before a large creature would breach such areas. The kickback spring fires a compressed disk of rapidly expanding air at creatures, attempting to push them back and provide defenders a moment to regroup. Aim Two Actions 25 feet, minimum distance 50 feet Load Two Actions (manipulate) 2 times, requires a successful DC 22 Athletics check Launch Single Action (air, attack, manipulate, range increment 60 feet) 6d8 bludgeoning, 15-foot cone, DC 22 Reflex. A creature that fails its Reflex save is pushed 25 feet away from the kickback spring as air rapidly vents from the device. On a critical failure, a creature falls prone after being pushed back.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 7\">[Kickback Spring](/SiegeWeapons.aspx?ID=25)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=721\" />\r\n<trait label=\"Gargantuan\" />\r\n<trait label=\"Magical\" url=\"/Traits.aspx?ID=644\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Howl of the Wild](/Sources.aspx?ID=226) pg. 115\r\n\r\n<row gap=\"medium\">\r\n**Price** 700 gp\r\n\r\n**Ammunition** kickback charge (2 gp, 1 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted\n\n**Space** 18 feet long, 5 feet wide, 7 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 2\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 20\r\n\r\n**Fort** +16\r\n\r\n**Ref** +13\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 10\r\n\r\n**HP** 50\r\n\r\n**Immunities** object immunities\r\n</row>\r\n\r\n</column>\r\n\r\n---\n\nA smaller version of the _kickback spring_ was first deployed as a deterrent to keep crops safe from nuisance foragers like [moose](/Monsters.aspx?ID=1233). These larger versions often line walls or other defensive points, providing a final layer of protection before a large creature would breach such areas. The _kickback spring_ fires a compressed disk of rapidly expanding air at creatures, attempting to push them back and provide defenders a moment to regroup. \n\n**Aim** <actions string=\"Two Actions\" /> 25 feet, minimum distance 50 feet \n\n**Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 2 times, requires a successful DC 22 [Athletics](/Skills.aspx?ID=36) check \n\n**Launch** <actions string=\"Single Action\" /> ([air](/Traits.aspx?ID=527), [attack](/Traits.aspx?ID=540), [manipulate](/Traits.aspx?ID=645), [range increment 60 feet](/Rules.aspx?ID=2195)) 6d8 bludgeoning, 15-foot cone, DC 22 Reflex. A creature that fails its Reflex save is [pushed](/Rules.aspx?ID=451) 25 feet away from the _kickback spring_ as air rapidly vents from the device. On a critical failure, a creature falls [prone](/Conditions.aspx?ID=88) after being pushed back."
+}

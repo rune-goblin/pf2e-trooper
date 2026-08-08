@@ -1,0 +1,222 @@
+{
+  "_id": "cHI03Bb0nix5aKiP",
+  "_key": "!actors!cHI03Bb0nix5aKiP",
+  "name": "Nullifier Sling",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/nullifier-sling.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/nullifier-sling.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 25,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 10,
+      "hp": {
+        "value": 150,
+        "max": 150,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Appearing similar to a trebuchet, a nullifier sling launches smaller projectiles that do less damage but contain magic that can counteract any …</p>",
+      "level": {
+        "value": 11
+      },
+      "price": 2600,
+      "crew": "3 to 5",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 15,
+        "wide": 15,
+        "high": 20
+      },
+      "speed": "15 feet (pulled or pushed)",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 19,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "rare",
+      "size": {
+        "value": "huge"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "nullifier-sling",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted",
+        "ammunition": "<i>nullifier stones</i> (10 gp, 3 Bulk)",
+        "reflexSave": 14,
+        "priceText": "2,600 gp",
+        "aonId": "siege-weapon-58",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=58",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 104",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/nullifier-sling.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>50 feet, minimum distance 150 feet</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "w8hAGT8knRkmsoid",
+      "_key": "!actors.items!cHI03Bb0nix5aKiP.w8hAGT8knRkmsoid"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times, requires a successful @Check[arcana|dc:20], Nature, Occultism, or Religion check</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "hrxZxZwyKh9T3kfU",
+      "_key": "!actors.items!cHI03Bb0nix5aKiP.hrxZxZwyKh9T3kfU"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, magical, manipulate, range increment 400 feet) @Damage[4d10[bludgeoning]], 20-foot burst, @Check[reflex|dc:27|options:area-effect]. In addition, the _nullifier stone_ attempts a counteract check against each active spell and unattended magic item within the burst. A _nullifier stone_ has a counteract modifier of +19 and a counteract rank of 5th. At the GM’s discretion, more powerful (and more expensive) _nullifier stones_ may exist.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack"
+          ]
+        }
+      },
+      "_id": "x2Tc40NupvDIaIG9",
+      "_key": "!actors.items!cHI03Bb0nix5aKiP.x2Tc40NupvDIaIG9"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "yaBMiD1d7sFIyggf",
+      "_key": "!actors.items!cHI03Bb0nix5aKiP.yaBMiD1d7sFIyggf"
+    }
+  ]
+}

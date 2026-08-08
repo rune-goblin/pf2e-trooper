@@ -1,0 +1,222 @@
+{
+  "_id": "7lCBnUImxKP5AwV6",
+  "_key": "!actors!7lCBnUImxKP5AwV6",
+  "name": "Blasting Horn",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/blasting-horn.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/blasting-horn.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 29,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 15,
+      "hp": {
+        "value": 200,
+        "max": 200,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Crafted by a long-fallen empire at the height of its power, the blasting horn resembles a metal cornucopia attached to a wheeled wooden frame. A …</p>",
+      "level": {
+        "value": 13
+      },
+      "price": 6000,
+      "crew": "2 t o4",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 10,
+        "wide": 6,
+        "high": 8
+      },
+      "speed": "10 feet (pulled or pushed)",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 23,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "lg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "blasting-horn",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "simple",
+        "usage": "mounted",
+        "ammunition": "<%EQUIPMENT%3288%%>moderate blasting stone<%END> (10 gp, L Bulk)",
+        "reflexSave": 16,
+        "priceText": "6,000 gp",
+        "aonId": "siege-weapon-55",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=55",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 103",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/blasting-horn.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/ThreeActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 3
+        },
+        "category": null,
+        "description": {
+          "value": "<p>rotate 45°</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "z4gVnEnTfpKoBdYT",
+      "_key": "!actors.items!7lCBnUImxKP5AwV6.z4gVnEnTfpKoBdYT"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 1 time</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "cq1WidRBkFZVZ90x",
+      "_key": "!actors.items!7lCBnUImxKP5AwV6.cq1WidRBkFZVZ90x"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate) @Damage[5d8[bludgeoning]] and @Damage[6d8[sonic]], 60-foot cone, @Check[reflex|dc:30|options:area-effect], on a critical failure the creature is deafened for 1 minute</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack"
+          ]
+        }
+      },
+      "_id": "hfAc97jOjz8encyn",
+      "_key": "!actors.items!7lCBnUImxKP5AwV6.hfAc97jOjz8encyn"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "kzGj39ukkDqjwUGl",
+      "_key": "!actors.items!7lCBnUImxKP5AwV6.kzGj39ukkDqjwUGl"
+    }
+  ]
+}

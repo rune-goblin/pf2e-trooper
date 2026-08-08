@@ -1,0 +1,43 @@
+{
+  "name": "Corrupted Polyp",
+  "slug": "corrupted-polyp",
+  "level": 19,
+  "rarity": "rare",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "simple",
+  "traits": [
+    "Magical",
+    "Mounted",
+    "Rare"
+  ],
+  "size": [
+    "Huge"
+  ],
+  "usage": "mounted",
+  "price": "64,000 gp",
+  "ammunition": "organic matter (0 gp, 15 Bulk)",
+  "crew": "3 to 5",
+  "space": "10 feet long, 6 feet wide, 8 feet high",
+  "speed": "10 feet (pulled or pushed)",
+  "defenses": {
+    "ac": 38,
+    "fortitudeSave": 34,
+    "reflexSave": 25,
+    "hardness": 10,
+    "hp": 320,
+    "immunities": [
+      " object immunities "
+    ]
+  },
+  "source": {
+    "book": "Battlecry!",
+    "page": "Battlecry! pg. 101",
+    "releaseDate": "2025-07-31",
+    "aonId": "siege-weapon-46",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=46"
+  },
+  "summary": "When demonic forces invaded through a great planar rift, some brought terrible siege weapons with them. One particularly vile device is known as a …",
+  "text": "Corrupted Polyp Source Battlecry! pg. 101 Price 64,000 gp Ammunition organic matter (0 gp, 15 Bulk) --- Usage mounted Space 10 feet long, 6 feet wide, 8 feet high Crew 3 to 5 Proficiency simple --- AC 38 Fort +34 Ref +25 Hardness 10 HP 320 Immunities object immunities --- Speed 10 feet (pulled or pushed) --- When demonic forces invaded through a great planar rift, some brought terrible siege weapons with them. One particularly vile device is known as a corrupted polyp , a cultivated fungal colony from the demonic planes that can quickly mulch a steady stream of corpses and other decaying organic matter into toxic growths. With the right coaxing, the foul weapon can then explosively eject a cluster of these growths to devastating effect. Thankfully, few corrupted polyps were brought over, and even fewer survive now that the rift has been closed. Aim Three Actions 50 feet, minimum distance 50 feet Load Three Actions (manipulate) 3 times Launch Three Actions (attack, manipulate, range increment 200 feet) 10d10 poison and 4d6 persistent poison, 50-foot burst, DC 38 Reflex. Because a corrupted polyp launches its spore clusters at a high angle, the cluster descends on the center of the burst from above, not in a straight line from the polyp. This affects whether creatures have cover from the launch.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 19\">[Corrupted Polyp](/SiegeWeapons.aspx?ID=46)</title>\r\n\r\n<traits>\r\n<trait label=\"Rare\" url=\"/Traits.aspx?ID=137\" />\r\n<trait label=\"Huge\" />\r\n<trait label=\"Magical\" url=\"/Traits.aspx?ID=103\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Battlecry!](/Sources.aspx?ID=268) pg. 101\r\n\r\n<row gap=\"medium\">\r\n**Price** 64,000 gp\r\n\r\n**Ammunition** organic matter (0 gp, 15 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted\n\n**Space** 10 feet long, 6 feet wide, 8 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 3 to 5\r\n\r\n**Proficiency** simple\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 38\r\n\r\n**Fort** +34\r\n\r\n**Ref** +25\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 10\r\n\r\n**HP** 320\r\n\r\n**Immunities**  object immunities \r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 10 feet (pulled or pushed)\r\n\r\n---\r\n\r\nWhen [demonic](/Traits.aspx?ID=573) forces invaded through a great planar rift, some brought terrible siege weapons with them. One particularly vile device is known as a _corrupted polyp_, a cultivated fungal colony from the demonic planes that can quickly mulch a steady stream of corpses and other decaying organic matter into toxic growths. With the right coaxing, the foul weapon can then explosively eject a cluster of these growths to devastating effect. Thankfully, few _corrupted polyps_ were brought over, and even fewer survive now that the rift has been closed. <br />**Aim** <actions string=\"Three Actions\" /> 50 feet, minimum distance 50 feet <br />**Load** <actions string=\"Three Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 3 times <br />**Launch** <actions string=\"Three Actions\" /> ([attack](/Traits.aspx?ID=540), manipulate, [range increment 200 feet](/Traits.aspx?ID=248)) 10d10 poison and 4d6 [persistent poison](/Conditions.aspx?ID=86), 50-foot [burst](/Rules.aspx?ID=2385), DC 38 Reflex. Because a _corrupted polyp_ launches its spore clusters at a high angle, the cluster descends on the center of the burst from above, not in a straight [line](/Rules.aspx?ID=2388) from the polyp. This affects whether creatures have [cover](/Rules.aspx?ID=2372) from the launch."
+}

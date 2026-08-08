@@ -1,0 +1,190 @@
+{
+  "_id": "nnWOp3l2WvillOQ6",
+  "_key": "!actors!nnWOp3l2WvillOQ6",
+  "name": "Heavy Bombard",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/heavy-bombard.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/heavy-bombard.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 23,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 18,
+      "hp": {
+        "value": 50,
+        "max": 50,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>A heavy bombard looks like little more than a large metal cylinder, resembling the barrel of a firearm so large that it's immobile. The sheer size of …</p>",
+      "level": {
+        "value": 9
+      },
+      "price": 1400,
+      "crew": "3-6",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 17,
+        "wide": 6,
+        "high": 6
+      },
+      "speed": "",
+      "publication": {
+        "title": "Guns & Gears (Remastered)",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 18,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "grg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "heavy-bombard",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted  (black powder)",
+        "ammunition": "large stone spheres (8 gp, 16 Bulk)",
+        "reflexSave": 10,
+        "priceText": "1,400 gp",
+        "aonId": "siege-weapon-17",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=17",
+        "sourceBook": "Guns & Gears (Remastered)",
+        "sourcePage": "Guns & Gears (Remastered) pg. 175",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/heavy-bombard.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/ThreeActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 3
+        },
+        "category": null,
+        "description": {
+          "value": "<p>50 feet, minimum distance 50 feet</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "GoiPNpQrzDgtg1VT",
+      "_key": "!actors.items!nnWOp3l2WvillOQ6.GoiPNpQrzDgtg1VT"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 3 times, requires a successful @Check[athletics|dc:20] check</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "VTQCw4cVZVGnvrSc",
+      "_key": "!actors.items!nnWOp3l2WvillOQ6.VTQCw4cVZVGnvrSc"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(manipulate, range increment 250 feet) @Damage[7d10[bludgeoning]], 20-foot burst, @Check[reflex|dc:25|options:area-effect]</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "0DS4A6qvmyLCkcTR",
+      "_key": "!actors.items!nnWOp3l2WvillOQ6.0DS4A6qvmyLCkcTR"
+    }
+  ]
+}

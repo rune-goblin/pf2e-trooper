@@ -1,0 +1,43 @@
+{
+  "name": "Nullifier Sling",
+  "slug": "nullifier-sling",
+  "level": 11,
+  "rarity": "rare",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Magical",
+    "Mounted",
+    "Rare"
+  ],
+  "size": [
+    "Huge"
+  ],
+  "usage": "mounted",
+  "price": "2,600 gp",
+  "ammunition": "<i>nullifier stones</i> (10 gp, 3 Bulk)",
+  "crew": "3 to 5",
+  "space": "15 feet long, 15 feet wide, 20 feet high",
+  "speed": "15 feet (pulled or pushed)",
+  "defenses": {
+    "ac": 25,
+    "fortitudeSave": 19,
+    "reflexSave": 14,
+    "hardness": 10,
+    "hp": 150,
+    "immunities": [
+      " object immunities "
+    ]
+  },
+  "source": {
+    "book": "Battlecry!",
+    "page": "Battlecry! pg. 104",
+    "releaseDate": "2025-07-31",
+    "aonId": "siege-weapon-58",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=58"
+  },
+  "summary": "Appearing similar to a trebuchet, a nullifier sling launches smaller projectiles that do less damage but contain magic that can counteract any …",
+  "text": "Nullifier Sling Source Battlecry! pg. 104 Price 2,600 gp Ammunition nullifier stones (10 gp, 3 Bulk) --- Usage mounted Space 15 feet long, 15 feet wide, 20 feet high Crew 3 to 5 Proficiency martial --- AC 25 Fort +19 Ref +14 Hardness 10 HP 150 Immunities object immunities --- Speed 15 feet (pulled or pushed) --- Appearing similar to a trebuchet, a nullifier sling launches smaller projectiles that do less damage but contain magic that can counteract any magical effect near the point of impact. Aim Two Actions 50 feet, minimum distance 150 feet Load Two Actions (manipulate) 2 times, requires a successful DC 20 Arcana, Nature, Occultism, or Religion check Launch Single Action (attack, magical, manipulate, range increment 400 feet) 4d10 bludgeoning, 20-foot burst, DC 27 Reflex. In addition, the nullifier stone attempts a counteract check against each active spell and unattended magic item within the burst. A nullifier stone has a counteract modifier of +19 and a counteract rank of 5th. At the GM’s discretion, more powerful (and more expensive) nullifier stones may exist.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 11\">[Nullifier Sling](/SiegeWeapons.aspx?ID=58)</title>\r\n\r\n<traits>\r\n<trait label=\"Rare\" url=\"/Traits.aspx?ID=137\" />\r\n<trait label=\"Huge\" />\r\n<trait label=\"Magical\" url=\"/Traits.aspx?ID=103\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Battlecry!](/Sources.aspx?ID=268) pg. 104\r\n\r\n<row gap=\"medium\">\r\n**Price** 2,600 gp\r\n\r\n**Ammunition** _nullifier stones_ (10 gp, 3 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted\n\n**Space** 15 feet long, 15 feet wide, 20 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 3 to 5\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 25\r\n\r\n**Fort** +19\r\n\r\n**Ref** +14\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 10\r\n\r\n**HP** 150\r\n\r\n**Immunities**  object immunities \r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 15 feet (pulled or pushed)\r\n\r\n---\r\n\r\nAppearing similar to a trebuchet, a _nullifier sling_ launches smaller projectiles that do less damage but contain magic that can counteract any magical effect near the point of impact.<br />**Aim** <actions string=\"Two Actions\" /> 50 feet, minimum distance 150 feet <br />**Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 2 times, requires a successful DC 20 [Arcana](/Skills.aspx?ID=35), [Nature](/Skills.aspx?ID=43), [Occultism](/Skills.aspx?ID=44), or [Religion](/Skills.aspx?ID=46) check <br />**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), [magical](/Traits.aspx?ID=644), manipulate, [range increment 400 feet](/Traits.aspx?ID=248)) 4d10 bludgeoning, 20-foot [burst](/Rules.aspx?ID=2385), DC 27 Reflex. In addition, the _nullifier stone_ attempts a [counteract](/Rules.aspx?ID=2250) check against each active spell and unattended magic item within the burst. A _nullifier stone_ has a counteract modifier of +19 and a counteract rank of 5th. At the GM’s discretion, more powerful (and more expensive) _nullifier stones_ may exist."
+}

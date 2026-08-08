@@ -1,0 +1,43 @@
+{
+  "name": "Pheromone Sprayer",
+  "slug": "pheromone-sprayer",
+  "level": 5,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Alchemical",
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Large"
+  ],
+  "usage": "mounted",
+  "price": "350 gp",
+  "ammunition": "concentrated pheromone tank (30 gp, 1 Bulk), water tank (5 sp, 1 Bulk)",
+  "crew": "2-4",
+  "space": "12 feet long, 6 feet wide, 4 feet high",
+  "speed": "15 feet (pulled or pushed)",
+  "defenses": {
+    "ac": 19,
+    "fortitudeSave": 18,
+    "reflexSave": 6,
+    "hardness": 8,
+    "hp": 40,
+    "immunities": [
+      "object immunities"
+    ]
+  },
+  "source": {
+    "book": "Howl of the Wild",
+    "page": "Howl of the Wild pg. 116",
+    "releaseDate": "2024-05-29",
+    "aonId": "siege-weapon-28",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=28"
+  },
+  "summary": "Pheromone sprayers are used to fire mass amounts of alchemical animal pheromones in a more weaponized form to allow researchers an easy way to …",
+  "text": "Pheromone Sprayer Source Howl of the Wild pg. 116 Price 350 gp Ammunition concentrated pheromone tank (30 gp, 1 Bulk), water tank (5 sp, 1 Bulk) --- Usage mounted Space 12 feet long, 6 feet wide, 4 feet high Crew 2-4 Proficiency martial --- AC 19 Fort +18 Ref +6 Hardness 8 HP 40 Immunities object immunities --- Speed 15 feet (pulled or pushed) --- Pheromone sprayers are used to fire mass amounts of alchemical animal pheromones in a more weaponized form to allow researchers an easy way to influence otherwise dangerous creatures. Like animal pheromones, the ammunition for this siege weapon must be crafted for a specific kind of animal. A pheromone sprayer consists of two large tanks mounted atop a narrow, cannon-like barrel. One of the tanks contains concentrated alchemical pheromones, while the other tank is loaded with water, which is used to dilute the pheromones to produce different effects upon launch. Aim Single Action rotate 45° Load Two Actions (manipulate) 2 times Launch Single Action (attack, manipulate, olfactory) 80-foot line or 40-foot cone, DC 20 Will. Switching between the line or cone mode takes an Interact action, which any of the crew can perform. Designated kinds of animals that fail their save experience the following effects, depending on dilution. Low Dilution Affected creatures are stunned 2. Medium Dilution Affected creatures are fascinated by the scent of the pheromones and off-guard until the end of their next turn. High Dilution Affected creatures are slowed 1 for 1 minute.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 5\">[Pheromone Sprayer](/SiegeWeapons.aspx?ID=28)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=721\" />\r\n<trait label=\"Large\" />\r\n<trait label=\"Alchemical\" url=\"/Traits.aspx?ID=528\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Howl of the Wild](/Sources.aspx?ID=226) pg. 116\r\n\r\n<row gap=\"medium\">\r\n**Price** 350 gp\r\n\r\n**Ammunition** concentrated pheromone tank (30 gp, 1 Bulk), water tank (5 sp, 1 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted\n\n**Space** 12 feet long, 6 feet wide, 4 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 2-4\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 19\r\n\r\n**Fort** +18\r\n\r\n**Ref** +6\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 8\r\n\r\n**HP** 40\r\n\r\n**Immunities** object immunities\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 15 feet (pulled or pushed)\r\n\r\n---\r\n\r\nPheromone sprayers are used to fire mass amounts of alchemical [animal pheromones](/Equipment.aspx?ID=3228) in a more weaponized form to allow researchers an easy way to influence otherwise dangerous creatures. Like animal pheromones, the ammunition for this siege weapon must be crafted for a specific kind of animal. A pheromone sprayer consists of two large tanks mounted atop a narrow, cannon-like barrel. One of the tanks contains concentrated alchemical pheromones, while the other tank is loaded with water, which is used to dilute the pheromones to produce different effects upon launch. \n\n**Aim** <actions string=\"Single Action\" /> rotate 45° \n\n**Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 2 times \n\n**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), [manipulate](/Traits.aspx?ID=645), [olfactory](/Traits.aspx?ID=664)) 80-foot line or 40-foot cone, DC 20 Will. Switching between the line or cone mode takes an [Interact](/Actions.aspx?ID=2297) action, which any of the crew can perform. Designated kinds of animals that fail their save experience the following effects, depending on dilution.\n<ul><li>**Low Dilution** Affected creatures are [stunned](/Conditions.aspx?ID=93) 2.</li><li>**Medium Dilution** Affected creatures are [fascinated](/Conditions.aspx?ID=72) by the scent of the pheromones and [off-guard](/Conditions.aspx?ID=58) until the end of their next turn.</li><li>**High Dilution** Affected creatures are [slowed](/Conditions.aspx?ID=92) 1 for 1 minute.</li></ul>"
+}

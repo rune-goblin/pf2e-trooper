@@ -1,0 +1,222 @@
+{
+  "_id": "SKndCjqVfZAaAWSS",
+  "_key": "!actors!SKndCjqVfZAaAWSS",
+  "name": "Bombard",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/bombard.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/bombard.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 17,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 10,
+      "hp": {
+        "value": 40,
+        "max": 40,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Bombards are some of the oldest and simplest of black powder siege weapons, devised based on many of the same principles as a hand cannon, but …</p>",
+      "level": {
+        "value": 5
+      },
+      "price": 300,
+      "crew": "2-4",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 10,
+        "wide": 4,
+        "high": 5
+      },
+      "speed": "10 feet (pushed or pulled)",
+      "publication": {
+        "title": "Guns & Gears (Remastered)",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 12,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "lg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "bombard",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted  (black powder)",
+        "ammunition": "stone spheres (4 gp, 4 Bulk)",
+        "reflexSave": 5,
+        "priceText": "300 gp",
+        "aonId": "siege-weapon-12",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=12",
+        "sourceBook": "Guns & Gears (Remastered)",
+        "sourcePage": "Guns & Gears (Remastered) pg. 173",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/bombard.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>30 feet, minimum distance 30 feet</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "Uujt0zQeBjiWiTiC",
+      "_key": "!actors.items!SKndCjqVfZAaAWSS.Uujt0zQeBjiWiTiC"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times, requires a successful @Check[athletics|dc:20] check</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "6xhXXeP2A5KetfTW",
+      "_key": "!actors.items!SKndCjqVfZAaAWSS.6xhXXeP2A5KetfTW"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(manipulate, range increment 150 feet) @Damage[4d10[bludgeoning]], 10-foot burst, @Check[reflex|dc:19|options:area-effect]</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "l5hOhnQzON4VhOAG",
+      "_key": "!actors.items!SKndCjqVfZAaAWSS.l5hOhnQzON4VhOAG"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "nu481For3IVX6Jay",
+      "_key": "!actors.items!SKndCjqVfZAaAWSS.nu481For3IVX6Jay"
+    }
+  ]
+}

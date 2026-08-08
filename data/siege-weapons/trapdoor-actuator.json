@@ -1,0 +1,41 @@
+{
+  "name": "Trapdoor Actuator",
+  "slug": "trapdoor-actuator",
+  "level": 3,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "simple",
+  "traits": [
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Large"
+  ],
+  "usage": "mounted",
+  "price": "140 gp",
+  "ammunition": "iron rod (5 gp, 4 Bulk)",
+  "crew": "2",
+  "space": "10 feet long, 4 feet wide, 6 feet high",
+  "defenses": {
+    "ac": 16,
+    "fortitudeSave": 12,
+    "reflexSave": 4,
+    "hardness": 5,
+    "hp": 40,
+    "immunities": [
+      "object immunities"
+    ]
+  },
+  "source": {
+    "book": "Howl of the Wild",
+    "page": "Howl of the Wild pg. 117",
+    "releaseDate": "2024-05-29",
+    "aonId": "siege-weapon-33",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=33"
+  },
+  "summary": "Trapdoor actuators are designed to be well hidden (usually as part of a cliff face) and operated by small, untrained crews. Cleverly designed springs …",
+  "text": "Trapdoor Actuator Source Howl of the Wild pg. 117 Price 140 gp Ammunition iron rod (5 gp, 4 Bulk) --- Usage mounted Space 10 feet long, 4 feet wide, 6 feet high Crew 2 Proficiency simple --- AC 16 Fort +12 Ref +4 Hardness 5 HP 40 Immunities object immunities --- Trapdoor actuators are designed to be well hidden (usually as part of a cliff face) and operated by small, untrained crews. Cleverly designed springs launch an iron rod from the protective wall. Typically, this level of camouflage allows the trapdoor actuator to remain unnoticed unless a creature succeeds at a DC 18 Perception check to spot it. After a launch, the trapdoor actuator’s camouflage can be reset as a two-action activity. Aim Two Actions 25 feet, minimum distance 10 feet Load Two Actions (manipulate) 2 times, requires a successful DC 20 Athletics check Launch Single Action (attack, manipulate, range increment 100 feet) 3d10 bludgeoning, single target, DC 18 Reflex",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 3\">[Trapdoor Actuator](/SiegeWeapons.aspx?ID=33)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=721\" />\r\n<trait label=\"Large\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Howl of the Wild](/Sources.aspx?ID=226) pg. 117\r\n\r\n<row gap=\"medium\">\r\n**Price** 140 gp\r\n\r\n**Ammunition** iron rod (5 gp, 4 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted\n\n**Space** 10 feet long, 4 feet wide, 6 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 2\r\n\r\n**Proficiency** simple\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 16\r\n\r\n**Fort** +12\r\n\r\n**Ref** +4\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 5\r\n\r\n**HP** 40\r\n\r\n**Immunities** object immunities\r\n</row>\r\n\r\n</column>\r\n\r\n---\n\nTrapdoor actuators are designed to be well hidden (usually as part of a cliff face) and operated by small, untrained crews. Cleverly designed springs launch an iron rod from the protective wall. Typically, this level of camouflage allows the trapdoor actuator to remain unnoticed unless a creature succeeds at a DC 18 [Perception](/Rules.aspx?ID=2298) check to spot it. After a launch, the trapdoor actuator’s camouflage can be reset as a two-action activity. \n\n**Aim** <actions string=\"Two Actions\" /> 25 feet, minimum distance 10 feet \n\n**Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 2 times, requires a successful DC 20 Athletics check \n\n**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), [manipulate](/Traits.aspx?ID=645), [range increment 100 feet](/Rules.aspx?ID=2195)) 3d10 bludgeoning, single target, DC 18 Reflex"
+}

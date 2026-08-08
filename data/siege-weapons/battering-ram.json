@@ -1,0 +1,34 @@
+{
+  "name": "Battering Ram",
+  "slug": "battering-ram",
+  "level": 5,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Portable",
+  "proficiency": "martial",
+  "traits": [
+    "Portable",
+    "Uncommon"
+  ],
+  "size": [
+    "Large"
+  ],
+  "usage": "portable, held in 12 hands",
+  "price": "160 gp",
+  "crew": "6",
+  "defenses": {
+    "immunities": [
+      "object immunities"
+    ]
+  },
+  "source": {
+    "book": "Guns & Gears (Remastered)",
+    "page": "Guns & Gears (Remastered) pg. 74",
+    "releaseDate": "2025-02-18",
+    "aonId": "siege-weapon-3",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=3"
+  },
+  "summary": "Simple but powerful, a battering ram is a full tree stripped of limbs with one end clad in iron, often shaped like a ram's head. Large handles are …",
+  "text": "Battering Ram Source Guns & Gears (Remastered) pg. 74 --- Usage portable, held in 12 hands Bulk 20 Crew 6 Proficiency martial --- Simple but powerful, a battering ram is a full tree stripped of limbs with one end clad in iron, often shaped like a ram's head. Large handles are affixed to the sides so it can be hefted and carried by a crew. Ram Two Actions Requirements The other members of the crew have Readied to Stride on your order; Effect You and the crew Stride, with a maximum distance equal to the slowest crew member's Speed, then make a melee Strike with the ram against a structure or an unattended, stationary object. This Strike deals bludgeoning damage equal to 5d8 + the highest Strength modifier among members of the crew. Battering Ram (covered) Source Guns & Gears (Remastered) pg. 74 Price 250 gp --- Though it has the same Ram activity as the basic battering ram, a covered battering ram is additionally suspended from a protective roof attached to large wheels. This gives the crew members greater cover against attacks from outside. The cover is on the left and right flank, but open on the front and rear to allow for operating the ram. The roof has AC 23, Hardness 12, HP 48, and BT 24. Breaking the roof doesn't affect the operation of the battering ram but eliminates the cover. Battering Ram Source Guns & Gears (Remastered) pg. 74 Price 2,400 gp",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 5\">[Battering Ram](/SiegeWeapons.aspx?ID=3)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Large\" />\r\n<trait label=\"Portable\" url=\"/Traits.aspx?ID=412\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Guns &amp; Gears (Remastered)](/Sources.aspx?ID=98) pg. 74\r\n\r\n<row gap=\"medium\">\n\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** portable, held in 12 hands\r\n\r\n**Bulk** 20\n\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 6\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\n\nSimple but powerful, a battering ram is a full tree stripped of limbs with one end clad in iron, often shaped like a ram's head. Large handles are affixed to the sides so it can be hefted and carried by a crew.<br /> Ram <actions string=\"Two Actions\" /> **Requirements** The other members of the crew have Readied to Stride on your order; **Effect** You and the crew Stride, with a maximum distance equal to the slowest crew member's Speed, then make a melee Strike with the ram against a structure or an unattended, stationary object. This Strike deals bludgeoning damage equal to 5d8 + the highest Strength modifier among members of the crew.\r\n\r\n<title\r\nlevel=\"2\"\r\nright=\"Item 6\"\r\npfs=\"Restricted\"\r\n>\r\nBattering Ram (covered)\r\n</title>\n\n<traits>\r\n\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Guns &amp; Gears (Remastered)](/Sources.aspx?ID=98) pg. 74\n\n**Price** 250 gp\r\n\r\n</column>\r\n\r\n---\r\n\r\nThough it has the same Ram activity as the [basic battering ram](/SiegeWeapons.aspx?ID=3), a covered battering ram is additionally suspended from a protective roof attached to large wheels. This gives the crew members greater cover against attacks from outside. The cover is on the left and right flank, but open on the front and rear to allow for operating the ram. The roof has AC 23, Hardness 12, HP 48, and BT 24. Breaking the roof doesn't affect the operation of the battering ram but eliminates the cover.\r\n\r\n<title\r\nlevel=\"2\"\r\nright=\"Item 5\"\r\npfs=\"Restricted\"\r\n>\r\nBattering Ram\r\n</title>\n\n<traits>\r\n\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Guns &amp; Gears (Remastered)](/Sources.aspx?ID=98) pg. 74\n\n**Price** 2,400 gp\r\n\r\n</column>"
+}

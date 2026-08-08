@@ -1,0 +1,42 @@
+{
+  "name": "Flute Rocket",
+  "slug": "flute-rocket",
+  "level": 16,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Medium"
+  ],
+  "usage": "mounted (black powder)",
+  "price": "16,000 gp",
+  "ammunition": "rocket (20 gp, L Bulk)",
+  "crew": "2 to 3",
+  "space": "6 feet long, 4 feet wide, 5 feet high",
+  "speed": "20 feet (pulled or pushed)",
+  "defenses": {
+    "ac": 34,
+    "fortitudeSave": 28,
+    "reflexSave": 20,
+    "hardness": 15,
+    "hp": 220,
+    "immunities": [
+      " object immunities "
+    ]
+  },
+  "source": {
+    "book": "Battlecry!",
+    "page": "Battlecry! pg. 103",
+    "releaseDate": "2025-07-31",
+    "aonId": "siege-weapon-53",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=53"
+  },
+  "summary": "A design originating from the frozen north, the flute rocket marries the high angle of fire used by a mortar with a more refined rocket. This allows the …",
+  "text": "Flute Rocket Source Battlecry! pg. 103 Price 16,000 gp Ammunition rocket (20 gp, L Bulk) --- Usage mounted (black powder) Space 6 feet long, 4 feet wide, 5 feet high Crew 2 to 3 Proficiency martial --- AC 34 Fort +28 Ref +20 Hardness 15 HP 220 Immunities object immunities --- Speed 20 feet (pulled or pushed) --- A design originating from the frozen north, the flute rocket marries the high angle of fire used by a mortar with a more refined rocket. This allows the superior range of the rocket and angle of fire to reach far behind walls and emplacements. Flute rocket crews set the weapon well behind their front line, often behind walls or even buildings, relying on a spotter to aid in calibrating the aim of the rockets without exposing the crew to return fire. Flute rockets are particularly effective at neutralizing opposing artillery, leveraging their range and angle of attack to take out cannons without fear of reprisal. Aim Two Actions 50 feet, minimum distance 100 feet Load Two Actions (manipulate) 3 times Launch Single Action (attack, manipulate, range increment 250 feet) 11d10 bludgeoning, 20-foot burst, DC 34 Reflex. Because a flute rocket launches its rocket at a high angle, the rocket descends on the center of the burst from above, not in a straight line from the flute rocket. This affects whether creatures have cover from the flute rocket launch.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 16\">[Flute Rocket](/SiegeWeapons.aspx?ID=53)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Medium\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Battlecry!](/Sources.aspx?ID=268) pg. 103\r\n\r\n<row gap=\"medium\">\r\n**Price** 16,000 gp\r\n\r\n**Ammunition** rocket (20 gp, L Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted (black powder)\n\n**Space** 6 feet long, 4 feet wide, 5 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 2 to 3\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 34\r\n\r\n**Fort** +28\r\n\r\n**Ref** +20\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 15\r\n\r\n**HP** 220\r\n\r\n**Immunities**  object immunities \r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 20 feet (pulled or pushed)\r\n\r\n---\r\n\r\nA design originating from the frozen north, the flute rocket marries the high angle of fire used by a mortar with a more refined rocket. This allows the superior range of the rocket and angle of fire to reach far behind walls and emplacements. Flute rocket crews set the weapon well behind their front line, often behind walls or even buildings, relying on a spotter to aid in calibrating the aim of the rockets without exposing the crew to return fire. Flute rockets are particularly effective at neutralizing opposing artillery, leveraging their range and angle of attack to take out cannons without fear of reprisal. <br />**Aim** <actions string=\"Two Actions\" /> 50 feet, minimum distance 100 feet <br />**Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 3 times <br />**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), manipulate, [range increment 250 feet](/Traits.aspx?ID=248)) 11d10 bludgeoning, 20-foot [burst](/Rules.aspx?ID=2385), DC 34 Reflex. Because a flute rocket launches its rocket at a high angle, the rocket descends on the center of the burst from above, not in a straight line from the flute rocket. This affects whether creatures have [cover](/Rules.aspx?ID=2372) from the flute rocket launch."
+}

@@ -1,0 +1,222 @@
+{
+  "_id": "6qIV5t2BguMOunt9",
+  "_key": "!actors!6qIV5t2BguMOunt9",
+  "name": "Fists of Divinity",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/fists-of-divinity.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/fists-of-divinity.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 40,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 25,
+      "hp": {
+        "value": 300,
+        "max": 300,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Salvagers have extracted many secrets from a fallen starship, but one of the most impressive is a device simply known as the Fist of Divinity. …</p>",
+      "level": {
+        "value": 20
+      },
+      "price": 140000,
+      "crew": "1 to 3",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 15,
+        "wide": 6,
+        "high": 6
+      },
+      "speed": "5 feet (pushed or pulled)",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 35,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "unique",
+      "size": {
+        "value": "huge"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "fists-of-divinity",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "simple",
+        "usage": "mounted (black powder)",
+        "ammunition": "any item (variable gp, 1 to 10 Bulk)",
+        "reflexSave": 29,
+        "priceText": "140,000 gp",
+        "aonId": "siege-weapon-51",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=51",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 102",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/fists-of-divinity.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>rotate 90°</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "vZy2sCNNe8rLrrHI",
+      "_key": "!actors.items!6qIV5t2BguMOunt9.vZy2sCNNe8rLrrHI"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times; items of 2 to 5 Bulk require 3 Load actions and items of 6 to 10 Bulk require 4 Load actions. Heavier items increase the effect of the next Launch action, as detailed below.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "r7vTPUQengZlM0jH",
+      "_key": "!actors.items!6qIV5t2BguMOunt9.r7vTPUQengZlM0jH"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, range increment 1,000 feet) @Damage[20d6[bludgeoning]], 150-foot line, @Check[reflex|dc:39|options:area-effect]. Items of 2 to 5 Bulk deal @Damage[22d6[bludgeoning]], and items of 6 to 10 Bulk deal @Damage[24d6[bludgeoning]].</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack"
+          ]
+        }
+      },
+      "_id": "YPh8Svk4qJiJmwas",
+      "_key": "!actors.items!6qIV5t2BguMOunt9.YPh8Svk4qJiJmwas"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "iwy4IFDvNDfk2ls4",
+      "_key": "!actors.items!6qIV5t2BguMOunt9.iwy4IFDvNDfk2ls4"
+    }
+  ]
+}

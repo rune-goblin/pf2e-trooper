@@ -1,0 +1,44 @@
+{
+  "name": "Blessed Onager",
+  "slug": "blessed-onager",
+  "level": 10,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Holy",
+    "Magical",
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Huge"
+  ],
+  "usage": "mounted",
+  "price": "1,800 gp",
+  "ammunition": "anointed stones (3 gp, 4 Bulk)",
+  "crew": "2 to 4",
+  "space": "10 feet long, 7 feet wide, 6 feet high",
+  "speed": "15 feet (pulled or pushed)",
+  "defenses": {
+    "ac": 24,
+    "fortitudeSave": 19,
+    "reflexSave": 11,
+    "hardness": 10,
+    "hp": 140,
+    "immunities": [
+      " object immunities "
+    ]
+  },
+  "source": {
+    "book": "Battlecry!",
+    "page": "Battlecry! pg. 100",
+    "releaseDate": "2025-07-31",
+    "aonId": "siege-weapon-48",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=48"
+  },
+  "summary": "Similar in many ways to a catapult, a blessed onager is decorated with sigils of a holy god or other divine entity, usually one associated with …",
+  "text": "Blessed Onager Source Battlecry! pg. 100 Price 1,800 gp Ammunition anointed stones (3 gp, 4 Bulk) --- Usage mounted Space 10 feet long, 7 feet wide, 6 feet high Crew 2 to 4 Proficiency martial --- AC 24 Fort +19 Ref +11 Hardness 10 HP 140 Immunities object immunities --- Speed 15 feet (pulled or pushed) --- Similar in many ways to a catapult, a blessed onager is decorated with sigils of a holy god or other divine entity, usually one associated with righteous warfare. The arm of the onager isn’t drawn back by any obvious mechanism but is instead readied through prayer. This means that the crew usually contains one or two priests of the associated deity. In addition, the payload is anointed with sanctified oils that cause it to explode with spiritual energy upon impact. A blessed onager is most effective against armies of fiends and other unholy monsters. If an unholy creature attempts to move or operate a blessed onager , it is enfeebled 2 for 1 hour, and it takes a –2 circumstance penalty to any skill checks or DCs related to the siege weapon. Aim Three Actions 50 feet, minimum distance 50 feet Load Two Actions (manipulate) 2 times, requires a successful DC 20 Religion check Launch Single Action (attack, manipulate, range increment 120 feet) 5d8 bludgeoning and 4d8 spirit, 10-foot burst, DC 26 Reflex",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 10\">[Blessed Onager](/SiegeWeapons.aspx?ID=48)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Huge\" />\r\n<trait label=\"Holy\" url=\"/Traits.aspx?ID=517\" />\r\n<trait label=\"Magical\" url=\"/Traits.aspx?ID=103\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Battlecry!](/Sources.aspx?ID=268) pg. 100\r\n\r\n<row gap=\"medium\">\r\n**Price** 1,800 gp\r\n\r\n**Ammunition** anointed stones (3 gp, 4 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted\n\n**Space** 10 feet long, 7 feet wide, 6 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 2 to 4\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 24\r\n\r\n**Fort** +19\r\n\r\n**Ref** +11\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 10\r\n\r\n**HP** 140\r\n\r\n**Immunities**  object immunities \r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 15 feet (pulled or pushed)\r\n\r\n---\r\n\r\nSimilar in many ways to a catapult, a _blessed onager_ is decorated with sigils of a holy god or other divine entity, usually one associated with righteous warfare. The arm of the onager isn’t drawn back by any obvious mechanism but is instead readied through prayer. This means that the crew usually contains one or two priests of the associated deity. In addition, the payload is anointed with sanctified oils that cause it to explode with spiritual energy upon impact. A _blessed onager_ is most effective against armies of [fiends](/Traits.aspx?ID=600) and other [unholy](/Traits.aspx?ID=521) monsters. If an unholy creature attempts to move or operate a _blessed onager_, it is [enfeebled](/Conditions.aspx?ID=71) 2 for 1 hour, and it takes a –2 circumstance penalty to any skill checks or DCs related to the siege weapon. <br />**Aim** <actions string=\"Three Actions\" /> 50 feet, minimum distance 50 feet <br />**Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 2 times, requires a successful DC 20 [Religion](/Skills.aspx?ID=46) check <br />**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), manipulate, [range increment 120 feet](/Traits.aspx?ID=248)) 5d8 bludgeoning and 4d8 spirit, 10-foot [burst](/Rules.aspx?ID=2385), DC 26 Reflex"
+}

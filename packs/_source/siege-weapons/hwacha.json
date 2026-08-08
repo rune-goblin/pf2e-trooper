@@ -1,0 +1,222 @@
+{
+  "_id": "MJ4fBGr0xak1v94U",
+  "_key": "!actors!MJ4fBGr0xak1v94U",
+  "name": "Hwacha",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/hwacha.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/hwacha.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 16,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 5,
+      "hp": {
+        "value": 40,
+        "max": 40,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Rather than a shoot a single, large projectile like a boulder, the hwacha fires dozens of rocket-propelled arrows at once. The frame of the hwacha …</p>",
+      "level": {
+        "value": 4
+      },
+      "price": 180,
+      "crew": "1-4",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 8,
+        "wide": 6,
+        "high": 6
+      },
+      "speed": "25 feet (pulled or pushed)",
+      "publication": {
+        "title": "Guns & Gears (Remastered)",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 11,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "lg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "hwacha",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "simple",
+        "usage": "mounted  (black powder)",
+        "ammunition": "100 hwacha arrows (2 gp, 1 Bulk)",
+        "reflexSave": 4,
+        "priceText": "180 gp",
+        "aonId": "siege-weapon-18",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=18",
+        "sourceBook": "Guns & Gears (Remastered)",
+        "sourcePage": "Guns & Gears (Remastered) pg. 175",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/hwacha.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>40 feet, minimum distance 40 feet</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "dD18AG2dOy6TNZhX",
+      "_key": "!actors.items!MJ4fBGr0xak1v94U.dD18AG2dOy6TNZhX"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/ThreeActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 3
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) Each Load action loads 10 hwacha arrows. Taking the Launch action requires three Load actions to load 30 hwacha arrows, but you can continue to Load more arrows to increase the effect of the next Launch action, as detailed below.</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "jSxMypWvCLyG5elm",
+      "_key": "!actors.items!MJ4fBGr0xak1v94U.jSxMypWvCLyG5elm"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(manipulate, range increment 300 feet) @Damage[4d8[piercing]], 20-foot burst, @Check[reflex|dc:18|options:area-effect]. If you loaded at least 70 hwacha arrows, the area increases to a 25-foot burst. If you loaded 100 hwacha arrows, the area increases to a 30-foot burst and the damage to @Damage[5d8[piercing]].</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "awcEh3ESwcK1urOn",
+      "_key": "!actors.items!MJ4fBGr0xak1v94U.awcEh3ESwcK1urOn"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "QvlR0CFMM5dt28va",
+      "_key": "!actors.items!MJ4fBGr0xak1v94U.QvlR0CFMM5dt28va"
+    }
+  ]
+}

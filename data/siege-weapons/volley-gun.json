@@ -1,0 +1,42 @@
+{
+  "name": "Volley Gun",
+  "slug": "volley-gun",
+  "level": 17,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Medium"
+  ],
+  "usage": "mounted (black powder)",
+  "price": "27,000 gp",
+  "ammunition": "nine-barrel block (5 gp, L Bulk)",
+  "crew": "1 to 3",
+  "space": "6 feet long, 4 feet wide, 5 feet high",
+  "speed": "20 feet (pulled or pushed)",
+  "defenses": {
+    "ac": 36,
+    "fortitudeSave": 30,
+    "reflexSave": 22,
+    "hardness": 15,
+    "hp": 240,
+    "immunities": [
+      " object immunities "
+    ]
+  },
+  "source": {
+    "book": "Battlecry!",
+    "page": "Battlecry! pg. 107",
+    "releaseDate": "2025-07-31",
+    "aonId": "siege-weapon-66",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=66"
+  },
+  "summary": "Another design originating from a snow-covered land, the volley gun trades the power of black-powder cannons for a high rate of fire at …",
+  "text": "Volley Gun Source Battlecry! pg. 107 Price 27,000 gp Ammunition nine-barrel block (5 gp, L Bulk) --- Usage mounted (black powder) Space 6 feet long, 4 feet wide, 5 feet high Crew 1 to 3 Proficiency martial --- AC 36 Fort +30 Ref +22 Hardness 15 HP 240 Immunities object immunities --- Speed 20 feet (pulled or pushed) --- Another design originating from a snow-covered land, the volley gun trades the power of black-powder cannons for a high rate of fire at a much smaller caliber. The nine barrels of the volley gun are triggered via a crank, rotating around the central shaft. The weapon is reloaded by slotting a single block placed into the breach, allowing each of the nine barrels to be fired before this mounted gun needs to be reloaded. Aim Single Action rotate 45° Load Three Actions (manipulate) 1 time, requires a successful DC 20 Athletics check Launch Single Action (attack, manipulate) 18d6 piercing, 120-foot line, DC 35 Reflex",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 17\">[Volley Gun](/SiegeWeapons.aspx?ID=66)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Medium\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Battlecry!](/Sources.aspx?ID=268) pg. 107\r\n\r\n<row gap=\"medium\">\r\n**Price** 27,000 gp\r\n\r\n**Ammunition** nine-barrel block (5 gp, L Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted (black powder)\n\n**Space** 6 feet long, 4 feet wide, 5 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 1 to 3\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 36\r\n\r\n**Fort** +30\r\n\r\n**Ref** +22\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 15\r\n\r\n**HP** 240\r\n\r\n**Immunities**  object immunities \r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 20 feet (pulled or pushed)\r\n\r\n---\r\n\r\nAnother design originating from a snow-covered land, the volley gun trades the power of black-powder cannons for a high rate of fire at a much smaller caliber. The nine barrels of the volley gun are triggered via a crank, rotating around the central shaft. The weapon is reloaded by slotting a single block placed into the breach, allowing each of the nine barrels to be fired before this mounted gun needs to be reloaded.<br />**Aim** <actions string=\"Single Action\" /> rotate 45° <br />**Load** <actions string=\"Three Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 1 time, requires a successful DC 20 [Athletics](/Skills.aspx?ID=36) check <br />**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), manipulate) 18d6 piercing, 120-foot [line](/Rules.aspx?ID=2388), DC 35 Reflex"
+}

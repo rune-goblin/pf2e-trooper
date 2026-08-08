@@ -1,0 +1,223 @@
+{
+  "_id": "nRVeaPct6RSRQqXw",
+  "_key": "!actors!nRVeaPct6RSRQqXw",
+  "name": "Ballista",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/ballista.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/ballista.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 17,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 10,
+      "hp": {
+        "value": 40,
+        "max": 40,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Resembling a massive crossbow mounted on a tripod, but with a pair of arms for torsion instead of a single prod, a ballista flings massive bolts. …</p>",
+      "level": {
+        "value": 5
+      },
+      "price": 320,
+      "crew": "2",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 10,
+        "wide": 5,
+        "high": null
+      },
+      "speed": "20 feet (pulled or pushed)",
+      "publication": {
+        "title": "Guns & Gears (Remastered)",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 12,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "lg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "ballista",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted",
+        "ammunition": "ballista bolt (5 sp, 1 Bulk)",
+        "reflexSave": 11,
+        "priceText": "320 gp",
+        "aonId": "siege-weapon-2",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=2",
+        "sourceBook": "Guns & Gears (Remastered)",
+        "sourcePage": "Guns & Gears (Remastered) pg. 74",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/ballista.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": null,
+        "description": {
+          "value": "<p>35 feet, minimum distance 25 feet</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "IjoU3sqFdR72UhDz",
+      "_key": "!actors.items!nRVeaPct6RSRQqXw.IjoU3sqFdR72UhDz"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "HD09Pd6qFlGxsgyO",
+      "_key": "!actors.items!nRVeaPct6RSRQqXw.HD09Pd6qFlGxsgyO"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, range increment 120 feet) @Damage[4d12[piercing]], single target, @Check[reflex|dc:19]</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack",
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "IMVZr32Bow59LKg0",
+      "_key": "!actors.items!nRVeaPct6RSRQqXw.IMVZr32Bow59LKg0"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "BF0SmR2ME3mIRMaS",
+      "_key": "!actors.items!nRVeaPct6RSRQqXw.BF0SmR2ME3mIRMaS"
+    }
+  ]
+}

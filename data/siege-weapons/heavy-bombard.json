@@ -1,0 +1,41 @@
+{
+  "name": "Heavy Bombard",
+  "slug": "heavy-bombard",
+  "level": 9,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Gargantuan"
+  ],
+  "usage": "mounted  (black powder)",
+  "price": "1,400 gp",
+  "ammunition": "large stone spheres (8 gp, 16 Bulk)",
+  "crew": "3-6",
+  "space": "17 feet long, 6 feet wide, 6 feet high",
+  "defenses": {
+    "ac": 23,
+    "fortitudeSave": 18,
+    "reflexSave": 10,
+    "hardness": 18,
+    "hp": 50,
+    "immunities": [
+      "object immunities"
+    ]
+  },
+  "source": {
+    "book": "Guns & Gears (Remastered)",
+    "page": "Guns & Gears (Remastered) pg. 175",
+    "releaseDate": "2025-02-18",
+    "aonId": "siege-weapon-17",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=17"
+  },
+  "summary": "A heavy bombard looks like little more than a large metal cylinder, resembling the barrel of a firearm so large that it's immobile. The sheer size of …",
+  "text": "Heavy Bombard Source Guns & Gears (Remastered) pg. 175 Price 1,400 gp Ammunition large stone spheres (8 gp, 16 Bulk) --- Usage mounted (black powder) Space 17 feet long, 6 feet wide, 6 feet high Crew 3-6 Proficiency martial --- AC 23 Fort +18 Ref +10 Hardness 18 HP 50 Immunities object immunities --- A heavy bombard looks like little more than a large metal cylinder, resembling the barrel of a firearm so large that it's immobile. The sheer size of the weapon allows it to strike far and hard. Aim Three Actions 50 feet, minimum distance 50 feet Load Two Actions (manipulate) 3 times, requires a successful DC 20 Athletics check Launch Single Action (manipulate, range increment 250 feet) 7d10 bludgeoning, 20-foot burst, DC 25 Reflex",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 9\">[Heavy Bombard](/SiegeWeapons.aspx?ID=17)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Gargantuan\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Guns &amp; Gears (Remastered)](/Sources.aspx?ID=98) pg. 175\r\n\r\n<row gap=\"medium\">\r\n**Price** 1,400 gp\r\n\r\n**Ammunition** large stone spheres (8 gp, 16 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted  (black powder)\n\n**Space** 17 feet long, 6 feet wide, 6 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 3-6\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 23\r\n\r\n**Fort** +18\r\n\r\n**Ref** +10\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 18\r\n\r\n**HP** 50\r\n\r\n**Immunities** object immunities\r\n</row>\r\n\r\n</column>\r\n\r\n---\n\nA heavy bombard looks like little more than a large metal cylinder, resembling the barrel of a firearm so large that it's immobile. The sheer size of the weapon allows it to strike far and hard.<br /> **Aim**<actions string=\"Three Actions\" /> 50 feet, minimum distance 50 feet<br /> **Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=104)) 3 times, requires a successful DC 20 [Athletics](/Skills.aspx?ID=3) check<br /> **Launch** <actions string=\"Single Action\" /> ([manipulate](/Traits.aspx?ID=104), [range increment 250 feet](/Traits.aspx?ID=248)) 7d10 bludgeoning, 20-foot burst, DC 25 Reflex"
+}

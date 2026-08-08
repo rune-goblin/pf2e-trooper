@@ -1,0 +1,223 @@
+{
+  "_id": "vzc64WETiR22gzCB",
+  "_key": "!actors!vzc64WETiR22gzCB",
+  "name": "Pheromone Sprayer",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/pheromone-sprayer.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/pheromone-sprayer.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 19,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 8,
+      "hp": {
+        "value": 40,
+        "max": 40,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Pheromone sprayers are used to fire mass amounts of alchemical animal pheromones in a more weaponized form to allow researchers an easy way to …</p>",
+      "level": {
+        "value": 5
+      },
+      "price": 350,
+      "crew": "2-4",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 12,
+        "wide": 6,
+        "high": 4
+      },
+      "speed": "15 feet (pulled or pushed)",
+      "publication": {
+        "title": "Howl of the Wild",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 18,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "lg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "pheromone-sprayer",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted",
+        "ammunition": "concentrated pheromone tank (30 gp, 1 Bulk), water tank (5 sp, 1 Bulk)",
+        "reflexSave": 6,
+        "priceText": "350 gp",
+        "aonId": "siege-weapon-28",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=28",
+        "sourceBook": "Howl of the Wild",
+        "sourcePage": "Howl of the Wild pg. 116",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/pheromone-sprayer.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": null,
+        "description": {
+          "value": "<p>rotate 45°</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "wrGReIjBXaE84FXB",
+      "_key": "!actors.items!vzc64WETiR22gzCB.wrGReIjBXaE84FXB"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "trEwapXsvDrOEEv7",
+      "_key": "!actors.items!vzc64WETiR22gzCB.trEwapXsvDrOEEv7"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, olfactory) 80-foot line or 40-foot cone, @Check[will|dc:20|options:area-effect]. Switching between the line or cone mode takes an Interact action, which any of the crew can perform. Designated kinds of animals that fail their save experience the following effects, depending on dilution.\n<ul><li><strong>Low Dilution</strong> Affected creatures are stunned 2.</li><li><strong>Medium Dilution</strong> Affected creatures are fascinated by the scent of the pheromones and off-guard until the end of their next turn.</li><li><strong>High Dilution</strong> Affected creatures are slowed 1 for 1 minute.</li></ul></p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack",
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "jbZQAkUUeyrX5rZm",
+      "_key": "!actors.items!vzc64WETiR22gzCB.jbZQAkUUeyrX5rZm"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "IMPv7rFvzNuBMDHD",
+      "_key": "!actors.items!vzc64WETiR22gzCB.IMPv7rFvzNuBMDHD"
+    }
+  ]
+}

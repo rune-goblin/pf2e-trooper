@@ -1,0 +1,222 @@
+{
+  "_id": "7vn5QDemrR7nV8lv",
+  "_key": "!actors!7vn5QDemrR7nV8lv",
+  "name": "Cyclonic Cannon",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/cyclonic-cannon.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/cyclonic-cannon.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 30,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 15,
+      "hp": {
+        "value": 200,
+        "max": 200,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Unearthed from the ruins of a long-fallen empire, this siege weapon with a tornado motif carved into the barrel has been repaired for modern use. The barrel …</p>",
+      "level": {
+        "value": 13
+      },
+      "price": 7000,
+      "crew": "3 to 4",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 30,
+        "wide": 20,
+        "high": 12
+      },
+      "speed": "5 feet (pushed or pulled)",
+      "publication": {
+        "title": "Pathfinder #223: Hell's Destiny",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 22,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "rare",
+      "size": {
+        "value": "lg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "cyclonic-cannon",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted",
+        "ammunition": "sabot flechettes (10 gp, 5 Bulk)",
+        "reflexSave": 16,
+        "priceText": "7,000 gp",
+        "aonId": "siege-weapon-91",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=91",
+        "sourceBook": "Pathfinder #223: Hell's Destiny",
+        "sourcePage": "Pathfinder #223: Hell's Destiny pg. 225",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/cyclonic-cannon.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/ThreeActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 3
+        },
+        "category": null,
+        "description": {
+          "value": "<p>rotate 45°</p>"
+        },
+        "publication": {
+          "title": "Pathfinder #223: Hell's Destiny",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "d5N6BM1NHOGpWoRy",
+      "_key": "!actors.items!7vn5QDemrR7nV8lv.d5N6BM1NHOGpWoRy"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/ThreeActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 3
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times, requires a successful @Check[arcana|dc:21], Athletics, Nature, or Religion check</p>"
+        },
+        "publication": {
+          "title": "Pathfinder #223: Hell's Destiny",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "yRMER2dm2mmkThCV",
+      "_key": "!actors.items!7vn5QDemrR7nV8lv.yRMER2dm2mmkThCV"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate) @Damage[9d10[piercing]], 250-foot line, @Check[reflex|dc:31|options:area-effect], ignores 5 points of an object’s Hardness</p>"
+        },
+        "publication": {
+          "title": "Pathfinder #223: Hell's Destiny",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack"
+          ]
+        }
+      },
+      "_id": "enfAkgaydF8wOvwr",
+      "_key": "!actors.items!7vn5QDemrR7nV8lv.enfAkgaydF8wOvwr"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Pathfinder #223: Hell's Destiny",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "tq350GdfickMn29z",
+      "_key": "!actors.items!7vn5QDemrR7nV8lv.tq350GdfickMn29z"
+    }
+  ]
+}

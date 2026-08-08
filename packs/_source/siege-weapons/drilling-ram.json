@@ -1,0 +1,188 @@
+{
+  "_id": "VxqTRawO5dfFfDXJ",
+  "_key": "!actors!VxqTRawO5dfFfDXJ",
+  "name": "Drilling Ram",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/drilling-ram.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/drilling-ram.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 0,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 0,
+      "hp": {
+        "value": 0,
+        "max": 0,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>This battering ram is fitted with a large metal drill powered by a clockwork engine. Once rammed into an object, the drill can be activated to weaken …</p>",
+      "level": {
+        "value": 6
+      },
+      "price": 0,
+      "crew": "6",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 0,
+        "wide": 0,
+        "high": 0
+      },
+      "speed": "",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 0,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "med"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "drilling-ram",
+        "siegeWeaponCategory": "Portable",
+        "proficiency": "martial",
+        "usage": "portable, held in 12 hands",
+        "ammunition": null,
+        "reflexSave": null,
+        "priceText": null,
+        "aonId": "siege-weapon-45",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=45",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 102",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/drilling-ram.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 3 times</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "Fg2lJRQc0Va1XGM5",
+      "_key": "!actors.items!VxqTRawO5dfFfDXJ.Fg2lJRQc0Va1XGM5"
+    },
+    {
+      "name": "Ram",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p><strong>Requirements</strong> The other members of the crew have Readied to Stride on your order; <strong>Effect</strong> You and the crew Stride, with a maximum distance equal to the slowest crew member’s Speed, then make a melee Strike with the drilling ram against a structure or unattended, stationary object. This Strike deals piercing damage equal to 5d8 + the highest Strength modifier among members of the crew.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "ouSAC9OqvaiYYNtC",
+      "_key": "!actors.items!VxqTRawO5dfFfDXJ.ouSAC9OqvaiYYNtC"
+    },
+    {
+      "name": "Activate Drill",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) <strong>Requirements</strong> The drilling ram has been used to Strike this round and the rest of the crew is still wielding it; <strong>Effect</strong> The drill whirls to life, burrowing into the structure or object it struck, which has its Hardness reduced by 5 (minimum 0) for the drilling ram’s next Strike. Adamantine structures and objects aren’t affected.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "J64GBh7WYnjNbdFd",
+      "_key": "!actors.items!VxqTRawO5dfFfDXJ.J64GBh7WYnjNbdFd"
+    }
+  ]
+}

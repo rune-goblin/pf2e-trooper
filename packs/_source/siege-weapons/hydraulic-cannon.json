@@ -1,0 +1,252 @@
+{
+  "_id": "rTp42D29ZN9OKZbD",
+  "_key": "!actors!rTp42D29ZN9OKZbD",
+  "name": "Hydraulic Cannon",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/hydraulic-cannon.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/hydraulic-cannon.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 29,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 18,
+      "hp": {
+        "value": 150,
+        "max": 150,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>This remarkable piece of new dwarven artillery uses metallurgy and alchemy to negate nearly all of the immense amount of recoil a shot from a siege …</p>",
+      "level": {
+        "value": 13
+      },
+      "price": 6000,
+      "crew": "4-6",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 9,
+        "wide": 7,
+        "high": 5
+      },
+      "speed": "20 feet (pulled or pushed)",
+      "publication": {
+        "title": "Guns & Gears (Remastered)",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 23,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "rare",
+      "size": {
+        "value": "lg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "hydraulic-cannon",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted  (black powder)",
+        "ammunition": "artillery shell (80 gp, 4 Bulk)",
+        "reflexSave": 16,
+        "priceText": "6,000 gp",
+        "aonId": "siege-weapon-16",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=16",
+        "sourceBook": "Guns & Gears (Remastered)",
+        "sourcePage": "Guns & Gears (Remastered) pg. 175",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/hydraulic-cannon.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Quick Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/Reaction.webp",
+      "system": {
+        "actionType": {
+          "value": "reaction"
+        },
+        "actions": {
+          "value": null
+        },
+        "category": null,
+        "description": {
+          "value": "<p><strong>Trigger</strong> You Launch this siege weapon, after determining the effects of the Launch action. <strong>Effect</strong> You Aim this siege weapon, moving the aim up to 10 feet instead of its normal distance.</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "iIxN1kI7Sq2EldT7",
+      "_key": "!actors.items!rTp42D29ZN9OKZbD.iIxN1kI7Sq2EldT7"
+    },
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>100 feet, minimum distance 150 feet</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "LSvBEGPWj2tiv2vY",
+      "_key": "!actors.items!rTp42D29ZN9OKZbD.LSvBEGPWj2tiv2vY"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 3 times, requires a successful @Check[athletics|dc:20] check</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "lbY5Ycv4Hs9CaSl9",
+      "_key": "!actors.items!rTp42D29ZN9OKZbD.lbY5Ycv4Hs9CaSl9"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(manipulate, range increment 500 feet) @Damage[8d12[bludgeoning]], 20-foot burst, @Check[reflex|dc:30|options:area-effect]</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "5nvmo7sFCIQaY7jS",
+      "_key": "!actors.items!rTp42D29ZN9OKZbD.5nvmo7sFCIQaY7jS"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "6TCqapefPIXuJZYH",
+      "_key": "!actors.items!rTp42D29ZN9OKZbD.6TCqapefPIXuJZYH"
+    }
+  ]
+}

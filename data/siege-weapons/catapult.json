@@ -1,0 +1,42 @@
+{
+  "name": "Catapult",
+  "slug": "catapult",
+  "level": 7,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Large"
+  ],
+  "usage": "mounted",
+  "price": "650 gp",
+  "ammunition": "stones (0 gp, 4 Bulk)",
+  "crew": "2-4",
+  "space": "10 feet long, 10 feet wide, 6 feet high",
+  "speed": "15 feet (pushed or pulled)",
+  "defenses": {
+    "ac": 20,
+    "fortitudeSave": 15,
+    "reflexSave": 8,
+    "hardness": 10,
+    "hp": 60,
+    "immunities": [
+      "object immunities"
+    ]
+  },
+  "source": {
+    "book": "Guns & Gears (Remastered)",
+    "page": "Guns & Gears (Remastered) pg. 75",
+    "releaseDate": "2025-02-18",
+    "aonId": "siege-weapon-5",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=5"
+  },
+  "summary": "A sturdy wooden frame holds the spring-loaded beam that gives this weapon its power. At the end of the beam, a bowl-shaped wooden recession holds the …",
+  "text": "Catapult Source Guns & Gears (Remastered) pg. 75 Price 650 gp Ammunition stones (0 gp, 4 Bulk) --- Usage mounted Space 10 feet long, 10 feet wide, 6 feet high Crew 2-4 Proficiency martial --- AC 20 Fort +15 Ref +8 Hardness 10 HP 60 Immunities object immunities --- Speed 15 feet (pushed or pulled) --- A sturdy wooden frame holds the spring-loaded beam that gives this weapon its power. At the end of the beam, a bowl-shaped wooden recession holds the payload, typically heavy stones. The arm is winched back to create torsion, until the release is pulled to abruptly swing the arm forward and fling the payload. Aim Two Actions 50 feet, minimum distance 50 feet Load Two Actions (manipulate) 2 times, requires a successful DC 20 Athletics check Launch Single Action (attack, manipulate, range increment 150 feet) 5d10 bludgeoning, 10-foot burst, DC 22 Reflex",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 7\">[Catapult](/SiegeWeapons.aspx?ID=5)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Large\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Guns &amp; Gears (Remastered)](/Sources.aspx?ID=98) pg. 75\r\n\r\n<row gap=\"medium\">\r\n**Price** 650 gp\r\n\r\n**Ammunition** stones (0 gp, 4 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted\n\n**Space** 10 feet long, 10 feet wide, 6 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 2-4\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 20\r\n\r\n**Fort** +15\r\n\r\n**Ref** +8\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 10\r\n\r\n**HP** 60\r\n\r\n**Immunities** object immunities\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 15 feet (pushed or pulled)\r\n\r\n---\r\n\r\nA sturdy wooden frame holds the spring-loaded beam that gives this weapon its power. At the end of the beam, a bowl-shaped wooden recession holds the payload, typically heavy stones. The arm is winched back to create torsion, until the release is pulled to abruptly swing the arm forward and fling the payload.<br /> **Aim**<actions string=\"Two Actions\" /> 50 feet, minimum distance 50 feet<br /> **Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=104)) 2 times, requires a successful DC 20 [Athletics](/Skills.aspx?ID=3) check<br /> **Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=15), [manipulate](/Traits.aspx?ID=104), [range increment 150 feet](/Traits.aspx?ID=248)) 5d10 bludgeoning, 10-foot burst, DC 22 Reflex"
+}

@@ -1,0 +1,222 @@
+{
+  "_id": "9mQrUWDAmqhqxHgs",
+  "_key": "!actors!9mQrUWDAmqhqxHgs",
+  "name": "Glacial Zephyr",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/glacial-zephyr.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/glacial-zephyr.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 34,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 10,
+      "hp": {
+        "value": 200,
+        "max": 200,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Rumors say the design for the first glacial zephyr originated deep underground, where certain heat-leeching fungi and other alchemical reagents …</p>",
+      "level": {
+        "value": 15
+      },
+      "price": 13000,
+      "crew": "3 to 4",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 15,
+        "wide": 15,
+        "high": 6
+      },
+      "speed": "20 feet (pulled or pushed)",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 26,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "huge"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "glacial-zephyr",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted",
+        "ammunition": "gelid paste jar (2 gp, 1 Bulk)",
+        "reflexSave": 19,
+        "priceText": "13,000 gp",
+        "aonId": "siege-weapon-54",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=54",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 103",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/glacial-zephyr.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>rotate 30°</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "kN2lPSteGomKDPhX",
+      "_key": "!actors.items!9mQrUWDAmqhqxHgs.kN2lPSteGomKDPhX"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/ThreeActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 3
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "bSKqXFf6MBGmLACo",
+      "_key": "!actors.items!9mQrUWDAmqhqxHgs.bSKqXFf6MBGmLACo"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, cold, manipulate) @Damage[10d8[cold]] and @Damage[2d8[persistent,cold]], 60-foot cone, @Check[reflex|dc:33|options:area-effect]</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack"
+          ]
+        }
+      },
+      "_id": "E6ZH30IBsuR2q7cG",
+      "_key": "!actors.items!9mQrUWDAmqhqxHgs.E6ZH30IBsuR2q7cG"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "8Y9KNt14hTrrYxdP",
+      "_key": "!actors.items!9mQrUWDAmqhqxHgs.8Y9KNt14hTrrYxdP"
+    }
+  ]
+}

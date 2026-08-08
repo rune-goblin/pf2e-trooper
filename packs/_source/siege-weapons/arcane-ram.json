@@ -1,0 +1,126 @@
+{
+  "_id": "W6dxDTOVn60EQhpd",
+  "_key": "!actors!W6dxDTOVn60EQhpd",
+  "name": "Arcane Ram",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/arcane-ram.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/arcane-ram.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 0,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 0,
+      "hp": {
+        "value": 0,
+        "max": 0,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>A steel-banded marble orb etched with magical runes is attached to the end of this sleek battering ram. The orb transforms the momentum of its crew …</p>",
+      "level": {
+        "value": 8
+      },
+      "price": 950,
+      "crew": "6",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 0,
+        "wide": 0,
+        "high": 0
+      },
+      "speed": "",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 0,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "lg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "arcane-ram",
+        "siegeWeaponCategory": "Portable",
+        "proficiency": "martial",
+        "usage": "portable, held in 12 hands",
+        "ammunition": null,
+        "reflexSave": null,
+        "priceText": "950 gp",
+        "aonId": "siege-weapon-39",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=39",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 100",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/arcane-ram.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Ram",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p><strong>Requirements</strong> The other members of the crew have Readied to Stride on your order; <strong>Effect</strong> You and the crew Stride, with a maximum distance equal to the slowest crew member’s Speed, then make a melee Strike with the ram against a structure or unattended, stationary object. This Strike deals @Damage[8d8[force]] damage. After taking this damage, an unattended, stationary object of 10 or fewer Bulk is pushed 10 feet away from the _arcane ram_. Once used to Ram, an _arcane ram_ takes 1 minute to absorb enough ambient magic to deal force damage again; until then, it functions like a regular battering ram.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "DX5FzL7ffSLFx87Z",
+      "_key": "!actors.items!W6dxDTOVn60EQhpd.DX5FzL7ffSLFx87Z"
+    }
+  ]
+}

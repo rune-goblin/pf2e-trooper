@@ -1,0 +1,42 @@
+{
+  "name": "Clockwork Ballista",
+  "slug": "clockwork-ballista",
+  "level": 12,
+  "rarity": "rare",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Mounted",
+    "Rare"
+  ],
+  "size": [
+    "Huge"
+  ],
+  "usage": "mounted",
+  "price": "4,000 gp",
+  "ammunition": "clockwork ballista bolt (30 gp, 3 Bulk)",
+  "crew": "1 to 2",
+  "space": "15 feet long, 12 feet wide, 12 feet high",
+  "speed": "25 feet (pulled or pushed)",
+  "defenses": {
+    "ac": 28,
+    "fortitudeSave": 24,
+    "reflexSave": 18,
+    "hardness": 20,
+    "hp": 150,
+    "immunities": [
+      " object immunities "
+    ]
+  },
+  "source": {
+    "book": "Battlecry!",
+    "page": "Battlecry! pg. 101",
+    "releaseDate": "2025-07-31",
+    "aonId": "siege-weapon-42",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=42"
+  },
+  "summary": "Finding a working clockwork arbalest—a relic of a lost empire’s engineering at its height—is all but impossible now. There are scholarly records, though, …",
+  "text": "Clockwork Ballista Source Battlecry! pg. 101 Price 4,000 gp Ammunition clockwork ballista bolt (30 gp, 3 Bulk) --- Usage mounted Space 15 feet long, 12 feet wide, 12 feet high Crew 1 to 2 Proficiency martial --- AC 28 Fort +24 Ref +18 Hardness 20 HP 150 Immunities object immunities --- Speed 25 feet (pulled or pushed) --- Finding a working clockwork arbalest—a relic of a lost empire’s engineering at its height—is all but impossible now. There are scholarly records, though, that describe the complex mechanisms of the device, which practically automates the process of reloading and firing a standard ballista. The result is extremely effective, as the ballista reloads from a hopper of bolts with a pull of a lever, has a move assist feature that aids in repositioning the weapon, and even features a gyroscope sight array to aid with aiming. The bolts feature clockwork blades that deploy after the initial hit, making the impact point an impassible hazard. By all accounts, a single operator could keep up a steady rate of fire with the clockwork ballista until they ran out of bolts, though the designs suggest two crew members for smooth function and efficient use. Aim Single Action 80 feet, minimum distance 50 feet Load Single Action (manipulate) 1 time, as long as the hopper contains bolts Reload Hopper Single Action (manipulate) up to 8 times Launch Single Action (attack, manipulate, range increment 200 feet) 8d12 piercing, single target, DC 29 Reflex. At the start of your next turn, a tightly wound internal spring inside the clockwork ballista bolt deploys several bladed arms that last for 1 minute. Each creature who begins their turn in or moves through a 5-foot emanation from the original square of the targeted creature takes 4d8 slashing damage (DC 28 basic Reflex save) for the duration.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 12\">[Clockwork Ballista](/SiegeWeapons.aspx?ID=42)</title>\r\n\r\n<traits>\r\n<trait label=\"Rare\" url=\"/Traits.aspx?ID=137\" />\r\n<trait label=\"Huge\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Battlecry!](/Sources.aspx?ID=268) pg. 101\r\n\r\n<row gap=\"medium\">\r\n**Price** 4,000 gp\r\n\r\n**Ammunition** clockwork ballista bolt (30 gp, 3 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted\n\n**Space** 15 feet long, 12 feet wide, 12 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 1 to 2\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 28\r\n\r\n**Fort** +24\r\n\r\n**Ref** +18\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 20\r\n\r\n**HP** 150\r\n\r\n**Immunities**  object immunities \r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 25 feet (pulled or pushed)\r\n\r\n---\r\n\r\nFinding a working clockwork arbalest—a relic of a lost empire’s engineering at its height—is all but impossible now. There are scholarly records, though, that describe the complex mechanisms of the device, which practically automates the process of reloading and firing a standard ballista. The result is extremely effective, as the ballista reloads from a hopper of bolts with a pull of a lever, has a move assist feature that aids in repositioning the weapon, and even features a gyroscope sight array to aid with aiming. The bolts feature clockwork blades that deploy after the initial hit, making the impact point an impassible hazard. By all accounts, a single operator could keep up a steady rate of fire with the clockwork ballista until they ran out of bolts, though the designs suggest two crew members for smooth function and efficient use. <br />**Aim** <actions string=\"Single Action\" /> 80 feet, minimum distance 50 feet <br />**Load** <actions string=\"Single Action\" /> ([manipulate](/Traits.aspx?ID=645)) 1 time, as long as the hopper contains bolts <br />**Reload Hopper** <actions string=\"Single Action\" /> (manipulate) up to 8 times <br />**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), manipulate, [range increment 200 feet](/Traits.aspx?ID=248)) 8d12 piercing, single target, DC 29 Reflex. At the start of your next turn, a tightly wound internal spring inside the clockwork ballista bolt deploys several bladed arms that last for 1 minute. Each creature who begins their turn in or moves through a 5-foot emanation from the original square of the targeted creature takes 4d8 slashing damage (DC 28 [basic](/Rules.aspx?ID=2297) Reflex save) for the duration."
+}

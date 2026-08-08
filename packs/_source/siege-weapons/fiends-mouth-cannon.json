@@ -1,0 +1,190 @@
+{
+  "_id": "Xs1y6W7lyWcqRX6D",
+  "_key": "!actors!Xs1y6W7lyWcqRX6D",
+  "name": "Fiend's Mouth Cannon",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/fiends-mouth-cannon.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/fiends-mouth-cannon.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 26,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 18,
+      "hp": {
+        "value": 90,
+        "max": 90,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Fiend's mouth cannons are large-scale cannons designed to blast a target at great distance, from a stationary location. They get their name from the …</p>",
+      "level": {
+        "value": 11
+      },
+      "price": 2800,
+      "crew": "3-6",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 15,
+        "wide": 15,
+        "high": 8
+      },
+      "speed": "",
+      "publication": {
+        "title": "Guns & Gears (Remastered)",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 21,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "huge"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "fiends-mouth-cannon",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted  (black powder)",
+        "ammunition": "cannonball (10 gp, 6 Bulk)",
+        "reflexSave": 13,
+        "priceText": "2,800 gp",
+        "aonId": "siege-weapon-14",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=14",
+        "sourceBook": "Guns & Gears (Remastered)",
+        "sourcePage": "Guns & Gears (Remastered) pg. 174",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/fiends-mouth-cannon.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>200 feet, minimum distance 50 feet</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "CaqwoinQT6rJGJsN",
+      "_key": "!actors.items!Xs1y6W7lyWcqRX6D.CaqwoinQT6rJGJsN"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times, requires a successful @Check[athletics|dc:20] check</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "lEe92MeewHwKQhDa",
+      "_key": "!actors.items!Xs1y6W7lyWcqRX6D.lEe92MeewHwKQhDa"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(manipulate, range increment 300 feet) @Damage[8d12[bludgeoning]], single target, @Check[reflex|dc:27]</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "DoaxIjeAfI4a1Bcs",
+      "_key": "!actors.items!Xs1y6W7lyWcqRX6D.DoaxIjeAfI4a1Bcs"
+    }
+  ]
+}

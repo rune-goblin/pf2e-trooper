@@ -1,0 +1,222 @@
+{
+  "_id": "wqOyKX5jxwF1iZDA",
+  "_key": "!actors!wqOyKX5jxwF1iZDA",
+  "name": "Long Cannon",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/long-cannon.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/long-cannon.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 38,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 20,
+      "hp": {
+        "value": 250,
+        "max": 250,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>The long cannon is an incredibly expensive and deadly bombard, designed by the engineers of a great gunworks in an attempt to craft a slightly more …</p>",
+      "level": {
+        "value": 18
+      },
+      "price": 38000,
+      "crew": "4 to 8",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 26,
+        "wide": 12,
+        "high": 14
+      },
+      "speed": "5 feet (pushed or pulled)",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 27,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "rare",
+      "size": {
+        "value": "huge"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "long-cannon",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted (black powder)",
+        "ammunition": "massive stone sphere (10 gp, 60 Bulk)",
+        "reflexSave": 19,
+        "priceText": "38,000 gp",
+        "aonId": "siege-weapon-65",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=65",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 106",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/long-cannon.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/ThreeActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 3
+        },
+        "category": null,
+        "description": {
+          "value": "<p>50 feet, minimum distance 250 feet</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "RF0opBFx7PUarHCr",
+      "_key": "!actors.items!wqOyKX5jxwF1iZDA.RF0opBFx7PUarHCr"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/ThreeActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 3
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 5 times, requires a successful @Check[athletics|dc:25] check</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "HpTksfx6tddSN1iV",
+      "_key": "!actors.items!wqOyKX5jxwF1iZDA.HpTksfx6tddSN1iV"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, range increment 800 feet) @Damage[14d10[bludgeoning]], 20-foot burst, @Check[reflex|dc:37|options:area-effect]</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack"
+          ]
+        }
+      },
+      "_id": "u2pCjiR3kFtvxOK2",
+      "_key": "!actors.items!wqOyKX5jxwF1iZDA.u2pCjiR3kFtvxOK2"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "4jBtGXZWQE3Jj7Zb",
+      "_key": "!actors.items!wqOyKX5jxwF1iZDA.4jBtGXZWQE3Jj7Zb"
+    }
+  ]
+}

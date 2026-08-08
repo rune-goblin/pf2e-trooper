@@ -71,10 +71,18 @@ Code style: global `~/.claude/CLAUDE.md` — comment only the non-obvious *why*.
 - **Siege-engine art lives in `assets/siege-engines/`** — flat, one `<slug>.webp` per engine, no
   subfolders. One image fills all three slots (sheet portrait, battle token, kingdom-map piece);
   the triple layout used for troops would mean duplicate files for art that doesn't exist yet.
-  Append-only for the same reason as `assets/troops/`: pf2e-reignmaker bakes
-  `modules/pf2e-trooper/assets/siege-engines/<slug>.webp` into its shipped siege-weapon compendium
-  and into live worlds. No api covers these — the paths are baked at RM's pack-build time, so
-  nothing looks them up by name; this module hosts the files and nothing more.
+  Append-only for the same reason as `assets/troops/`: the paths are baked into the shipped
+  siege-weapon compendium and into live ReignMaker worlds. No api covers these — nothing looks
+  them up by name.
+- **The siege-weapon compendium is generated, not authored.**
+  `scripts/build-siege-weapon-pack.ts` turns the AoN stat blocks in `data/siege-weapons/` (59
+  weapons, one JSON each — see its README) into pf2e `vehicle` actors under
+  `packs/_source/siege-weapons/`, which `scripts/pack.ts` then compiles like any other pack. It
+  runs first in `npm run build`; `npm run build:siege-pack` runs it alone. It is the **only**
+  writer of that tree — to change an actor, change the data or the generator and regenerate.
+  Each actor carries `flags['pf2e-trooper']['siege-weapon']` (slug, proficiency, ammunition,
+  Reflex save, AoN provenance, `strategyTokenImage`); pf2e-reignmaker recognizes a siege vehicle
+  on its kingdom map by that flag. Kingdom build costs are RM's and deliberately stay there.
 - **This module decides what art exists for a published troop name**, and answers through
   `game.modules.get('pf2e-trooper').api.troopArt(name)` / `.troopArtSlugs()` (`src/art/`).
   Registered at `init`, not `ready`: ReignMaker calls `troopArt()` synchronously and Foundry

@@ -1,0 +1,42 @@
+{
+  "name": "Long Cannon",
+  "slug": "long-cannon",
+  "level": 18,
+  "rarity": "rare",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Mounted",
+    "Rare"
+  ],
+  "size": [
+    "Huge"
+  ],
+  "usage": "mounted (black powder)",
+  "price": "38,000 gp",
+  "ammunition": "massive stone sphere (10 gp, 60 Bulk)",
+  "crew": "4 to 8",
+  "space": "26 feet long, 12 feet wide, 14 feet high",
+  "speed": "5 feet (pushed or pulled)",
+  "defenses": {
+    "ac": 38,
+    "fortitudeSave": 27,
+    "reflexSave": 19,
+    "hardness": 20,
+    "hp": 250,
+    "immunities": [
+      " object immunities "
+    ]
+  },
+  "source": {
+    "book": "Battlecry!",
+    "page": "Battlecry! pg. 106",
+    "releaseDate": "2025-07-31",
+    "aonId": "siege-weapon-65",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=65"
+  },
+  "summary": "The long cannon is an incredibly expensive and deadly bombard, designed by the engineers of a great gunworks in an attempt to craft a slightly more …",
+  "text": "Long Cannon Source Battlecry! pg. 106 Price 38,000 gp Ammunition massive stone sphere (10 gp, 60 Bulk) --- Usage mounted (black powder) Space 26 feet long, 12 feet wide, 14 feet high Crew 4 to 8 Proficiency martial --- AC 38 Fort +27 Ref +19 Hardness 20 HP 250 Immunities object immunities --- Speed 5 feet (pushed or pulled) --- The long cannon is an incredibly expensive and deadly bombard, designed by the engineers of a great gunworks in an attempt to craft a slightly more portable version of a far larger siege bombard. Named for its elongated barrel, the long cannon fires massive, specially made stone spheres propelled by gunpowder explosions in the barrel. Due to its size and weight, it’s difficult to move along its wide runners, especially through muddy terrain. Only a couple of long cannons have been built, and no one has yet to commission another as the materials alone cost a small fortune. Aim Three Actions 50 feet, minimum distance 250 feet Load Three Actions (manipulate) 5 times, requires a successful DC 25 Athletics check Launch Single Action (attack, manipulate, range increment 800 feet) 14d10 bludgeoning, 20-foot burst, DC 37 Reflex",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 18\">[Long Cannon](/SiegeWeapons.aspx?ID=65)</title>\r\n\r\n<traits>\r\n<trait label=\"Rare\" url=\"/Traits.aspx?ID=137\" />\r\n<trait label=\"Huge\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Battlecry!](/Sources.aspx?ID=268) pg. 106\r\n\r\n<row gap=\"medium\">\r\n**Price** 38,000 gp\r\n\r\n**Ammunition** massive stone sphere (10 gp, 60 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted (black powder)\n\n**Space** 26 feet long, 12 feet wide, 14 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 4 to 8\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 38\r\n\r\n**Fort** +27\r\n\r\n**Ref** +19\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 20\r\n\r\n**HP** 250\r\n\r\n**Immunities**  object immunities \r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 5 feet (pushed or pulled)\r\n\r\n---\r\n\r\nThe long cannon is an incredibly expensive and deadly bombard, designed by the engineers of a great gunworks in an attempt to craft a slightly more portable version of a far larger siege bombard. Named for its elongated barrel, the long cannon fires massive, specially made stone spheres propelled by gunpowder explosions in the barrel. Due to its size and weight, it’s difficult to move along its wide runners, especially through muddy terrain. Only a couple of long cannons have been built, and no one has yet to commission another as the materials alone cost a small fortune.<br />**Aim** <actions string=\"Three Actions\" /> 50 feet, minimum distance 250 feet <br />**Load** <actions string=\"Three Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 5 times, requires a successful DC 25 [Athletics](/Skills.aspx?ID=36) check <br />**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), manipulate, [range increment 800 feet](/Traits.aspx?ID=248)) 14d10 bludgeoning, 20-foot [burst](/Rules.aspx?ID=2385), DC 37 Reflex"
+}

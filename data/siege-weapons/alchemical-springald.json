@@ -1,0 +1,42 @@
+{
+  "name": "Alchemical Springald",
+  "slug": "alchemical-springald",
+  "level": 13,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Huge"
+  ],
+  "usage": "mounted  (black powder)",
+  "price": "6,000 gp",
+  "ammunition": "bomb arrows (100 gp, 2 Bulk)",
+  "crew": "3-5",
+  "space": "15 feet long, 12 feet wide, 15 feet high",
+  "speed": "10 feet (pushed or pulled)",
+  "defenses": {
+    "ac": 29,
+    "fortitudeSave": 23,
+    "reflexSave": 16,
+    "hardness": 15,
+    "hp": 200,
+    "immunities": [
+      "object immunities"
+    ]
+  },
+  "source": {
+    "book": "Guns & Gears (Remastered)",
+    "page": "Guns & Gears (Remastered) pg. 173",
+    "releaseDate": "2025-02-18",
+    "aonId": "siege-weapon-10",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=10"
+  },
+  "summary": "Like the standard springald, an alchemical springald can launch three arrows simultaneously when its paddle is released. It fires specially crafted …",
+  "text": "Alchemical Springald Source Guns & Gears (Remastered) pg. 173 Price 6,000 gp Ammunition bomb arrows (100 gp, 2 Bulk) --- Usage mounted (black powder) Space 15 feet long, 12 feet wide, 15 feet high Crew 3-5 Proficiency martial --- AC 29 Fort +23 Ref +16 Hardness 15 HP 200 Immunities object immunities --- Speed 10 feet (pushed or pulled) --- Like the standard springald, an alchemical springald can launch three arrows simultaneously when its paddle is released. It fires specially crafted and balanced bomb arrows that carry black powder enhanced alchemical payloads that explode on impact. Aim Two Actions 30 feet, minimum distance 50 feet Load Two Actions (manipulate) 3 times Launch Single Action (manipulate, range increment 100 feet) 10d6 damage and 3 splash damage, three different targets within a 15-foot burst, DC 30 Reflex. The damage type depends on the alchemical ammunition used: acid, cold, electricity, or fire. Creatures take the splash damage only once from the launch, even if they're in the area of more than one of the three splashes.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 13\">[Alchemical Springald](/SiegeWeapons.aspx?ID=10)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Huge\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Guns &amp; Gears (Remastered)](/Sources.aspx?ID=98) pg. 173\r\n\r\n<row gap=\"medium\">\r\n**Price** 6,000 gp\r\n\r\n**Ammunition** bomb arrows (100 gp, 2 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted  (black powder)\n\n**Space** 15 feet long, 12 feet wide, 15 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 3-5\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 29\r\n\r\n**Fort** +23\r\n\r\n**Ref** +16\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 15\r\n\r\n**HP** 200\r\n\r\n**Immunities** object immunities\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 10 feet (pushed or pulled)\r\n\r\n---\r\n\r\nLike the standard springald, an alchemical springald can launch three arrows simultaneously when its paddle is released. It fires specially crafted and balanced bomb arrows that carry black powder enhanced alchemical payloads that explode on impact.<br /> **Aim** <actions string=\"Two Actions\" /> 30 feet, minimum distance 50 feet<br /> **Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=104)) 3 times<br /> **Launch** <actions string=\"Single Action\" /> ([manipulate](/Traits.aspx?ID=104), [range increment 100 feet](/Traits.aspx?ID=248)) 10d6 damage and 3 [splash](/Traits.aspx?ID=150) damage, three different targets within a 15-foot burst, DC 30 Reflex. The damage type depends on the alchemical ammunition used: acid, cold, electricity, or fire. Creatures take the splash damage only once from the launch, even if they're in the area of more than one of the three splashes."
+}

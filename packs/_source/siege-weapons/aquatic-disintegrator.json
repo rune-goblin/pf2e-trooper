@@ -1,0 +1,223 @@
+{
+  "_id": "1ThPaKubtyq30DOy",
+  "_key": "!actors!1ThPaKubtyq30DOy",
+  "name": "Aquatic Disintegrator",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/aquatic-disintegrator.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/aquatic-disintegrator.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 30,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 17,
+      "hp": {
+        "value": 200,
+        "max": 200,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Originally developed as a means of deterring kaiju rampages, aquatic disintegrators are specialized cannons designed to fire capsules containing …</p>",
+      "level": {
+        "value": 15
+      },
+      "price": 12500,
+      "crew": "2-4",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 6,
+        "wide": 4,
+        "high": 3
+      },
+      "speed": "20 feet (pulled or pushed)",
+      "publication": {
+        "title": "Howl of the Wild",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 32,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "rare",
+      "size": {
+        "value": "lg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "aquatic-disintegrator",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted (black powder)",
+        "ammunition": "seasplinter capsule (1,200 gp, 4 Bulk)",
+        "reflexSave": 18,
+        "priceText": "12,500 gp",
+        "aonId": "siege-weapon-22",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=22",
+        "sourceBook": "Howl of the Wild",
+        "sourcePage": "Howl of the Wild pg. 114",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/aquatic-disintegrator.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/ThreeActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 3
+        },
+        "category": null,
+        "description": {
+          "value": "<p>100 feet, minimum distance 50 feet</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "eXWCAJlToWumflQY",
+      "_key": "!actors.items!1ThPaKubtyq30DOy.eXWCAJlToWumflQY"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times, requires a successful @Check[athletics|dc:20] check</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "T3OYfNGspkeH8TTy",
+      "_key": "!actors.items!1ThPaKubtyq30DOy.T3OYfNGspkeH8TTy"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, range increment 200 feet) 10d10 damage (no damage type), 30-foot burst, @Check[reflex|dc:33|options:area-effect]. The seasplinter capsule must land in saltwater for this damage to occur. Any creature in the burst radius whose body is not in saltwater takes no damage and doesn't need to attempt a Reflex save. A creature reduced to 0 HP by this damage disintegrates into a skeleton. \n<strong>Success</strong> The target takes half damage. \n<strong>Failure</strong> The target takes full damage and is stunned 1. \n<strong>Critical Failure</strong> The target takes double damage and is stunned 2.</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack",
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "R0fnJVSqKJKgTDDu",
+      "_key": "!actors.items!1ThPaKubtyq30DOy.R0fnJVSqKJKgTDDu"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "zmhi4pGnbsd4C7oO",
+      "_key": "!actors.items!1ThPaKubtyq30DOy.zmhi4pGnbsd4C7oO"
+    }
+  ]
+}

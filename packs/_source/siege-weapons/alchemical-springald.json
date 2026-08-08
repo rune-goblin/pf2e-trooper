@@ -1,0 +1,222 @@
+{
+  "_id": "5qOFXJFs6mZfrR4a",
+  "_key": "!actors!5qOFXJFs6mZfrR4a",
+  "name": "Alchemical Springald",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/alchemical-springald.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/alchemical-springald.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 29,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 15,
+      "hp": {
+        "value": 200,
+        "max": 200,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Like the standard springald, an alchemical springald can launch three arrows simultaneously when its paddle is released. It fires specially crafted …</p>",
+      "level": {
+        "value": 13
+      },
+      "price": 6000,
+      "crew": "3-5",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 15,
+        "wide": 12,
+        "high": 15
+      },
+      "speed": "10 feet (pushed or pulled)",
+      "publication": {
+        "title": "Guns & Gears (Remastered)",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 23,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "huge"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "alchemical-springald",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted  (black powder)",
+        "ammunition": "bomb arrows (100 gp, 2 Bulk)",
+        "reflexSave": 16,
+        "priceText": "6,000 gp",
+        "aonId": "siege-weapon-10",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=10",
+        "sourceBook": "Guns & Gears (Remastered)",
+        "sourcePage": "Guns & Gears (Remastered) pg. 173",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/alchemical-springald.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>30 feet, minimum distance 50 feet</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "Ygfa8XL14YDmunTq",
+      "_key": "!actors.items!5qOFXJFs6mZfrR4a.Ygfa8XL14YDmunTq"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 3 times</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "Sq6hmpiaZhNTHuZ3",
+      "_key": "!actors.items!5qOFXJFs6mZfrR4a.Sq6hmpiaZhNTHuZ3"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(manipulate, range increment 100 feet) 10d6 damage and 3 splash damage, three different targets within a 15-foot burst, @Check[reflex|dc:30|options:area-effect]. The damage type depends on the alchemical ammunition used: acid, cold, electricity, or fire. Creatures take the splash damage only once from the launch, even if they're in the area of more than one of the three splashes.</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "drNB2lCKYkXfHlbm",
+      "_key": "!actors.items!5qOFXJFs6mZfrR4a.drNB2lCKYkXfHlbm"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "qZ3eDGTwys4BCHyY",
+      "_key": "!actors.items!5qOFXJFs6mZfrR4a.qZ3eDGTwys4BCHyY"
+    }
+  ]
+}

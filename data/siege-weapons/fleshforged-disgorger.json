@@ -1,0 +1,43 @@
+{
+  "name": "Fleshforged Disgorger",
+  "slug": "fleshforged-disgorger",
+  "level": 17,
+  "rarity": "rare",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Magical",
+    "Mounted",
+    "Rare"
+  ],
+  "size": [
+    "Huge"
+  ],
+  "usage": "mounted",
+  "price": "26,500 gp",
+  "ammunition": "barrel of alchemical syrup (25 gp, 5 Bulk)",
+  "crew": "3 to 5",
+  "space": "16 feet long, 16 feet wide, 14 feet high",
+  "speed": "10 feet (pulled or pushed)",
+  "defenses": {
+    "ac": 36,
+    "fortitudeSave": 30,
+    "reflexSave": 25,
+    "hardness": 5,
+    "hp": 290,
+    "immunities": [
+      " object immunities "
+    ]
+  },
+  "source": {
+    "book": "Battlecry!",
+    "page": "Battlecry! pg. 104",
+    "releaseDate": "2025-07-31",
+    "aonId": "siege-weapon-57",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=57"
+  },
+  "summary": "Not everything produced in the fleshforges can be classified as a creature. One such large example is the fleshforged disgorger , a corpulent tube …",
+  "text": "Fleshforged Disgorger Source Battlecry! pg. 104 Price 26,500 gp Ammunition barrel of alchemical syrup (25 gp, 5 Bulk) --- Usage mounted Space 16 feet long, 16 feet wide, 14 feet high Crew 3 to 5 Proficiency martial --- AC 36 Fort +30 Ref +25 Hardness 5 HP 290 Immunities object immunities --- Speed 10 feet (pulled or pushed) --- Not everything produced in the fleshforges can be classified as a creature. One such large example is the fleshforged disgorger , a corpulent tube of flesh that, while inanimate, can “digest” a special alchemical syrup to produce explosive gobs of acidic effluvia. These gobs are propelled by muscular contractions and can travel an astounding distance. A fleshforged disgorger can’t move on its own, so it’s transported within a pool containing a layer of nutrient slurry and mounted on a reinforced wagon. Aim Three Actions 40 feet, minimum distance 50 feet Load Three Actions (manipulate) 2 times, requires a successful DC 20 Athletics or Medicine check Launch Three Actions (attack, magical, manipulate, range increment 100 feet) 15d6 acid and 2d6 persistent acid, 30-foot burst, DC 35 Reflex. Because a disgorger launches its gob at a high angle, the gob descends on the center of the burst from above, not in a straight line from the disgorger. This affects whether creatures have cover from the launch.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 17\">[Fleshforged Disgorger](/SiegeWeapons.aspx?ID=57)</title>\r\n\r\n<traits>\r\n<trait label=\"Rare\" url=\"/Traits.aspx?ID=137\" />\r\n<trait label=\"Huge\" />\r\n<trait label=\"Magical\" url=\"/Traits.aspx?ID=103\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Battlecry!](/Sources.aspx?ID=268) pg. 104\r\n\r\n<row gap=\"medium\">\r\n**Price** 26,500 gp\r\n\r\n**Ammunition** barrel of alchemical syrup (25 gp, 5 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted\n\n**Space** 16 feet long, 16 feet wide, 14 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 3 to 5\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 36\r\n\r\n**Fort** +30\r\n\r\n**Ref** +25\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 5\r\n\r\n**HP** 290\r\n\r\n**Immunities**  object immunities \r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 10 feet (pulled or pushed)\r\n\r\n---\r\n\r\nNot everything produced in the fleshforges can be classified as a creature. One such large example is the _fleshforged disgorger_, a corpulent tube of flesh that, while inanimate, can “digest” a special alchemical syrup to produce explosive gobs of acidic effluvia. These gobs are propelled by muscular contractions and can travel an astounding distance. A _fleshforged disgorger_ can’t move on its own, so it’s transported within a pool containing a layer of nutrient slurry and mounted on a reinforced wagon.<br />**Aim** <actions string=\"Three Actions\" /> 40 feet, minimum distance 50 feet <br />**Load** <actions string=\"Three Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 2 times, requires a successful DC 20 [Athletics](/Skills.aspx?ID=36) or [Medicine](/Skills.aspx?ID=42) check <br />**Launch** <actions string=\"Three Actions\" /> ([attack](/Traits.aspx?ID=540), [magical](/Traits.aspx?ID=644), manipulate, [range increment 100 feet](/Traits.aspx?ID=248)) 15d6 acid and 2d6 [persistent acid](/Conditions.aspx?ID=86), 30-foot burst, DC 35 Reflex. Because a disgorger launches its gob at a high angle, the gob descends on the center of the burst from above, not in a straight line from the disgorger. This affects whether creatures have cover from the launch."
+}

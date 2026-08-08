@@ -1,0 +1,30 @@
+{
+  "name": "Teekdoon",
+  "slug": "teekdoon",
+  "level": 1,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Portable",
+  "proficiency": "simple",
+  "traits": [
+    "Portable",
+    "Uncommon"
+  ],
+  "size": [
+    "Large"
+  ],
+  "usage": "portable, held in 8 hands",
+  "price": "50 gp",
+  "ammunition": "boulder (0 gp, 5 Bulk)",
+  "crew": "4-6",
+  "source": {
+    "book": "Howl of the Wild",
+    "page": "Howl of the Wild pg. 117",
+    "releaseDate": "2024-05-29",
+    "aonId": "siege-weapon-32",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=32"
+  },
+  "summary": "While the official name of this contraption is the “portable catapult,” it gained the name “teekdoon” as a reference to the weapon’s initial …",
+  "text": "Teekdoon Source Howl of the Wild pg. 117 Price 50 gp Ammunition boulder (0 gp, 5 Bulk) --- Usage portable, held in 8 hands Bulk 15 Crew 4-6 Proficiency simple --- While the official name of this contraption is the “portable catapult,” it gained the name “teekdoon” as a reference to the weapon’s initial inspiration: the diving takedowns of peregrine falcons. However, it replaces elegant dives with the brute force of falling weights that hit targets from above. Aim Two Actions 25 feet, minimum distance 25 feet Load Two Actions (manipulate) 2 times, requires a successful DC 12 Athletics check Launch Single Action (attack, manipulate, range increment 80 feet) 2d8 bludgeoning, single target, DC 14 Reflex. A boulder launched from a teekdoon descends on a creature from above, which might affect if a creature has cover against the attack.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 1\">[Teekdoon](/SiegeWeapons.aspx?ID=32)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=721\" />\r\n<trait label=\"Large\" />\r\n<trait label=\"Portable\" url=\"/Traits.aspx?ID=412\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Howl of the Wild](/Sources.aspx?ID=226) pg. 117\r\n\r\n<row gap=\"medium\">\r\n**Price** 50 gp\r\n\r\n**Ammunition** boulder (0 gp, 5 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** portable, held in 8 hands\r\n\r\n**Bulk** 15\n\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 4-6\r\n\r\n**Proficiency** simple\r\n</row>\r\n\r\n</column>\r\n\r\n---\n\nWhile the official name of this contraption is the “portable catapult,” it gained the name “teekdoon” as a reference to the weapon’s initial inspiration: the diving takedowns of peregrine falcons. However, it replaces elegant dives with the brute force of falling weights that hit targets from above.\n\n**Aim** <actions string=\"Two Actions\" /> 25 feet, minimum distance 25 feet \n\n**Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 2 times, requires a successful DC 12 [Athletics](/Skills.aspx?ID=36) check \n\n**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), [manipulate](/Traits.aspx?ID=645), [range increment 80 feet](/Rules.aspx?ID=2195)) 2d8 bludgeoning, single target, DC 14 Reflex. A boulder launched from a teekdoon descends on a creature from above, which might affect if a creature has [cover](/Rules.aspx?ID=2372) against the attack."
+}

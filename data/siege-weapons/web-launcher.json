@@ -1,0 +1,43 @@
+{
+  "name": "Web Launcher",
+  "slug": "web-launcher",
+  "level": 8,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "simple",
+  "traits": [
+    "Magical",
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Medium"
+  ],
+  "usage": "mounted",
+  "price": "840 gp",
+  "ammunition": "bundles of spider silk (1 gp, 1 Bulk)",
+  "crew": "2 to 3",
+  "space": "6 feet long, 5 feet wide, 4 feet high",
+  "speed": "20 feet (pulled or pushed)",
+  "defenses": {
+    "ac": 21,
+    "fortitudeSave": 15,
+    "reflexSave": 9,
+    "hardness": 5,
+    "hp": 100,
+    "immunities": [
+      " object immunities "
+    ]
+  },
+  "source": {
+    "book": "Battlecry!",
+    "page": "Battlecry! pg. 107",
+    "releaseDate": "2025-07-31",
+    "aonId": "siege-weapon-67",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=67"
+  },
+  "summary": "Fashioned from the desiccated carapace of a large spider or materials constructed to look like a spider attached to a wagon, a web launcher can …",
+  "text": "Web Launcher Source Battlecry! pg. 107 Price 840 gp Ammunition bundles of spider silk (1 gp, 1 Bulk) --- Usage mounted Space 6 feet long, 5 feet wide, 4 feet high Crew 2 to 3 Proficiency simple --- AC 21 Fort +15 Ref +9 Hardness 5 HP 100 Immunities object immunities --- Speed 20 feet (pulled or pushed) --- Fashioned from the desiccated carapace of a large spider or materials constructed to look like a spider attached to a wagon, a web launcher can eject a mass of sticky spider’s silk. Not only can the webbing pummel and entangle enemy armies, it is also used to create easily climbable surfaces to scale enemy fortifications. Multiple cultures across and beneath the world, especially those who live in environments where spiders are distressingly common, have arrived at this design in an interesting example of parallel thinking that war historians have studied for centuries. Aim Single Action 35 feet, minimum distance 25 feet Load Two Actions (manipulate) 2 times Launch Single Action (attack, manipulate, range increment 120 feet) 5d8 bludgeoning, 20-foot burst, DC 23 Reflex. Creatures that fail their saving throw also take a –10-foot circumstance penalty to their Speeds for 1 minute from the sticky webbing, which can be removed with two Interact actions or if the creature takes at least 10 fire damage from a single source. In addition, creatures who attempt Athletics checks to Climb in the area affected by the webbing gain a +4 circumstance bonus to the check for 1 hour after the web launcher has been fired or until the webbing is removed, whichever comes first.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 8\">[Web Launcher](/SiegeWeapons.aspx?ID=67)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Medium\" />\r\n<trait label=\"Magical\" url=\"/Traits.aspx?ID=103\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Battlecry!](/Sources.aspx?ID=268) pg. 107\r\n\r\n<row gap=\"medium\">\r\n**Price** 840 gp\r\n\r\n**Ammunition** bundles of spider silk (1 gp, 1 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted\n\n**Space** 6 feet long, 5 feet wide, 4 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 2 to 3\r\n\r\n**Proficiency** simple\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 21\r\n\r\n**Fort** +15\r\n\r\n**Ref** +9\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 5\r\n\r\n**HP** 100\r\n\r\n**Immunities**  object immunities \r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 20 feet (pulled or pushed)\r\n\r\n---\r\n\r\nFashioned from the desiccated carapace of a large spider or materials constructed to look like a spider attached to a wagon, a _web launcher_ can eject a mass of sticky spider’s silk. Not only can the webbing pummel and entangle enemy armies, it is also used to create easily climbable surfaces to scale enemy fortifications. Multiple cultures across and beneath the world, especially those who live in environments where spiders are distressingly common, have arrived at this design in an interesting example of parallel thinking that war historians have studied for centuries.<br />**Aim** <actions string=\"Single Action\" /> 35 feet, minimum distance 25 feet <br />**Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 2 times <br />**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), manipulate, [range increment 120 feet](/Traits.aspx?ID=248)) 5d8 bludgeoning, 20-foot [burst](/Rules.aspx?ID=2385), DC 23 Reflex. Creatures that fail their saving throw also take a –10-foot circumstance penalty to their Speeds for 1 minute from the sticky webbing, which can be removed with two [Interact](/Actions.aspx?ID=2297) actions or if the creature takes at least 10 fire damage from a single source. In addition, creatures who attempt [Athletics](/Skills.aspx?ID=36) checks to [Climb](/Actions.aspx?ID=2374) in the area affected by the webbing gain a +4 circumstance bonus to the check for 1 hour after the _web launcher_ has been fired or until the webbing is removed, whichever comes first."
+}

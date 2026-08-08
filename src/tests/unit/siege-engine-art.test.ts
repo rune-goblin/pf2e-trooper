@@ -6,9 +6,9 @@ import { fileURLToPath } from 'node:url';
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url));
 const ART_DIR = join(ROOT, 'assets', 'siege-engines');
 
-// pf2e-reignmaker's siege-weapon pack builder bakes
-// modules/pf2e-trooper/assets/siege-engines/<slug>.webp straight into its compendium — it never
-// asks an api. This is the layout contract that build assumes.
+// scripts/build-siege-weapon-pack.ts bakes modules/pf2e-trooper/assets/siege-engines/<slug>.webp
+// straight into the compendium, and live ReignMaker worlds hold those paths on dragged actors —
+// no api resolves them. This is the layout contract both depend on.
 describe('assets/siege-engines', () => {
   const entries = readdirSync(ART_DIR, { withFileTypes: true });
 

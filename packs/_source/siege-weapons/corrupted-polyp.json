@@ -1,0 +1,222 @@
+{
+  "_id": "gZMakwaGCxZN42pP",
+  "_key": "!actors!gZMakwaGCxZN42pP",
+  "name": "Corrupted Polyp",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/corrupted-polyp.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/corrupted-polyp.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 38,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 10,
+      "hp": {
+        "value": 320,
+        "max": 320,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>When demonic forces invaded through a great planar rift, some brought terrible siege weapons with them. One particularly vile device is known as a …</p>",
+      "level": {
+        "value": 19
+      },
+      "price": 64000,
+      "crew": "3 to 5",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 10,
+        "wide": 6,
+        "high": 8
+      },
+      "speed": "10 feet (pulled or pushed)",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 34,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "rare",
+      "size": {
+        "value": "huge"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "corrupted-polyp",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "simple",
+        "usage": "mounted",
+        "ammunition": "organic matter (0 gp, 15 Bulk)",
+        "reflexSave": 25,
+        "priceText": "64,000 gp",
+        "aonId": "siege-weapon-46",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=46",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 101",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/corrupted-polyp.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/ThreeActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 3
+        },
+        "category": null,
+        "description": {
+          "value": "<p>50 feet, minimum distance 50 feet</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "2GdeJlhuMKwbmrOJ",
+      "_key": "!actors.items!gZMakwaGCxZN42pP.2GdeJlhuMKwbmrOJ"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/ThreeActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 3
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 3 times</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "7hbEye3gXgOi7ORA",
+      "_key": "!actors.items!gZMakwaGCxZN42pP.7hbEye3gXgOi7ORA"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/ThreeActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 3
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, range increment 200 feet) @Damage[10d10[poison]] and @Damage[4d6[persistent,poison]], 50-foot burst, @Check[reflex|dc:38|options:area-effect]. Because a _corrupted polyp_ launches its spore clusters at a high angle, the cluster descends on the center of the burst from above, not in a straight line from the polyp. This affects whether creatures have cover from the launch.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack"
+          ]
+        }
+      },
+      "_id": "YaY4dDcUV0kmXIoE",
+      "_key": "!actors.items!gZMakwaGCxZN42pP.YaY4dDcUV0kmXIoE"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "AhMKfxRpvpcL9x5y",
+      "_key": "!actors.items!gZMakwaGCxZN42pP.AhMKfxRpvpcL9x5y"
+    }
+  ]
+}

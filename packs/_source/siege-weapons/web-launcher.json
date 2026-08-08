@@ -1,0 +1,222 @@
+{
+  "_id": "2ZviMFBb4byay9RL",
+  "_key": "!actors!2ZviMFBb4byay9RL",
+  "name": "Web Launcher",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/web-launcher.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/web-launcher.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 21,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 5,
+      "hp": {
+        "value": 100,
+        "max": 100,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Fashioned from the desiccated carapace of a large spider or materials constructed to look like a spider attached to a wagon, a web launcher can …</p>",
+      "level": {
+        "value": 8
+      },
+      "price": 840,
+      "crew": "2 to 3",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 6,
+        "wide": 5,
+        "high": 4
+      },
+      "speed": "20 feet (pulled or pushed)",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 15,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "med"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "web-launcher",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "simple",
+        "usage": "mounted",
+        "ammunition": "bundles of spider silk (1 gp, 1 Bulk)",
+        "reflexSave": 9,
+        "priceText": "840 gp",
+        "aonId": "siege-weapon-67",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=67",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 107",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/web-launcher.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": null,
+        "description": {
+          "value": "<p>35 feet, minimum distance 25 feet</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "mXBysVkWID0GINFc",
+      "_key": "!actors.items!2ZviMFBb4byay9RL.mXBysVkWID0GINFc"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "k8otVibjYcpCWtGa",
+      "_key": "!actors.items!2ZviMFBb4byay9RL.k8otVibjYcpCWtGa"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, range increment 120 feet) @Damage[5d8[bludgeoning]], 20-foot burst, @Check[reflex|dc:23|options:area-effect]. Creatures that fail their saving throw also take a –10-foot circumstance penalty to their Speeds for 1 minute from the sticky webbing, which can be removed with two Interact actions or if the creature takes at least 10 fire damage from a single source. In addition, creatures who attempt Athletics checks to Climb in the area affected by the webbing gain a +4 circumstance bonus to the check for 1 hour after the _web launcher_ has been fired or until the webbing is removed, whichever comes first.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack"
+          ]
+        }
+      },
+      "_id": "EPU4ye89Xifhqcmc",
+      "_key": "!actors.items!2ZviMFBb4byay9RL.EPU4ye89Xifhqcmc"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "ZWntZy4xusSb5FpY",
+      "_key": "!actors.items!2ZviMFBb4byay9RL.ZWntZy4xusSb5FpY"
+    }
+  ]
+}

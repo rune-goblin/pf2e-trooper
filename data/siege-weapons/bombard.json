@@ -1,0 +1,42 @@
+{
+  "name": "Bombard",
+  "slug": "bombard",
+  "level": 5,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Large"
+  ],
+  "usage": "mounted  (black powder)",
+  "price": "300 gp",
+  "ammunition": "stone spheres (4 gp, 4 Bulk)",
+  "crew": "2-4",
+  "space": "10 feet long, 4 feet wide, 5 feet high",
+  "speed": "10 feet (pushed or pulled)",
+  "defenses": {
+    "ac": 17,
+    "fortitudeSave": 12,
+    "reflexSave": 5,
+    "hardness": 10,
+    "hp": 40,
+    "immunities": [
+      "object immunities"
+    ]
+  },
+  "source": {
+    "book": "Guns & Gears (Remastered)",
+    "page": "Guns & Gears (Remastered) pg. 173",
+    "releaseDate": "2025-02-18",
+    "aonId": "siege-weapon-12",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=12"
+  },
+  "summary": "Bombards are some of the oldest and simplest of black powder siege weapons, devised based on many of the same principles as a hand cannon, but …",
+  "text": "Bombard Source Guns & Gears (Remastered) pg. 173 Price 300 gp Ammunition stone spheres (4 gp, 4 Bulk) --- Usage mounted (black powder) Space 10 feet long, 4 feet wide, 5 feet high Crew 2-4 Proficiency martial --- AC 17 Fort +12 Ref +5 Hardness 10 HP 40 Immunities object immunities --- Speed 10 feet (pushed or pulled) --- Bombards are some of the oldest and simplest of black powder siege weapons, devised based on many of the same principles as a hand cannon, but deploying them on a larger scale and scope. A bombard's body is usually made of brass or iron, which causes the bombard to resemble the shape of a large bell. While they are capable of moving very slowly, their clumsy and weighty design means bombards usually remain stationary. This in turn means they're often used more defensively than offensively Aim Two Actions 30 feet, minimum distance 30 feet Load Two Actions (manipulate) 2 times, requires a successful DC 20 Athletics check Launch Single Action (manipulate, range increment 150 feet) 4d10 bludgeoning, 10-foot burst, DC 19 Reflex",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 5\">[Bombard](/SiegeWeapons.aspx?ID=12)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Large\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Guns &amp; Gears (Remastered)](/Sources.aspx?ID=98) pg. 173\r\n\r\n<row gap=\"medium\">\r\n**Price** 300 gp\r\n\r\n**Ammunition** stone spheres (4 gp, 4 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted  (black powder)\n\n**Space** 10 feet long, 4 feet wide, 5 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 2-4\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 17\r\n\r\n**Fort** +12\r\n\r\n**Ref** +5\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 10\r\n\r\n**HP** 40\r\n\r\n**Immunities** object immunities\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 10 feet (pushed or pulled)\r\n\r\n---\r\n\r\nBombards are some of the oldest and simplest of black powder siege weapons, devised based on many of the same principles as a hand cannon, but deploying them on a larger scale and scope. A bombard's body is usually made of brass or iron, which causes the bombard to resemble the shape of a large bell. While they are capable of moving very slowly, their clumsy and weighty design means bombards usually remain stationary. This in turn means they're often used more defensively than offensively <br />**Aim** <actions string=\"Two Actions\" /> 30 feet, minimum distance 30 feet <br />**Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=104)) 2 times, requires a successful DC 20 [Athletics](/Skills.aspx?ID=3) check <br />**Launch** <actions string=\"Single Action\" /> ([manipulate](/Traits.aspx?ID=104), [range increment 150 feet](/Traits.aspx?ID=248)) 4d10 bludgeoning, 10-foot burst, DC 19 Reflex"
+}

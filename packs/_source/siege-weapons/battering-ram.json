@@ -1,0 +1,126 @@
+{
+  "_id": "ufkrMQPOZs9Nqdhq",
+  "_key": "!actors!ufkrMQPOZs9Nqdhq",
+  "name": "Battering Ram",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/battering-ram.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/battering-ram.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 0,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 0,
+      "hp": {
+        "value": 0,
+        "max": 0,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Simple but powerful, a battering ram is a full tree stripped of limbs with one end clad in iron, often shaped like a ram's head. Large handles are …</p>",
+      "level": {
+        "value": 5
+      },
+      "price": 160,
+      "crew": "6",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 0,
+        "wide": 0,
+        "high": 0
+      },
+      "speed": "",
+      "publication": {
+        "title": "Guns & Gears (Remastered)",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 0,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "lg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "battering-ram",
+        "siegeWeaponCategory": "Portable",
+        "proficiency": "martial",
+        "usage": "portable, held in 12 hands",
+        "ammunition": null,
+        "reflexSave": null,
+        "priceText": "160 gp",
+        "aonId": "siege-weapon-3",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=3",
+        "sourceBook": "Guns & Gears (Remastered)",
+        "sourcePage": "Guns & Gears (Remastered) pg. 74",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/battering-ram.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Ram",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p><strong>Requirements</strong> The other members of the crew have Readied to Stride on your order; <strong>Effect</strong> You and the crew Stride, with a maximum distance equal to the slowest crew member's Speed, then make a melee Strike with the ram against a structure or an unattended, stationary object. This Strike deals bludgeoning damage equal to 5d8 + the highest Strength modifier among members of the crew.</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "dZ9xiKfVeQobujIk",
+      "_key": "!actors.items!ufkrMQPOZs9Nqdhq.dZ9xiKfVeQobujIk"
+    }
+  ]
+}

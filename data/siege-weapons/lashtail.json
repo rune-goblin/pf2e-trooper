@@ -1,0 +1,41 @@
+{
+  "name": "Lashtail",
+  "slug": "lashtail",
+  "level": 9,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Huge"
+  ],
+  "usage": "mounted",
+  "price": "1,500 gp",
+  "ammunition": "segmented chain (4 gp, 5 Bulk)",
+  "crew": "3-5",
+  "space": "7 feet long, 15 feet wide, 8 feet high",
+  "defenses": {
+    "ac": 23,
+    "fortitudeSave": 21,
+    "reflexSave": 13,
+    "hardness": 18,
+    "hp": 64,
+    "immunities": [
+      "object immunities"
+    ]
+  },
+  "source": {
+    "book": "Howl of the Wild",
+    "page": "Howl of the Wild pg. 116",
+    "releaseDate": "2024-05-29",
+    "aonId": "siege-weapon-26",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=26"
+  },
+  "summary": "The lashtail is named after the segmented chain that the weapon sweeps in a horizontal arc. The chain links are thick and flat, which look somewhat …",
+  "text": "Lashtail Source Howl of the Wild pg. 116 Price 1,500 gp Ammunition segmented chain (4 gp, 5 Bulk) --- Usage mounted Space 7 feet long, 15 feet wide, 8 feet high Crew 3-5 Proficiency martial --- AC 23 Fort +21 Ref +13 Hardness 18 HP 64 Immunities object immunities --- The lashtail is named after the segmented chain that the weapon sweeps in a horizontal arc. The chain links are thick and flat, which look somewhat like scales, and linked together to resemble a great dragon’s tail. The chain is stretched against a spring-backed launcher. When released, the lashtail swings the chain outward, typically aimed to take down stampeding animals approaching on foot. Aim Two Actions rotate 45° Load Two Actions (manipulate) 3 times, requires a successful DC 26 Athletics Launch Single Action (attack, manipulate, range increment 120 feet) 8d8 bludgeoning, 30-foot cone, DC 25 Reflex. A creature that fails its Reflex save is off-guard until the end of their next turn. On a critical failure, a creature is instead knocked prone by the chain.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 9\">[Lashtail](/SiegeWeapons.aspx?ID=26)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=721\" />\r\n<trait label=\"Huge\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Howl of the Wild](/Sources.aspx?ID=226) pg. 116\r\n\r\n<row gap=\"medium\">\r\n**Price** 1,500 gp\r\n\r\n**Ammunition** segmented chain (4 gp, 5 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted\n\n**Space** 7 feet long, 15 feet wide, 8 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 3-5\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 23\r\n\r\n**Fort** +21\r\n\r\n**Ref** +13\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 18\r\n\r\n**HP** 64\r\n\r\n**Immunities** object immunities\r\n</row>\r\n\r\n</column>\r\n\r\n---\n\nThe lashtail is named after the segmented chain that the weapon sweeps in a horizontal arc. The chain links are thick and flat, which look somewhat like scales, and linked together to resemble a great dragon’s tail. The chain is stretched against a spring-backed launcher. When released, the lashtail swings the chain outward, typically aimed to take down stampeding animals approaching on foot.\n\n**Aim** <actions string=\"Two Actions\" /> rotate 45° \n\n**Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 3 times, requires a successful DC 26 Athletics \n\n**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), [manipulate](/Traits.aspx?ID=645), [range increment 120 feet](/Rules.aspx?ID=2195)) 8d8 bludgeoning, 30-foot cone, DC 25 Reflex. A creature that fails its Reflex save is [off-guard](/Conditions.aspx?ID=58) until the end of their next turn. On a critical failure, a creature is instead knocked [prone](/Conditions.aspx?ID=88) by the chain."
+}

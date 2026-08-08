@@ -1,0 +1,42 @@
+{
+  "name": "Hydraulic Cannon",
+  "slug": "hydraulic-cannon",
+  "level": 13,
+  "rarity": "rare",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Mounted",
+    "Rare"
+  ],
+  "size": [
+    "Large"
+  ],
+  "usage": "mounted  (black powder)",
+  "price": "6,000 gp",
+  "ammunition": "artillery shell (80 gp, 4 Bulk)",
+  "crew": "4-6",
+  "space": "9 feet long, 7 feet wide, 5 feet high",
+  "speed": "20 feet (pulled or pushed)",
+  "defenses": {
+    "ac": 29,
+    "fortitudeSave": 23,
+    "reflexSave": 16,
+    "hardness": 18,
+    "hp": 150,
+    "immunities": [
+      "object immunities"
+    ]
+  },
+  "source": {
+    "book": "Guns & Gears (Remastered)",
+    "page": "Guns & Gears (Remastered) pg. 175",
+    "releaseDate": "2025-02-18",
+    "aonId": "siege-weapon-16",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=16"
+  },
+  "summary": "This remarkable piece of new dwarven artillery uses metallurgy and alchemy to negate nearly all of the immense amount of recoil a shot from a siege …",
+  "text": "Hydraulic Cannon Source Guns & Gears (Remastered) pg. 175 Price 6,000 gp Ammunition artillery shell (80 gp, 4 Bulk) --- Usage mounted (black powder) Space 9 feet long, 7 feet wide, 5 feet high Crew 4-6 Proficiency martial --- AC 29 Fort +23 Ref +16 Hardness 18 HP 150 Immunities object immunities --- Speed 20 feet (pulled or pushed) --- This remarkable piece of new dwarven artillery uses metallurgy and alchemy to negate nearly all of the immense amount of recoil a shot from a siege weapon usually produces. The barrel of the hydraulic cannon is suspended in a mix of alchemical fluids that first compress to dampen the recoil when fired, then expand to push the barrel back into place afterwards. The result reduces the amount of time needed to reset the aim of the siege weapon. The crew member who launches the hydraulic cannon can use the Quick Aim reaction (below), allowing them to adjust the weapon's aim on the fly as they fire to adapt to a faulty initial target, changing battlefield conditions, the use of illusions by the enemy, or any of a variety of other factors that lead to the need to alter the siege weapon's course. Quick Aim Reaction Trigger You Launch this siege weapon, after determining the effects of the Launch action. Effect You Aim this siege weapon, moving the aim up to 10 feet instead of its normal distance. Aim Two Actions 100 feet, minimum distance 150 feet Load Two Actions (manipulate) 3 times, requires a successful DC 20 Athletics check Launch Single Action (manipulate, range increment 500 feet) 8d12 bludgeoning, 20-foot burst, DC 30 Reflex",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 13\">[Hydraulic Cannon](/SiegeWeapons.aspx?ID=16)</title>\r\n\r\n<traits>\r\n<trait label=\"Rare\" url=\"/Traits.aspx?ID=137\" />\r\n<trait label=\"Large\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Guns &amp; Gears (Remastered)](/Sources.aspx?ID=98) pg. 175\r\n\r\n<row gap=\"medium\">\r\n**Price** 6,000 gp\r\n\r\n**Ammunition** artillery shell (80 gp, 4 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted  (black powder)\n\n**Space** 9 feet long, 7 feet wide, 5 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 4-6\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 29\r\n\r\n**Fort** +23\r\n\r\n**Ref** +16\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 18\r\n\r\n**HP** 150\r\n\r\n**Immunities** object immunities\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 20 feet (pulled or pushed)\r\n\r\n---\r\n\r\nThis remarkable piece of new dwarven artillery uses metallurgy and alchemy to negate nearly all of the immense amount of recoil a shot from a siege weapon usually produces. The barrel of the hydraulic cannon is suspended in a mix of alchemical fluids that first compress to dampen the recoil when fired, then expand to push the barrel back into place afterwards. The result reduces the amount of time needed to reset the aim of the siege weapon. The crew member who launches the hydraulic cannon can use the Quick Aim reaction (below), allowing them to adjust the weapon's aim on the fly as they fire to adapt to a faulty initial target, changing battlefield conditions, the use of illusions by the enemy, or any of a variety of other factors that lead to the need to alter the siege weapon's course.\n\n **Quick Aim** <actions string=\"Reaction\" /> **Trigger** You Launch this siege weapon, after determining the effects of the Launch action. **Effect** You Aim this siege weapon, moving the aim up to 10 feet instead of its normal distance.<br /> **Aim** <actions string=\"Two Actions\" /> 100 feet, minimum distance 150 feet<br /> **Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=104)) 3 times, requires a successful DC 20 [Athletics](/Skills.aspx?ID=3) check<br /> **Launch**<actions string=\"Single Action\" /> ([manipulate](/Traits.aspx?ID=104), [range increment 500 feet](/Traits.aspx?ID=248)) 8d12 bludgeoning, 20-foot burst, DC 30 Reflex"
+}

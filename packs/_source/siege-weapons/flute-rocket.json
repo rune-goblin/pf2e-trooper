@@ -1,0 +1,222 @@
+{
+  "_id": "KO4kMqagCkYCqNEt",
+  "_key": "!actors!KO4kMqagCkYCqNEt",
+  "name": "Flute Rocket",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/flute-rocket.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/flute-rocket.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 34,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 15,
+      "hp": {
+        "value": 220,
+        "max": 220,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>A design originating from the frozen north, the flute rocket marries the high angle of fire used by a mortar with a more refined rocket. This allows the …</p>",
+      "level": {
+        "value": 16
+      },
+      "price": 16000,
+      "crew": "2 to 3",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 6,
+        "wide": 4,
+        "high": 5
+      },
+      "speed": "20 feet (pulled or pushed)",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 28,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "med"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "flute-rocket",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted (black powder)",
+        "ammunition": "rocket (20 gp, L Bulk)",
+        "reflexSave": 20,
+        "priceText": "16,000 gp",
+        "aonId": "siege-weapon-53",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=53",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 103",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/flute-rocket.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>50 feet, minimum distance 100 feet</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "BXMR0YCLKpbBWLLz",
+      "_key": "!actors.items!KO4kMqagCkYCqNEt.BXMR0YCLKpbBWLLz"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 3 times</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "Dv5t6xjtCuE5pNuv",
+      "_key": "!actors.items!KO4kMqagCkYCqNEt.Dv5t6xjtCuE5pNuv"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, range increment 250 feet) @Damage[11d10[bludgeoning]], 20-foot burst, @Check[reflex|dc:34|options:area-effect]. Because a flute rocket launches its rocket at a high angle, the rocket descends on the center of the burst from above, not in a straight line from the flute rocket. This affects whether creatures have cover from the flute rocket launch.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack"
+          ]
+        }
+      },
+      "_id": "fO5hxTQPjP7AoJ8N",
+      "_key": "!actors.items!KO4kMqagCkYCqNEt.fO5hxTQPjP7AoJ8N"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "af4EadDJRunuLdzb",
+      "_key": "!actors.items!KO4kMqagCkYCqNEt.af4EadDJRunuLdzb"
+    }
+  ]
+}

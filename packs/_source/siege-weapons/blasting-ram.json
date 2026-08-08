@@ -1,0 +1,158 @@
+{
+  "_id": "jNKOSSuHRb8wU1wI",
+  "_key": "!actors!jNKOSSuHRb8wU1wI",
+  "name": "Blasting Ram",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/blasting-ram.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/blasting-ram.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 0,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 0,
+      "hp": {
+        "value": 0,
+        "max": 0,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>A blasting ram is a smaller battering ram that supplements the crew's size with explosive force. A steel reservoir holds a charge of black powder …</p>",
+      "level": {
+        "value": 7
+      },
+      "price": 360,
+      "crew": "4",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 0,
+        "wide": 0,
+        "high": 0
+      },
+      "speed": "",
+      "publication": {
+        "title": "Guns & Gears (Remastered)",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 0,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "lg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "blasting-ram",
+        "siegeWeaponCategory": "Portable",
+        "proficiency": "martial",
+        "usage": "portable (black powder), held in 8 hands",
+        "ammunition": "ram powder charge (2 gp, 1 Bulk)",
+        "reflexSave": null,
+        "priceText": "360 gp",
+        "aonId": "siege-weapon-11",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=11",
+        "sourceBook": "Guns & Gears (Remastered)",
+        "sourcePage": "Guns & Gears (Remastered) pg. 173",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/blasting-ram.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "nLnzw4YlxH2A9Du3",
+      "_key": "!actors.items!jNKOSSuHRb8wU1wI.nLnzw4YlxH2A9Du3"
+    },
+    {
+      "name": "Ram",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p><strong>Requirements</strong> The other members of the crew have Readied to Stride on your order; <strong>Effect</strong> You and the crew Stride, with a maximum distance equal to the slowest crew member's Speed. Then, make a melee Strike with the ram against a structure or unattended stationary object. As you do, the black powder in the steel reservoir explodes, significantly increasing the damage of your attack. Due to the black powder’s additional force, this Strike deals bludgeoning damage equal to 7d8 + the highest Strength modifier among members of the crew.</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "FrQcr1hPIZWXfEuR",
+      "_key": "!actors.items!jNKOSSuHRb8wU1wI.FrQcr1hPIZWXfEuR"
+    }
+  ]
+}

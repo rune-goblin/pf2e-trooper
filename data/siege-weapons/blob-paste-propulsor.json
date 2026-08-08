@@ -1,0 +1,31 @@
+{
+  "name": "Blob Paste Propulsor",
+  "slug": "blob-paste-propulsor",
+  "level": 8,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Portable",
+  "proficiency": "martial",
+  "traits": [
+    "Alchemical",
+    "Portable",
+    "Uncommon"
+  ],
+  "size": [
+    "Large"
+  ],
+  "usage": "portable, held in 6 hands",
+  "price": "900 gp",
+  "ammunition": "blob paste (60 gp, 1 Bulk)",
+  "crew": "3",
+  "source": {
+    "book": "Howl of the Wild",
+    "page": "Howl of the Wild pg. 115",
+    "releaseDate": "2024-05-29",
+    "aonId": "siege-weapon-23",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=23"
+  },
+  "summary": "The blob paste propulsor is a mortar with a 25-foot hose attached to a reinforced pot. The pot holds blob paste, a viscous gunk synthesized from …",
+  "text": "Blob Paste Propulsor Source Howl of the Wild pg. 115 Price 900 gp Ammunition blob paste (60 gp, 1 Bulk) --- Usage portable, held in 6 hands Bulk 5 Crew 3 Proficiency martial --- The blob paste propulsor is a mortar with a 25-foot hose attached to a reinforced pot. The pot holds blob paste, a viscous gunk synthesized from oozes. Twin levers are attached to the top of the pot and generate sparks within when pulled, temporarily transforming the gunk into a liquid form that can be aimed with the hose and mortar. This unique ammunition, as well as the weapon used to shoot it, was originally engineered by alchemists and inventors as an unorthodox but reliable means of knocking flying pests out of the sky. In recent years, blob paste propulsors have won high praise from wildlife researchers as a non-lethal means of subduing destructive monsters and keeping them alive for study and eventual release. Aim Single Action rotate 45° Load Two Actions (manipulate) 2 times Launch Two Actions (attack, manipulate, range increment 75 feet) Single target. If the Strike hits, blob paste immediately spreads across the target’s body, weighing it down and restricting movement. The target is grabbed for 1 minute, after which the blob paste melts away. The Escape DC to break free of the blob paste is 23.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 8\">[Blob Paste Propulsor](/SiegeWeapons.aspx?ID=23)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=721\" />\r\n<trait label=\"Large\" />\r\n<trait label=\"Alchemical\" url=\"/Traits.aspx?ID=528\" />\r\n<trait label=\"Portable\" url=\"/Traits.aspx?ID=412\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Howl of the Wild](/Sources.aspx?ID=226) pg. 115\r\n\r\n<row gap=\"medium\">\r\n**Price** 900 gp\r\n\r\n**Ammunition** blob paste (60 gp, 1 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** portable, held in 6 hands\r\n\r\n**Bulk** 5\n\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 3\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\n\nThe blob paste propulsor is a mortar with a 25-foot hose attached to a reinforced pot. The pot holds blob paste, a viscous gunk synthesized from oozes. Twin levers are attached to the top of the pot and generate sparks within when pulled, temporarily transforming the gunk into a liquid form that can be aimed with the hose and mortar. This unique ammunition, as well as the weapon used to shoot it, was originally engineered by alchemists and inventors as an unorthodox but reliable means of knocking flying pests out of the sky. In recent years, blob paste propulsors have won high praise from wildlife researchers as a non-lethal means of subduing destructive monsters and keeping them alive for study and eventual release. \n\n**Aim** <actions string=\"Single Action\" /> rotate 45° \n\n**Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 2 times \n\n**Launch** <actions string=\"Two Actions\" /> ([attack](/Traits.aspx?ID=540), [manipulate](/Traits.aspx?ID=645), [range increment 75 feet](/Rules.aspx?ID=2195)) Single target. If the Strike hits, blob paste immediately spreads across the target’s body, weighing it down and restricting movement. The target is [grabbed](/Conditions.aspx?ID=77) for 1 minute, after which the blob paste melts away. The [Escape](/Actions.aspx?ID=2296) DC to break free of the blob paste is 23."
+}

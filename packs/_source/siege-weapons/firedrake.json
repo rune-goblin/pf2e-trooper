@@ -1,0 +1,222 @@
+{
+  "_id": "H67FSj0ZPeXqGs6A",
+  "_key": "!actors!H67FSj0ZPeXqGs6A",
+  "name": "Firedrake",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/firedrake.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/firedrake.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 22,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 12,
+      "hp": {
+        "value": 70,
+        "max": 70,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>This alchemical black powder hybrid siege weapon uses a blast of black powder to spray alchemical fire from a long metal nozzle, often sculpted or …</p>",
+      "level": {
+        "value": 8
+      },
+      "price": 1000,
+      "crew": "3-5",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 15,
+        "wide": 12,
+        "high": 10
+      },
+      "speed": "15 feet (pushed or pulled)",
+      "publication": {
+        "title": "Guns & Gears (Remastered)",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 16,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "huge"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "firedrake",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted  (black powder)",
+        "ammunition": "alchemical fire barrel (50 gp, 3 Bulk)",
+        "reflexSave": 9,
+        "priceText": "1,000 gp",
+        "aonId": "siege-weapon-15",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=15",
+        "sourceBook": "Guns & Gears (Remastered)",
+        "sourcePage": "Guns & Gears (Remastered) pg. 175",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/firedrake.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>rotate 45º</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "eOBHkvSlEtRhHfTp",
+      "_key": "!actors.items!H67FSj0ZPeXqGs6A.eOBHkvSlEtRhHfTp"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 3 times, requires a successful @Check[athletics|dc:20] check</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "Dax5eeOMkuhP6OIR",
+      "_key": "!actors.items!H67FSj0ZPeXqGs6A.Dax5eeOMkuhP6OIR"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(manipulate) @Damage[8d6[fire]] plus @Damage[1d6[persistent,fire]], 60-foot line or 30-foot cone, @Check[reflex|dc:23|options:area-effect]. Switching between the firedrake's line or cone mode takes an Interact action, and any of the crew can perform the action.</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "hM8ciMp1NCQR7kH6",
+      "_key": "!actors.items!H67FSj0ZPeXqGs6A.hM8ciMp1NCQR7kH6"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Guns & Gears (Remastered)",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "w4Dq3FQkDdzYkCoc",
+      "_key": "!actors.items!H67FSj0ZPeXqGs6A.w4Dq3FQkDdzYkCoc"
+    }
+  ]
+}

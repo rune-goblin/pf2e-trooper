@@ -1,0 +1,191 @@
+{
+  "_id": "3pkSOktdlLt0Y7NE",
+  "_key": "!actors!3pkSOktdlLt0Y7NE",
+  "name": "Teekdoon",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/teekdoon.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/teekdoon.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 0,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 0,
+      "hp": {
+        "value": 0,
+        "max": 0,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>While the official name of this contraption is the “portable catapult,” it gained the name “teekdoon” as a reference to the weapon’s initial …</p>",
+      "level": {
+        "value": 1
+      },
+      "price": 50,
+      "crew": "4-6",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 0,
+        "wide": 0,
+        "high": 0
+      },
+      "speed": "",
+      "publication": {
+        "title": "Howl of the Wild",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 0,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "lg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "teekdoon",
+        "siegeWeaponCategory": "Portable",
+        "proficiency": "simple",
+        "usage": "portable, held in 8 hands",
+        "ammunition": "boulder (0 gp, 5 Bulk)",
+        "reflexSave": null,
+        "priceText": "50 gp",
+        "aonId": "siege-weapon-32",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=32",
+        "sourceBook": "Howl of the Wild",
+        "sourcePage": "Howl of the Wild pg. 117",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/teekdoon.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>25 feet, minimum distance 25 feet</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "2S3kypvECDLKBay1",
+      "_key": "!actors.items!3pkSOktdlLt0Y7NE.2S3kypvECDLKBay1"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times, requires a successful @Check[athletics|dc:12] check</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "MzMkNS32aP7EAxvd",
+      "_key": "!actors.items!3pkSOktdlLt0Y7NE.MzMkNS32aP7EAxvd"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, range increment 80 feet) @Damage[2d8[bludgeoning]], single target, @Check[reflex|dc:14]. A boulder launched from a teekdoon descends on a creature from above, which might affect if a creature has cover against the attack.</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack",
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "viQaXQtxcKamSCdh",
+      "_key": "!actors.items!3pkSOktdlLt0Y7NE.viQaXQtxcKamSCdh"
+    }
+  ]
+}

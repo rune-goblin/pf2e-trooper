@@ -1,0 +1,222 @@
+{
+  "_id": "ppIIyVsceIBJ8mIt",
+  "_key": "!actors!ppIIyVsceIBJ8mIt",
+  "name": "Crossbow Catapult",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/crossbow-catapult.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/crossbow-catapult.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 13,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 5,
+      "hp": {
+        "value": 40,
+        "max": 40,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>A less explosive version of black-powder weapons such as the ribauldequin and hwacha, the crossbow catapult consists of 16 crossbows arrayed in a …</p>",
+      "level": {
+        "value": 3
+      },
+      "price": 120,
+      "crew": "1 to 4",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 5,
+        "wide": 4,
+        "high": 6
+      },
+      "speed": "20 feet (pulled or pushed)",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 9,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "med"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "crossbow-catapult",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted",
+        "ammunition": "bolts (1 sp for 10, L Bulk)",
+        "reflexSave": 4,
+        "priceText": "120 gp",
+        "aonId": "siege-weapon-47",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=47",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 102",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/crossbow-catapult.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": null,
+        "description": {
+          "value": "<p>40 feet, minimum distance 30 feet</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "Gfe2m8FahEp0I3XK",
+      "_key": "!actors.items!ppIIyVsceIBJ8mIt.Gfe2m8FahEp0I3XK"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/ThreeActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 3
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 4 times</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "KJemLLutswZWecRx",
+      "_key": "!actors.items!ppIIyVsceIBJ8mIt.KJemLLutswZWecRx"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, range increment 80 feet) @Damage[3d6[piercing]], 10-foot burst, @Check[reflex|dc:17|options:area-effect]</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack"
+          ]
+        }
+      },
+      "_id": "HGNOfAzK4awlLK5N",
+      "_key": "!actors.items!ppIIyVsceIBJ8mIt.HGNOfAzK4awlLK5N"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "qIsp7Um5Rt5sRgNY",
+      "_key": "!actors.items!ppIIyVsceIBJ8mIt.qIsp7Um5Rt5sRgNY"
+    }
+  ]
+}

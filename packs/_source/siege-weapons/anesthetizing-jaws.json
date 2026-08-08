@@ -1,0 +1,224 @@
+{
+  "_id": "iweu9BNvmnBywUEd",
+  "_key": "!actors!iweu9BNvmnBywUEd",
+  "name": "Anesthetizing Jaws",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/anesthetizing-jaws.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/anesthetizing-jaws.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 30,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 15,
+      "hp": {
+        "value": 160,
+        "max": 160,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Communities use these large jaws to nonlethally subdue large game so it can be safely moved, treated for injury, or otherwise studied. The jaws are …</p>",
+      "level": {
+        "value": 13
+      },
+      "price": 6000,
+      "crew": "3",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 8,
+        "wide": 6,
+        "high": 4
+      },
+      "speed": "",
+      "publication": {
+        "title": "Howl of the Wild",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 29,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "rare",
+      "size": {
+        "value": "lg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "anesthetizing-jaws",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted",
+        "ammunition": "spring-loaded iron jaw (25 gp, 2 Bulk)",
+        "reflexSave": 19,
+        "priceText": "6,000 gp",
+        "aonId": "siege-weapon-21",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=21",
+        "sourceBook": "Howl of the Wild",
+        "sourcePage": "Howl of the Wild pg. 114",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/anesthetizing-jaws.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>50 feet, minimum distance 50 feet</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "OZhkAsIGUs4CM0Dd",
+      "_key": "!actors.items!iweu9BNvmnBywUEd.OZhkAsIGUs4CM0Dd"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 3 times</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "SAwaSkEQEFdaF7FQ",
+      "_key": "!actors.items!iweu9BNvmnBywUEd.SAwaSkEQEFdaF7FQ"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, range 250 feet, versatile B) @Damage[9d10[piercing]], single target, @Check[reflex|dc:31]. On a failure, the target is also grabbed. On a critical failure, the target is restrained instead of grabbed. A target that is grabbed or restrained by the _anesthetizing jaws_ is attached to the weapon by the linked chain. Until the creature Escapes the jaws, it cannot move more than 250 feet from the _anesthetizing jaws_. The Escape DC is 32.</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack",
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "5FyO61795GvHfwEi",
+      "_key": "!actors.items!iweu9BNvmnBywUEd.5FyO61795GvHfwEi"
+    },
+    {
+      "name": "Anesthetic Surge",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate) <strong>Requirements</strong> The _anesthetizing jaws_ have a creature grabbed or restrained; <strong>Effect</strong> A crew member activates the anesthetic properties of the jaws, which deals @Damage[8d12[mental]] damage (@Check[will|dc:30|basic]) to the grabbed or restrained creature</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack",
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "ho1ri67STkLzjwuZ",
+      "_key": "!actors.items!iweu9BNvmnBywUEd.ho1ri67STkLzjwuZ"
+    }
+  ]
+}

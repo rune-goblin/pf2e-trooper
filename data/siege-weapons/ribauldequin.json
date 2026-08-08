@@ -1,0 +1,42 @@
+{
+  "name": "Ribauldequin",
+  "slug": "ribauldequin",
+  "level": 4,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Medium"
+  ],
+  "usage": "mounted (black powder)",
+  "price": "180 gp",
+  "ammunition": "rounds (1 sp for 10, L Bulk)",
+  "crew": "1 to 4",
+  "space": "8 feet long, 6 feet wide, 6 feet high",
+  "speed": "20 feet (pulled or pushed)",
+  "defenses": {
+    "ac": 16,
+    "fortitudeSave": 10,
+    "reflexSave": 4,
+    "hardness": 5,
+    "hp": 35,
+    "immunities": [
+      " object immunities "
+    ]
+  },
+  "source": {
+    "book": "Battlecry!",
+    "page": "Battlecry! pg. 105",
+    "releaseDate": "2025-07-31",
+    "aonId": "siege-weapon-59",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=59"
+  },
+  "summary": "Also known as an organ gun, a ribauldequin consists of a row of gun barrels set parallel on a frame so that they resemble the pipes of a large organ. …",
+  "text": "Ribauldequin Source Battlecry! pg. 105 Price 180 gp Ammunition rounds (1 sp for 10, L Bulk) --- Usage mounted (black powder) Space 8 feet long, 6 feet wide, 6 feet high Crew 1 to 4 Proficiency martial --- AC 16 Fort +10 Ref +4 Hardness 5 HP 35 Immunities object immunities --- Speed 20 feet (pulled or pushed) --- Also known as an organ gun, a ribauldequin consists of a row of gun barrels set parallel on a frame so that they resemble the pipes of a large organ. Time-consuming to load but highly effective against enemy personnel, the ribauldequin is more at home on the battlefield than behind fixed fortifications. The standard organ gun has twelve barrels, firing a spread that covers a significant area. Aim Two Actions rotate 45° Load Three Actions (manipulate) 4 times Launch Single Action (attack, manipulate) 5d6 piercing, 30-foot cone, DC 18 Reflex",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 4\">[Ribauldequin](/SiegeWeapons.aspx?ID=59)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Medium\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Battlecry!](/Sources.aspx?ID=268) pg. 105\r\n\r\n<row gap=\"medium\">\r\n**Price** 180 gp\r\n\r\n**Ammunition** rounds (1 sp for 10, L Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted (black powder)\n\n**Space** 8 feet long, 6 feet wide, 6 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 1 to 4\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 16\r\n\r\n**Fort** +10\r\n\r\n**Ref** +4\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 5\r\n\r\n**HP** 35\r\n\r\n**Immunities**  object immunities \r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 20 feet (pulled or pushed)\r\n\r\n---\r\n\r\nAlso known as an organ gun, a ribauldequin consists of a row of gun barrels set parallel on a frame so that they resemble the pipes of a large organ. Time-consuming to load but highly effective against enemy personnel, the ribauldequin is more at home on the battlefield than behind fixed fortifications. The standard organ gun has twelve barrels, firing a spread that covers a significant area.<br />**Aim** <actions string=\"Two Actions\" /> rotate 45° <br />**Load** <actions string=\"Three Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 4 times <br />**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), manipulate) 5d6 piercing, 30-foot [cone](/Rules.aspx?ID=2386), DC 18 Reflex"
+}

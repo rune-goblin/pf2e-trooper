@@ -1,0 +1,191 @@
+{
+  "_id": "4A0udgkLbkJ36278",
+  "_key": "!actors!4A0udgkLbkJ36278",
+  "name": "Blob Paste Propulsor",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/blob-paste-propulsor.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/blob-paste-propulsor.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 0,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 0,
+      "hp": {
+        "value": 0,
+        "max": 0,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>The blob paste propulsor is a mortar with a 25-foot hose attached to a reinforced pot. The pot holds blob paste, a viscous gunk synthesized from …</p>",
+      "level": {
+        "value": 8
+      },
+      "price": 900,
+      "crew": "3",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 0,
+        "wide": 0,
+        "high": 0
+      },
+      "speed": "",
+      "publication": {
+        "title": "Howl of the Wild",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 0,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "lg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "blob-paste-propulsor",
+        "siegeWeaponCategory": "Portable",
+        "proficiency": "martial",
+        "usage": "portable, held in 6 hands",
+        "ammunition": "blob paste (60 gp, 1 Bulk)",
+        "reflexSave": null,
+        "priceText": "900 gp",
+        "aonId": "siege-weapon-23",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=23",
+        "sourceBook": "Howl of the Wild",
+        "sourcePage": "Howl of the Wild pg. 115",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/blob-paste-propulsor.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": null,
+        "description": {
+          "value": "<p>rotate 45°</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "fLdmoMuR2czXqkBh",
+      "_key": "!actors.items!4A0udgkLbkJ36278.fLdmoMuR2czXqkBh"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "rUwEkA4WjXUY9EzP",
+      "_key": "!actors.items!4A0udgkLbkJ36278.rUwEkA4WjXUY9EzP"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, range increment 75 feet) Single target. If the Strike hits, blob paste immediately spreads across the target’s body, weighing it down and restricting movement. The target is grabbed for 1 minute, after which the blob paste melts away. The Escape DC to break free of the blob paste is 23.</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack",
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "ofmPT6Xb0b384nPq",
+      "_key": "!actors.items!4A0udgkLbkJ36278.ofmPT6Xb0b384nPq"
+    }
+  ]
+}

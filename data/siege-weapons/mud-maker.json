@@ -1,0 +1,43 @@
+{
+  "name": "Mud Maker",
+  "slug": "mud-maker",
+  "level": 13,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "simple",
+  "traits": [
+    "Magical",
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Huge"
+  ],
+  "usage": "mounted",
+  "price": "6,000 gp",
+  "ammunition": "transmutation disks (10 gp, L Bulk)",
+  "crew": "1 to 3",
+  "space": "10 feet long, 8 feet wide, 8 feet high",
+  "speed": "20 feet (pulled or pushed)",
+  "defenses": {
+    "ac": 30,
+    "fortitudeSave": 22,
+    "reflexSave": 16,
+    "hardness": 10,
+    "hp": 180,
+    "immunities": [
+      " object immunities "
+    ]
+  },
+  "source": {
+    "book": "Battlecry!",
+    "page": "Battlecry! pg. 104",
+    "releaseDate": "2025-07-31",
+    "aonId": "siege-weapon-56",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=56"
+  },
+  "summary": "Designed by inventive gnomes , a mud maker is a wooden device—often painted bright colors—that uses torsion to fling 1-foot diameter clay disks …",
+  "text": "Mud Maker Source Battlecry! pg. 104 Price 6,000 gp Ammunition transmutation disks (10 gp, L Bulk) --- Usage mounted Space 10 feet long, 8 feet wide, 8 feet high Crew 1 to 3 Proficiency simple --- AC 30 Fort +22 Ref +16 Hardness 10 HP 180 Immunities object immunities --- Speed 20 feet (pulled or pushed) --- Designed by inventive gnomes, a mud maker is a wooden device—often painted bright colors—that uses torsion to fling 1-foot diameter clay disks brimming with earth magic at high velocity. These enchanted disks sometimes explode unpredictably, so at least one crew member must be adept at handling them gently. Once a disk strikes its target, the resulting magical explosion liquefies nearby stone into messy mud. Aim Two Actions 50 feet, minimum distance 25 feet Load Two Actions (manipulate) 1 time, requires a successful DC 20 Arcana or Nature check Launch Single Action (attack, earth, magical, manipulate, range increment 120 feet) 12d6 force, 10-foot burst, DC 30 Reflex. Any nonmagical unattended stone in the burst is transformed into an equal volume of mud. Stone floors become difficult terrain; if the resulting mud is at least 3 feet deep, it is greater difficult terrain, or a creature can try to Swim through it (DC 10 Athletics). If the mud is deep enough that a creature can’t reach the bottom, they must Swim to move through it. A stone ceiling transformed into mud collapses, dealing 8d6 bludgeoning damage (DC 30 basic Reflex save), and spreads out, creating difficult terrain in a 20-foot radius. If part of a stone structure is transformed into mud, the GM rolls a flat check (DC 16 for a sturdy structure, DC 14 for an average structure, DC 9 for a shoddy structure, all adjusted higher or lower as the GM sees fit). On a failure, the structure collapses, dealing 8d6 bludgeoning damage to each creature caught in it (DC 30 basic Reflex save) and spreads out, creating difficult terrain in the area of collapse. This mud is non-magical and remains until natural conditions cause it to dry out or otherwise disperse.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 13\">[Mud Maker](/SiegeWeapons.aspx?ID=56)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Huge\" />\r\n<trait label=\"Magical\" url=\"/Traits.aspx?ID=103\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Battlecry!](/Sources.aspx?ID=268) pg. 104\r\n\r\n<row gap=\"medium\">\r\n**Price** 6,000 gp\r\n\r\n**Ammunition** transmutation disks (10 gp, L Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted\n\n**Space** 10 feet long, 8 feet wide, 8 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 1 to 3\r\n\r\n**Proficiency** simple\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 30\r\n\r\n**Fort** +22\r\n\r\n**Ref** +16\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 10\r\n\r\n**HP** 180\r\n\r\n**Immunities**  object immunities \r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 20 feet (pulled or pushed)\r\n\r\n---\r\n\r\nDesigned by inventive [gnomes](/Ancestries.aspx?ID=61), a _mud maker_ is a wooden device—often painted bright colors—that uses torsion to fling 1-foot diameter clay disks brimming with earth magic at high velocity. These enchanted disks sometimes explode unpredictably, so at least one crew member must be adept at handling them gently. Once a disk strikes its target, the resulting magical explosion liquefies nearby stone into messy mud.<br />**Aim** <actions string=\"Two Actions\" /> 50 feet, minimum distance 25 feet <br />**Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 1 time, requires a successful DC 20 [Arcana](/Skills.aspx?ID=35) or [Nature](/Skills.aspx?ID=43) check <br />**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), [earth](/Traits.aspx?ID=585), [magical](/Traits.aspx?ID=644), manipulate, [range increment 120 feet](/Traits.aspx?ID=248)) 12d6 force, 10-foot [burst](/Rules.aspx?ID=2385), DC 30 Reflex. Any nonmagical unattended stone in the burst is transformed into an equal volume of mud. Stone floors become [difficult terrain](/Rules.aspx?ID=2586); if the resulting mud is at least 3 feet deep, it is greater difficult terrain, or a creature can try to [Swim](/Actions.aspx?ID=2381) through it (DC 10 [Athletics](/Skills.aspx?ID=36)). If the mud is deep enough that a creature can’t reach the bottom, they must Swim to move through it. A stone ceiling transformed into mud collapses, dealing 8d6 bludgeoning damage (DC 30 [basic](/Rules.aspx?ID=2297) Reflex save), and spreads out, creating difficult terrain in a 20-foot radius. If part of a stone structure is transformed into mud, the GM rolls a [flat check](/Rules.aspx?ID=333) (DC 16 for a sturdy structure, DC 14 for an average structure, DC 9 for a shoddy structure, all adjusted higher or lower as the GM sees fit). On a failure, the structure collapses, dealing 8d6 bludgeoning damage to each creature caught in it (DC 30 basic Reflex save) and spreads out, creating difficult terrain in the area of collapse. This mud is non-magical and remains until natural conditions cause it to dry out or otherwise disperse."
+}

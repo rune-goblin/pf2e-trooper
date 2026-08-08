@@ -1,0 +1,41 @@
+{
+  "name": "Seismic Amplifier",
+  "slug": "seismic-amplifier",
+  "level": 15,
+  "rarity": "rare",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Mounted",
+    "Rare"
+  ],
+  "size": [
+    "Huge"
+  ],
+  "usage": "mounted",
+  "price": "13,000 gp",
+  "ammunition": "resonance rods (25 gp, 5 Bulk)",
+  "crew": "2-4",
+  "space": "15 feet long, 12 feet wide, 18 feet high",
+  "defenses": {
+    "ac": 29,
+    "fortitudeSave": 32,
+    "reflexSave": 18,
+    "hardness": 20,
+    "hp": 140,
+    "immunities": [
+      "object immunities"
+    ]
+  },
+  "source": {
+    "book": "Howl of the Wild",
+    "page": "Howl of the Wild pg. 117",
+    "releaseDate": "2024-05-29",
+    "aonId": "siege-weapon-31",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=31"
+  },
+  "summary": "Seismic amplifiers are devastating underground, where they tap into the energy of nearby faults. Installing one requires drilling a steel shaft into …",
+  "text": "Seismic Amplifier Source Howl of the Wild pg. 117 Price 13,000 gp Ammunition resonance rods (25 gp, 5 Bulk) --- Usage mounted Space 15 feet long, 12 feet wide, 18 feet high Crew 2-4 Proficiency martial --- AC 29 Fort +32 Ref +18 Hardness 20 HP 140 Immunities object immunities --- Seismic amplifiers are devastating underground, where they tap into the energy of nearby faults. Installing one requires drilling a steel shaft into the stone and loading it with crystal resonance rods. Breaking the rod releases the energy into a disk-like amplifier. Any creatures burrowed into ground within the burst treat the result of their Reflex save as one step worse. Aim Two Actions 200 feet, minimum distance 50 feet Load Two Actions (manipulate) 3 times, requires a successful DC 25 Athletics check Launch Single Action (attack, manipulate, range increment 200 feet) 9d12 bludgeoning, 5-foot burst, DC 33 Reflex",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 15\">[Seismic Amplifier](/SiegeWeapons.aspx?ID=31)</title>\r\n\r\n<traits>\r\n<trait label=\"Rare\" url=\"/Traits.aspx?ID=683\" />\r\n<trait label=\"Huge\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Howl of the Wild](/Sources.aspx?ID=226) pg. 117\r\n\r\n<row gap=\"medium\">\r\n**Price** 13,000 gp\r\n\r\n**Ammunition** resonance rods (25 gp, 5 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted\n\n**Space** 15 feet long, 12 feet wide, 18 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 2-4\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 29\r\n\r\n**Fort** +32\r\n\r\n**Ref** +18\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 20\r\n\r\n**HP** 140\r\n\r\n**Immunities** object immunities\r\n</row>\r\n\r\n</column>\r\n\r\n---\n\nSeismic amplifiers are devastating underground, where they tap into the energy of nearby faults. Installing one requires drilling a steel shaft into the stone and loading it with crystal resonance rods. Breaking the rod releases the energy into a disk-like amplifier. Any creatures burrowed into ground within the burst treat the result of their Reflex save as one step worse. \n\n**Aim** <actions string=\"Two Actions\" /> 200 feet, minimum distance 50 feet \n\n**Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 3 times, requires a successful DC 25 [Athletics](/Skills.aspx?ID=36) check \n\n**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), [manipulate](/Traits.aspx?ID=645), [range increment 200 feet](/Rules.aspx?ID=2195)) 9d12 bludgeoning, 5-foot burst, DC 33 Reflex"
+}

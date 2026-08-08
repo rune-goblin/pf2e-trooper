@@ -1,0 +1,222 @@
+{
+  "_id": "uXdsRXpjMOxWNPiV",
+  "_key": "!actors!uXdsRXpjMOxWNPiV",
+  "name": "Falconet",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/falconet.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/falconet.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 16,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 8,
+      "hp": {
+        "value": 30,
+        "max": 30,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>A compact cannon that fires much smaller ammunition than typical cannons, the falconet has an undersized but lethal shot of similar weight and size …</p>",
+      "level": {
+        "value": 4
+      },
+      "price": 200,
+      "crew": "2 to 3",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 4,
+        "wide": 3,
+        "high": 4
+      },
+      "speed": "20 feet (pulled or pushed)",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 11,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "med"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "falconet",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted (black powder)",
+        "ammunition": "iron shot (1 gp, L Bulk)",
+        "reflexSave": 6,
+        "priceText": "200 gp",
+        "aonId": "siege-weapon-50",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=50",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 102",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/falconet.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>100 feet, minimum distance 30 feet</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "JdcqF26ZJ8VRbXrU",
+      "_key": "!actors.items!uXdsRXpjMOxWNPiV.JdcqF26ZJ8VRbXrU"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times, requires a successful @Check[athletics|dc:15] check</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "kkhSQQA5tYoqz5WO",
+      "_key": "!actors.items!uXdsRXpjMOxWNPiV.kkhSQQA5tYoqz5WO"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, range increment 120 feet) @Damage[5d6[bludgeoning]], single target, @Check[reflex|dc:18]</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack"
+          ]
+        }
+      },
+      "_id": "qXCT9ELp1lAH9607",
+      "_key": "!actors.items!uXdsRXpjMOxWNPiV.qXCT9ELp1lAH9607"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "Wv3JJFNhGGu8c4CR",
+      "_key": "!actors.items!uXdsRXpjMOxWNPiV.Wv3JJFNhGGu8c4CR"
+    }
+  ]
+}

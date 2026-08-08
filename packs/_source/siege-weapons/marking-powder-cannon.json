@@ -1,0 +1,223 @@
+{
+  "_id": "iodtXCkcUH76ChLU",
+  "_key": "!actors!iodtXCkcUH76ChLU",
+  "name": "Marking Powder Cannon",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/marking-powder-cannon.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/marking-powder-cannon.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 18,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 8,
+      "hp": {
+        "value": 36,
+        "max": 36,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>The fine spray dispersed by a marking powder cannon outlines beasts that evade sight. This weapon was developed against creatures that use brush to …</p>",
+      "level": {
+        "value": 5
+      },
+      "price": 350,
+      "crew": "2",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 7,
+        "wide": 4,
+        "high": 3
+      },
+      "speed": "15 feet (pulled or pushed)",
+      "publication": {
+        "title": "Howl of the Wild",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 13,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "rare",
+      "size": {
+        "value": "lg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "marking-powder-cannon",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "simple",
+        "usage": "mounted",
+        "ammunition": "marking fluid canister (3 gp, 2 Bulk)",
+        "reflexSave": 11,
+        "priceText": "350 gp",
+        "aonId": "siege-weapon-27",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=27",
+        "sourceBook": "Howl of the Wild",
+        "sourcePage": "Howl of the Wild pg. 116",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/marking-powder-cannon.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>60 feet, minimum distance 30 feet</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "c8IJ8r9Hx3awbNui",
+      "_key": "!actors.items!iodtXCkcUH76ChLU.c8IJ8r9Hx3awbNui"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "A5U8CPBG5yr7p5wR",
+      "_key": "!actors.items!iodtXCkcUH76ChLU.A5U8CPBG5yr7p5wR"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, range increment 100 feet) 10- foot burst, @Check[reflex|dc:19|options:area-effect]. Creatures who fail the saving throw are coated with marking fluid, which glows with dim orange light out to 10 feet for 1 hour or until the fluid is washed off. In addition, on a failed save creatures that were undetected become hidden and affected creatures that were hidden become concealed. An invisible creature that fails its save has its invisibility negated for 2 rounds, during which time it is concealed instead of invisible. Affected creatures take a –2 penalty to Stealth checks to Hide and Sneak for as long as they are coated with marking fluid.</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack",
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "r4RZECShlY0a5rIW",
+      "_key": "!actors.items!iodtXCkcUH76ChLU.r4RZECShlY0a5rIW"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "Od9wC6clGtn8jv6p",
+      "_key": "!actors.items!iodtXCkcUH76ChLU.Od9wC6clGtn8jv6p"
+    }
+  ]
+}

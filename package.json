@@ -10,8 +10,9 @@
   },
   "scripts": {
     "remove-example-files": "node scripts/removeExampleFiles.ts",
-    "build": "node scripts/pack.ts && vite build",
+    "build": "node scripts/build-siege-weapon-pack.ts && node scripts/pack.ts && vite build",
     "build:art-manifest": "node scripts/build-official-troop-art.ts",
+    "build:siege-pack": "node scripts/build-siege-weapon-pack.ts",
     "dev": "vite",
     "watch": "vite build --watch",
     "check": "svelte-check --tsconfig ./tsconfig.json && tsc --noEmit && tsc --noEmit -p tsconfig.node.json",

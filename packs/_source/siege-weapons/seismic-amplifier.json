@@ -1,0 +1,191 @@
+{
+  "_id": "wlXHuq7UtKKp65uD",
+  "_key": "!actors!wlXHuq7UtKKp65uD",
+  "name": "Seismic Amplifier",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/seismic-amplifier.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/seismic-amplifier.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 29,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 20,
+      "hp": {
+        "value": 140,
+        "max": 140,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Seismic amplifiers are devastating underground, where they tap into the energy of nearby faults. Installing one requires drilling a steel shaft into …</p>",
+      "level": {
+        "value": 15
+      },
+      "price": 13000,
+      "crew": "2-4",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 15,
+        "wide": 12,
+        "high": 18
+      },
+      "speed": "",
+      "publication": {
+        "title": "Howl of the Wild",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 32,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "rare",
+      "size": {
+        "value": "huge"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "seismic-amplifier",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted",
+        "ammunition": "resonance rods (25 gp, 5 Bulk)",
+        "reflexSave": 18,
+        "priceText": "13,000 gp",
+        "aonId": "siege-weapon-31",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=31",
+        "sourceBook": "Howl of the Wild",
+        "sourcePage": "Howl of the Wild pg. 117",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/seismic-amplifier.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>200 feet, minimum distance 50 feet</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "GPi2ZvHpOEsiBF2p",
+      "_key": "!actors.items!wlXHuq7UtKKp65uD.GPi2ZvHpOEsiBF2p"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 3 times, requires a successful @Check[athletics|dc:25] check</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "dOavTHOYkagOVgnR",
+      "_key": "!actors.items!wlXHuq7UtKKp65uD.dOavTHOYkagOVgnR"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, range increment 200 feet) @Damage[9d12[bludgeoning]], 5-foot burst, @Check[reflex|dc:33|options:area-effect]</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack",
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "HNbwDsEWuo6zAqXw",
+      "_key": "!actors.items!wlXHuq7UtKKp65uD.HNbwDsEWuo6zAqXw"
+    }
+  ]
+}

@@ -1,0 +1,222 @@
+{
+  "_id": "V9Ok8XMV2Io8TkNg",
+  "_key": "!actors!V9Ok8XMV2Io8TkNg",
+  "name": "Steam Artillery",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/steam-artillery.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/steam-artillery.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 16,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 5,
+      "hp": {
+        "value": 60,
+        "max": 60,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Even without the explosive chemical reaction of black powder, it’s possible to achieve significant propulsion using steam. A steam artillery consists …</p>",
+      "level": {
+        "value": 5
+      },
+      "price": 320,
+      "crew": "2 to 3",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 5,
+        "wide": 5,
+        "high": 4
+      },
+      "speed": "25 feet (pulled or pushed)",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 12,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "med"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "steam-artillery",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "simple",
+        "usage": "mounted",
+        "ammunition": "bronze steam rocket (1 sp, L Bulk)",
+        "reflexSave": 6,
+        "priceText": "320 gp",
+        "aonId": "siege-weapon-63",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=63",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 106",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/steam-artillery.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": null,
+        "description": {
+          "value": "<p>40 feet, minimum distance 20 feet</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "XmG1GsEZgC8SQ1hH",
+      "_key": "!actors.items!V9Ok8XMV2Io8TkNg.XmG1GsEZgC8SQ1hH"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "wRwMODzCuuM37zfI",
+      "_key": "!actors.items!V9Ok8XMV2Io8TkNg.wRwMODzCuuM37zfI"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, range increment 40 feet) @Damage[4d10[bludgeoning]], single target, @Check[reflex|dc:19]</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack"
+          ]
+        }
+      },
+      "_id": "2A4YCKKItBIKez4Y",
+      "_key": "!actors.items!V9Ok8XMV2Io8TkNg.2A4YCKKItBIKez4Y"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "I7qD8ZKGZhyFTzd5",
+      "_key": "!actors.items!V9Ok8XMV2Io8TkNg.I7qD8ZKGZhyFTzd5"
+    }
+  ]
+}

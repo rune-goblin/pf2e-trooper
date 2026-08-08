@@ -1,0 +1,43 @@
+{
+  "name": "Anesthetizing Jaws",
+  "slug": "anesthetizing-jaws",
+  "level": 13,
+  "rarity": "rare",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Magical",
+    "Mounted",
+    "Nonlethal",
+    "Rare"
+  ],
+  "size": [
+    "Large"
+  ],
+  "usage": "mounted",
+  "price": "6,000 gp",
+  "ammunition": "spring-loaded iron jaw (25 gp, 2 Bulk)",
+  "crew": "3",
+  "space": "8 feet long, 6 feet wide, 4 feet high",
+  "defenses": {
+    "ac": 30,
+    "fortitudeSave": 29,
+    "reflexSave": 19,
+    "hardness": 15,
+    "hp": 160,
+    "immunities": [
+      "object immunities"
+    ]
+  },
+  "source": {
+    "book": "Howl of the Wild",
+    "page": "Howl of the Wild pg. 114",
+    "releaseDate": "2024-05-29",
+    "aonId": "siege-weapon-21",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=21"
+  },
+  "summary": "Communities use these large jaws to nonlethally subdue large game so it can be safely moved, treated for injury, or otherwise studied. The jaws are …",
+  "text": "Anesthetizing Jaws Source Howl of the Wild pg. 114 Price 6,000 gp Ammunition spring-loaded iron jaw (25 gp, 2 Bulk) --- Usage mounted Space 8 feet long, 6 feet wide, 4 feet high Crew 3 Proficiency martial --- AC 30 Fort +29 Ref +19 Hardness 15 HP 160 Immunities object immunities --- Communities use these large jaws to nonlethally subdue large game so it can be safely moved, treated for injury, or otherwise studied. The jaws are attached via a length of chain, which channels stunning magic into the target and aids in retrieval. Aim Two Actions 50 feet, minimum distance 50 feet Load Two Actions (manipulate) 3 times Launch Single Action (attack, manipulate, range 250 feet, versatile B) 9d10 piercing, single target, DC 31 Reflex. On a failure, the target is also grabbed. On a critical failure, the target is restrained instead of grabbed. A target that is grabbed or restrained by the anesthetizing jaws is attached to the weapon by the linked chain. Until the creature Escapes the jaws, it cannot move more than 250 feet from the anesthetizing jaws . The Escape DC is 32. Anesthetic Surge Two Actions (attack, manipulate) Requirements The anesthetizing jaws have a creature grabbed or restrained; Effect A crew member activates the anesthetic properties of the jaws, which deals 8d12 mental damage (DC 30 basic Will) to the grabbed or restrained creature",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 13\">[Anesthetizing Jaws](/SiegeWeapons.aspx?ID=21)</title>\r\n\r\n<traits>\r\n<trait label=\"Rare\" url=\"/Traits.aspx?ID=683\" />\r\n<trait label=\"Large\" />\r\n<trait label=\"Magical\" url=\"/Traits.aspx?ID=644\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n<trait label=\"Nonlethal\" url=\"/Traits.aspx?ID=661\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Howl of the Wild](/Sources.aspx?ID=226) pg. 114\r\n\r\n<row gap=\"medium\">\r\n**Price** 6,000 gp\r\n\r\n**Ammunition** spring-loaded iron jaw (25 gp, 2 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted\n\n**Space** 8 feet long, 6 feet wide, 4 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 3\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 30\r\n\r\n**Fort** +29\r\n\r\n**Ref** +19\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 15\r\n\r\n**HP** 160\r\n\r\n**Immunities** object immunities\r\n</row>\r\n\r\n</column>\r\n\r\n---\n\nCommunities use these large jaws to nonlethally subdue large game so it can be safely moved, treated for injury, or otherwise studied. The jaws are attached via a length of chain, which channels stunning magic into the target and aids in retrieval.\n\n**Aim** <actions string=\"Two Actions\" /> 50 feet, minimum distance 50 feet \n\n**Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 3 times\n\n**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), [manipulate](/Traits.aspx?ID=645), [range 250 feet](/Rules.aspx?ID=2195), [versatile B](/Traits.aspx?ID=724)) 9d10 piercing, single target, DC 31 Reflex. On a failure, the target is also [grabbed](/Conditions.aspx?ID=77). On a critical failure, the target is [restrained](/Conditions.aspx?ID=90) instead of grabbed. A target that is grabbed or restrained by the _anesthetizing jaws_ is attached to the weapon by the linked chain. Until the creature [Escapes](/Actions.aspx?ID=2296) the jaws, it cannot move more than 250 feet from the _anesthetizing jaws_. The Escape DC is 32.\n\n**Anesthetic Surge** <actions string=\"Two Actions\" /> ([attack](/Traits.aspx?ID=540), [manipulate](/Traits.aspx?ID=645)) **Requirements** The _anesthetizing jaws_ have a creature grabbed or restrained; **Effect** A crew member activates the anesthetic properties of the jaws, which deals 8d12 mental damage (DC 30 [basic](/Rules.aspx?ID=329) Will) to the grabbed or restrained creature"
+}

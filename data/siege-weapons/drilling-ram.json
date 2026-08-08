@@ -1,0 +1,28 @@
+{
+  "name": "Drilling Ram",
+  "slug": "drilling-ram",
+  "level": 6,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Portable",
+  "proficiency": "martial",
+  "traits": [
+    "Portable",
+    "Uncommon"
+  ],
+  "size": [
+    "Medium"
+  ],
+  "usage": "portable, held in 12 hands",
+  "crew": "6",
+  "source": {
+    "book": "Battlecry!",
+    "page": "Battlecry! pg. 102",
+    "releaseDate": "2025-07-31",
+    "aonId": "siege-weapon-45",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=45"
+  },
+  "summary": "This battering ram is fitted with a large metal drill powered by a clockwork engine. Once rammed into an object, the drill can be activated to weaken …",
+  "text": "Drilling Ram Source Battlecry! pg. 102 --- Usage portable, held in 12 hands Bulk 24 Crew 6 Proficiency martial --- This battering ram is fitted with a large metal drill powered by a clockwork engine. Once rammed into an object, the drill can be activated to weaken the structure against further strikes. Despite being a portable siege weapon, a drilling ram has the Load action, which represents winding the clockwork engine. Load Single Action (manipulate) 3 times Ram Two Actions Requirements The other members of the crew have Readied to Stride on your order; Effect You and the crew Stride, with a maximum distance equal to the slowest crew member’s Speed, then make a melee Strike with the drilling ram against a structure or unattended, stationary object. This Strike deals piercing damage equal to 5d8 + the highest Strength modifier among members of the crew. Activate Drill Single Action (manipulate) Requirements The drilling ram has been used to Strike this round and the rest of the crew is still wielding it; Effect The drill whirls to life, burrowing into the structure or object it struck, which has its Hardness reduced by 5 (minimum 0) for the drilling ram’s next Strike. Adamantine structures and objects aren’t affected. Drilling Ram Source Battlecry! pg. 102 Price 250 gp Adamantine Drilling Ram Source Battlecry! pg. 102 Price 2,400 gp --- An adamantine drilling ram can reduce the Hardness of adamantine structures and objects.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 6\">[Drilling Ram](/SiegeWeapons.aspx?ID=45)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Medium\" />\r\n<trait label=\"Portable\" url=\"/Traits.aspx?ID=412\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Battlecry!](/Sources.aspx?ID=268) pg. 102\r\n\r\n<row gap=\"medium\">\n\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** portable, held in 12 hands\r\n\r\n**Bulk** 24\n\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 6\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\n\nThis battering ram is fitted with a large metal drill powered by a clockwork engine. Once rammed into an object, the drill can be activated to weaken the structure against further strikes. Despite being a portable siege weapon, a drilling ram has the Load action, which represents winding the clockwork engine. <br />**Load** <actions string=\"Single Action\" /> ([manipulate](/Traits.aspx?ID=645)) 3 times <br />**Ram** <actions string=\"Two Actions\" /> **Requirements** The other members of the crew have [Readied](/Actions.aspx?ID=2299) to Stride on your order; **Effect** You and the crew [Stride](/Actions.aspx?ID=2305), with a maximum distance equal to the slowest crew member’s Speed, then make a melee Strike with the drilling ram against a structure or unattended, stationary object. This Strike deals piercing damage equal to 5d8 + the highest Strength modifier among members of the crew.<br />**Activate Drill** <actions string=\"Single Action\" /> (manipulate) **Requirements** The drilling ram has been used to Strike this round and the rest of the crew is still wielding it; **Effect** The drill whirls to life, burrowing into the structure or object it struck, which has its Hardness reduced by 5 (minimum 0) for the drilling ram’s next Strike. [Adamantine](/Equipment.aspx?ID=2915) structures and objects aren’t affected.\r\n\r\n<title\r\nlevel=\"2\"\r\nright=\"Item 6\"\r\npfs=\"Standard\"\r\n>\r\nDrilling Ram\r\n</title>\n\n<traits>\r\n\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Battlecry!](/Sources.aspx?ID=268) pg. 102\n\n**Price** 250 gp\r\n\r\n</column>\r\n\r\n<title\r\nlevel=\"2\"\r\nright=\"Item 11\"\r\npfs=\"Standard\"\r\n>\r\nAdamantine Drilling Ram\r\n</title>\n\n<traits>\r\n\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Battlecry!](/Sources.aspx?ID=268) pg. 102\n\n**Price** 2,400 gp\r\n\r\n</column>\r\n\r\n---\r\n\r\nAn adamantine drilling ram can reduce the Hardness of adamantine structures and objects."
+}

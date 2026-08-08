@@ -1,0 +1,35 @@
+{
+  "name": "Blasting Ram",
+  "slug": "blasting-ram",
+  "level": 7,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Portable",
+  "proficiency": "martial",
+  "traits": [
+    "Portable",
+    "Uncommon"
+  ],
+  "size": [
+    "Large"
+  ],
+  "usage": "portable (black powder), held in 8 hands",
+  "price": "360 gp",
+  "ammunition": "ram powder charge (2 gp, 1 Bulk)",
+  "crew": "4",
+  "defenses": {
+    "immunities": [
+      "object immunities"
+    ]
+  },
+  "source": {
+    "book": "Guns & Gears (Remastered)",
+    "page": "Guns & Gears (Remastered) pg. 173",
+    "releaseDate": "2025-02-18",
+    "aonId": "siege-weapon-11",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=11"
+  },
+  "summary": "A blasting ram is a smaller battering ram that supplements the crew's size with explosive force. A steel reservoir holds a charge of black powder …",
+  "text": "Blasting Ram Source Guns & Gears (Remastered) pg. 173 Price 360 gp Ammunition ram powder charge (2 gp, 1 Bulk) --- Usage portable (black powder), held in 8 hands Bulk 14 Crew 4 Proficiency martial --- A blasting ram is a smaller battering ram that supplements the crew's size with explosive force. A steel reservoir holds a charge of black powder that ignites on impact. The body of the ram is reinforced to absorb the force of the explosion, while the head itself has a blast shield to protect the crew. Despite being a portable siege weapon, a blast ram has the Load action, which the crew uses to load the powder charge in the ram's head. Load Two Actions (manipulate) 2 times Ram Two Actions Requirements The other members of the crew have Readied to Stride on your order; Effect You and the crew Stride, with a maximum distance equal to the slowest crew member's Speed. Then, make a melee Strike with the ram against a structure or unattended stationary object. As you do, the black powder in the steel reservoir explodes, significantly increasing the damage of your attack. Due to the black powder’s additional force, this Strike deals bludgeoning damage equal to 7d8 + the highest Strength modifier among members of the crew.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 7\">[Blasting Ram](/SiegeWeapons.aspx?ID=11)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Large\" />\r\n<trait label=\"Portable\" url=\"/Traits.aspx?ID=412\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Guns &amp; Gears (Remastered)](/Sources.aspx?ID=98) pg. 173\r\n\r\n<row gap=\"medium\">\r\n**Price** 360 gp\r\n\r\n**Ammunition** ram powder charge (2 gp, 1 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** portable (black powder), held in 8 hands\r\n\r\n**Bulk** 14\n\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 4\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\n\nA blasting ram is a smaller battering ram that supplements the crew's size with explosive force. A steel reservoir holds a charge of black powder that ignites on impact. The body of the ram is reinforced to absorb the force of the explosion, while the head itself has a blast shield to protect the crew. Despite being a portable siege weapon, a blast ram has the Load action, which the crew uses to load the powder charge in the ram's head.<br /> **Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=104)) 2 times<br /> **Ram** <actions string=\"Two Actions\" /> **Requirements** The other members of the crew have Readied to Stride on your order; **Effect** You and the crew Stride, with a maximum distance equal to the slowest crew member's Speed. Then, make a melee Strike with the ram against a structure or unattended stationary object. As you do, the black powder in the steel reservoir explodes, significantly increasing the damage of your attack. Due to the black powder’s additional force, this Strike deals bludgeoning damage equal to 7d8 + the highest Strength modifier among members of the crew."
+}

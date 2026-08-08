@@ -1,0 +1,44 @@
+{
+  "name": "Sonic Horn",
+  "slug": "sonic-horn",
+  "level": 10,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Magical",
+    "Mounted",
+    "Sonic",
+    "Uncommon"
+  ],
+  "size": [
+    "Large"
+  ],
+  "usage": "mounted",
+  "price": "2,000 gp",
+  "ammunition": "resonating orb (320 gp, 6 Bulk)",
+  "crew": "2",
+  "space": "10 feet long, 5 feet wide, 5 feet high",
+  "speed": "15 feet (pulled or pushed)",
+  "defenses": {
+    "ac": 22,
+    "fortitudeSave": 25,
+    "reflexSave": 14,
+    "hardness": 12,
+    "hp": 80,
+    "immunities": [
+      "object immunities"
+    ]
+  },
+  "source": {
+    "book": "Howl of the Wild",
+    "page": "Howl of the Wild pg. 117",
+    "releaseDate": "2024-05-29",
+    "aonId": "siege-weapon-29",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=29"
+  },
+  "summary": "This siege weapon consists of a horn-shaped nozzle, a base typically decorated with ornate musical notes, and two cranks attached to both sides of …",
+  "text": "Sonic Horn Source Howl of the Wild pg. 117 Price 2,000 gp Ammunition resonating orb (320 gp, 6 Bulk) --- Usage mounted Space 10 feet long, 5 feet wide, 5 feet high Crew 2 Proficiency martial --- AC 22 Fort +25 Ref +14 Hardness 12 HP 80 Immunities object immunities --- Speed 15 feet (pulled or pushed) --- This siege weapon consists of a horn-shaped nozzle, a base typically decorated with ornate musical notes, and two cranks attached to both sides of the base. Crystalline resonating orbs made from powdered soniphak horn are inserted into a compartment within the base. Once an orb is loaded and the nozzle aimed, both cranks must be turned. This causes compressors within the base to grind away at the resonating orb, crushing it and releasing the sonic energy contained within. To reduce the likelihood of these weapons causing hearing damage, horns come equipped with earplugs and colored flags to enable crew members to communicate without the need for speech. Aim Two Actions 40 feet, minimum distance 50 feet Load Three Actions (manipulate) 2 times. These load actions include donning earplugs and securing them during subsequent sonic horn firings. The earplugs impose a –2 item penalty to Perception checks involving sound, and may be removed with an Interact action. Launch Single Action (attack, manipulate, range increment 250 feet) 6d12 sonic damage, 60-foot cone, DC 25 Fortitude. Creatures that fail or critically fail the save are also deafened for 3d6 rounds.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 10\">[Sonic Horn](/SiegeWeapons.aspx?ID=29)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=721\" />\r\n<trait label=\"Large\" />\r\n<trait label=\"Magical\" url=\"/Traits.aspx?ID=644\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n<trait label=\"Sonic\" url=\"/Traits.aspx?ID=697\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Howl of the Wild](/Sources.aspx?ID=226) pg. 117\r\n\r\n<row gap=\"medium\">\r\n**Price** 2,000 gp\r\n\r\n**Ammunition** resonating orb (320 gp, 6 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted\n\n**Space** 10 feet long, 5 feet wide, 5 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 2\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 22\r\n\r\n**Fort** +25\r\n\r\n**Ref** +14\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 12\r\n\r\n**HP** 80\r\n\r\n**Immunities** object immunities\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 15 feet (pulled or pushed)\r\n\r\n---\r\n\r\nThis siege weapon consists of a horn-shaped nozzle, a base typically decorated with ornate musical notes, and two cranks attached to both sides of the base. Crystalline resonating orbs made from powdered [soniphak](/Monsters.aspx?ID=3269) horn are inserted into a compartment within the base. Once an orb is loaded and the nozzle aimed, both cranks must be turned. This causes compressors within the base to grind away at the resonating orb, crushing it and releasing the sonic energy contained within. To reduce the likelihood of these weapons causing hearing damage, horns come equipped with earplugs and colored flags to enable crew members to communicate without the need for speech. \n\n**Aim** <actions string=\"Two Actions\" /> 40 feet, minimum distance 50 feet \n\n**Load** <actions string=\"Three Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 2 times. These load actions include donning earplugs and securing them during subsequent sonic horn firings. The earplugs impose a –2 item penalty to [Perception](/Rules.aspx?ID=2298) checks involving sound, and may be removed with an [Interact](/Actions.aspx?ID=2297) action. \n\n**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), [manipulate](/Traits.aspx?ID=645), [range increment 250 feet](/Rules.aspx?ID=2195)) 6d12 sonic damage, 60-foot cone, DC 25 Fortitude. Creatures that fail or critically fail the save are also [deafened](/Conditions.aspx?ID=66) for 3d6 rounds."
+}

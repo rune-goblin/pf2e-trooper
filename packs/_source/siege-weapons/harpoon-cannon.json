@@ -1,0 +1,223 @@
+{
+  "_id": "KhyTJjK6IDXSHdVV",
+  "_key": "!actors!KhyTJjK6IDXSHdVV",
+  "name": "Harpoon Cannon",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/harpoon-cannon.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/harpoon-cannon.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 20,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 10,
+      "hp": {
+        "value": 70,
+        "max": 70,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Harpoon cannons fire bolts about 6 feet long that are attached to 200 feet of rope. Traditionally, they are used at sea to impale aquatic creatures, …</p>",
+      "level": {
+        "value": 7
+      },
+      "price": 700,
+      "crew": "3-5",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 9,
+        "wide": 7,
+        "high": 5
+      },
+      "speed": "15 feet (pulled or pushed)",
+      "publication": {
+        "title": "Howl of the Wild",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 17,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "lg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "harpoon-cannon",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted (black powder)",
+        "ammunition": "harpoon cannon bolt (3 gp, 2 Bulk)",
+        "reflexSave": 13,
+        "priceText": "700 gp",
+        "aonId": "siege-weapon-24",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=24",
+        "sourceBook": "Howl of the Wild",
+        "sourcePage": "Howl of the Wild pg. 115",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/harpoon-cannon.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": null,
+        "description": {
+          "value": "<p>60 feet, minimum distance 40 feet</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "COdmdUCwc41Pr4hD",
+      "_key": "!actors.items!KhyTJjK6IDXSHdVV.COdmdUCwc41Pr4hD"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times, requires a successful @Check[athletics|dc:20] check</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "b64O0d9a3wBf3mNk",
+      "_key": "!actors.items!KhyTJjK6IDXSHdVV.b64O0d9a3wBf3mNk"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, range 200 feet) @Damage[6d12[piercing]], single target, @Check[reflex|dc:22]. On a failed save, the harpoon becomes lodged in the target’s body. The target can remove the harpoon with a DC 22 check to Escape or Force Open, but on a failure, the target takes @Damage[6d4[piercing]] damage. As long as the harpoon cannon bolt remains lodged, the target cannot move more than 200 feet away from the harpoon cannon. If the harpoon cannon bolt is embedded in a creature that isn’t swimming, one member of the crew can attempt to Trip the creature by tugging on the rope if all other crew members Aid. On a failure, the bolt rips free, causing @Damage[4d4[piercing]] damage to the target but releasing it.</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack",
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "E4brS5ERCaho8MaT",
+      "_key": "!actors.items!KhyTJjK6IDXSHdVV.E4brS5ERCaho8MaT"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "HGrmFtd85lHIKrbg",
+      "_key": "!actors.items!KhyTJjK6IDXSHdVV.HGrmFtd85lHIKrbg"
+    }
+  ]
+}

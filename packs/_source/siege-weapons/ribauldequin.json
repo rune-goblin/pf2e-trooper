@@ -1,0 +1,222 @@
+{
+  "_id": "by3vfEZ7ZpKvYk8Q",
+  "_key": "!actors!by3vfEZ7ZpKvYk8Q",
+  "name": "Ribauldequin",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/ribauldequin.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/ribauldequin.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 16,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 5,
+      "hp": {
+        "value": 35,
+        "max": 35,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Also known as an organ gun, a ribauldequin consists of a row of gun barrels set parallel on a frame so that they resemble the pipes of a large organ. …</p>",
+      "level": {
+        "value": 4
+      },
+      "price": 180,
+      "crew": "1 to 4",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 8,
+        "wide": 6,
+        "high": 6
+      },
+      "speed": "20 feet (pulled or pushed)",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 10,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "med"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "ribauldequin",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted (black powder)",
+        "ammunition": "rounds (1 sp for 10, L Bulk)",
+        "reflexSave": 4,
+        "priceText": "180 gp",
+        "aonId": "siege-weapon-59",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=59",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 105",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/ribauldequin.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>rotate 45°</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "1rL1QwfoVl72TYzT",
+      "_key": "!actors.items!by3vfEZ7ZpKvYk8Q.1rL1QwfoVl72TYzT"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/ThreeActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 3
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 4 times</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "QHtbGd222WTYlPsk",
+      "_key": "!actors.items!by3vfEZ7ZpKvYk8Q.QHtbGd222WTYlPsk"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate) @Damage[5d6[piercing]], 30-foot cone, @Check[reflex|dc:18|options:area-effect]</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack"
+          ]
+        }
+      },
+      "_id": "RiRuFY5LncqBHDqT",
+      "_key": "!actors.items!by3vfEZ7ZpKvYk8Q.RiRuFY5LncqBHDqT"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "kv65EZLseDlcER1l",
+      "_key": "!actors.items!by3vfEZ7ZpKvYk8Q.kv65EZLseDlcER1l"
+    }
+  ]
+}

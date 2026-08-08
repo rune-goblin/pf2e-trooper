@@ -1,0 +1,42 @@
+{
+  "name": "Blasting Horn",
+  "slug": "blasting-horn",
+  "level": 13,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "simple",
+  "traits": [
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Large"
+  ],
+  "usage": "mounted",
+  "price": "6,000 gp",
+  "ammunition": "<%EQUIPMENT%3288%%>moderate blasting stone<%END> (10 gp, L Bulk)",
+  "crew": "2 t o4",
+  "space": "10 feet long, 6 feet wide, 8 feet high",
+  "speed": "10 feet (pulled or pushed)",
+  "defenses": {
+    "ac": 29,
+    "fortitudeSave": 23,
+    "reflexSave": 16,
+    "hardness": 15,
+    "hp": 200,
+    "immunities": [
+      " object immunities "
+    ]
+  },
+  "source": {
+    "book": "Battlecry!",
+    "page": "Battlecry! pg. 103",
+    "releaseDate": "2025-07-31",
+    "aonId": "siege-weapon-55",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=55"
+  },
+  "summary": "Crafted by a long-fallen empire at the height of its power, the blasting horn resembles a metal cornucopia attached to a wheeled wooden frame. A …",
+  "text": "Blasting Horn Source Battlecry! pg. 103 Price 6,000 gp Ammunition moderate blasting stone (10 gp, L Bulk) --- Usage mounted Space 10 feet long, 6 feet wide, 8 feet high Crew 2 t o4 Proficiency simple --- AC 29 Fort +23 Ref +16 Hardness 15 HP 200 Immunities object immunities --- Speed 10 feet (pulled or pushed) --- Crafted by a long-fallen empire at the height of its power, the blasting horn resembles a metal cornucopia attached to a wheeled wooden frame. A large circular gong hangs from a series of wires inside the horn. Behind the gong is a small reservoir that holds the blasting stone, loaded via a tube connected to the top of the casing. Once loaded, the blasting stone is activated by a ramming rod, and its effects are amplified by the gong and surrounding metal. A shock wave emanates from the horn’s mouth, an attack that was particularly effective in the sands of the deep desert. Aim Three Actions rotate 45° Load Single Action (manipulate) 1 time Launch Single Action (attack, manipulate) 5d8 bludgeoning and 6d8 sonic, 60-foot cone, DC 30 Reflex, on a critical failure the creature is deafened for 1 minute",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 13\">[Blasting Horn](/SiegeWeapons.aspx?ID=55)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Large\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Battlecry!](/Sources.aspx?ID=268) pg. 103\r\n\r\n<row gap=\"medium\">\r\n**Price** 6,000 gp\r\n\r\n**Ammunition** [moderate blasting stone](/Equipment.aspx?ID=3288) (10 gp, L Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted\n\n**Space** 10 feet long, 6 feet wide, 8 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 2 t o4\r\n\r\n**Proficiency** simple\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 29\r\n\r\n**Fort** +23\r\n\r\n**Ref** +16\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 15\r\n\r\n**HP** 200\r\n\r\n**Immunities**  object immunities \r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 10 feet (pulled or pushed)\r\n\r\n---\r\n\r\nCrafted by a long-fallen empire at the height of its power, the blasting horn resembles a metal cornucopia attached to a wheeled wooden frame. A large circular gong hangs from a series of wires inside the horn. Behind the gong is a small reservoir that holds the blasting stone, loaded via a tube connected to the top of the casing. Once loaded, the blasting stone is activated by a ramming rod, and its effects are amplified by the gong and surrounding metal. A shock wave emanates from the horn’s mouth, an attack that was particularly effective in the sands of the deep desert.<br />**Aim** <actions string=\"Three Actions\" /> rotate 45° <br />**Load** <actions string=\"Single Action\" /> ([manipulate](/Traits.aspx?ID=645)) 1 time <br />**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), manipulate) 5d8 bludgeoning and 6d8 sonic, 60-foot [cone](/Rules.aspx?ID=2386), DC 30 Reflex, on a critical failure the creature is [deafened](/Conditions.aspx?ID=66) for 1 minute"
+}

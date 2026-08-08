@@ -1,0 +1,191 @@
+{
+  "_id": "9oybekOYO1wUJRdR",
+  "_key": "!actors!9oybekOYO1wUJRdR",
+  "name": "Kickback Spring",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/kickback-spring.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/kickback-spring.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 20,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 10,
+      "hp": {
+        "value": 50,
+        "max": 50,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>A smaller version of the kickback spring was first deployed as a deterrent to keep crops safe from nuisance foragers like moose. These larger …</p>",
+      "level": {
+        "value": 7
+      },
+      "price": 700,
+      "crew": "2",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 18,
+        "wide": 5,
+        "high": 7
+      },
+      "speed": "",
+      "publication": {
+        "title": "Howl of the Wild",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 16,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "grg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "kickback-spring",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted",
+        "ammunition": "kickback charge (2 gp, 1 Bulk)",
+        "reflexSave": 13,
+        "priceText": "700 gp",
+        "aonId": "siege-weapon-25",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=25",
+        "sourceBook": "Howl of the Wild",
+        "sourcePage": "Howl of the Wild pg. 115",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/kickback-spring.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>25 feet, minimum distance 50 feet</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "Uy8Q4tSMFVcqMsZv",
+      "_key": "!actors.items!9oybekOYO1wUJRdR.Uy8Q4tSMFVcqMsZv"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times, requires a successful @Check[athletics|dc:22] check</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "At5UPqqmhdEi85P9",
+      "_key": "!actors.items!9oybekOYO1wUJRdR.At5UPqqmhdEi85P9"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(air, attack, manipulate, range increment 60 feet) @Damage[6d8[bludgeoning]], 15-foot cone, @Check[reflex|dc:22|options:area-effect]. A creature that fails its Reflex save is pushed 25 feet away from the _kickback spring_ as air rapidly vents from the device. On a critical failure, a creature falls prone after being pushed back.</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack",
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "07tULL64Zz0iCUi3",
+      "_key": "!actors.items!9oybekOYO1wUJRdR.07tULL64Zz0iCUi3"
+    }
+  ]
+}

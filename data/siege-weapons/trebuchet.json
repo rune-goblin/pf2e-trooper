@@ -1,0 +1,41 @@
+{
+  "name": "Trebuchet",
+  "slug": "trebuchet",
+  "level": 10,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Gargantuan"
+  ],
+  "usage": "mounted",
+  "price": "2,000 gp",
+  "ammunition": "stones (0 gp, 6 Bulk)",
+  "crew": "4-6",
+  "space": "25 feet long, 15 feet wide, 25 feet high",
+  "defenses": {
+    "ac": 24,
+    "fortitudeSave": 21,
+    "reflexSave": 16,
+    "hardness": 17,
+    "hp": 68,
+    "immunities": [
+      "object immunities"
+    ]
+  },
+  "source": {
+    "book": "Guns & Gears (Remastered)",
+    "page": "Guns & Gears (Remastered) pg. 76",
+    "releaseDate": "2025-02-18",
+    "aonId": "siege-weapon-9",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=9"
+  },
+  "summary": "Built with a long wooden arm and a heavy counterweight, a trebuchet can hurl massive projectiles from a large sling, releasing the projectile at the …",
+  "text": "Trebuchet Source Guns & Gears (Remastered) pg. 76 Price 2,000 gp Ammunition stones (0 gp, 6 Bulk) --- Usage mounted Space 25 feet long, 15 feet wide, 25 feet high Crew 4-6 Proficiency martial --- AC 24 Fort +21 Ref +16 Hardness 17 HP 68 Immunities object immunities --- Built with a long wooden arm and a heavy counterweight, a trebuchet can hurl massive projectiles from a large sling, releasing the projectile at the ideal point in the arm's arc. Aim Two Actions 100 feet, minimum distance 200 feet Load Two Actions (manipulate) 3 times, requires a successful DC 20 Athletics check Launch Single Action (attack, manipulate, range increment 400 feet) 8d10 bludgeoning, 20-foot burst, DC 26 Reflex",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 10\">[Trebuchet](/SiegeWeapons.aspx?ID=9)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Gargantuan\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Guns &amp; Gears (Remastered)](/Sources.aspx?ID=98) pg. 76\r\n\r\n<row gap=\"medium\">\r\n**Price** 2,000 gp\r\n\r\n**Ammunition** stones (0 gp, 6 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted\n\n**Space** 25 feet long, 15 feet wide, 25 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 4-6\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 24\r\n\r\n**Fort** +21\r\n\r\n**Ref** +16\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 17\r\n\r\n**HP** 68\r\n\r\n**Immunities** object immunities\r\n</row>\r\n\r\n</column>\r\n\r\n---\n\nBuilt with a long wooden arm and a heavy counterweight, a trebuchet can hurl massive projectiles from a large sling, releasing the projectile at the ideal point in the arm's arc.<br /> **Aim**<actions string=\"Two Actions\" /> 100 feet, minimum distance 200 feet<br /> **Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=104)) 3 times, requires a successful DC 20 [Athletics](/Skills.aspx?ID=3) check<br /> **Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=15), [manipulate](/Traits.aspx?ID=104), [range increment 400 feet](/Traits.aspx?ID=248)) 8d10 bludgeoning, 20-foot burst, DC 26 Reflex"
+}

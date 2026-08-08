@@ -1,0 +1,42 @@
+{
+  "name": "Hwacha",
+  "slug": "hwacha",
+  "level": 4,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "simple",
+  "traits": [
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Large"
+  ],
+  "usage": "mounted  (black powder)",
+  "price": "180 gp",
+  "ammunition": "100 hwacha arrows (2 gp, 1 Bulk)",
+  "crew": "1-4",
+  "space": "8 feet long, 6 feet wide, 6 feet high",
+  "speed": "25 feet (pulled or pushed)",
+  "defenses": {
+    "ac": 16,
+    "fortitudeSave": 11,
+    "reflexSave": 4,
+    "hardness": 5,
+    "hp": 40,
+    "immunities": [
+      "object immunities"
+    ]
+  },
+  "source": {
+    "book": "Guns & Gears (Remastered)",
+    "page": "Guns & Gears (Remastered) pg. 175",
+    "releaseDate": "2025-02-18",
+    "aonId": "siege-weapon-18",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=18"
+  },
+  "summary": "Rather than a shoot a single, large projectile like a boulder, the hwacha fires dozens of rocket-propelled arrows at once. The frame of the hwacha …",
+  "text": "Hwacha Source Guns & Gears (Remastered) pg. 175 Price 180 gp Ammunition 100 hwacha arrows (2 gp, 1 Bulk) --- Usage mounted (black powder) Space 8 feet long, 6 feet wide, 6 feet high Crew 1-4 Proficiency simple --- AC 16 Fort +11 Ref +4 Hardness 5 HP 40 Immunities object immunities --- Speed 25 feet (pulled or pushed) --- Rather than a shoot a single, large projectile like a boulder, the hwacha fires dozens of rocket-propelled arrows at once. The frame of the hwacha holds 100 tubes, each loaded with an arrow or a small bundle of arrows wrapped with a small amount of black powder and attached to a fuse. By lighting a master fuse, you can make all of the arrows fire in rapid succession. Aim Two Actions 40 feet, minimum distance 40 feet Load Three Actions (manipulate) Each Load action loads 10 hwacha arrows. Taking the Launch action requires three Load actions to load 30 hwacha arrows, but you can continue to Load more arrows to increase the effect of the next Launch action, as detailed below. Launch Single Action (manipulate, range increment 300 feet) 4d8 piercing, 20-foot burst, DC 18 Reflex. If you loaded at least 70 hwacha arrows, the area increases to a 25-foot burst. If you loaded 100 hwacha arrows, the area increases to a 30-foot burst and the damage to 5d8 piercing.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 4\">[Hwacha](/SiegeWeapons.aspx?ID=18)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Large\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Guns &amp; Gears (Remastered)](/Sources.aspx?ID=98) pg. 175\r\n\r\n<row gap=\"medium\">\r\n**Price** 180 gp\r\n\r\n**Ammunition** 100 hwacha arrows (2 gp, 1 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted  (black powder)\n\n**Space** 8 feet long, 6 feet wide, 6 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 1-4\r\n\r\n**Proficiency** simple\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 16\r\n\r\n**Fort** +11\r\n\r\n**Ref** +4\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 5\r\n\r\n**HP** 40\r\n\r\n**Immunities** object immunities\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 25 feet (pulled or pushed)\r\n\r\n---\r\n\r\nRather than a shoot a single, large projectile like a boulder, the hwacha fires dozens of rocket-propelled arrows at once. The frame of the hwacha holds 100 tubes, each loaded with an arrow or a small bundle of arrows wrapped with a small amount  of black powder and attached to a fuse. By lighting a master fuse, you can make all of the arrows fire in rapid succession.<br /> **Aim** <actions string=\"Two Actions\" /> 40 feet, minimum distance 40 feet<br /> **Load** <actions string=\"Three Actions\" /> ([manipulate](/Traits.aspx?ID=104)) Each Load action loads 10 hwacha arrows. Taking the Launch action requires three Load actions to load 30 hwacha arrows, but you can continue to Load more arrows to increase the effect of the next Launch action, as detailed below.<br /> **Launch** <actions string=\"Single Action\" /> ([manipulate](/Traits.aspx?ID=104), [range increment 300 feet](/Traits.aspx?ID=248)) 4d8 piercing, 20-foot burst, DC 18 Reflex. If you loaded at least 70 hwacha arrows, the area increases to a 25-foot burst. If you loaded 100 hwacha arrows, the area increases to a 30-foot burst and the damage to 5d8 piercing."
+}

@@ -1,0 +1,222 @@
+{
+  "_id": "jvsvZt2nTamCvLPx",
+  "_key": "!actors!jvsvZt2nTamCvLPx",
+  "name": "Fleshforged Disgorger",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/fleshforged-disgorger.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/fleshforged-disgorger.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 36,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 5,
+      "hp": {
+        "value": 290,
+        "max": 290,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Not everything produced in the fleshforges can be classified as a creature. One such large example is the fleshforged disgorger, a corpulent tube …</p>",
+      "level": {
+        "value": 17
+      },
+      "price": 26500,
+      "crew": "3 to 5",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 16,
+        "wide": 16,
+        "high": 14
+      },
+      "speed": "10 feet (pulled or pushed)",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 30,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "rare",
+      "size": {
+        "value": "huge"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "fleshforged-disgorger",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted",
+        "ammunition": "barrel of alchemical syrup (25 gp, 5 Bulk)",
+        "reflexSave": 25,
+        "priceText": "26,500 gp",
+        "aonId": "siege-weapon-57",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=57",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 104",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/fleshforged-disgorger.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/ThreeActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 3
+        },
+        "category": null,
+        "description": {
+          "value": "<p>40 feet, minimum distance 50 feet</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "N1g67juMpC6itVBM",
+      "_key": "!actors.items!jvsvZt2nTamCvLPx.N1g67juMpC6itVBM"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/ThreeActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 3
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times, requires a successful @Check[athletics|dc:20] or Medicine check</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "CgyjuPZlozxsjyPA",
+      "_key": "!actors.items!jvsvZt2nTamCvLPx.CgyjuPZlozxsjyPA"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/ThreeActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 3
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, magical, manipulate, range increment 100 feet) @Damage[15d6[acid]] and @Damage[2d6[persistent,acid]], 30-foot burst, @Check[reflex|dc:35|options:area-effect]. Because a disgorger launches its gob at a high angle, the gob descends on the center of the burst from above, not in a straight line from the disgorger. This affects whether creatures have cover from the launch.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack"
+          ]
+        }
+      },
+      "_id": "JeUgzCHUlo3WEuL8",
+      "_key": "!actors.items!jvsvZt2nTamCvLPx.JeUgzCHUlo3WEuL8"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "fKbWekZItvW9clql",
+      "_key": "!actors.items!jvsvZt2nTamCvLPx.fKbWekZItvW9clql"
+    }
+  ]
+}

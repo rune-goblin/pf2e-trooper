@@ -1,0 +1,42 @@
+{
+  "name": "Cyclonic Cannon",
+  "slug": "cyclonic-cannon",
+  "level": 13,
+  "rarity": "rare",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Magical",
+    "Mounted",
+    "Rare"
+  ],
+  "size": [
+    "No Size"
+  ],
+  "usage": "mounted",
+  "price": "7,000 gp",
+  "ammunition": "sabot flechettes (10 gp, 5 Bulk)",
+  "crew": "3 to 4",
+  "space": "30 feet long, 20 feet wide, 12 feet high",
+  "speed": "5 feet (pushed or pulled)",
+  "defenses": {
+    "ac": 30,
+    "fortitudeSave": 22,
+    "reflexSave": 16,
+    "hardness": 15,
+    "hp": 200,
+    "immunities": [
+      " object immunities "
+    ]
+  },
+  "source": {
+    "book": "Pathfinder #223: Hell's Destiny",
+    "page": "Pathfinder #223: Hell's Destiny pg. 225",
+    "releaseDate": "2026-06-03",
+    "aonId": "siege-weapon-91",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=91"
+  },
+  "summary": "Unearthed from the ruins of a long-fallen empire, this siege weapon with a tornado motif carved into the barrel has been repaired for modern use. The barrel …",
+  "text": "Cyclonic Cannon Source Pathfinder #223: Hell's Destiny pg. 225 Price 7,000 gp Ammunition sabot flechettes (10 gp, 5 Bulk) --- Usage mounted Space 30 feet long, 20 feet wide, 12 feet high Crew 3 to 4 Proficiency martial --- AC 30 Fort +22 Ref +16 Hardness 15 HP 200 Immunities object immunities --- Speed 5 feet (pushed or pulled) --- Unearthed from the ruins of a long-fallen empire, this siege weapon with a tornado motif carved into the barrel has been repaired for modern use. The barrel creates a vortex of air that propels the loaded projectile: an expertly engineered metal sabot containing fin-stabilized flechettes, achieving greater ranges and devastation than its ancient inventors likely ever dreamed possible. Aim Three Actions rotate 45° Load Three Actions (manipulate) 2 times, requires a successful DC 21 Arcana, Athletics, Nature, or Religion check Launch Single Action (attack, manipulate) 9d10 piercing, 250-foot line, DC 31 Reflex, ignores 5 points of an object’s Hardness",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 13\">[Cyclonic Cannon](/SiegeWeapons.aspx?ID=91)</title>\r\n\r\n<traits>\r\n<trait label=\"Rare\" url=\"/Traits.aspx?ID=683\" />\r\n<trait label=\"No Size\" />\r\n<trait label=\"Magical\" url=\"/Traits.aspx?ID=644\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Pathfinder #223: Hell's Destiny](/Sources.aspx?ID=336) pg. 225\r\n\r\n<row gap=\"medium\">\r\n**Price** 7,000 gp\r\n\r\n**Ammunition** sabot flechettes (10 gp, 5 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted\n\n**Space** 30 feet long, 20 feet wide, 12 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 3 to 4\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 30\r\n\r\n**Fort** +22\r\n\r\n**Ref** +16\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 15\r\n\r\n**HP** 200\r\n\r\n**Immunities**  object immunities \r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 5 feet (pushed or pulled)\r\n\r\n---\r\n\r\nUnearthed from the ruins of a long-fallen empire, this siege weapon with a tornado motif carved into the barrel has been repaired for modern use. The barrel creates a vortex of air that propels the loaded projectile: an expertly engineered metal sabot containing fin-stabilized flechettes, achieving greater ranges and devastation than its ancient inventors likely ever dreamed possible.<br />**Aim** <actions string=\"Three Actions\" /> rotate 45° <br />**Load** <actions string=\"Three Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 2 times, requires a successful DC 21 [Arcana](/Skills.aspx?ID=35), [Athletics](/Skills.aspx?ID=36), [Nature](/Skills.aspx?ID=43), or [Religion](/Skills.aspx?ID=46) check <br />**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), manipulate) 9d10 piercing, 250-foot [line](/Rules.aspx?ID=2388), DC 31 Reflex, ignores 5 points of an object’s [Hardness](/Rules.aspx?ID=2183)"
+}

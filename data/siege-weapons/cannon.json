@@ -1,0 +1,42 @@
+{
+  "name": "Cannon",
+  "slug": "cannon",
+  "level": 8,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Large"
+  ],
+  "usage": "mounted  (black powder)",
+  "price": "900 gp",
+  "ammunition": "cannonball (10 gp, 6 Bulk)",
+  "crew": "2-4",
+  "space": "7 feet long, 5 feet wide, 4 feet high",
+  "speed": "15 feet (pushed or pulled)",
+  "defenses": {
+    "ac": 22,
+    "fortitudeSave": 16,
+    "reflexSave": 9,
+    "hardness": 15,
+    "hp": 80,
+    "immunities": [
+      "object immunities"
+    ]
+  },
+  "source": {
+    "book": "Guns & Gears (Remastered)",
+    "page": "Guns & Gears (Remastered) pg. 174",
+    "releaseDate": "2025-02-18",
+    "aonId": "siege-weapon-13",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=13"
+  },
+  "summary": "Cannons are perhaps the most well known of all black powder siege weapons, and that's because they represent a good midpoint between power and …",
+  "text": "Cannon Source Guns & Gears (Remastered) pg. 174 Price 900 gp Ammunition cannonball (10 gp, 6 Bulk) --- Usage mounted (black powder) Space 7 feet long, 5 feet wide, 4 feet high Crew 2-4 Proficiency martial --- AC 22 Fort +16 Ref +9 Hardness 15 HP 80 Immunities object immunities --- Speed 15 feet (pushed or pulled) --- Cannons are perhaps the most well known of all black powder siege weapons, and that's because they represent a good midpoint between power and expense. Keeps and fortresses prefer to fortify their forces with cannons, as they're relatively easy to construct and their ammunition is cheap enough to build up great supplies. Aim Three Actions 100 feet, minimum distance 50 feet Load Two Actions (manipulate) 2 times, requires a successful DC 20 Athletics check Launch Single Action (manipulate, range increment 200 feet) 6d12 bludgeoning, single target, DC 23 Reflex",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 8\">[Cannon](/SiegeWeapons.aspx?ID=13)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Large\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Guns &amp; Gears (Remastered)](/Sources.aspx?ID=98) pg. 174\r\n\r\n<row gap=\"medium\">\r\n**Price** 900 gp\r\n\r\n**Ammunition** cannonball (10 gp, 6 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted  (black powder)\n\n**Space** 7 feet long, 5 feet wide, 4 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 2-4\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 22\r\n\r\n**Fort** +16\r\n\r\n**Ref** +9\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 15\r\n\r\n**HP** 80\r\n\r\n**Immunities** object immunities\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 15 feet (pushed or pulled)\r\n\r\n---\r\n\r\nCannons are perhaps the most well known of all black powder siege weapons, and that's because they represent a good midpoint between power and expense. Keeps and fortresses prefer to fortify their forces with cannons, as they're relatively easy to construct and their ammunition is cheap enough to build up great supplies.<br /> **Aim**<actions string=\"Three Actions\" /> 100 feet, minimum distance 50 feet<br /> **Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=104)) 2 times, requires a successful DC 20 [Athletics](/Skills.aspx?ID=3) check<br /> **Launch** <actions string=\"Single Action\" /> ([manipulate](/Traits.aspx?ID=104), [range increment 200 feet](/Traits.aspx?ID=248)) 6d12 bludgeoning, single target, DC 23 Reflex"
+}

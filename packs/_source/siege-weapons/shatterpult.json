@@ -1,0 +1,222 @@
+{
+  "_id": "DkitQRpsrchhzOBL",
+  "_key": "!actors!DkitQRpsrchhzOBL",
+  "name": "Shatterpult",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/shatterpult.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/shatterpult.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 22,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 10,
+      "hp": {
+        "value": 110,
+        "max": 110,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>The arm of this modified catapult ends in three baskets, the aim of which can be adjusted to fling its payload over a wider spread. A shatterpult is …</p>",
+      "level": {
+        "value": 9
+      },
+      "price": 1200,
+      "crew": "2 to 4",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 10,
+        "wide": 10,
+        "high": 8
+      },
+      "speed": "15 feet (pulled or pushed)",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 17,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "lg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "shatterpult",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted (black powder)",
+        "ammunition": "shatterstones (2 gp, 4 Bulk)",
+        "reflexSave": 10,
+        "priceText": "1,200 gp",
+        "aonId": "siege-weapon-60",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=60",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 105",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/shatterpult.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/ThreeActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 3
+        },
+        "category": null,
+        "description": {
+          "value": "<p>50 feet, minimum distance 50 feet</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "kE3VzkYj0K7yOX3v",
+      "_key": "!actors.items!DkitQRpsrchhzOBL.kE3VzkYj0K7yOX3v"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times, requires a successful @Check[athletics|dc:20] check</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "hftemFLVF0QGyqMg",
+      "_key": "!actors.items!DkitQRpsrchhzOBL.hftemFLVF0QGyqMg"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, range increment 150 feet) @Damage[4d8[piercing]], three different 10-foot bursts that can’t overlap and no two can be farther than 50 feet from another, @Check[reflex|dc:25]; the affected areas become difficult terrain for 1 hour</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack"
+          ]
+        }
+      },
+      "_id": "mcOXzys7ZXgHZs4a",
+      "_key": "!actors.items!DkitQRpsrchhzOBL.mcOXzys7ZXgHZs4a"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "KREZz5OBY7arp5TA",
+      "_key": "!actors.items!DkitQRpsrchhzOBL.KREZz5OBY7arp5TA"
+    }
+  ]
+}

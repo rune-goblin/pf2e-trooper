@@ -1,0 +1,222 @@
+{
+  "_id": "xYqqftTcqFw1ZDyB",
+  "_key": "!actors!xYqqftTcqFw1ZDyB",
+  "name": "Mud Maker",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/mud-maker.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/mud-maker.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 30,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 10,
+      "hp": {
+        "value": 180,
+        "max": 180,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Designed by inventive gnomes, a mud maker is a wooden device—often painted bright colors—that uses torsion to fling 1-foot diameter clay disks …</p>",
+      "level": {
+        "value": 13
+      },
+      "price": 6000,
+      "crew": "1 to 3",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 10,
+        "wide": 8,
+        "high": 8
+      },
+      "speed": "20 feet (pulled or pushed)",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 22,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "huge"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "mud-maker",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "simple",
+        "usage": "mounted",
+        "ammunition": "transmutation disks (10 gp, L Bulk)",
+        "reflexSave": 16,
+        "priceText": "6,000 gp",
+        "aonId": "siege-weapon-56",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=56",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 104",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/mud-maker.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>50 feet, minimum distance 25 feet</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "1GgbKnUWC7uPM2Oe",
+      "_key": "!actors.items!xYqqftTcqFw1ZDyB.1GgbKnUWC7uPM2Oe"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 1 time, requires a successful @Check[arcana|dc:20] or Nature check</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "ZTsvhovKqNRpEpTu",
+      "_key": "!actors.items!xYqqftTcqFw1ZDyB.ZTsvhovKqNRpEpTu"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, earth, magical, manipulate, range increment 120 feet) @Damage[12d6[force]], 10-foot burst, @Check[reflex|dc:30|options:area-effect]. Any nonmagical unattended stone in the burst is transformed into an equal volume of mud. Stone floors become difficult terrain; if the resulting mud is at least 3 feet deep, it is greater difficult terrain, or a creature can try to Swim through it (@Check[athletics|dc:10]). If the mud is deep enough that a creature can’t reach the bottom, they must Swim to move through it. A stone ceiling transformed into mud collapses, dealing @Damage[8d6[bludgeoning]] damage (@Check[reflex|dc:30|basic|options:area-effect] save), and spreads out, creating difficult terrain in a 20-foot radius. If part of a stone structure is transformed into mud, the GM rolls a flat check (DC 16 for a sturdy structure, DC 14 for an average structure, DC 9 for a shoddy structure, all adjusted higher or lower as the GM sees fit). On a failure, the structure collapses, dealing @Damage[8d6[bludgeoning]] damage to each creature caught in it (@Check[reflex|dc:30|basic|options:area-effect] save) and spreads out, creating difficult terrain in the area of collapse. This mud is non-magical and remains until natural conditions cause it to dry out or otherwise disperse.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack"
+          ]
+        }
+      },
+      "_id": "LVkgI5NVXl5GPUhj",
+      "_key": "!actors.items!xYqqftTcqFw1ZDyB.LVkgI5NVXl5GPUhj"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "KYGhQxLCvTbJLVPz",
+      "_key": "!actors.items!xYqqftTcqFw1ZDyB.KYGhQxLCvTbJLVPz"
+    }
+  ]
+}

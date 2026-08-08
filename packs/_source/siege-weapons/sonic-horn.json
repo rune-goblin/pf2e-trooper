@@ -1,0 +1,223 @@
+{
+  "_id": "nPONW0lvbzjvZ1Zj",
+  "_key": "!actors!nPONW0lvbzjvZ1Zj",
+  "name": "Sonic Horn",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/sonic-horn.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/sonic-horn.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 22,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 12,
+      "hp": {
+        "value": 80,
+        "max": 80,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>This siege weapon consists of a horn-shaped nozzle, a base typically decorated with ornate musical notes, and two cranks attached to both sides of …</p>",
+      "level": {
+        "value": 10
+      },
+      "price": 2000,
+      "crew": "2",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 10,
+        "wide": 5,
+        "high": 5
+      },
+      "speed": "15 feet (pulled or pushed)",
+      "publication": {
+        "title": "Howl of the Wild",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 25,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "lg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "sonic-horn",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted",
+        "ammunition": "resonating orb (320 gp, 6 Bulk)",
+        "reflexSave": 14,
+        "priceText": "2,000 gp",
+        "aonId": "siege-weapon-29",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=29",
+        "sourceBook": "Howl of the Wild",
+        "sourcePage": "Howl of the Wild pg. 117",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/sonic-horn.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>40 feet, minimum distance 50 feet</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "A6qFVfpiYsz4ZGqT",
+      "_key": "!actors.items!nPONW0lvbzjvZ1Zj.A6qFVfpiYsz4ZGqT"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/ThreeActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 3
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times. These load actions include donning earplugs and securing them during subsequent sonic horn firings. The earplugs impose a –2 item penalty to Perception checks involving sound, and may be removed with an Interact action.</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "wd7ULx6l6MRk5UTl",
+      "_key": "!actors.items!nPONW0lvbzjvZ1Zj.wd7ULx6l6MRk5UTl"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, range increment 250 feet) @Damage[6d12[sonic]] damage, 60-foot cone, @Check[fortitude|dc:25|options:area-effect]. Creatures that fail or critically fail the save are also deafened for 3d6 rounds.</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack",
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "JPHKgUTa5xrw8zd1",
+      "_key": "!actors.items!nPONW0lvbzjvZ1Zj.JPHKgUTa5xrw8zd1"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "SHYcr05rptbIayqj",
+      "_key": "!actors.items!nPONW0lvbzjvZ1Zj.SHYcr05rptbIayqj"
+    }
+  ]
+}

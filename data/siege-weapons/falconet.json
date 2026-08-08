@@ -1,0 +1,42 @@
+{
+  "name": "Falconet",
+  "slug": "falconet",
+  "level": 4,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Medium"
+  ],
+  "usage": "mounted (black powder)",
+  "price": "200 gp",
+  "ammunition": "iron shot (1 gp, L Bulk)",
+  "crew": "2 to 3",
+  "space": "4 feet long, 3 feet wide, 4 feet high",
+  "speed": "20 feet (pulled or pushed)",
+  "defenses": {
+    "ac": 16,
+    "fortitudeSave": 11,
+    "reflexSave": 6,
+    "hardness": 8,
+    "hp": 30,
+    "immunities": [
+      " object immunities "
+    ]
+  },
+  "source": {
+    "book": "Battlecry!",
+    "page": "Battlecry! pg. 102",
+    "releaseDate": "2025-07-31",
+    "aonId": "siege-weapon-50",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=50"
+  },
+  "summary": "A compact cannon that fires much smaller ammunition than typical cannons, the falconet has an undersized but lethal shot of similar weight and size …",
+  "text": "Falconet Source Battlecry! pg. 102 Price 200 gp Ammunition iron shot (1 gp, L Bulk) --- Usage mounted (black powder) Space 4 feet long, 3 feet wide, 4 feet high Crew 2 to 3 Proficiency martial --- AC 16 Fort +11 Ref +6 Hardness 8 HP 30 Immunities object immunities --- Speed 20 feet (pulled or pushed) --- A compact cannon that fires much smaller ammunition than typical cannons, the falconet has an undersized but lethal shot of similar weight and size to a bird of prey, hence the name. The falconet sits between the heaviest musket and traditional cannon, but its lighter size and cost make it appealing to forces that can’t field a full cannon crew. Aim Two Actions 100 feet, minimum distance 30 feet Load Single Action (manipulate) 2 times, requires a successful DC 15 Athletics check Launch Single Action (attack, manipulate, range increment 120 feet) 5d6 bludgeoning, single target, DC 18 Reflex",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 4\">[Falconet](/SiegeWeapons.aspx?ID=50)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Medium\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Battlecry!](/Sources.aspx?ID=268) pg. 102\r\n\r\n<row gap=\"medium\">\r\n**Price** 200 gp\r\n\r\n**Ammunition** iron shot (1 gp, L Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted (black powder)\n\n**Space** 4 feet long, 3 feet wide, 4 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 2 to 3\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 16\r\n\r\n**Fort** +11\r\n\r\n**Ref** +6\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 8\r\n\r\n**HP** 30\r\n\r\n**Immunities**  object immunities \r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 20 feet (pulled or pushed)\r\n\r\n---\r\n\r\nA compact cannon that fires much smaller ammunition than typical cannons, the falconet has an undersized but lethal shot of similar weight and size to a bird of prey, hence the name. The falconet sits between the heaviest musket and traditional cannon, but its lighter size and cost make it appealing to forces that can’t field a full cannon crew. <br />**Aim** <actions string=\"Two Actions\" /> 100 feet, minimum distance 30 feet <br />**Load** <actions string=\"Single Action\" /> ([manipulate](/Traits.aspx?ID=645)) 2 times, requires a successful DC 15 [Athletics](/Skills.aspx?ID=36) check <br />**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), manipulate, [range increment 120 feet](/Traits.aspx?ID=248)) 5d6 bludgeoning, single target, DC 18 Reflex"
+}

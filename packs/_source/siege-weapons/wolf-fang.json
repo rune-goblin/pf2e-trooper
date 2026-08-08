@@ -1,0 +1,222 @@
+{
+  "_id": "VEBqF6fbbpKRwFLL",
+  "_key": "!actors!VEBqF6fbbpKRwFLL",
+  "name": "Wolf Fang",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/wolf-fang.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/wolf-fang.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 18,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 10,
+      "hp": {
+        "value": 80,
+        "max": 80,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Orcs pioneered the invention of this siege engine, which merges the concepts of battering ram and catapult. A large stone block, one end …</p>",
+      "level": {
+        "value": 5
+      },
+      "price": 300,
+      "crew": "2 to 3",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 10,
+        "wide": 10,
+        "high": 8
+      },
+      "speed": "15 feet (pulled or pushed)",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 12,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "lg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "wolf-fang",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted",
+        "ammunition": "shatterstones (2 gp, 4 Bulk)",
+        "reflexSave": 6,
+        "priceText": "300 gp",
+        "aonId": "siege-weapon-68",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=68",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 107",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/wolf-fang.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": null,
+        "description": {
+          "value": "<p>rotate 45°</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "8MgN3om1ZsvoXDi5",
+      "_key": "!actors.items!VEBqF6fbbpKRwFLL.8MgN3om1ZsvoXDi5"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times, requires a successful @Check[athletics|dc:20] check</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "oPD5UnR05frtEXdT",
+      "_key": "!actors.items!VEBqF6fbbpKRwFLL.oPD5UnR05frtEXdT"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, reach 10 feet) The wolf fang makes a melee Strike at a +10 bonus against a structure or an unattended, stationary object directly in front of it. This Strike deals @Damage[5d8[piercing]] damage, ignoring Hardness 4 or lower.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack"
+          ]
+        }
+      },
+      "_id": "XRFykHqzH1ucqkHs",
+      "_key": "!actors.items!VEBqF6fbbpKRwFLL.XRFykHqzH1ucqkHs"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "cciDENLQ5S45zJ52",
+      "_key": "!actors.items!VEBqF6fbbpKRwFLL.cciDENLQ5S45zJ52"
+    }
+  ]
+}

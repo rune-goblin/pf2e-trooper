@@ -1,0 +1,43 @@
+{
+  "name": "Tar Spitter",
+  "slug": "tar-spitter",
+  "level": 11,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "simple",
+  "traits": [
+    "Alchemical",
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Huge"
+  ],
+  "usage": "mounted",
+  "price": "2,800 gp",
+  "ammunition": "barrel of alchemical tar (5 gp, 5 Bulk)",
+  "crew": "3 to 4",
+  "space": "16 feet long, 12 feet wide, 16 feet high",
+  "speed": "10 feet (pulled or pushed)",
+  "defenses": {
+    "ac": 24,
+    "fortitudeSave": 20,
+    "reflexSave": 14,
+    "hardness": 8,
+    "hp": 120,
+    "immunities": [
+      " object immunities "
+    ]
+  },
+  "source": {
+    "book": "Battlecry!",
+    "page": "Battlecry! pg. 106",
+    "releaseDate": "2025-07-31",
+    "aonId": "siege-weapon-64",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=64"
+  },
+  "summary": "A tar spitter is a mass of tubes, pumps, and a copper tank mounted on an armored wagon. The tank is filled with hot tar under high pressure that can …",
+  "text": "Tar Spitter Source Battlecry! pg. 106 Price 2,800 gp Ammunition barrel of alchemical tar (5 gp, 5 Bulk) --- Usage mounted Space 16 feet long, 12 feet wide, 16 feet high Crew 3 to 4 Proficiency simple --- AC 24 Fort +20 Ref +14 Hardness 8 HP 120 Immunities object immunities --- Speed 10 feet (pulled or pushed) --- A tar spitter is a mass of tubes, pumps, and a copper tank mounted on an armored wagon. The tank is filled with hot tar under high pressure that can be sprayed from an aimed nozzle. The weaponized adhesive often roots enemies to the spot, making them easier prey for allied soldiers. Cleaning a tar spitter is a difficult task, and crew members usually wear thick leather aprons and gloves to avoid getting the tar on their skin. Aim Two Actions rotate 45° Load Two Actions (manipulate) 3 times, requires a successful DC 20 Athletics check Launch Single Action (manipulate) 4d8 bludgeoning plus 4d8 acid and 1d8 persistent acid, 60-foot line or 30-foot cone, DC 27 Reflex. A creature on the ground who fails its save is also immobilized by the tar (Escape DC 27). Switching between the tar spitter’s line or cone mode takes an Interact action, and any of the crew can perform the action.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 11\">[Tar Spitter](/SiegeWeapons.aspx?ID=64)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Huge\" />\r\n<trait label=\"Alchemical\" url=\"/Traits.aspx?ID=6\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Battlecry!](/Sources.aspx?ID=268) pg. 106\r\n\r\n<row gap=\"medium\">\r\n**Price** 2,800 gp\r\n\r\n**Ammunition** barrel of alchemical tar (5 gp, 5 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted\n\n**Space** 16 feet long, 12 feet wide, 16 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 3 to 4\r\n\r\n**Proficiency** simple\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 24\r\n\r\n**Fort** +20\r\n\r\n**Ref** +14\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 8\r\n\r\n**HP** 120\r\n\r\n**Immunities**  object immunities \r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 10 feet (pulled or pushed)\r\n\r\n---\r\n\r\nA tar spitter is a mass of tubes, pumps, and a copper tank mounted on an armored wagon. The tank is filled with hot tar under high pressure that can be sprayed from an aimed nozzle. The weaponized adhesive often roots enemies to the spot, making them easier prey for allied soldiers. Cleaning a tar spitter is a difficult task, and crew members usually wear thick leather aprons and gloves to avoid getting the tar on their skin.<br />**Aim** <actions string=\"Two Actions\" /> rotate 45° <br />**Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 3 times, requires a successful DC 20 [Athletics](/Skills.aspx?ID=36) check <br />**Launch** <actions string=\"Single Action\" /> (manipulate) 4d8 bludgeoning plus 4d8 acid and 1d8 [persistent acid](/Conditions.aspx?ID=86), 60-foot [line](/Rules.aspx?ID=2388) or 30-foot [cone](/Rules.aspx?ID=2386), DC 27 Reflex. A creature on the ground who fails its save is also [immobilized](/Conditions.aspx?ID=81) by the tar ([Escape](/Actions.aspx?ID=2296) DC 27). Switching between the tar spitter’s line or cone mode takes an [Interact](/Actions.aspx?ID=2297) action, and any of the crew can perform the action."
+}

@@ -35,6 +35,17 @@
       "path": "packs/troop-effects",
       "type": "Item",
       "system": "pf2e"
+    },
+    {
+      "name": "siege-weapons",
+      "label": "PF2e Siege Weapons",
+      "path": "packs/siege-weapons",
+      "type": "Actor",
+      "system": "pf2e",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     }
   ],
   "relationships": {

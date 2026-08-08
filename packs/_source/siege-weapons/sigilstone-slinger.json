@@ -1,0 +1,221 @@
+{
+  "_id": "NpUbffiXUKnbtuPL",
+  "_key": "!actors!NpUbffiXUKnbtuPL",
+  "name": "Sigilstone Slinger",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/sigilstone-slinger.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/sigilstone-slinger.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 32,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 15,
+      "hp": {
+        "value": 200,
+        "max": 200,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>When faced with a siege or prolonged assault against a fortified position, the death priests of a necromantic realm are far more likely to rely on an undead creature …</p>",
+      "level": {
+        "value": 14
+      },
+      "price": 8000,
+      "crew": "2 to 4",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 10,
+        "wide": 10,
+        "high": 6
+      },
+      "speed": "15 feet (pulled or pushed)",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 25,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "lg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "sigilstone-slinger",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted",
+        "ammunition": "haunted <i>sigilstones</i> (10 gp, 4 Bulk)",
+        "reflexSave": 18,
+        "priceText": "8,000 gp",
+        "aonId": "siege-weapon-61",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=61",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 105",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/sigilstone-slinger.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>50 feet, minimum distance 50 feet</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "GbWqaFc7Zv4OSIlj",
+      "_key": "!actors.items!NpUbffiXUKnbtuPL.GbWqaFc7Zv4OSIlj"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times, requires a successful @Check[athletics|dc:20] check</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "NdCSYqqz8xNoDvx0",
+      "_key": "!actors.items!NpUbffiXUKnbtuPL.NdCSYqqz8xNoDvx0"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, range increment 250 feet) @Damage[7d12[void]], 20-foot burst, @Check[fortitude|dc:31|options:area-effect]. At the start of your next turn and each following turn for 1 minute, the poltergeists inside the _sigilstone_ ammunition hurl nearby debris about. Each creature within a 20-foot burst from the point of impact takes @Damage[3d10+10[bludgeoning]] damage (@Check[reflex|dc:31|basic|options:area-effect] save).</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack",
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "r9PtE9SxANmkkLJV",
+      "_key": "!actors.items!NpUbffiXUKnbtuPL.r9PtE9SxANmkkLJV"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "wHXzzhGQj13HyXkM",
+      "_key": "!actors.items!NpUbffiXUKnbtuPL.wHXzzhGQj13HyXkM"
+    }
+  ]
+}

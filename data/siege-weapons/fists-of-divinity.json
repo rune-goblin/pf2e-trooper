@@ -1,0 +1,42 @@
+{
+  "name": "Fists of Divinity",
+  "slug": "fists-of-divinity",
+  "level": 20,
+  "rarity": "unique",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "simple",
+  "traits": [
+    "Mounted",
+    "Unique"
+  ],
+  "size": [
+    "Huge"
+  ],
+  "usage": "mounted (black powder)",
+  "price": "140,000 gp",
+  "ammunition": "any item (variable gp, 1 to 10 Bulk)",
+  "crew": "1 to 3",
+  "space": "15 feet long, 6 feet wide, 6 feet high",
+  "speed": "5 feet (pushed or pulled)",
+  "defenses": {
+    "ac": 40,
+    "fortitudeSave": 35,
+    "reflexSave": 29,
+    "hardness": 25,
+    "hp": 300,
+    "immunities": [
+      " object immunities "
+    ]
+  },
+  "source": {
+    "book": "Battlecry!",
+    "page": "Battlecry! pg. 102",
+    "releaseDate": "2025-07-31",
+    "aonId": "siege-weapon-51",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=51"
+  },
+  "summary": "Salvagers have extracted many secrets from a fallen starship, but one of the most impressive is a device simply known as the Fist of Divinity. …",
+  "text": "Fists of Divinity Source Battlecry! pg. 102 Price 140,000 gp Ammunition any item (variable gp, 1 to 10 Bulk) --- Usage mounted (black powder) Space 15 feet long, 6 feet wide, 6 feet high Crew 1 to 3 Proficiency simple --- AC 40 Fort +35 Ref +29 Hardness 25 HP 300 Immunities object immunities --- Speed 5 feet (pushed or pulled) --- Salvagers have extracted many secrets from a fallen starship, but one of the most impressive is a device simply known as the Fist of Divinity. Perhaps once used to move cargo or for some other esoteric purpose, the Fist functions as a relatively small mass driver that can propel an object at incredible and deadly speeds. The force of a fired item’s impact overrides any properties it might had, so crews tend to use easily accessible stones or other debris as ammunition. Like much of that recovered tech, it’s impossible to say how much longer the Fist will work, or how many more times it can be used before it simply runs out of power. Aim Two Actions rotate 90° Load Single Action (manipulate) 2 times; items of 2 to 5 Bulk require 3 Load actions and items of 6 to 10 Bulk require 4 Load actions. Heavier items increase the effect of the next Launch action, as detailed below. Launch Single Action (attack, manipulate, range increment 1,000 feet) 20d6 bludgeoning, 150-foot line, DC 39 Reflex. Items of 2 to 5 Bulk deal 22d6 bludgeoning, and items of 6 to 10 Bulk deal 24d6 bludgeoning.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 20\">[Fists of Divinity](/SiegeWeapons.aspx?ID=51)</title>\r\n\r\n<traits>\r\n<trait label=\"Unique\" url=\"/Traits.aspx?ID=161\" />\r\n<trait label=\"Huge\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Battlecry!](/Sources.aspx?ID=268) pg. 102\r\n\r\n<row gap=\"medium\">\r\n**Price** 140,000 gp\r\n\r\n**Ammunition** any item (variable gp, 1 to 10 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted (black powder)\n\n**Space** 15 feet long, 6 feet wide, 6 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 1 to 3\r\n\r\n**Proficiency** simple\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 40\r\n\r\n**Fort** +35\r\n\r\n**Ref** +29\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 25\r\n\r\n**HP** 300\r\n\r\n**Immunities**  object immunities \r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 5 feet (pushed or pulled)\r\n\r\n---\r\n\r\nSalvagers have extracted many secrets from a fallen starship, but one of the most impressive is a device simply known as the Fist of Divinity. Perhaps once used to move cargo or for some other esoteric purpose, the Fist functions as a relatively small mass driver that can propel an object at incredible and deadly speeds. The force of a fired item’s impact overrides any properties it might had, so crews tend to use easily accessible stones or other debris as ammunition. Like much of that recovered tech, it’s impossible to say how much longer the Fist will work, or how many more times it can be used before it simply runs out of power.<br />**Aim** <actions string=\"Two Actions\" /> rotate 90° <br />**Load** <actions string=\"Single Action\" /> ([manipulate](/Traits.aspx?ID=645)) 2 times; items of 2 to 5 Bulk require 3 Load actions and items of 6 to 10 Bulk require 4 Load actions. Heavier items increase the effect of the next Launch action, as detailed below.<br />**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), manipulate, [range increment 1,000 feet](/Traits.aspx?ID=248)) 20d6 bludgeoning, 150-foot [line](/Rules.aspx?ID=2388), DC 39 Reflex. Items of 2 to 5 Bulk deal 22d6 bludgeoning, and items of 6 to 10 Bulk deal 24d6 bludgeoning."
+}

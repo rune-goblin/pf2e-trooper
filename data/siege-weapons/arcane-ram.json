@@ -1,0 +1,30 @@
+{
+  "name": "Arcane Ram",
+  "slug": "arcane-ram",
+  "level": 8,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Portable",
+  "proficiency": "martial",
+  "traits": [
+    "Magical",
+    "Portable",
+    "Uncommon"
+  ],
+  "size": [
+    "Large"
+  ],
+  "usage": "portable, held in 12 hands",
+  "price": "950 gp",
+  "crew": "6",
+  "source": {
+    "book": "Battlecry!",
+    "page": "Battlecry! pg. 100",
+    "releaseDate": "2025-07-31",
+    "aonId": "siege-weapon-39",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=39"
+  },
+  "summary": "A steel-banded marble orb etched with magical runes is attached to the end of this sleek battering ram. The orb transforms the momentum of its crew …",
+  "text": "Arcane Ram Source Battlecry! pg. 100 Price 950 gp --- Usage portable, held in 12 hands Bulk 20 Crew 6 Proficiency martial --- A steel-banded marble orb etched with magical runes is attached to the end of this sleek battering ram. The orb transforms the momentum of its crew into pure force energy that can hurl smaller objects out of the way. Because of its magical nature, the muscle of the individual crew members isn’t a factor in how hard an arcane ram hits. Ram Two Actions Requirements The other members of the crew have Readied to Stride on your order; Effect You and the crew Stride, with a maximum distance equal to the slowest crew member’s Speed, then make a melee Strike with the ram against a structure or unattended, stationary object. This Strike deals 8d8 force damage. After taking this damage, an unattended, stationary object of 10 or fewer Bulk is pushed 10 feet away from the arcane ram . Once used to Ram, an arcane ram takes 1 minute to absorb enough ambient magic to deal force damage again; until then, it functions like a regular battering ram.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 8\">[Arcane Ram](/SiegeWeapons.aspx?ID=39)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Large\" />\r\n<trait label=\"Magical\" url=\"/Traits.aspx?ID=103\" />\r\n<trait label=\"Portable\" url=\"/Traits.aspx?ID=412\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Battlecry!](/Sources.aspx?ID=268) pg. 100\r\n\r\n<row gap=\"medium\">\r\n**Price** 950 gp\n\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** portable, held in 12 hands\r\n\r\n**Bulk** 20\n\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 6\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\n\nA steel-banded marble orb etched with magical runes is attached to the end of this sleek battering ram. The orb transforms the momentum of its crew into pure force energy that can hurl smaller objects out of the way. Because of its magical nature, the muscle of the individual crew members isn’t a factor in how hard an arcane ram hits.<br />**Ram** <actions string=\"Two Actions\" /> **Requirements** The other members of the crew have [Readied](/Actions.aspx?ID=2299) to Stride on your order; **Effect** You and the crew Stride, with a maximum distance equal to the slowest crew member’s Speed, then make a melee Strike with the ram against a structure or unattended, stationary object. This Strike deals 8d8 force damage. After taking this damage, an unattended, stationary object of 10 or fewer Bulk is pushed 10 feet away from the _arcane ram_. Once used to Ram, an _arcane ram_ takes 1 minute to absorb enough ambient magic to deal force damage again; until then, it functions like a regular [battering ram](/SiegeWeapons.aspx?ID=3)."
+}

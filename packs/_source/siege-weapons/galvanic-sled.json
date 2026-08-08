@@ -1,0 +1,220 @@
+{
+  "_id": "kzIEi5GkyYG6y1ec",
+  "_key": "!actors!kzIEi5GkyYG6y1ec",
+  "name": "Galvanic Sled",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/galvanic-sled.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/galvanic-sled.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 28,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 8,
+      "hp": {
+        "value": 160,
+        "max": 160,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>Originally invented in the cold north, a galvanic sled is instantly recognizable in any army that fields it. The device employs alchemically enhanced …</p>",
+      "level": {
+        "value": 12
+      },
+      "price": 3800,
+      "crew": "3 to 4",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 10,
+        "wide": 10,
+        "high": 6
+      },
+      "speed": "10 feet (pulled or pushed)",
+      "publication": {
+        "title": "Battlecry!",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 22,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "lg"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "galvanic-sled",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted",
+        "ammunition": "chemical battery (10 gp, 5 Bulk)",
+        "reflexSave": 16,
+        "priceText": "3,800 gp",
+        "aonId": "siege-weapon-62",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=62",
+        "sourceBook": "Battlecry!",
+        "sourcePage": "Battlecry! pg. 105",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/galvanic-sled.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>rotate 45°</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "jUci4fkU24wwmNHm",
+      "_key": "!actors.items!kzIEi5GkyYG6y1ec.jUci4fkU24wwmNHm"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 6 times, requires a successful @Check[athletics|dc:20] check; each Load action replaces a spent battery</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "20BRAN0ajVQbKBEk",
+      "_key": "!actors.items!kzIEi5GkyYG6y1ec.20BRAN0ajVQbKBEk"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(manipulate) @Damage[7d12[electricity]], 60-foot line, @Check[reflex|dc:29|options:area-effect]</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "3j7BdHkmD6wrSDVZ",
+      "_key": "!actors.items!kzIEi5GkyYG6y1ec.3j7BdHkmD6wrSDVZ"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Battlecry!",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "VodKDj6Ni7DlaPqn",
+      "_key": "!actors.items!kzIEi5GkyYG6y1ec.VodKDj6Ni7DlaPqn"
+    }
+  ]
+}

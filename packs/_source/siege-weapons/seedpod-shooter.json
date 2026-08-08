@@ -1,0 +1,191 @@
+{
+  "_id": "aAZqIB2CO5TT05yf",
+  "_key": "!actors!aAZqIB2CO5TT05yf",
+  "name": "Seedpod Shooter",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/seedpod-shooter.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/seedpod-shooter.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 26,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 10,
+      "hp": {
+        "value": 90,
+        "max": 90,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>A large quantity of enchanted seedpods are packed into a seedpod shooter’s funnel. The siege engine controls the dispersal of seedpods into the air …</p>",
+      "level": {
+        "value": 11
+      },
+      "price": 3000,
+      "crew": "3-6",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 12,
+        "wide": 15,
+        "high": 10
+      },
+      "speed": "",
+      "publication": {
+        "title": "Howl of the Wild",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 23,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "rare",
+      "size": {
+        "value": "huge"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "seedpod-shooter",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted",
+        "ammunition": "enchanted seedpods (10 gp, 1 Bulk)",
+        "reflexSave": 13,
+        "priceText": "3,000 gp",
+        "aonId": "siege-weapon-30",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=30",
+        "sourceBook": "Howl of the Wild",
+        "sourcePage": "Howl of the Wild pg. 117",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/seedpod-shooter.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>100 feet, minimum distance 50 feet</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "gWuhjUMnAfyLSGG7",
+      "_key": "!actors.items!aAZqIB2CO5TT05yf.gWuhjUMnAfyLSGG7"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 2 times</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "XrLmnLEACXZKKaED",
+      "_key": "!actors.items!aAZqIB2CO5TT05yf.XrLmnLEACXZKKaED"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, auditory, manipulate, range increment 300 feet) @Damage[8d12[slashing]], 30-foot burst, @Check[reflex|dc:27|options:area-effect]. A creature that fails their Reflex save becomes sickened 2.</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack",
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "hleuFzXFWmpO6aYJ",
+      "_key": "!actors.items!aAZqIB2CO5TT05yf.hleuFzXFWmpO6aYJ"
+    }
+  ]
+}

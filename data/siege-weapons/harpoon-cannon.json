@@ -1,0 +1,42 @@
+{
+  "name": "Harpoon Cannon",
+  "slug": "harpoon-cannon",
+  "level": 7,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Large"
+  ],
+  "usage": "mounted (black powder)",
+  "price": "700 gp",
+  "ammunition": "harpoon cannon bolt (3 gp, 2 Bulk)",
+  "crew": "3-5",
+  "space": "9 feet long, 7 feet wide, 5 feet high",
+  "speed": "15 feet (pulled or pushed)",
+  "defenses": {
+    "ac": 20,
+    "fortitudeSave": 17,
+    "reflexSave": 13,
+    "hardness": 10,
+    "hp": 70,
+    "immunities": [
+      "object immunities"
+    ]
+  },
+  "source": {
+    "book": "Howl of the Wild",
+    "page": "Howl of the Wild pg. 115",
+    "releaseDate": "2024-05-29",
+    "aonId": "siege-weapon-24",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=24"
+  },
+  "summary": "Harpoon cannons fire bolts about 6 feet long that are attached to 200 feet of rope. Traditionally, they are used at sea to impale aquatic creatures, …",
+  "text": "Harpoon Cannon Source Howl of the Wild pg. 115 Price 700 gp Ammunition harpoon cannon bolt (3 gp, 2 Bulk) --- Usage mounted (black powder) Space 9 feet long, 7 feet wide, 5 feet high Crew 3-5 Proficiency martial --- AC 20 Fort +17 Ref +13 Hardness 10 HP 70 Immunities object immunities --- Speed 15 feet (pulled or pushed) --- Harpoon cannons fire bolts about 6 feet long that are attached to 200 feet of rope. Traditionally, they are used at sea to impale aquatic creatures, particularly giant squids, megalodons, and sea serpents. But these weapons can also be useful to tether land-based big game, especially those with the capability to burrow. Aim Single Action 60 feet, minimum distance 40 feet Load Two Actions (manipulate) 2 times, requires a successful DC 20 Athletics check Launch Single Action (attack, manipulate, range 200 feet) 6d12 piercing, single target, DC 22 Reflex. On a failed save, the harpoon becomes lodged in the target’s body. The target can remove the harpoon with a DC 22 check to Escape or Force Open, but on a failure, the target takes 6d4 piercing damage. As long as the harpoon cannon bolt remains lodged, the target cannot move more than 200 feet away from the harpoon cannon. If the harpoon cannon bolt is embedded in a creature that isn’t swimming, one member of the crew can attempt to Trip the creature by tugging on the rope if all other crew members Aid. On a failure, the bolt rips free, causing 4d4 piercing damage to the target but releasing it.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 7\">[Harpoon Cannon](/SiegeWeapons.aspx?ID=24)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=721\" />\r\n<trait label=\"Large\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Howl of the Wild](/Sources.aspx?ID=226) pg. 115\r\n\r\n<row gap=\"medium\">\r\n**Price** 700 gp\r\n\r\n**Ammunition** harpoon cannon bolt (3 gp, 2 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted (black powder)\n\n**Space** 9 feet long, 7 feet wide, 5 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 3-5\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 20\r\n\r\n**Fort** +17\r\n\r\n**Ref** +13\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 10\r\n\r\n**HP** 70\r\n\r\n**Immunities** object immunities\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 15 feet (pulled or pushed)\r\n\r\n---\r\n\r\nHarpoon cannons fire bolts about 6 feet long that are attached to 200 feet of rope. Traditionally, they are used at sea to impale aquatic creatures, particularly [giant squids](/Monsters.aspx?ID=820), [megalodons](/Monsters.aspx?ID=3189), and [sea serpents](/Monsters.aspx?ID=3177). But these weapons can also be useful to tether land-based big game, especially those with the capability to [burrow](/Actions.aspx?ID=2310).\n\nAim <actions string=\"Single Action\" /> 60 feet, minimum distance 40 feet \n\n**Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 2 times, requires a successful DC 20 [Athletics](/Skills.aspx?ID=36) check \n\n**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), [manipulate](/Traits.aspx?ID=645), [range 200 feet](/Rules.aspx?ID=2195)) 6d12 piercing, single target, DC 22 Reflex. On a failed save, the harpoon becomes lodged in the target’s body. The target can remove the harpoon with a DC 22 check to [Escape](/Actions.aspx?ID=2296) or [Force Open](/Actions.aspx?ID=2375), but on a failure, the target takes 6d4 piercing damage. As long as the harpoon cannon bolt remains lodged, the target cannot move more than 200 feet away from the harpoon cannon. If the harpoon cannon bolt is embedded in a creature that isn’t swimming, one member of the crew can attempt to [Trip](/Actions.aspx?ID=2382) the creature by tugging on the rope if all other crew members [Aid](/Actions.aspx?ID=2292). On a failure, the bolt rips free, causing 4d4 piercing damage to the target but releasing it."
+}

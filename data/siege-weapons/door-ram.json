@@ -1,0 +1,34 @@
+{
+  "name": "Door Ram",
+  "slug": "door-ram",
+  "level": 2,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Portable",
+  "proficiency": "simple",
+  "traits": [
+    "Portable",
+    "Uncommon"
+  ],
+  "size": [
+    "Small"
+  ],
+  "usage": "portable, held in 4 hands",
+  "price": "30 gp",
+  "crew": "2",
+  "defenses": {
+    "immunities": [
+      "object immunities"
+    ]
+  },
+  "source": {
+    "book": "Guns & Gears (Remastered)",
+    "page": "Guns & Gears (Remastered) pg. 75",
+    "releaseDate": "2025-02-18",
+    "aonId": "siege-weapon-6",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=6"
+  },
+  "summary": "A door ram is a small siege weapon meant for breaking down doors, palisades, and weak portcullises. It consists of a log with an iron cap, and has …",
+  "text": "Door Ram Source Guns & Gears (Remastered) pg. 75 Price 30 gp --- Usage portable, held in 4 hands Bulk 3 Crew 2 Proficiency simple --- A door ram is a small siege weapon meant for breaking down doors, palisades, and weak portcullises. It consists of a log with an iron cap, and has handholds carved into it or grips attached to it. Ram Two Actions Requirements The other member of the crew has Readied to Stride on your order; Effect You and the other crew member Stride, with a maximum distance equal to the slowest crew member's Speed, then make a melee Strike with the ram against a structure or an unattended, stationary object. This Strike deals bludgeoning damage equal to 2d8 + the highest Strength modifier among members of the crew.",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 2\">[Door Ram](/SiegeWeapons.aspx?ID=6)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Small\" />\r\n<trait label=\"Portable\" url=\"/Traits.aspx?ID=412\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Guns &amp; Gears (Remastered)](/Sources.aspx?ID=98) pg. 75\r\n\r\n<row gap=\"medium\">\r\n**Price** 30 gp\n\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** portable, held in 4 hands\r\n\r\n**Bulk** 3\n\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 2\r\n\r\n**Proficiency** simple\r\n</row>\r\n\r\n</column>\r\n\r\n---\n\nA door ram is a small siege weapon meant for breaking down doors, palisades, and weak portcullises. It consists of a log with an iron cap, and has handholds carved into it or grips attached to it.<br /> **Ram** <actions string=\"Two Actions\" /> **Requirements** The other member of the crew has Readied to Stride on your order; **Effect** You and the other crew member Stride, with a maximum distance equal to the slowest crew member's Speed, then make a melee Strike with the ram against a structure or an unattended, stationary object. This Strike deals bludgeoning damage equal to 2d8 + the highest Strength modifier among members of the crew."
+}

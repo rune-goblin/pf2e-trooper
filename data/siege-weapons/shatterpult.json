@@ -1,0 +1,42 @@
+{
+  "name": "Shatterpult",
+  "slug": "shatterpult",
+  "level": 9,
+  "rarity": "uncommon",
+  "pfs": "Restricted",
+  "siegeWeaponCategory": "Mounted",
+  "proficiency": "martial",
+  "traits": [
+    "Mounted",
+    "Uncommon"
+  ],
+  "size": [
+    "Large"
+  ],
+  "usage": "mounted (black powder)",
+  "price": "1,200 gp",
+  "ammunition": "shatterstones (2 gp, 4 Bulk)",
+  "crew": "2 to 4",
+  "space": "10 feet long, 10 feet wide, 8 feet high",
+  "speed": "15 feet (pulled or pushed)",
+  "defenses": {
+    "ac": 22,
+    "fortitudeSave": 17,
+    "reflexSave": 10,
+    "hardness": 10,
+    "hp": 110,
+    "immunities": [
+      " object immunities "
+    ]
+  },
+  "source": {
+    "book": "Battlecry!",
+    "page": "Battlecry! pg. 105",
+    "releaseDate": "2025-07-31",
+    "aonId": "siege-weapon-60",
+    "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=60"
+  },
+  "summary": "The arm of this modified catapult ends in three baskets, the aim of which can be adjusted to fling its payload over a wider spread. A shatterpult is …",
+  "text": "Shatterpult Source Battlecry! pg. 105 Price 1,200 gp Ammunition shatterstones (2 gp, 4 Bulk) --- Usage mounted (black powder) Space 10 feet long, 10 feet wide, 8 feet high Crew 2 to 4 Proficiency martial --- AC 22 Fort +17 Ref +10 Hardness 10 HP 110 Immunities object immunities --- Speed 15 feet (pulled or pushed) --- The arm of this modified catapult ends in three baskets, the aim of which can be adjusted to fling its payload over a wider spread. A shatterpult is usually loaded with specially made “shatterstones,” which are constructed to explode into hundreds of sharp shards upon impact. The jagged pieces of a burst of shatterstones make the ground difficult to cross, similar to a handful of caltrops. Aim Three Actions 50 feet, minimum distance 50 feet Load Two Actions (manipulate) 2 times, requires a successful DC 20 Athletics check Launch Single Action (attack, manipulate, range increment 150 feet) 4d8 piercing, three different 10-foot bursts that can’t overlap and no two can be farther than 50 feet from another, DC 25 Reflex; the affected areas become difficult terrain for 1 hour",
+  "markdown": "<title level=\"1\" right=\"Siege Weapon 9\">[Shatterpult](/SiegeWeapons.aspx?ID=60)</title>\r\n\r\n<traits>\r\n<trait label=\"Uncommon\" url=\"/Traits.aspx?ID=159\" />\r\n<trait label=\"Large\" />\r\n<trait label=\"Mounted\" url=\"/Traits.aspx?ID=411\" />\r\n</traits>\r\n\r\n<column gap=\"tiny\">\r\n\r\n**Source** [Battlecry!](/Sources.aspx?ID=268) pg. 105\r\n\r\n<row gap=\"medium\">\r\n**Price** 1,200 gp\r\n\r\n**Ammunition** shatterstones (2 gp, 4 Bulk)\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**Usage** mounted (black powder)\n\n**Space** 10 feet long, 10 feet wide, 8 feet high\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Crew** 2 to 4\r\n\r\n**Proficiency** martial\r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n<column gap=\"tiny\">\r\n\r\n<row gap=\"medium\">\r\n**AC** 22\r\n\r\n**Fort** +17\r\n\r\n**Ref** +10\r\n</row>\r\n\r\n<row gap=\"medium\">\r\n**Hardness** 10\r\n\r\n**HP** 110\r\n\r\n**Immunities**  object immunities \r\n</row>\r\n\r\n</column>\r\n\r\n---\r\n\r\n**Speed** 15 feet (pulled or pushed)\r\n\r\n---\r\n\r\nThe arm of this modified catapult ends in three baskets, the aim of which can be adjusted to fling its payload over a wider spread. A shatterpult is usually loaded with specially made “shatterstones,” which are constructed to explode into hundreds of sharp shards upon impact. The jagged pieces of a burst of shatterstones make the ground difficult to cross, similar to a handful of caltrops.<br />**Aim** <actions string=\"Three Actions\" /> 50 feet, minimum distance 50 feet <br />**Load** <actions string=\"Two Actions\" /> ([manipulate](/Traits.aspx?ID=645)) 2 times, requires a successful DC 20 [Athletics](/Skills.aspx?ID=36) check <br />**Launch** <actions string=\"Single Action\" /> ([attack](/Traits.aspx?ID=540), manipulate, [range increment 150 feet](/Traits.aspx?ID=248)) 4d8 piercing, three different 10-foot [bursts](/Rules.aspx?ID=2385) that can’t overlap and no two can be farther than 50 feet from another, DC 25 Reflex; the affected areas become [difficult terrain](/Rules.aspx?ID=2366) for 1 hour"
+}

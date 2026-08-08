@@ -1,0 +1,191 @@
+{
+  "_id": "1JSWFoapUyGO8Nwa",
+  "_key": "!actors!1JSWFoapUyGO8Nwa",
+  "name": "Lashtail",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/lashtail.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/lashtail.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 23,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 18,
+      "hp": {
+        "value": 64,
+        "max": 64,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>The lashtail is named after the segmented chain that the weapon sweeps in a horizontal arc. The chain links are thick and flat, which look somewhat …</p>",
+      "level": {
+        "value": 9
+      },
+      "price": 1500,
+      "crew": "3-5",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 7,
+        "wide": 15,
+        "high": 8
+      },
+      "speed": "",
+      "publication": {
+        "title": "Howl of the Wild",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 21,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "uncommon",
+      "size": {
+        "value": "huge"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "lashtail",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted",
+        "ammunition": "segmented chain (4 gp, 5 Bulk)",
+        "reflexSave": 13,
+        "priceText": "1,500 gp",
+        "aonId": "siege-weapon-26",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=26",
+        "sourceBook": "Howl of the Wild",
+        "sourcePage": "Howl of the Wild pg. 116",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/lashtail.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>rotate 45°</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "LOaVea3FxHJV2TaB",
+      "_key": "!actors.items!1JSWFoapUyGO8Nwa.LOaVea3FxHJV2TaB"
+    },
+    {
+      "name": "Load",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>(manipulate) 3 times, requires a successful @Check[athletics|dc:26]</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "XVJMtUK42QHlouPy",
+      "_key": "!actors.items!1JSWFoapUyGO8Nwa.XVJMtUK42QHlouPy"
+    },
+    {
+      "name": "Launch",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, manipulate, range increment 120 feet) @Damage[8d8[bludgeoning]], 30-foot cone, @Check[reflex|dc:25|options:area-effect]. A creature that fails its Reflex save is off-guard until the end of their next turn. On a critical failure, a creature is instead knocked prone by the chain.</p>"
+        },
+        "publication": {
+          "title": "Howl of the Wild",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack",
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "l8xY5TyOqa0dT9BZ",
+      "_key": "!actors.items!1JSWFoapUyGO8Nwa.l8xY5TyOqa0dT9BZ"
+    }
+  ]
+}

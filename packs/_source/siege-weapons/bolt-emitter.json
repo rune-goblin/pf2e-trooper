@@ -1,0 +1,192 @@
+{
+  "_id": "yn1ESmH92Tdyl99x",
+  "_key": "!actors!yn1ESmH92Tdyl99x",
+  "name": "Bolt Emitter",
+  "type": "vehicle",
+  "img": "modules/pf2e-trooper/assets/siege-engines/bolt-emitter.webp",
+  "prototypeToken": {
+    "texture": {
+      "src": "modules/pf2e-trooper/assets/siege-engines/bolt-emitter.webp"
+    },
+    "displayName": 30,
+    "actorLink": true
+  },
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": 22,
+        "check": 0,
+        "details": ""
+      },
+      "hardness": 15,
+      "hp": {
+        "value": 80,
+        "max": 80,
+        "temp": 0,
+        "details": ""
+      },
+      "immunities": [
+        {
+          "type": "object-immunities"
+        }
+      ],
+      "collisionDC": {
+        "value": 0
+      },
+      "collisionDamage": {
+        "value": ""
+      },
+      "emitsSound": "encounter"
+    },
+    "details": {
+      "description": "<p>A track-mounted emitter that draws on an unlimited magical energy source to fire bolts of electricity.</p>",
+      "level": {
+        "value": 9
+      },
+      "price": 900,
+      "crew": "1-3",
+      "passengers": "",
+      "pilotingCheck": "",
+      "space": {
+        "long": 7,
+        "wide": 5,
+        "high": 5
+      },
+      "speed": "15 feet (pushed or pulled along tracks; can’t be removed from tracks)",
+      "publication": {
+        "title": "Pathfinder #215: To Blot Out the Sun",
+        "license": "ORC",
+        "remaster": true
+      }
+    },
+    "saves": {
+      "fortitude": {
+        "value": 17,
+        "saveDetail": ""
+      }
+    },
+    "traits": {
+      "rarity": "unique",
+      "size": {
+        "value": "med"
+      },
+      "value": []
+    }
+  },
+  "flags": {
+    "pf2e-trooper": {
+      "siege-weapon": {
+        "slug": "bolt-emitter",
+        "siegeWeaponCategory": "Mounted",
+        "proficiency": "martial",
+        "usage": "mounted on tracks",
+        "ammunition": "magical energy (unlimited; no reload)",
+        "reflexSave": 13,
+        "priceText": "900 gp",
+        "aonId": "siege-weapon-34",
+        "aonUrl": "https://2e.aonprd.com/SiegeWeapons.aspx?ID=34",
+        "sourceBook": "Pathfinder #215: To Blot Out the Sun",
+        "sourcePage": "Pathfinder #215: To Blot Out the Sun pg. 53",
+        "strategyTokenImage": "modules/pf2e-trooper/assets/siege-engines/bolt-emitter.webp"
+      }
+    }
+  },
+  "items": [
+    {
+      "name": "Aim",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": null,
+        "description": {
+          "value": "<p>60 feet, minimum distance 10 feet</p>"
+        },
+        "publication": {
+          "title": "Pathfinder #215: To Blot Out the Sun",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": []
+        }
+      },
+      "_id": "ALKMYOF0ZWEDn1s0",
+      "_key": "!actors.items!yn1ESmH92Tdyl99x.ALKMYOF0ZWEDn1s0"
+    },
+    {
+      "name": "Fire",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/OneAction.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 1
+        },
+        "category": "offensive",
+        "description": {
+          "value": "<p>(attack, flourish, manipulate, range 200 feet) @Damage[6d10[electricity]], single target, @Check[reflex|dc:23]. On a failed save, the target becomes clumsy 2 from electric shock.</p>"
+        },
+        "publication": {
+          "title": "Pathfinder #215: To Blot Out the Sun",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "attack",
+            "flourish",
+            "manipulate"
+          ]
+        }
+      },
+      "_id": "Uu549DaZ4WIYajsL",
+      "_key": "!actors.items!yn1ESmH92Tdyl99x.Uu549DaZ4WIYajsL"
+    },
+    {
+      "name": "Move Siege Weapon",
+      "type": "action",
+      "img": "systems/pf2e/icons/actions/TwoActions.webp",
+      "system": {
+        "actionType": {
+          "value": "action"
+        },
+        "actions": {
+          "value": 2
+        },
+        "category": null,
+        "description": {
+          "value": "<p>You and the crew Stride, moving the mounted siege weapon along with you. The maximum distance you can move it equals the slowest crew member's Speed or the siege weapon's listed Speed, whichever is lower.</p>"
+        },
+        "publication": {
+          "title": "Pathfinder #215: To Blot Out the Sun",
+          "license": "ORC",
+          "remaster": true
+        },
+        "rules": [],
+        "slug": null,
+        "traits": {
+          "rarity": "common",
+          "value": [
+            "move"
+          ]
+        }
+      },
+      "_id": "4DKTLIZCcAtDZL7Q",
+      "_key": "!actors.items!yn1ESmH92Tdyl99x.4DKTLIZCcAtDZL7Q"
+    }
+  ]
+}
