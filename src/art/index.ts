@@ -1,7 +1,8 @@
 import type { ActorPF2e, TokenDocumentPF2e } from 'foundry-pf2e';
 import { MODULE_ID, REIGNMAKER_ID } from '@/constants';
-import { dropArtMode, preferTrooperArt } from '@/settings';
+import { aiArtIgnored, dropArtMode, preferTrooperArt } from '@/settings';
 import { dropArtFor, packArtFrom, togglePiece, type PackArt } from './dropArt';
+import { strippedSiegeArt } from './siegeArt';
 
 // Troop art on drop: a troop dropped on a map arrives on the system's blank npc.svg, and the
 // art for it is already installed. Applying it is silent and unprompted — a modal on every drop
@@ -46,6 +47,8 @@ function mappedPackArt(worldActor: ActorPF2e | null): PackArt | null {
 }
 
 function onPreCreateToken(doc: TokenDocumentPF2e, data: Record<string, unknown>): void {
+  if (aiArtIgnored()) return;
+
   // The portrait belongs to the world actor. `doc.actor` on an unlinked token is the delta's
   // synthetic copy, and a write to that is discarded with the delta — which is exactly what
   // happened before this looked the base actor up by id.
@@ -75,7 +78,31 @@ function onPreCreateToken(doc: TokenDocumentPF2e, data: Record<string, unknown>)
   }
 }
 
+// Siege-engine art is baked into the compendium at build time, so ignoring it means acting where
+// troop art means abstaining: the world copy of an imported siege weapon gets stripped to the
+// system default here, before the token even exists to inherit its prototype. The compendium
+// itself stays as shipped, and actors imported before the setting went on keep what they have.
+function onPreCreateActor(doc: ActorPF2e): void {
+  if (!aiArtIgnored()) return;
+
+  const source = doc._source as {
+    img?: string;
+    prototypeToken?: { texture?: { src?: string } };
+    flags?: Record<string, Record<string, unknown>>;
+  };
+  const changes = strippedSiegeArt({
+    img: source.img,
+    prototypeSrc: source.prototypeToken?.texture?.src,
+    siegeFlag: source.flags?.[MODULE_ID]?.['siege-weapon'] as
+      | { strategyTokenImage?: unknown }
+      | undefined,
+  });
+  if (changes) doc.updateSource(changes);
+}
+
 function onRenderTokenHUD(_hud: unknown, html: HTMLElement, data: { _id?: string }): void {
+  if (aiArtIgnored()) return;
+
   const token = canvas.scene?.tokens.get(data._id ?? '');
   const swapped = togglePiece(token?.texture?.src);
   if (!token || !swapped) return;
@@ -92,6 +119,7 @@ function onRenderTokenHUD(_hud: unknown, html: HTMLElement, data: { _id?: string
 }
 
 export function registerTroopArt(): void {
+  Hooks.on('preCreateActor', onPreCreateActor);
   Hooks.on('preCreateToken', onPreCreateToken);
   Hooks.on('renderTokenHUD', onRenderTokenHUD);
 }

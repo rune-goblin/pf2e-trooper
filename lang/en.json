@@ -20,6 +20,10 @@
         "name": "Enable troop movement",
         "hint": "Move a troop as a unit: dragging one segment carries the rest of the formation with it, and paints the advisory area the segments may rearrange within. Hold the Break Formation key (B by default) while dragging to move a single segment on its own, ignoring the formation and the area. Turn off to leave every segment moving on its own. Segment sync and the Troop Reduced automation are unaffected."
       },
+      "ignoreAiArt": {
+        "name": "Ignore AI-generated art",
+        "hint": "Art in this module is AI-generated. If checked, troops and siege weapons will not use it."
+      },
       "useStrategyTokens": {
         "name": "Use strategy tokens for troops",
         "hint": "Dress a dropped troop in its strategy map piece instead of its tactical battle token. Either can be swapped per token from the token HUD.",

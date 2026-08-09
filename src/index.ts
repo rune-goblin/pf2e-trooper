@@ -3,7 +3,7 @@ import { MODULE_ID } from './constants';
 import { registerTroopHooks } from './troops';
 import { officialTroopArt, officialTroopArtSlugs, type TroopArt } from './art/officialTroopArt';
 import { registerTroopArt } from './art';
-import { registerSettings } from './settings';
+import { aiArtIgnored, registerSettings } from './settings';
 import { ExampleApp } from './ui/ExampleApp';
 
 interface ModuleApi {
@@ -24,8 +24,10 @@ Hooks.once('init', () => {
   const api: ModuleApi = {
     version,
     open: () => ExampleApp.open(),
-    troopArt: officialTroopArt,
-    troopArtSlugs: officialTroopArtSlugs
+    // Read per call, not captured: a world that turns the art off mid-session must stop being
+    // handed it, and consumers hold on to this object.
+    troopArt: (name) => (aiArtIgnored() ? null : officialTroopArt(name)),
+    troopArtSlugs: () => (aiArtIgnored() ? [] : officialTroopArtSlugs())
   };
   // `api` is the Foundry convention for a public API, but isn't a typed field on Module.
   if (module) (module as { api?: ModuleApi }).api = api;

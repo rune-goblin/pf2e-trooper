@@ -4,6 +4,7 @@ import type { DropArtMode } from './art/dropArt';
 export const TROOP_MOVEMENT_SETTING = 'troopMovement';
 export const STRATEGY_TOKENS_SETTING = 'useStrategyTokens';
 export const PREFER_TROOPER_ART_SETTING = 'preferTrooperArt';
+export const IGNORE_AI_ART_SETTING = 'ignoreAiArt';
 
 /**
  * Strategy art is ReignMaker's when ReignMaker is there: it assigns troop art itself and coerces
@@ -18,6 +19,13 @@ export const reignmakerActive = (): boolean => game.modules.get(REIGNMAKER_ID)?.
 
 export const troopMovementEnabled = (): boolean =>
   game.settings.get(MODULE_ID, TROOP_MOVEMENT_SETTING) === true;
+
+/**
+ * The troop art shipped here is AI-generated, and some tables want none of it. World-scoped
+ * because it governs what gets written onto shared documents, not what one client renders.
+ */
+export const aiArtIgnored = (): boolean =>
+  game.settings.get(MODULE_ID, IGNORE_AI_ART_SETTING) === true;
 
 export const preferTrooperArt = (): boolean =>
   game.settings.get(MODULE_ID, PREFER_TROOPER_ART_SETTING) === true;
@@ -58,6 +66,15 @@ export function registerSettings(): void {
     default: true,
     // The hooks it gates are attached once at init; there is no half-attached state to fall into.
     requiresReload: true,
+  });
+
+  game.settings.register(MODULE_ID, IGNORE_AI_ART_SETTING, {
+    name: `${MODULE_ID}.settings.ignoreAiArt.name`,
+    hint: `${MODULE_ID}.settings.ignoreAiArt.hint`,
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: false,
   });
 
   game.settings.register(MODULE_ID, STRATEGY_TOKENS_SETTING, {
