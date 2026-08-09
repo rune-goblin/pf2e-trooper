@@ -119,7 +119,8 @@ const DMG_TYPES = 'bludgeoning|piercing|slashing|fire|cold|acid|electricity|ligh
 const SAVES = new Set(['reflex', 'fortitude', 'will']);
 const SKILLS =
   'athletics|acrobatics|arcana|crafting|deception|diplomacy|intimidation|medicine|nature|occultism|performance|religion|society|stealth|survival|thievery|perception';
-const AREA_RE = /\b(burst|cone|emanation|line|blast|explosion)\b/i;
+// Plural counts: a weapon that drops two 10-foot bursts still deals area damage.
+const AREA_RE = /\b(burst|cone|emanation|line|blast|explosion)s?\b/i;
 
 /** Turn "5d10 bludgeoning … DC 22 Reflex" into clickable @Damage / @Check enrichers. */
 function enrichCombat(text: string): string {
@@ -165,6 +166,12 @@ function enrichCombat(text: string): string {
       const tpl = `@Template[${shape.toLowerCase()}|distance:${dist}]`;
       return plural ? `${tpl}{${dist}-foot ${shape}s}` : tpl;
     },
+  );
+  // A radius is a burst by another name — the shape rule above has already consumed the
+  // "30-foot burst radius" phrasings, so what's left here is a bare measured radius.
+  s = s.replace(
+    /\b(\d+)-\s*foot\s+radius\b/gi,
+    (_m, dist: string) => `@Template[burst|distance:${dist}]{${dist}-foot radius}`,
   );
   return s;
 }

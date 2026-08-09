@@ -35,13 +35,30 @@ describe('the generated siege-weapon pack source', () => {
   // AoN breaks some measurements as "10- foot burst"; a shape left as prose is an area attack
   // with no template to drop, which reads as a single-target weapon on the sheet.
   it('turns every area measurement into a @Template', () => {
-    const shape = /(\d+)-\s*foot\s+(burst|cone|emanation|line)s?\b/gi;
+    const shape = /(\d+)-\s*foot\s+(burst|cone|emanation|line|radius)s?\b/gi;
     for (const [file, doc] of docs) {
       for (const item of doc.items ?? []) {
         // A plural template keeps the prose as its label, so drop whole enrichers first.
         const prose = item.system.description.value.replace(/@Template\[[^\]]*\](?:\{[^}]*\})?/g, '');
         const leftovers = [...prose.matchAll(shape)];
         expect(leftovers.map((m) => m[0]), `${file} / ${item.name}`).toEqual([]);
+      }
+    }
+  });
+
+  // Without the option the save rolls as a plain check: no area-damage roll option, so
+  // resistances and abilities keyed to area damage never see it.
+  it('flags the save on every templated action as an area effect', () => {
+    for (const [file, doc] of docs) {
+      for (const item of doc.items ?? []) {
+        const value = item.system.description.value;
+        if (!value.includes('@Template[')) continue;
+        const saves = (value.match(/@Check\[[^\]]*\]/g) ?? []).filter((c) =>
+          /\b(reflex|fortitude|will)\b/.test(c),
+        );
+        for (const save of saves) {
+          expect(save, `${file} / ${item.name}`).toContain('options:area-effect');
+        }
       }
     }
   });
