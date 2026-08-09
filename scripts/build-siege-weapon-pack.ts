@@ -157,8 +157,10 @@ function enrichCombat(text: string): string {
   s = s.replace(/\b(\d+) splash damage\b/gi, '@Damage[$1]{$1 splash damage}');
   // Dice durations are GM-blind rolls, not damage (matches the system packs' convention).
   s = s.replace(/\b(\d+d\d+) rounds\b/gi, '[[/gmr $1 #rounds]]{$1 rounds}');
+  // AoN's extraction breaks a few measurements as "10- foot burst", so the hyphen tolerates
+  // trailing space — without it those weapons keep the prose and lose the template.
   s = s.replace(
-    /\b(\d+)-foot (burst|cone|emanation|line)(s?)\b/gi,
+    /\b(\d+)-\s*foot\s+(burst|cone|emanation|line)(s?)\b/gi,
     (_m, dist: string, shape: string, plural: string) => {
       const tpl = `@Template[${shape.toLowerCase()}|distance:${dist}]`;
       return plural ? `${tpl}{${dist}-foot ${shape}s}` : tpl;

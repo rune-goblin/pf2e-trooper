@@ -167,7 +167,7 @@
         },
         "category": "offensive",
         "description": {
-          "value": "<p>(manipulate) @Damage[3d6[fire]] plus @Damage[1d4[persistent,fire]], 30- foot line or @Template[cone|distance:15], @Check[reflex|dc:17|options:area-effect]; switching between the flame bellows’ line or cone mode takes an Interact action, and any of the crew can perform the action</p>"
+          "value": "<p>(manipulate) @Damage[3d6[fire]] plus @Damage[1d4[persistent,fire]], @Template[line|distance:30] or @Template[cone|distance:15], @Check[reflex|dc:17|options:area-effect]; switching between the flame bellows’ line or cone mode takes an Interact action, and any of the crew can perform the action</p>"
         },
         "publication": {
           "title": "Battlecry!",

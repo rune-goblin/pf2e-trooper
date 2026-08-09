@@ -12,6 +12,7 @@ interface SiegeDoc {
   img: string;
   prototypeToken: { texture: { src: string } };
   flags: Record<string, Record<string, { slug: string; strategyTokenImage: string }>>;
+  items: { name: string; system: { description: { value: string } } }[];
 }
 
 const docs = readdirSync(SOURCE_DIR)
@@ -28,6 +29,20 @@ describe('the generated siege-weapon pack source', () => {
       const flag = doc.flags['pf2e-trooper']?.['siege-weapon'];
       expect(flag, `${file} carries no pf2e-trooper siege-weapon flag`).toBeDefined();
       expect(flag.slug, file).toBe(file.replace(/\.json$/, ''));
+    }
+  });
+
+  // AoN breaks some measurements as "10- foot burst"; a shape left as prose is an area attack
+  // with no template to drop, which reads as a single-target weapon on the sheet.
+  it('turns every area measurement into a @Template', () => {
+    const shape = /(\d+)-\s*foot\s+(burst|cone|emanation|line)s?\b/gi;
+    for (const [file, doc] of docs) {
+      for (const item of doc.items ?? []) {
+        // A plural template keeps the prose as its label, so drop whole enrichers first.
+        const prose = item.system.description.value.replace(/@Template\[[^\]]*\](?:\{[^}]*\})?/g, '');
+        const leftovers = [...prose.matchAll(shape)];
+        expect(leftovers.map((m) => m[0]), `${file} / ${item.name}`).toEqual([]);
+      }
     }
   });
 
