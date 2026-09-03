@@ -330,6 +330,16 @@ export function followMoves(
  * bookkeeping is per-actor. Null when nothing mirrorable remains.
  */
 /**
+ * Reconcile-queue key for a troop. A linked troop is one unit across every scene it
+ * appears in, so its key carries no scene — two scenes holding it must coalesce into
+ * one job, not diverge into two that overwrite each other. An unlinked troop is
+ * scene-local, so its key keeps the scene.
+ */
+export function reconcileKey(troop: { id: string; linked: boolean }, sceneId: string): string {
+  return troop.linked ? `troop:${troop.id}` : `${sceneId}:${troop.id}`;
+}
+
+/**
  * Clone of a `system` update diff bound for a linked troop's world actor. HP stays:
  * the system propagates it between segments in a scene and never to the actor they
  * were placed from, so this is the only path a segment's damage takes home.

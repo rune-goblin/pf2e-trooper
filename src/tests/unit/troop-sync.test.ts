@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { type ItemSourceLike, baseSyncableSystemDiff, followMoves, planItemReconcile, syncableSystemDiff } from '@/troops/logic';
+import { type ItemSourceLike, baseSyncableSystemDiff, followMoves, planItemReconcile, reconcileKey, syncableSystemDiff } from '@/troops/logic';
 import { isExcludedItemSource } from '@/troops/sync';
 
 const item = (id: string, extra: Record<string, unknown> = {}): ItemSourceLike => ({
@@ -109,5 +109,24 @@ describe('system diff projections', () => {
 
   it('is null when a change carries nothing to mirror', () => {
     expect(baseSyncableSystemDiff({ _migration: { version: 1 } })).toBeNull();
+  });
+});
+
+describe('reconcileKey', () => {
+  // A linked troop placed twice in one scene is eight segments of ONE troop, and the
+  // same troop id turns up in every scene it stands in: keying by scene would make two
+  // jobs for one unit, each overwriting the other's convergence.
+  it('gives a linked troop one key across scenes and placements', () => {
+    const troop = { id: 'OIddxhuoEno4ESFq', linked: true };
+    expect(reconcileKey(troop, 'sceneA')).toBe(reconcileKey(troop, 'sceneB'));
+  });
+
+  it('keeps unlinked troops scene-local', () => {
+    const troop = { id: 'abc', linked: false };
+    expect(reconcileKey(troop, 'sceneA')).not.toBe(reconcileKey(troop, 'sceneB'));
+  });
+
+  it('never collides two different troops', () => {
+    expect(reconcileKey({ id: 'a', linked: true }, 's')).not.toBe(reconcileKey({ id: 'b', linked: true }, 's'));
   });
 });

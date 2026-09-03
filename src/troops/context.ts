@@ -49,18 +49,39 @@ export function baseActorFor(token: TokenDocumentPF2e | null): NPCPF2e | null {
   return actor?.isOfType('npc') ? (actor as unknown as NPCPF2e) : null;
 }
 
-/** Every linked segment of this world actor, across all scenes. */
-export function segmentTokensForBase(actorId: string): TokenDocumentPF2e[] {
+/**
+ * Every segment of one troop. Identity is the troop id, never the actor id or the
+ * token: a linked troop is a single unit wherever its segments sit, so placing one
+ * twice in a scene makes eight segments of one troop, not two troops. An unlinked
+ * troop is scene-local, so pass its scene to keep same-id troops in other scenes out.
+ */
+export function segmentTokensForTroop(troopId: string, sceneId?: string): TokenDocumentPF2e[] {
+  const scene = sceneId ? game.scenes.get(sceneId) : null;
+  const scenes = scene ? [scene] : sceneId ? [] : game.scenes.contents;
   const segments: TokenDocumentPF2e[] = [];
-  for (const scene of game.scenes.contents) {
-    for (const token of scene.tokens.contents) {
-      const linked = troopFlags(token)?.linked;
-      if (linked && (token as unknown as { actorId?: string | null }).actorId === actorId) {
-        segments.push(token);
-      }
+  for (const s of scenes) {
+    for (const token of s.tokens.contents) {
+      if (troopFlags(token)?.id === troopId) segments.push(token);
     }
   }
   return segments;
+}
+
+/**
+ * Distinct troop ids this world actor has deployed. One entry is the normal case —
+ * the id equals the actor's — and the set is what keeps a troop counted once.
+ */
+export function troopIdsForBase(actorId: string): string[] {
+  const ids = new Set<string>();
+  for (const scene of game.scenes.contents) {
+    for (const token of scene.tokens.contents) {
+      const troop = troopFlags(token);
+      if (troop?.linked && (token as unknown as { actorId?: string | null }).actorId === actorId) {
+        ids.add(troop.id);
+      }
+    }
+  }
+  return [...ids];
 }
 
 /** Derived troop HP thresholds; non-null exactly when the pf2e system treats the NPC as a troop. */

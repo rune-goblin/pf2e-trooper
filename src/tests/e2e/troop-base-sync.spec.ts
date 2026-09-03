@@ -122,5 +122,49 @@ test.describe('Linked troop world-actor sync', () => {
       }, ids);
       await expect.poll(segmentHp, { timeout: 15_000 }).toEqual([90, 90, 90, 90]);
     });
+
+    // A linked troop is one unit wherever it stands: the same troop id turns up in
+    // every scene holding it, and placing it twice in one scene makes eight segments
+    // of one troop rather than two troops.
+    await test.step('a second scene holding the same troop converges with the first', async () => {
+      await gmPage.evaluate(async ({ actorId }) => {
+        const scene = await CONFIG.Scene.documentClass.create({
+          name: '__e2e_linked_scene_b',
+          width: 4000,
+          height: 3000,
+          grid: { type: 1, size: 100 },
+          padding: 0,
+        });
+        const doc = await game.actors.get(actorId).getTokenDocument({ x: 1000, y: 1000 });
+        await scene.createEmbeddedDocuments('Token', [doc.toObject()]);
+      }, ids);
+
+      const everySegment = () =>
+        gmPage.evaluate(({ actorId }) => {
+          const out: { hp: number; reduced: boolean }[] = [];
+          for (const scene of game.scenes) {
+            for (const t of scene.tokens) {
+              if ((t as any).flags?.pf2e?.troop?.id !== actorId) continue;
+              out.push({
+                hp: (t as any).actor?.system.attributes.hp.value,
+                reduced: !!(t as any).actor?.itemTypes.effect.some((e: any) => e.slug === 'troop-reduced-3-segments'),
+              });
+            }
+          }
+          return out;
+        }, ids);
+
+      await expect.poll(async () => (await everySegment()).length, { timeout: 15_000 }).toBe(8);
+
+      await gmPage.evaluate(async ({ sceneId }) => {
+        const seg = game.scenes.get(sceneId).tokens.find((t: any) => t.flags?.pf2e?.troop);
+        await seg.actor.update({ 'system.attributes.hp.value': 50 });
+      }, ids);
+
+      await expect
+        .poll(everySegment, { timeout: 15_000 })
+        .toEqual(Array.from({ length: 8 }, () => ({ hp: 50, reduced: true })));
+      await expect.poll(baseState, { timeout: 15_000 }).toMatchObject({ hp: 50 });
+    });
   });
 });

@@ -1,7 +1,7 @@
-import type { ActorPF2e, ItemPF2e, NPCPF2e, ScenePF2e, TokenDocumentPF2e } from 'foundry-pf2e';
+import type { ActorPF2e, ItemPF2e, NPCPF2e, TokenDocumentPF2e } from 'foundry-pf2e';
 import { MODULE_ID } from '@/constants';
-import { baseActorFor, segmentContext, segmentTokensForBase, troopFlags } from './context';
-import { type ItemSourceLike, baseSyncableSystemDiff, planItemReconcile, syncableSystemDiff } from './logic';
+import { baseActorFor, segmentContext, segmentTokensForTroop, troopFlags, troopIdsForBase } from './context';
+import { type ItemSourceLike, baseSyncableSystemDiff, planItemReconcile, reconcileKey, syncableSystemDiff } from './logic';
 
 // Full-state sync between troop segments, structured as record-then-reconcile:
 // hooks never write — mid-cascade writes against synthetic actors proved to race
@@ -18,8 +18,12 @@ import { type ItemSourceLike, baseSyncableSystemDiff, planItemReconcile, syncabl
 /** Operation key marking reconciler writes so hooks don't re-queue them. */
 export const SYNC_OPTION = 'pf2eTrooperSync';
 
-const MIRROR_OPTIONS = { [SYNC_OPTION]: true } as never;
-const MIRROR_KEEP_ID = { [SYNC_OPTION]: true, keepId: true } as never;
+// Fresh objects per call: Foundry writes its own fields (parent, pack, the pending
+// updates) into the operation it is handed, so a shared constant carries the last
+// write's state into the next one — and a world-actor update issued after a segment's
+// is then dropped silently, with no error and no preUpdate.
+const mirrorOptions = () => ({ [SYNC_OPTION]: true }) as never;
+const mirrorKeepId = () => ({ [SYNC_OPTION]: true, keepId: true }) as never;
 
 /**
  * Items that stay per-segment: rule-element grants re-grant locally through their
@@ -42,9 +46,10 @@ export function isMirrorEcho(options: HookOptions): boolean {
 }
 
 interface PendingReconcile {
-  /** Scene the change originated in; empty when the world actor is the authority. */
-  sceneId: string;
+  /** The unit. One job per troop id — never per token, per actor, or per placement. */
   troopId: string;
+  /** Scene the troop is confined to; empty for a linked troop, which spans scenes. */
+  sceneId: string;
   /** Token id of the segment the change originated on — the reconcile authority. */
   leaderTokenId: string;
   /** World actor id when it is the authority instead of a segment. */
@@ -84,16 +89,12 @@ function enqueue(key: string, entry: PendingReconcile, systemDiff?: Record<strin
 
 function queueReconcile(actor: ActorPF2e | null, systemDiff?: Record<string, unknown>): void {
   const ctx = segmentContext(actor);
-  if (ctx?.token.parent) {
+  const troop = ctx ? troopFlags(ctx.token) : null;
+  if (ctx?.token.parent && troop) {
+    const sceneId = troop.linked ? '' : ctx.token.parent.id;
     enqueue(
-      `${ctx.token.parent.id}:${ctx.troopId}`,
-      {
-        sceneId: ctx.token.parent.id,
-        troopId: ctx.troopId,
-        leaderTokenId: ctx.token.id,
-        baseActorId: '',
-        systemDiffs: [],
-      },
+      reconcileKey(troop, ctx.token.parent.id),
+      { troopId: troop.id, sceneId, leaderTokenId: ctx.token.id, baseActorId: '', systemDiffs: [] },
       systemDiff,
     );
     return;
@@ -105,37 +106,48 @@ function queueReconcile(actor: ActorPF2e | null, systemDiff?: Record<string, unk
 function queueBaseReconcile(actor: ActorPF2e | null, systemDiff?: Record<string, unknown>): void {
   if (!actor?.isOfType('npc') || actor.token) return;
   if (!actor.system.traits.value.includes('troop')) return;
-  if (segmentTokensForBase(actor.id).length === 0) return;
-  enqueue(
-    `base:${actor.id}`,
-    { sceneId: '', troopId: '', leaderTokenId: '', baseActorId: actor.id, systemDiffs: [] },
-    systemDiff,
-  );
+  // One job per troop, so an actor deployed more than once converges each unit once
+  // and shares the same key a segment-originated change would use.
+  for (const troopId of troopIdsForBase(actor.id)) {
+    enqueue(
+      reconcileKey({ id: troopId, linked: true }, ''),
+      { troopId, sceneId: '', leaderTokenId: '', baseActorId: actor.id, systemDiffs: [] },
+      systemDiff,
+    );
+  }
 }
 
 async function reconcileTroop(job: PendingReconcile): Promise<void> {
-  if (job.baseActorId) return reconcileFromBase(job);
+  const segments = segmentTokensForTroop(job.troopId, job.sceneId || undefined);
+  if (segments.length === 0) return;
 
-  const scene = game.scenes.get(job.sceneId) as ScenePF2e | undefined;
-  if (!scene) return;
-  const tokens = scene.tokens.contents.filter((t) => troopFlags(t)?.id === job.troopId);
-  const leader = tokens.find((t) => t.id === job.leaderTokenId) ?? tokens[0];
-  const leaderActor = leader?.actor;
+  if (job.baseActorId) return reconcileFromBase(job, segments);
+
+  const leader = segments.find((t) => t.id === job.leaderTokenId) ?? segments[0];
+  const leaderActor = leader.actor;
   if (!leaderActor?.isOfType('npc')) return;
 
   const leaderItems = leaderActor.items.map((i) => i.toObject() as ItemSourceLike);
-  for (const token of tokens) {
+
+  // The world actor goes first. Writing the segments' ActorDeltas invalidates the
+  // actor instance they derive from, and a write to it afterwards is dropped with no
+  // error and no preUpdate — the stale-instance hazard this file is built around.
+  const base = baseActorFor(leader);
+  if (base) await reconcileTarget(base, project(job.systemDiffs, baseSyncableSystemDiff), leaderItems);
+
+  const originScene = leader.parent?.id;
+  for (const token of segments) {
     if (token === leader) continue;
     const sibling = token.actor;
     if (!sibling?.isOfType('npc')) continue;
-    await reconcileTarget(sibling, project(job.systemDiffs, syncableSystemDiff), leaderItems);
+    // The system's own HP propagation reaches the origin's scene and stops there, so
+    // a segment of the same troop standing in another scene needs HP carried to it.
+    const projection = token.parent?.id === originScene ? syncableSystemDiff : baseSyncableSystemDiff;
+    await reconcileTarget(sibling, project(job.systemDiffs, projection), leaderItems);
   }
-
-  const base = baseActorFor(leader ?? null);
-  if (base) await reconcileTarget(base, project(job.systemDiffs, baseSyncableSystemDiff), leaderItems);
 }
 
-async function reconcileFromBase(job: PendingReconcile): Promise<void> {
+async function reconcileFromBase(job: PendingReconcile, segments: TokenDocumentPF2e[]): Promise<void> {
   const base = game.actors.get(job.baseActorId);
   if (!base?.isOfType('npc')) return;
 
@@ -143,7 +155,7 @@ async function reconcileFromBase(job: PendingReconcile): Promise<void> {
   // The system propagates HP between segments but never down from the world actor,
   // so every segment is written directly rather than left to one of its siblings.
   const diffs = project(job.systemDiffs, baseSyncableSystemDiff);
-  for (const token of segmentTokensForBase(job.baseActorId) as TokenDocumentPF2e[]) {
+  for (const token of segments) {
     const segment = token.actor;
     if (!segment?.isOfType('npc')) continue;
     await reconcileTarget(segment, diffs, baseItems);
@@ -164,19 +176,19 @@ async function reconcileTarget(
 ): Promise<void> {
   for (const diff of systemDiffs) {
     await target
-      .update({ system: structuredClone(diff) }, MIRROR_OPTIONS)
+      .update({ system: structuredClone(diff) }, mirrorOptions())
       ?.catch?.((error: unknown) => console.error(`${MODULE_ID} | system sync failed`, error));
   }
 
   const targetItems = target.items.map((i) => i.toObject() as ItemSourceLike);
   const plan = planItemReconcile(authorityItems, targetItems, isExcludedItemSource);
   try {
-    if (plan.delete.length > 0) await target.deleteEmbeddedDocuments('Item', plan.delete, MIRROR_OPTIONS);
+    if (plan.delete.length > 0) await target.deleteEmbeddedDocuments('Item', plan.delete, mirrorOptions());
     if (plan.update.length > 0) {
-      await target.updateEmbeddedDocuments('Item', structuredClone(plan.update), MIRROR_OPTIONS);
+      await target.updateEmbeddedDocuments('Item', structuredClone(plan.update), mirrorOptions());
     }
     if (plan.create.length > 0) {
-      await target.createEmbeddedDocuments('Item', structuredClone(plan.create), MIRROR_KEEP_ID);
+      await target.createEmbeddedDocuments('Item', structuredClone(plan.create), mirrorKeepId());
     }
   } catch (error) {
     console.error(`${MODULE_ID} | item sync failed`, error);
