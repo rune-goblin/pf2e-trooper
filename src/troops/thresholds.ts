@@ -49,23 +49,28 @@ const pendingApplications = new Set<string>();
 function onUpdateActor(actor: ActorPF2e, changed: Record<string, unknown>, options: Record<string, unknown>, userId: string): void {
   if (userId !== game.user.id || isMirrorEcho(options)) return;
   if (foundry.utils.getProperty(changed, 'system.attributes.hp.value') === undefined) return;
-  const ctx = segmentContext(actor);
   const thresholds = hpThresholds(actor);
-  if (!ctx || !thresholds) return;
+  if (!thresholds) return;
+  // A troop damaged through its world actor rather than on a scene — the kingdom
+  // layer's path — crosses the same thresholds; the sync layer carries the effect
+  // down to any segments it has deployed.
+  const ctx = segmentContext(actor);
+  const target = ctx?.actor ?? (actor.isOfType('npc') ? (actor as NPCPF2e) : null);
+  if (!target) return;
 
-  const expected = segmentsForHp(thresholds, ctx.actor.system.attributes.hp.value);
+  const expected = segmentsForHp(thresholds, target.system.attributes.hp.value);
   // Reduction only ever worsens automatically; recovery is a manual downtime decision.
-  if (expected >= reducedStatus(ctx.actor)) return;
+  if (expected >= reducedStatus(target)) return;
 
-  const key = `${ctx.troopId}:${expected}`;
+  const key = `${ctx?.troopId ?? target.id}:${expected}`;
   if (pendingApplications.has(key)) return;
   pendingApplications.add(key);
-  applyReducedStatus(ctx.actor, expected as 2 | 3, thresholds)
+  applyReducedStatus(target, expected as 2 | 3, thresholds)
     .catch((error) => console.error(`${MODULE_ID} | failed to apply Troop Reduced effect`, error))
     .finally(() => pendingApplications.delete(key));
 }
 
-/** Applies to this segment only — the sync layer mirrors both the delete and the create to its siblings. */
+/** Applies to one actor only — the sync layer mirrors both the delete and the create to its peers. */
 async function applyReducedStatus(actor: NPCPF2e, status: 2 | 3, thresholds: ThresholdEntry[]): Promise<void> {
   const uuid = `Compendium.${MODULE_ID}.troop-effects.Item.${REDUCED_EFFECT_IDS[status]}`;
   const effect = await fromUuid<ItemPF2e>(uuid);

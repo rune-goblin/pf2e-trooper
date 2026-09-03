@@ -6,6 +6,7 @@ import { test, expect } from './fixtures/foundry-clients';
 // Uses throwaway __e2e_-named documents, deleted in afterAll.
 
 declare const CONFIG: any;
+declare const canvas: any;
 
 test.describe('Troop segments', () => {
   test.afterAll(async ({ gmPage }) => {
@@ -36,8 +37,15 @@ test.describe('Troop segments', () => {
         });
         const tokenDoc = await actor.getTokenDocument({ x: 1000, y: 1000 });
         await scene.createEmbeddedDocuments('Token', [tokenDoc.toObject()]);
+        // Item and actor writes ripple into token render flags, which need a drawn canvas.
+        await scene.activate();
         return { sceneId: scene.id, actorId: actor.id };
       });
+      await gmPage.waitForFunction(
+        ({ sceneId }) => canvas?.ready && canvas.scene?.id === sceneId,
+        created,
+        { timeout: 20_000 },
+      );
       await gmPage.waitForFunction(
         ({ sceneId }) => game.scenes.get(sceneId)?.tokens.filter((t: any) => t.flags?.pf2e?.troop).length === 4,
         created,

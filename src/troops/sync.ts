@@ -1,7 +1,7 @@
-import type { ActorPF2e, ItemPF2e, NPCPF2e, ScenePF2e } from 'foundry-pf2e';
+import type { ActorPF2e, ItemPF2e, NPCPF2e, ScenePF2e, TokenDocumentPF2e } from 'foundry-pf2e';
 import { MODULE_ID } from '@/constants';
-import { segmentContext, troopFlags } from './context';
-import { type ItemSourceLike, planItemReconcile, syncableSystemDiff } from './logic';
+import { baseActorFor, segmentContext, segmentTokensForBase, troopFlags } from './context';
+import { type ItemSourceLike, baseSyncableSystemDiff, planItemReconcile, syncableSystemDiff } from './logic';
 
 // Full-state sync between troop segments, structured as record-then-reconcile:
 // hooks never write — mid-cascade writes against synthetic actors proved to race
@@ -9,6 +9,11 @@ import { type ItemSourceLike, planItemReconcile, syncableSystemDiff } from './lo
 // wrong ActorDelta). Instead hooks queue the troop, and a debounced, serialized
 // reconciler re-resolves every document fresh from the scene and converges each
 // sibling onto the segment where the change originated.
+//
+// A linked troop's world actor is a peer in that convergence, in both directions:
+// segments are unlinked, so without it a deployed troop's damage, conditions and
+// threshold effects would live only on the scene and never reach the actor the
+// kingdom layer reads.
 
 /** Operation key marking reconciler writes so hooks don't re-queue them. */
 export const SYNC_OPTION = 'pf2eTrooperSync';
@@ -37,11 +42,14 @@ export function isMirrorEcho(options: HookOptions): boolean {
 }
 
 interface PendingReconcile {
+  /** Scene the change originated in; empty when the world actor is the authority. */
   sceneId: string;
   troopId: string;
   /** Token id of the segment the change originated on — the reconcile authority. */
   leaderTokenId: string;
-  /** Actor-system diffs accumulated since the last flush, applied before item reconciliation. */
+  /** World actor id when it is the authority instead of a segment. */
+  baseActorId: string;
+  /** Raw actor-system diffs since the last flush, projected per target before they're applied. */
   systemDiffs: Record<string, unknown>[];
 }
 
@@ -50,19 +58,14 @@ let flushTimer: ReturnType<typeof setTimeout> | null = null;
 /** Serialization chain: reconciles never overlap each other. */
 let flushChain: Promise<void> = Promise.resolve();
 
-function queueReconcile(actor: ActorPF2e | null, systemDiff?: Record<string, unknown>): void {
-  const ctx = segmentContext(actor);
-  if (!ctx || !ctx.token.parent) return;
-  const key = `${ctx.token.parent.id}:${ctx.troopId}`;
-  const entry = pending.get(key) ?? {
-    sceneId: ctx.token.parent.id,
-    troopId: ctx.troopId,
-    leaderTokenId: ctx.token.id,
-    systemDiffs: [],
-  };
-  entry.leaderTokenId = ctx.token.id;
-  if (systemDiff) entry.systemDiffs.push(systemDiff);
-  pending.set(key, entry);
+function enqueue(key: string, entry: PendingReconcile, systemDiff?: Record<string, unknown>): void {
+  const existing = pending.get(key);
+  const job = existing ?? entry;
+  job.sceneId = entry.sceneId;
+  job.leaderTokenId = entry.leaderTokenId;
+  job.baseActorId = entry.baseActorId;
+  if (systemDiff) job.systemDiffs.push(systemDiff);
+  pending.set(key, job);
 
   if (flushTimer) clearTimeout(flushTimer);
   flushTimer = setTimeout(() => {
@@ -79,7 +82,40 @@ function queueReconcile(actor: ActorPF2e | null, systemDiff?: Record<string, unk
   }, 60);
 }
 
+function queueReconcile(actor: ActorPF2e | null, systemDiff?: Record<string, unknown>): void {
+  const ctx = segmentContext(actor);
+  if (ctx?.token.parent) {
+    enqueue(
+      `${ctx.token.parent.id}:${ctx.troopId}`,
+      {
+        sceneId: ctx.token.parent.id,
+        troopId: ctx.troopId,
+        leaderTokenId: ctx.token.id,
+        baseActorId: '',
+        systemDiffs: [],
+      },
+      systemDiff,
+    );
+    return;
+  }
+  queueBaseReconcile(actor, systemDiff);
+}
+
+/** The world actor of a deployed troop is an authority in its own right — RM writes there. */
+function queueBaseReconcile(actor: ActorPF2e | null, systemDiff?: Record<string, unknown>): void {
+  if (!actor?.isOfType('npc') || actor.token) return;
+  if (!actor.system.traits.value.includes('troop')) return;
+  if (segmentTokensForBase(actor.id).length === 0) return;
+  enqueue(
+    `base:${actor.id}`,
+    { sceneId: '', troopId: '', leaderTokenId: '', baseActorId: actor.id, systemDiffs: [] },
+    systemDiff,
+  );
+}
+
 async function reconcileTroop(job: PendingReconcile): Promise<void> {
+  if (job.baseActorId) return reconcileFromBase(job);
+
   const scene = game.scenes.get(job.sceneId) as ScenePF2e | undefined;
   if (!scene) return;
   const tokens = scene.tokens.contents.filter((t) => troopFlags(t)?.id === job.troopId);
@@ -92,30 +128,55 @@ async function reconcileTroop(job: PendingReconcile): Promise<void> {
     if (token === leader) continue;
     const sibling = token.actor;
     if (!sibling?.isOfType('npc')) continue;
-    await reconcileSibling(sibling, job.systemDiffs, leaderItems);
+    await reconcileTarget(sibling, project(job.systemDiffs, syncableSystemDiff), leaderItems);
+  }
+
+  const base = baseActorFor(leader ?? null);
+  if (base) await reconcileTarget(base, project(job.systemDiffs, baseSyncableSystemDiff), leaderItems);
+}
+
+async function reconcileFromBase(job: PendingReconcile): Promise<void> {
+  const base = game.actors.get(job.baseActorId);
+  if (!base?.isOfType('npc')) return;
+
+  const baseItems = base.items.map((i) => i.toObject() as ItemSourceLike);
+  // The system propagates HP between segments but never down from the world actor,
+  // so every segment is written directly rather than left to one of its siblings.
+  const diffs = project(job.systemDiffs, baseSyncableSystemDiff);
+  for (const token of segmentTokensForBase(job.baseActorId) as TokenDocumentPF2e[]) {
+    const segment = token.actor;
+    if (!segment?.isOfType('npc')) continue;
+    await reconcileTarget(segment, diffs, baseItems);
   }
 }
 
-async function reconcileSibling(
-  sibling: NPCPF2e,
+function project(
   systemDiffs: Record<string, unknown>[],
-  leaderItems: ItemSourceLike[],
+  projection: (system: object) => Record<string, unknown> | null,
+): Record<string, unknown>[] {
+  return systemDiffs.map(projection).filter((d): d is Record<string, unknown> => !!d);
+}
+
+async function reconcileTarget(
+  target: NPCPF2e,
+  systemDiffs: Record<string, unknown>[],
+  authorityItems: ItemSourceLike[],
 ): Promise<void> {
   for (const diff of systemDiffs) {
-    await sibling
+    await target
       .update({ system: structuredClone(diff) }, MIRROR_OPTIONS)
       ?.catch?.((error: unknown) => console.error(`${MODULE_ID} | system sync failed`, error));
   }
 
-  const siblingItems = sibling.items.map((i) => i.toObject() as ItemSourceLike);
-  const plan = planItemReconcile(leaderItems, siblingItems, isExcludedItemSource);
+  const targetItems = target.items.map((i) => i.toObject() as ItemSourceLike);
+  const plan = planItemReconcile(authorityItems, targetItems, isExcludedItemSource);
   try {
-    if (plan.delete.length > 0) await sibling.deleteEmbeddedDocuments('Item', plan.delete, MIRROR_OPTIONS);
+    if (plan.delete.length > 0) await target.deleteEmbeddedDocuments('Item', plan.delete, MIRROR_OPTIONS);
     if (plan.update.length > 0) {
-      await sibling.updateEmbeddedDocuments('Item', structuredClone(plan.update), MIRROR_OPTIONS);
+      await target.updateEmbeddedDocuments('Item', structuredClone(plan.update), MIRROR_OPTIONS);
     }
     if (plan.create.length > 0) {
-      await sibling.createEmbeddedDocuments('Item', structuredClone(plan.create), MIRROR_KEEP_ID);
+      await target.createEmbeddedDocuments('Item', structuredClone(plan.create), MIRROR_KEEP_ID);
     }
   } catch (error) {
     console.error(`${MODULE_ID} | item sync failed`, error);
@@ -128,10 +189,9 @@ function isInitiator(userId: string): boolean {
 
 function onUpdateActor(actor: ActorPF2e, changed: Record<string, unknown>, options: HookOptions, userId: string): void {
   if (!isInitiator(userId) || isMirrorEcho(options)) return;
-  const diff =
-    changed.system && typeof changed.system === 'object' ? syncableSystemDiff(changed.system) : null;
+  const diff = changed.system && typeof changed.system === 'object' ? (changed.system as object) : null;
   // Item changes ride along inside delta updates too, so queue even without a system diff.
-  queueReconcile(actor, diff ?? undefined);
+  queueReconcile(actor, diff ? (structuredClone(diff) as Record<string, unknown>) : undefined);
 }
 
 function onItemChange(item: ItemPF2e, options: HookOptions, userId: string): void {

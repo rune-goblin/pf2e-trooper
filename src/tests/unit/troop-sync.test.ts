@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { type ItemSourceLike, followMoves, planItemReconcile } from '@/troops/logic';
+import { type ItemSourceLike, baseSyncableSystemDiff, followMoves, planItemReconcile, syncableSystemDiff } from '@/troops/logic';
 import { isExcludedItemSource } from '@/troops/sync';
 
 const item = (id: string, extra: Record<string, unknown> = {}): ItemSourceLike => ({
@@ -88,5 +88,26 @@ describe('followMoves', () => {
 
   it('returns nothing for a zero-distance update', () => {
     expect(followMoves({ x: 200, y: 100 }, { x: 200, y: 100 }, followers)).toEqual([]);
+  });
+});
+
+describe('system diff projections', () => {
+  const hpChange = { attributes: { hp: { value: 40 } }, _migration: { version: 1 } };
+
+  // Sibling HP is the system's job (its own fromTroop updates), the world actor's is nobody's
+  // but ours: without this a deployed troop's damage never leaves the scene.
+  it('strips hp for a sibling segment and keeps it for the world actor', () => {
+    expect(syncableSystemDiff(structuredClone(hpChange))).toBeNull();
+    expect(baseSyncableSystemDiff(structuredClone(hpChange))).toEqual({ attributes: { hp: { value: 40 } } });
+  });
+
+  it('drops per-actor migration bookkeeping from both', () => {
+    const diff = { details: { level: { value: 5 } }, _migration: { version: 1 } };
+    expect(syncableSystemDiff(structuredClone(diff))).toEqual({ details: { level: { value: 5 } } });
+    expect(baseSyncableSystemDiff(structuredClone(diff))).toEqual({ details: { level: { value: 5 } } });
+  });
+
+  it('is null when a change carries nothing to mirror', () => {
+    expect(baseSyncableSystemDiff({ _migration: { version: 1 } })).toBeNull();
   });
 });

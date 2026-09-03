@@ -37,6 +37,32 @@ export function segmentContext(actor: ActorPF2e | null): SegmentContext | null {
   return { actor, token, troopId: troop.id, siblings };
 }
 
+/**
+ * The world actor a troop segment was placed from. Segment tokens are always unlinked,
+ * so `linked` is the only marker that one stands in for a world actor rather than
+ * living scene-locally.
+ */
+export function baseActorFor(token: TokenDocumentPF2e | null): NPCPF2e | null {
+  if (!troopFlags(token)?.linked) return null;
+  const actorId = (token as unknown as { actorId?: string | null } | null)?.actorId;
+  const actor = actorId ? game.actors.get(actorId) : null;
+  return actor?.isOfType('npc') ? (actor as unknown as NPCPF2e) : null;
+}
+
+/** Every linked segment of this world actor, across all scenes. */
+export function segmentTokensForBase(actorId: string): TokenDocumentPF2e[] {
+  const segments: TokenDocumentPF2e[] = [];
+  for (const scene of game.scenes.contents) {
+    for (const token of scene.tokens.contents) {
+      const linked = troopFlags(token)?.linked;
+      if (linked && (token as unknown as { actorId?: string | null }).actorId === actorId) {
+        segments.push(token);
+      }
+    }
+  }
+  return segments;
+}
+
 /** Derived troop HP thresholds; non-null exactly when the pf2e system treats the NPC as a troop. */
 export function hpThresholds(actor: ActorPF2e | null): ThresholdEntry[] | null {
   if (!actor?.isOfType('npc')) return null;

@@ -329,6 +329,17 @@ export function followMoves(
  * (double-writing them would race its `fromTroop` updates), and `_migration`
  * bookkeeping is per-actor. Null when nothing mirrorable remains.
  */
+/**
+ * Clone of a `system` update diff bound for a linked troop's world actor. HP stays:
+ * the system propagates it between segments in a scene and never to the actor they
+ * were placed from, so this is the only path a segment's damage takes home.
+ */
+export function baseSyncableSystemDiff(system: object): Record<string, unknown> | null {
+  const diff = structuredClone(system) as Record<string, unknown>;
+  delete diff._migration;
+  return Object.keys(diff).length > 0 ? diff : null;
+}
+
 export function syncableSystemDiff(system: object): Record<string, unknown> | null {
   const diff = structuredClone(system) as Record<string, unknown>;
   const attributes = diff.attributes as Record<string, unknown> | undefined;
