@@ -2,7 +2,7 @@
   "id": "pf2e-trooper",
   "title": "PF2e Trooper",
   "description": "Troop art and tactical troop tooling for Pathfinder 2e — portrait, tactical-token and strategy-map art for every published troop, plus the compendium content that goes with them.",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "license": "MIT",
   "authors": [
     {

@@ -182,6 +182,22 @@ The window is a thin `ApplicationV2` subclass; Svelte renders. `_renderHTML` cal
 `unmount()`. See `src/ui/ExampleApp.ts`. Open the sample from the console:
 `game.modules.get('pf2e-trooper').api.open()`.
 
+## Public api
+
+`game.modules.get('pf2e-trooper').api`, registered at `init`:
+
+- `troopArt(name)` / `troopArtSlugs()` — the art this module ships for a published troop name.
+- `reducedStatus(actor)` — a troop's Troop Reduced status: `4` at full strength, `3` or `2`
+  once the HP ladder has reduced it, `null` for an actor the system does not treat as a troop.
+- `recoverOneSegment(actor)` — downtime recovery, one rung up (2 → 3, 3 → full).
+- `setReducedStatus(actor, 2 | 3 | 4)` — the status outright, in either direction.
+
+The ladder only ever worsens on its own; these are the way back. Both writers swap the Troop
+Reduced effect, move HP into the band the ladder reads as that many segments (recovery lifts
+it to the band's floor, a forced reduction lowers it to the cap), and resolve once every
+segment and the world actor have followed. Pass the world actor or any segment's actor. The
+`Recover Troop Segment` macro in the `macros` pack calls this for the selected tokens.
+
 ## Compendium packs (fvtt CLI)
 
 Pack **sources** live in `packs/_source/<name>/*.json` (tracked). `npm run build` compiles

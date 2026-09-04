@@ -36,6 +36,31 @@ export function hpCapForStatus(thresholds: ThresholdEntry[], status: SegmentCoun
   return thresholds.find((t) => t.segments === status)?.hp ?? null;
 }
 
+/** Inclusive HP range the ladder reads as `status` segments; null when the ladder lacks that rung. */
+export function hpBandForStatus(
+  thresholds: ThresholdEntry[],
+  status: SegmentCount,
+): { min: number; max: number } | null {
+  const rung = thresholds.find((t) => t.segments === status);
+  if (!rung) return null;
+  const below = thresholds.filter((t) => t.segments < status).reduce<number | null>(
+    (best, t) => (best === null || t.hp > best ? t.hp : best),
+    null,
+  );
+  return { min: below === null ? 0 : below + 1, max: rung.hp };
+}
+
+/**
+ * The HP a troop must hold for the ladder to agree with `status`. Recovery that left HP
+ * under the band would be undone by the next heal, and a reduction that left it above
+ * would cap nothing until then — either way the effect and the ladder would disagree.
+ */
+export function clampHpToStatus(thresholds: ThresholdEntry[], status: SegmentCount, hp: number): number {
+  const band = hpBandForStatus(thresholds, status);
+  if (!band) return hp;
+  return Math.min(band.max, Math.max(band.min, hp));
+}
+
 /** Axis-aligned rectangle in grid-square units (troop segments are 2×2). */
 export interface GridRect {
   x: number;

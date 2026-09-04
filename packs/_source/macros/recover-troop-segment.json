@@ -1,0 +1,14 @@
+{
+  "_id": "pmtTroopRecover1",
+  "_key": "!macros!pmtTroopRecover1",
+  "name": "PF2e Trooper: Recover Troop Segment",
+  "type": "script",
+  "author": "pmtTemplateUser1",
+  "img": "icons/svg/regen.svg",
+  "scope": "global",
+  "command": "const api = game.modules.get('pf2e-trooper')?.api;\nconst seen = new Set();\nfor (const token of canvas.tokens.controlled) {\n  // Segments of one troop are one unit: recover it once, however many are selected.\n  const key = token.document.flags?.pf2e?.troop?.id ?? token.actor?.id;\n  if (!token.actor || !key || seen.has(key)) continue;\n  seen.add(key);\n  const before = api?.reducedStatus(token.actor);\n  if (before === null) continue;\n  if (before === 4) {\n    ui.notifications.info(game.i18n.format('pf2e-trooper.troopReduced.notReduced', { name: token.name }));\n    continue;\n  }\n  await api?.recoverOneSegment(token.actor);\n}\nif (seen.size === 0) ui.notifications.warn(game.i18n.localize('pf2e-trooper.troopReduced.selectTroop'));",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

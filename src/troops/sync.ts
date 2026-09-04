@@ -18,10 +18,12 @@ import { type ItemSourceLike, baseSyncableSystemDiff, planItemReconcile, reconci
 /** Operation key marking reconciler writes so hooks don't re-queue them. */
 export const SYNC_OPTION = 'pf2eTrooperSync';
 
-// Fresh objects per call: Foundry writes its own fields (parent, pack, the pending
-// updates) into the operation it is handed, so a shared constant carries the last
-// write's state into the next one — and a world-actor update issued after a segment's
-// is then dropped silently, with no error and no preUpdate.
+// Fresh objects per call. Foundry mutates the operation it is handed: it sets parent
+// and pack, replaces the updates, and before dispatch rewrites `parent` into
+// `parentUuid` (plus `syntheticActorUpdate` for a token's actor) and deletes `parent`.
+// Only a non-null parent refreshes `parentUuid`, and a world actor has none — so a
+// shared object carries the previous segment write's ActorDelta routing into the
+// world-actor update, which then lands nowhere: no error, no hook, no change.
 const mirrorOptions = () => ({ [SYNC_OPTION]: true }) as never;
 const mirrorKeepId = () => ({ [SYNC_OPTION]: true, keepId: true }) as never;
 
@@ -62,6 +64,8 @@ const pending = new Map<string, PendingReconcile>();
 let flushTimer: ReturnType<typeof setTimeout> | null = null;
 /** Serialization chain: reconciles never overlap each other. */
 let flushChain: Promise<void> = Promise.resolve();
+/** Callers waiting on a batch that is still debouncing. */
+let settleWaiters: (() => void)[] = [];
 
 function enqueue(key: string, entry: PendingReconcile, systemDiff?: Record<string, unknown>): void {
   const existing = pending.get(key);
@@ -77,6 +81,8 @@ function enqueue(key: string, entry: PendingReconcile, systemDiff?: Record<strin
     flushTimer = null;
     const batch = [...pending.values()];
     pending.clear();
+    const waiters = settleWaiters;
+    settleWaiters = [];
     flushChain = flushChain.then(async () => {
       for (const item of batch) {
         await reconcileTroop(item).catch((error) =>
@@ -84,7 +90,14 @@ function enqueue(key: string, entry: PendingReconcile, systemDiff?: Record<strin
         );
       }
     });
+    void flushChain.then(() => waiters.forEach((resolve) => resolve()));
   }, 60);
+}
+
+/** Resolves once every change queued so far has converged on its peers. */
+export function reconciled(): Promise<void> {
+  if (!flushTimer) return flushChain;
+  return new Promise((resolve) => settleWaiters.push(resolve));
 }
 
 function queueReconcile(actor: ActorPF2e | null, systemDiff?: Record<string, unknown>): void {
@@ -129,9 +142,8 @@ async function reconcileTroop(job: PendingReconcile): Promise<void> {
 
   const leaderItems = leaderActor.items.map((i) => i.toObject() as ItemSourceLike);
 
-  // The world actor goes first. Writing the segments' ActorDeltas invalidates the
-  // actor instance they derive from, and a write to it afterwards is dropped with no
-  // error and no preUpdate — the stale-instance hazard this file is built around.
+  // Order is free: each write carries its own operation object, so nothing a segment
+  // write leaves behind can reach the world actor's (see mirrorOptions).
   const base = baseActorFor(leader);
   if (base) await reconcileTarget(base, project(job.systemDiffs, baseSyncableSystemDiff), leaderItems);
 

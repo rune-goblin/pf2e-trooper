@@ -11,7 +11,10 @@ import { troopFlags } from './context';
 // runs after core stages the field, so an ordinary hook does the job and nothing competes for
 // that prototype method — pf2e-toolbelt overrides it outright for its own movement tools.
 
-const CLEAR_HISTORY = { diff: false, noHook: true, _clearMovementHistory: true } as never;
+// A fresh object per call: Foundry writes its own fields (parent, parentUuid, the
+// updates) into the operation it is handed, so a shared constant reaches the next call
+// already populated — see mirrorOptions in sync.ts for the write that lost.
+const clearHistoryOptions = () => ({ diff: false, noHook: true, _clearMovementHistory: true }) as never;
 
 /** Empties the history core staged for this update. Returns whether it acted. */
 export function suppressHistory(changed: Record<string, unknown>, isSegment: boolean): boolean {
@@ -35,7 +38,7 @@ async function clearBankedHistory(scene: ScenePF2e | null): Promise<void> {
   await scene.updateEmbeddedDocuments(
     'Token',
     stale.map((t) => ({ _id: t.id })),
-    CLEAR_HISTORY,
+    clearHistoryOptions(),
   );
 }
 
