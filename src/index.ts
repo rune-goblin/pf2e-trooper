@@ -4,6 +4,7 @@ import { MODULE_ID } from './constants';
 import { registerTroopHooks } from './troops';
 import { recoverOneSegment, reducedStatus, setReducedStatus } from './troops/thresholds';
 import type { SegmentCount } from './troops/logic';
+import { listTroops, type TroopListing } from './troops/listing';
 import { officialTroopArt, officialTroopArtSlugs, type TroopArt } from './art/officialTroopArt';
 import { registerTroopArt } from './art';
 import { aiArtIgnored, registerSettings } from './settings';
@@ -16,6 +17,8 @@ interface ModuleApi {
   troopArt: (name: string | null | undefined) => TroopArt | null;
   /** Every published-troop slug this module has art for. */
   troopArtSlugs: () => string[];
+  /** Every troop-trait actor in the world and in the Actor compendia, read off their indexes. */
+  listTroops: () => Promise<TroopListing[]>;
   /** A troop's reduced status (4 = full strength), or null for an actor that is not a troop. */
   reducedStatus: (actor: Actor | null | undefined) => SegmentCount | null;
   /**
@@ -27,7 +30,7 @@ interface ModuleApi {
   recoverOneSegment: (actor: Actor | null | undefined) => Promise<SegmentCount | null>;
 }
 
-export type { ModuleApi, SegmentCount };
+export type { ModuleApi, SegmentCount, TroopListing };
 
 // `init`, not `ready`: ReignMaker's clone door calls troopArt() synchronously, and Foundry does
 // not await async hook callbacks — anything fetched in `ready` could still be in flight when a
@@ -42,6 +45,7 @@ Hooks.once('init', () => {
     // handed it, and consumers hold on to this object.
     troopArt: (name) => (aiArtIgnored() ? null : officialTroopArt(name)),
     troopArtSlugs: () => (aiArtIgnored() ? [] : officialTroopArtSlugs()),
+    listTroops: () => listTroops(aiArtIgnored() ? () => null : undefined),
     reducedStatus: (actor) => reducedStatus(actor as ActorPF2e | null),
     setReducedStatus: (actor, status) => setReducedStatus(actor as ActorPF2e | null, status),
     recoverOneSegment: (actor) => recoverOneSegment(actor as ActorPF2e | null),
