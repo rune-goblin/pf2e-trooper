@@ -65,4 +65,11 @@ describe('keeping the compendium scan', () => {
     const kept = await troopsAcross([], { 'gone.pack': { stamp: 'gone@1.0.0', troops: [] } });
     expect(kept.cache).toEqual({});
   });
+
+  it('lists the other packs when one cannot be read, and does not keep the failure', async () => {
+    const broken: PackToScan = { collection: 'bad.pack', label: 'Bad', stamp: 'bad@1.0.0', index: async () => { throw new Error('locked'); } };
+    const result = await troopsAcross([broken, pack('pf2e@7.0.0', [entry('Bandit Gang', ['troop'])], [])], {});
+    expect(result.troops.map((t) => t.name)).toEqual(['Bandit Gang']);
+    expect(result.cache['bad.pack']).toBeUndefined();
+  });
 });

@@ -76,7 +76,15 @@ export async function troopsAcross(packs: PackToScan[], cache: TroopCache): Prom
       next[pack.collection] = kept;
       return kept.troops;
     }
-    const troops = troopListingsFrom(await pack.index(), pack.collection, pack.label, () => null)
+    let entries: Iterable<TroopIndexEntry>;
+    try {
+      entries = await pack.index();
+    } catch (error) {
+      // One unreadable pack costs its own troops, and is asked again next session.
+      console.warn(`${MODULE_ID} | could not index ${pack.collection}`, error);
+      return [];
+    }
+    const troops = troopListingsFrom(entries, pack.collection, pack.label, () => null)
       .map(({ art: _art, ...troop }) => troop);
     if (pack.stamp !== null) next[pack.collection] = { stamp: pack.stamp, troops };
     return troops;
