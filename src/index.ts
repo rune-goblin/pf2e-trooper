@@ -45,7 +45,7 @@ Hooks.once('init', () => {
     // handed it, and consumers hold on to this object.
     troopArt: (name) => (aiArtIgnored() ? null : officialTroopArt(name)),
     troopArtSlugs: () => (aiArtIgnored() ? [] : officialTroopArtSlugs()),
-    listTroops: () => listTroops(aiArtIgnored() ? () => null : undefined),
+    listTroops: () => (aiArtIgnored() ? listTroops(() => null) : listTroops()),
     reducedStatus: (actor) => reducedStatus(actor as ActorPF2e | null),
     setReducedStatus: (actor, status) => setReducedStatus(actor as ActorPF2e | null, status),
     recoverOneSegment: (actor) => recoverOneSegment(actor as ActorPF2e | null),

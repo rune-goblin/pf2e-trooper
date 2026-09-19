@@ -187,7 +187,7 @@ The window is a thin `ApplicationV2` subclass; Svelte renders. `_renderHTML` cal
 `game.modules.get('pf2e-trooper').api`, registered at `init`:
 
 - `troopArt(name)` / `troopArtSlugs()` — the art this module ships for a published troop name.
-- `listTroops()` — every troop-trait actor in the world and in the Actor compendia (UUID, name, level, publication, art), read off the pack indexes. The compendium scan runs once per session.
+- `listTroops()` — every troop-trait actor in the world and in the Actor compendia (UUID, name, level, publication, art), read off the pack indexes. Each released pack's troops are kept in the browser's local storage under the version of the package that ships it, so a pack is read again only when that package updates; world packs and world actors are read fresh.
 - `reducedStatus(actor)` — a troop's Troop Reduced status: `4` at full strength, `3` or `2`
   once the HP ladder has reduced it, `null` for an actor the system does not treat as a troop.
 - `recoverOneSegment(actor)` — downtime recovery, one rung up (2 → 3, 3 → full).

@@ -1,3 +1,4 @@
+import { MODULE_ID } from '../constants';
 import { officialTroopArt, type TroopArt } from '../art/officialTroopArt';
 
 /** One troop a consumer can offer: enough to list, sort, and filter it without loading the actor. */
@@ -48,33 +49,84 @@ export function troopListingsFrom(
   return out;
 }
 
-// A compendium does not change under a session, so its troops are scanned once and every later
-// call reads the answer. Keyed by the art switch: a world that turns the art off lists without it.
-const scanned = new Map<boolean, Promise<TroopListing[]>>();
+/** A listing as the cache keeps it. Art is left out: it follows a world setting and this
+ * module's own manifest, so it is worked out on every read. */
+export type CachedTroop = Omit<TroopListing, 'art'>;
+export interface CachedPack { stamp: string; troops: CachedTroop[] }
+export type TroopCache = Record<string, CachedPack>;
 
-function compendiumTroops(art?: (name: string) => TroopArt | null): Promise<TroopListing[]> {
-  const key = art === undefined;
-  let scan = scanned.get(key);
-  if (!scan) {
-    const packs = game.packs.filter((p) => p.metadata.type === 'Actor');
-    scan = Promise.all(packs.map(async (p) => {
-      const index = await p.getIndex({ fields: TROOP_INDEX_FIELDS });
-      return troopListingsFrom(index.contents as unknown as TroopIndexEntry[], p.collection, p.metadata.label, art);
-    })).then((lists) => lists.flat());
-    // A failed scan is asked again rather than remembered.
-    scan.catch(() => scanned.delete(key));
-    scanned.set(key, scan);
+export interface PackToScan {
+  collection: string;
+  label: string;
+  /** The shipping package and its version, or null for a pack that can change at any time. */
+  stamp: string | null;
+  index: () => Promise<Iterable<TroopIndexEntry>>;
+}
+
+/**
+ * The troops in every pack, reading a pack's index only when the cache has no answer for the
+ * version that ships it. A released pack changes only with its package, so its answer holds
+ * across sessions — an empty one included, which is most packs. Returns the cache to keep.
+ */
+export async function troopsAcross(packs: PackToScan[], cache: TroopCache): Promise<{ troops: CachedTroop[]; cache: TroopCache }> {
+  const next: TroopCache = {};
+  const lists = await Promise.all(packs.map(async (pack) => {
+    const kept = pack.stamp !== null ? cache[pack.collection] : undefined;
+    if (kept && kept.stamp === pack.stamp) {
+      next[pack.collection] = kept;
+      return kept.troops;
+    }
+    const troops = troopListingsFrom(await pack.index(), pack.collection, pack.label, () => null)
+      .map(({ art: _art, ...troop }) => troop);
+    if (pack.stamp !== null) next[pack.collection] = { stamp: pack.stamp, troops };
+    return troops;
+  }));
+  return { troops: lists.flat(), cache: next };
+}
+
+const CACHE_KEY = `${MODULE_ID}.troop-index.v1`;
+
+function readCache(): TroopCache {
+  try {
+    return JSON.parse(localStorage.getItem(CACHE_KEY) ?? '{}') as TroopCache;
+  } catch {
+    return {};
   }
+}
+
+function stampOf(metadata: { packageType: string; packageName: string }): string | null {
+  if (metadata.packageType === 'world') return null;
+  const version = metadata.packageType === 'system' ? game.system.version : game.modules.get(metadata.packageName)?.version;
+  return version ? `${metadata.packageName}@${version}` : null;
+}
+
+let scan: Promise<CachedTroop[]> | null = null;
+
+function compendiumTroops(): Promise<CachedTroop[]> {
+  scan ??= (async () => {
+    const packs = game.packs.filter((p) => p.metadata.type === 'Actor').map((p): PackToScan => ({
+      collection: p.collection,
+      label: p.metadata.label,
+      stamp: stampOf(p.metadata),
+      index: async () => (await p.getIndex({ fields: TROOP_INDEX_FIELDS })).contents as unknown as TroopIndexEntry[],
+    }));
+    const { troops, cache } = await troopsAcross(packs, readCache());
+    // Private browsing and a full quota both throw; the list is still good for this session.
+    try { localStorage.setItem(CACHE_KEY, JSON.stringify(cache)); } catch { /* kept in memory only */ }
+    return troops;
+  })();
+  // A failed scan is asked again rather than remembered.
+  scan.catch(() => { scan = null; });
   return scan;
 }
 
-/** Every troop the world can reach: its own actors, read fresh, then the compendium scan. */
-export async function listTroops(art?: (name: string) => TroopArt | null): Promise<TroopListing[]> {
+/** Every troop the world can reach: its own actors, read fresh, then the compendia. */
+export async function listTroops(art: (name: string) => TroopArt | null = officialTroopArt): Promise<TroopListing[]> {
   const world = troopListingsFrom(
     game.actors.contents as unknown as (TroopIndexEntry & { folder?: { name?: string } | null })[],
     null,
     (entry) => (entry as { folder?: { name?: string } | null }).folder?.name ?? 'World',
     art,
   );
-  return [...world, ...await compendiumTroops(art)];
+  return [...world, ...(await compendiumTroops()).map((troop) => ({ ...troop, art: art(troop.name) }))];
 }
