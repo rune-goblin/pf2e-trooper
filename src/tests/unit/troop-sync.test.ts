@@ -1,5 +1,13 @@
-import { describe, expect, it } from 'vitest';
-import { type ItemSourceLike, baseSyncableSystemDiff, followMoves, planItemReconcile, reconcileKey, syncableSystemDiff } from '@/troops/logic';
+import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
+import {
+  type ItemSourceLike,
+  baseSyncableSystemDiff,
+  cloneSystemDiff,
+  followMoves,
+  planItemReconcile,
+  reconcileKey,
+  syncableSystemDiff,
+} from '@/troops/logic';
 import { isExcludedItemSource } from '@/troops/sync';
 
 const item = (id: string, extra: Record<string, unknown> = {}): ItemSourceLike => ({
@@ -109,6 +117,67 @@ describe('system diff projections', () => {
 
   it('is null when a change carries nothing to mirror', () => {
     expect(baseSyncableSystemDiff({ _migration: { version: 1 } })).toBeNull();
+  });
+});
+
+// Shaped like common/data/operators.mjs: the value sits under a symbol, and create() wraps a
+// replacement in a Proxy. Those two traits are what structuredClone trips on.
+const OPERATOR_VALUE = Symbol('DataFieldOperatorValue');
+class DataFieldOperator {
+  [OPERATOR_VALUE]: unknown;
+  constructor(value?: unknown) {
+    this[OPERATOR_VALUE] = value;
+  }
+  static get(value: unknown): unknown {
+    return value instanceof DataFieldOperator ? value[OPERATOR_VALUE] : value;
+  }
+}
+class ForcedDeletion extends DataFieldOperator {}
+class ForcedReplacement extends DataFieldOperator {
+  static create(value: unknown): ForcedReplacement {
+    return new Proxy(new ForcedReplacement(value), {});
+  }
+}
+
+describe('cloneSystemDiff with v14 data operators', () => {
+  beforeAll(() => vi.stubGlobal('foundry', { data: { operators: { DataFieldOperator, ForcedDeletion, ForcedReplacement } } }));
+  afterAll(() => vi.unstubAllGlobals());
+
+  // An Adventure import updates existing actors with `recursive: false`, so `changed.system`
+  // arrives as one ForcedReplacement holding the whole system.
+  const imported = () =>
+    ForcedReplacement.create({
+      attributes: { hp: { value: 40 }, speed: { value: 30 } },
+      details: { level: { value: 5 } },
+      _migration: { version: 1 },
+    });
+
+  it('copies a replacement that structuredClone rejects', () => {
+    expect(() => structuredClone(imported())).toThrow();
+    expect(cloneSystemDiff(imported())).toEqual({
+      attributes: { hp: { value: 40 }, speed: { value: 30 } },
+      details: { level: { value: 5 } },
+      _migration: { version: 1 },
+    });
+  });
+
+  it('projects an unwrapped replacement like any other diff', () => {
+    expect(syncableSystemDiff(imported())).toEqual({
+      attributes: { speed: { value: 30 } },
+      details: { level: { value: 5 } },
+    });
+    expect(baseSyncableSystemDiff(imported())).toEqual({
+      attributes: { hp: { value: 40 }, speed: { value: 30 } },
+      details: { level: { value: 5 } },
+    });
+  });
+
+  it('keeps a deletion a deletion through the hook copy and the projection', () => {
+    const deletion = new ForcedDeletion();
+    const projected = syncableSystemDiff(cloneSystemDiff({ details: { alliance: deletion } }));
+    const alliance = (projected?.details as Record<string, unknown>).alliance;
+    expect(alliance).toBeInstanceOf(ForcedDeletion);
+    expect(alliance).not.toBe(deletion);
   });
 });
 

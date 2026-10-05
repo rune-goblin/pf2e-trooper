@@ -349,12 +349,6 @@ export function followMoves(
 }
 
 /**
- * Clone of a `system` update diff with the paths we must not mirror removed:
- * hp and elite/weak adjustment are already propagated by the pf2e system itself
- * (double-writing them would race its `fromTroop` updates), and `_migration`
- * bookkeeping is per-actor. Null when nothing mirrorable remains.
- */
-/**
  * Reconcile-queue key for a troop. A linked troop is one unit across every scene it
  * appears in, so its key carries no scene — two scenes holding it must coalesce into
  * one job, not diverge into two that overwrite each other. An unlinked troop is
@@ -364,19 +358,52 @@ export function reconcileKey(troop: { id: string; linked: boolean }, sceneId: st
   return troop.linked ? `troop:${troop.id}` : `${sceneId}:${troop.id}`;
 }
 
+interface DataOperators {
+  DataFieldOperator: (abstract new (...args: never[]) => object) & { get(value: unknown): unknown };
+  ForcedDeletion: new () => object;
+}
+
+/**
+ * Deep copy of an update diff. structuredClone can't take Foundry v14's data operators:
+ * a ForcedReplacement (every root key of a `recursive: false` update, such as an
+ * Adventure import) is a Proxy and throws, and a ForcedDeletion keeps its state under a
+ * symbol and comes out as `{}`, a silent no-op. Deletions stay deletions. A replacement
+ * unwraps to its value and mirrors as a merge: the projections strip keys from it, and a
+ * replacement missing `hp` would wipe the target's.
+ */
+export function cloneSystemDiff<T>(value: T): T {
+  if (typeof value !== 'object' || value === null) return value;
+  if (Array.isArray(value)) return value.map(cloneSystemDiff) as T;
+  const proto = Object.getPrototypeOf(value);
+  if (proto === Object.prototype || proto === null) {
+    return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, cloneSystemDiff(v)])) as T;
+  }
+  const { DataFieldOperator, ForcedDeletion } = (foundry as unknown as { data: { operators: DataOperators } }).data
+    .operators;
+  if (value instanceof ForcedDeletion) return new ForcedDeletion() as T;
+  if (value instanceof DataFieldOperator) return cloneSystemDiff(DataFieldOperator.get(value)) as T;
+  return value;
+}
+
 /**
  * Clone of a `system` update diff bound for a linked troop's world actor. HP stays:
  * the system propagates it between segments in a scene and never to the actor they
  * were placed from, so this is the only path a segment's damage takes home.
  */
 export function baseSyncableSystemDiff(system: object): Record<string, unknown> | null {
-  const diff = structuredClone(system) as Record<string, unknown>;
+  const diff = cloneSystemDiff(system) as Record<string, unknown>;
   delete diff._migration;
   return Object.keys(diff).length > 0 ? diff : null;
 }
 
+/**
+ * Clone of a `system` update diff with the paths we must not mirror removed:
+ * hp and elite/weak adjustment are already propagated by the pf2e system itself
+ * (double-writing them would race its `fromTroop` updates), and `_migration`
+ * bookkeeping is per-actor. Null when nothing mirrorable remains.
+ */
 export function syncableSystemDiff(system: object): Record<string, unknown> | null {
-  const diff = structuredClone(system) as Record<string, unknown>;
+  const diff = cloneSystemDiff(system) as Record<string, unknown>;
   const attributes = diff.attributes as Record<string, unknown> | undefined;
   if (attributes) {
     delete attributes.hp;

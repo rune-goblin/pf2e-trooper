@@ -1,7 +1,14 @@
 import type { ActorPF2e, ItemPF2e, NPCPF2e, TokenDocumentPF2e } from 'foundry-pf2e';
 import { MODULE_ID } from '@/constants';
 import { baseActorFor, segmentContext, segmentTokensForTroop, troopFlags, troopIdsForBase } from './context';
-import { type ItemSourceLike, baseSyncableSystemDiff, planItemReconcile, reconcileKey, syncableSystemDiff } from './logic';
+import {
+  type ItemSourceLike,
+  baseSyncableSystemDiff,
+  cloneSystemDiff,
+  planItemReconcile,
+  reconcileKey,
+  syncableSystemDiff,
+} from './logic';
 
 // Full-state sync between troop segments, structured as record-then-reconcile:
 // hooks never write — mid-cascade writes against synthetic actors proved to race
@@ -188,7 +195,7 @@ async function reconcileTarget(
 ): Promise<void> {
   for (const diff of systemDiffs) {
     await target
-      .update({ system: structuredClone(diff) }, mirrorOptions())
+      .update({ system: cloneSystemDiff(diff) }, mirrorOptions())
       ?.catch?.((error: unknown) => console.error(`${MODULE_ID} | system sync failed`, error));
   }
 
@@ -215,7 +222,7 @@ function onUpdateActor(actor: ActorPF2e, changed: Record<string, unknown>, optio
   if (!isInitiator(userId) || isMirrorEcho(options)) return;
   const diff = changed.system && typeof changed.system === 'object' ? (changed.system as object) : null;
   // Item changes ride along inside delta updates too, so queue even without a system diff.
-  queueReconcile(actor, diff ? (structuredClone(diff) as Record<string, unknown>) : undefined);
+  queueReconcile(actor, diff ? (cloneSystemDiff(diff) as Record<string, unknown>) : undefined);
 }
 
 function onItemChange(item: ItemPF2e, options: HookOptions, userId: string): void {
