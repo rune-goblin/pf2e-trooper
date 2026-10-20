@@ -22,8 +22,7 @@ shell — from one repo.
   `module.json` loads. `npm run dev` serves with hot module reload (HMR); `npm run check` runs `svelte-check` and `tsc`.
 
 - **Compendium packs.** `packs/_source/` JSON sources (tracked) compile to LevelDB on
-  `npm run build` (gitignored, like `dist/`), via the bundled `fvtt` CLI. Ships an example
-  "Open Example" macro that opens the demo window.
+  `npm run build` (gitignored, like `dist/`), via the bundled `fvtt` CLI.
 
 - **One-command rename.** `npm run init -- <new-id> [--title "..."]` rewrites the id and
   title across the manifest, sources, flags, socket channel, and pack names, then deletes
@@ -66,7 +65,7 @@ dist/                build output (gitignored) — what module.json loads
 lang/en.json         localization
 src/adventure.ts     adventure install prompt (no-op unless an Adventure pack is registered)
 packs/               compendium packs — built from _source by `npm run build` (gitignored)
-  _source/macros/    JSON pack sources (tracked) — e.g. the "Open Example" macro
+  _source/macros/    JSON pack sources (tracked) — e.g. the Recover Troop Segment macro
   _source/_library/  pack sources kept as compendia, never folded into an Adventure (optional)
 scripts/setup.ts     dev install (real dir + symlinks back to the repo)
 scripts/deploy.ts    build + copy a clean self-contained module into Foundry
@@ -78,9 +77,8 @@ scripts/removeExampleFiles.ts  strip the example for a clean slate (one-shot; se
 
 ## Remove the example
 
-The template ships a **worked example** — the demo window (`src/ui/`), the Rune Goblin badge,
-and the *Open Example* macro — so you can see the patterns (Svelte in ApplicationV2, art by
-served path, a compendium pack) in action. It's a demonstration to learn from, **not** a base
+The template ships a **worked example** — the demo window (`src/ui/`) and the Rune Goblin
+badge — so you can see the patterns (Svelte in ApplicationV2, art by served path) in action. It's a demonstration to learn from, **not** a base
 class to extend in place: build your own ApplicationV2 alongside it, modeled on what it shows.
 
 Once you've taken what you need, strip it:
@@ -204,8 +202,7 @@ segment and the world actor have followed. Pass the world actor or any segment's
 Pack **sources** live in `packs/_source/<name>/*.json` (tracked). `npm run build` compiles
 every one into a LevelDB at `packs/<name>` via `scripts/pack.ts` — the built packs are
 gitignored, like `dist/`, so the shipped LevelDB always matches the sources and the current
-module id. The starter example is the `macros` pack with an **Open Example** script macro
-(`game.modules.get('<id>')?.api?.open()`), which opens the example window from the macro bar.
+module id.
 
 Edit the JSON sources, then rebuild. The `fvtt` CLI (a dev dependency) is wrapped for manual
 single-pack work — close Foundry first, as it locks the LevelDB while it runs (the `build`

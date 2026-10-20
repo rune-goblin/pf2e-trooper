@@ -2,8 +2,8 @@
 // skeleton that still builds, type-checks, and loads. Run once, after `npm run init`, when
 // you're ready to build your own app instead of learning from the demo:
 //   npm run remove-example-files
-// The ExampleApp window, its Svelte components, the Rune Goblin badge art, and the "Open
-// Example" macro are a demonstration — not a base class to extend in place. Build your own
+// The ExampleApp window, its Svelte components, and the Rune Goblin badge art are a
+// demonstration — not a base class to extend in place. Build your own
 // ApplicationV2 modeled on what they showed (see the README + the foundry-pf2e skill). Like
 // init.ts, this is a one-shot: it removes its own npm script and deletes itself when done.
 import { existsSync, rmSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -53,9 +53,6 @@ if (existsSync(assetsDir) && readdirSync(assetsDir).length === 0) {
   console.log('kept assets/ (added .gitkeep — served path stays valid)');
 }
 
-// packs/_source/ stays (its .gitkeep keeps the pack scaffold); the build skips it when empty.
-remove(at('packs', '_source', 'macros'));
-
 // index.ts wired the example into the public api — drop just that wiring, keep the hooks and
 // the version api.
 const indexPath = at('src', 'index.ts');
@@ -69,22 +66,6 @@ if (existsSync(indexPath)) {
     writeFileSync(indexPath, after);
     console.log('rewrote src/index.ts (dropped the example api)');
     changed++;
-  }
-}
-
-// module.json declared the macros pack — remove that entry (leaves packs: [] if it was the
-// only one).
-const manifestPath = at('module.json');
-if (existsSync(manifestPath)) {
-  const manifest = JSON.parse(readFileSync(manifestPath, 'utf8')) as { packs?: { name?: string }[] };
-  if (Array.isArray(manifest.packs)) {
-    const kept = manifest.packs.filter((p) => p.name !== 'macros');
-    if (kept.length !== manifest.packs.length) {
-      manifest.packs = kept;
-      writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
-      console.log('rewrote module.json (removed the macros pack)');
-      changed++;
-    }
   }
 }
 
