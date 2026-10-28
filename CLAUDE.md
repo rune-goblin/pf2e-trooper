@@ -74,6 +74,10 @@ Code style: global `~/.claude/CLAUDE.md` — comment only the non-obvious *why*.
   Append-only for the same reason as `assets/troops/`: the paths are baked into the shipped
   siege-weapon compendium and into live ReignMaker worlds. No api covers these — nothing looks
   them up by name.
+- **Fleet art lives in `assets/fleets/`** — one folder per ReignMaker fleet class (`skiffs`,
+  `longboats`, `galleys`, `tall-ships`), each holding `<class>_{portrait,token,strategy}.webp`
+  like a troop folder. RM puts these on the vehicle actors it creates for fleets, so the layout is
+  append-only. `src/tests/unit/fleet-art.test.ts` holds the contract. No api covers these.
 - **The siege-weapon compendium is generated, not authored.**
   `scripts/build-siege-weapon-pack.ts` turns the AoN stat blocks in `data/siege-weapons/` (59
   weapons, one JSON each — see its README) into pf2e `vehicle` actors under
