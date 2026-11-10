@@ -14,7 +14,8 @@ export const MODULE_ID = 'pf2e-trooper';
 /** Drive Foundry's /join screen to log this context in as a specific user. */
 export async function joinAs(page: Page, userId: string, password = ''): Promise<void> {
   await page.goto('/join');
-  await page.selectOption('select[name="userid"]', userId);
+  // The field was `userid` until Foundry 14.369 renamed it `userId`.
+  await page.selectOption('#join-game-form select', userId);
   if (password) await page.fill('input[name="password"]', password);
   await Promise.all([
     page.waitForURL(/\/game\b/, { timeout: 30_000 }),

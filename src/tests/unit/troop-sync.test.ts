@@ -4,6 +4,7 @@ import {
   baseSyncableSystemDiff,
   cloneSystemDiff,
   followMoves,
+  positionAfter,
   planItemReconcile,
   reconcileKey,
   syncableSystemDiff,
@@ -70,32 +71,55 @@ describe('isExcludedItemSource', () => {
   });
 });
 
-describe('followMoves', () => {
-  const followers = [
-    { id: 'b', x: 200, y: 0 },
-    { id: 'c', x: 0, y: 200 },
-  ];
+describe('positionAfter', () => {
+  const prior = { x: 200, y: 100, elevation: 0, level: 'ground' };
 
   // Regression: in v14 the document's prepared x/y still reads the PRE-move position
-  // at updateToken time, so the delta must come from the changed payload, never doc.x.
-  it('computes the delta from the changed payload against the stashed prior', () => {
-    const updates = followMoves({ x: 300 }, { x: 200, y: 100 }, followers);
-    expect(updates).toEqual([
-      { _id: 'b', x: 300, y: 0 },
-      { _id: 'c', x: 100, y: 200 },
+  // at updateToken time, so the result must come from the changed payload, never doc.x.
+  it('reads the changed payload over the stashed prior', () => {
+    expect(positionAfter({ x: 300, elevation: 10, level: 'upper' }, prior)).toEqual({
+      x: 300,
+      y: 100,
+      elevation: 10,
+      level: 'upper',
+    });
+  });
+
+  it('treats a missing field as unmoved', () => {
+    expect(positionAfter({ y: 250 }, prior)).toEqual({ ...prior, y: 250 });
+  });
+});
+
+describe('followMoves', () => {
+  const prior = { x: 200, y: 100, elevation: 0, level: 'ground' };
+  const followers = [
+    { id: 'b', x: 200, y: 0, elevation: 0 },
+    { id: 'c', x: 0, y: 200, elevation: 5 },
+  ];
+
+  it('applies the leader shift to every follower', () => {
+    expect(followMoves(prior, { ...prior, x: 300, y: 250 }, followers)).toEqual([
+      { _id: 'b', x: 300, y: 150, elevation: 0 },
+      { _id: 'c', x: 100, y: 350, elevation: 5 },
     ]);
   });
 
-  it('treats a missing axis as unmoved', () => {
-    const updates = followMoves({ y: 250 }, { x: 200, y: 100 }, followers);
-    expect(updates).toEqual([
-      { _id: 'b', x: 200, y: 150 },
-      { _id: 'c', x: 0, y: 350 },
+  it('carries an elevation change with no horizontal move', () => {
+    expect(followMoves(prior, { ...prior, elevation: 20 }, followers)).toEqual([
+      { _id: 'b', x: 200, y: 0, elevation: 20 },
+      { _id: 'c', x: 0, y: 200, elevation: 25 },
     ]);
   });
 
-  it('returns nothing for a zero-distance update', () => {
-    expect(followMoves({ x: 200, y: 100 }, { x: 200, y: 100 }, followers)).toEqual([]);
+  it('carries a level change', () => {
+    expect(followMoves(prior, { ...prior, level: 'upper' }, followers)).toEqual([
+      { _id: 'b', x: 200, y: 0, elevation: 0, level: 'upper' },
+      { _id: 'c', x: 0, y: 200, elevation: 5, level: 'upper' },
+    ]);
+  });
+
+  it('returns nothing when the leader did not move', () => {
+    expect(followMoves(prior, { ...prior }, followers)).toEqual([]);
   });
 });
 

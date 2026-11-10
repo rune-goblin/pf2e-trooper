@@ -1,17 +1,28 @@
-import type { TokenDocumentPF2e, TokenPF2e } from 'foundry-pf2e';
+import type { ScenePF2e, TokenDocumentPF2e, TokenPF2e } from 'foundry-pf2e';
+import { MODULE_ID } from '../constants';
 import {
   activeArrangeTroopId,
   arrangeDisposition,
+  cellTopLeft,
   clearArrangeArea,
   isArrangeAnchor,
   pauseArrangeTimer,
   resetArrangeTimer,
   resumeArrangeTimer,
   showArrangeArea,
+  toCell,
 } from './arrange';
 import { independentMovement, registerBreakFormation } from './break-formation';
 import { troopFlags } from './context';
-import { followMoves } from './logic';
+import {
+  type FollowMove,
+  type GridRect,
+  type TokenPosition,
+  followMoves,
+  positionAfter,
+  samePosition,
+  settleLandings,
+} from './logic';
 
 // Formation movement, plus one selection rule: at most one segment of a troop is
 // ever controlled (newest control wins). A native multi-segment drag would give
@@ -21,7 +32,11 @@ import { followMoves } from './logic';
 // and paints the advisory wiggle-room area (see arrange.ts). While that area is
 // visible, the anchor (the segment whose move opened it) is locked in place; a
 // drag of another segment landing inside the area repositions only that segment,
-// landing outside it is a fresh unit move.
+// landing outside it is refused.
+//
+// Foundry splits one drag into several updates — at every Ctrl+click waypoint and at the
+// edge of any region that reacts to tokens entering or leaving. Each leg is followed in
+// turn, and the legs of one drag share one arrangement: its budget is the whole path.
 //
 // Holding the break-formation key opts out of all of it for one gesture — see break-formation.ts.
 
@@ -31,9 +46,72 @@ const FOLLOW_OPTION = 'pf2eTrooperFollow';
 const PRIOR_KEY = 'pf2eTrooperPrior';
 /** Troop ids already handled in this operation (covers several segments of one troop moving together). */
 const MOVED_KEY = 'pf2eTrooperMoved';
+/** A paused follower never settles its move; past this the queue moves on without it. */
+const FOLLOW_TIMEOUT_MS = 15000;
+const REFUSAL_NOTICE_MS = 3000;
 
 type HookOptions = Record<string, unknown>;
-type PriorMap = Record<string, { x: number; y: number }>;
+type PriorMap = Record<string, TokenPosition>;
+
+/** The slice of v14's TokenMovementOperation read here; the bundled typedefs predate it. */
+interface MovementLike {
+  id?: string;
+  /** Ids of the earlier legs this one continues; empty on the first leg. */
+  chain?: readonly string[];
+  destination: { x: number; y: number };
+  constrained?: boolean;
+  pending?: { waypoints: readonly unknown[] };
+}
+
+interface MoveTokensScene {
+  moveTokens(instructions: Record<string, unknown>, options: HookOptions): Promise<Record<string, boolean>>;
+}
+
+/**
+ * Movement ids of follower moves in flight. A follower crossing a region edge finishes in a
+ * later update that Foundry issues itself, without FOLLOW_OPTION; its chain still names the
+ * move it continues.
+ */
+const followRoots = new Set<string>();
+
+interface Trail {
+  rootId: string;
+  path: { x: number; y: number }[];
+  origins: { x: number; y: number }[];
+}
+
+/** The unit move in progress per troop: the leader's stops so far and where the followers began. */
+const trails = new Map<string, Trail>();
+
+/** Follows run one at a time per troop, so each reads positions the previous one has settled. */
+const followQueues = new Map<string, { tail: Promise<void>; depth: number }>();
+
+let lastRefusalNotice = 0;
+
+function movementOf(doc: TokenDocumentPF2e, options: HookOptions): MovementLike | undefined {
+  return (options._movement as Record<string, MovementLike> | undefined)?.[doc.id];
+}
+
+function isFollow(options: HookOptions, movement: MovementLike | undefined): boolean {
+  return !!options[FOLLOW_OPTION] || !!movement?.chain?.some((id) => followRoots.has(id));
+}
+
+function isContinuation(movement: MovementLike | undefined): boolean {
+  return (movement?.chain?.length ?? 0) > 0;
+}
+
+function sourcePosition(doc: TokenDocumentPF2e): TokenPosition {
+  const source = doc._source as unknown as { x: number; y: number; elevation: number; level?: string | null };
+  return { x: source.x, y: source.y, elevation: source.elevation, level: source.level ?? null };
+}
+
+/** Held arrow keys ask many times a second; one notice covers the burst. */
+function warnRefused(key: 'anchorLocked' | 'leaveRefused'): void {
+  const now = Date.now();
+  if (now - lastRefusalNotice < REFUSAL_NOTICE_MS) return;
+  lastRefusalNotice = now;
+  ui.notifications.warn(game.i18n.localize(`${MODULE_ID}.arrange.${key}`));
+}
 
 function onControlToken(token: TokenPF2e, controlled: boolean): void {
   if (!controlled) return;
@@ -54,8 +132,10 @@ function onControlToken(token: TokenPF2e, controlled: boolean): void {
  * the drag preview clone waits on it forever and strands an unselectable ghost token on
  * the canvas. Refusing preMoveToken instead stops the movement cleanly.
  */
-function onPreMoveToken(doc: TokenDocumentPF2e, movement: { destination: { x: number; y: number } }, operation: HookOptions): boolean | void {
-  if (operation[FOLLOW_OPTION]) return;
+function onPreMoveToken(doc: TokenDocumentPF2e, movement: MovementLike, operation: HookOptions): boolean | void {
+  // Undo restores the leader's move and the follow as two separate entries; each has to
+  // land exactly as recorded, lock or no lock.
+  if (operation.isUndo || isFollow(operation, movement)) return;
   const troop = troopFlags(doc);
   if (!troop) return;
   const scene = doc.parent;
@@ -70,18 +150,29 @@ function onPreMoveToken(doc: TokenDocumentPF2e, movement: { destination: { x: nu
     return;
   }
 
-  if (isArrangeAnchor(doc.id, scene.id)) return false;
+  if (isArrangeAnchor(doc.id, scene.id)) {
+    // A later leg of the drag that opened this area: refusing it strands the troop at
+    // the first waypoint or region edge.
+    if (isContinuation(movement)) return;
+    warnRefused('anchorLocked');
+    return false;
+  }
 
   // While the area is up the troop is mid-arrangement, so a segment may not leave it:
   // the drop is refused and the segment springs back to where it was. Without this,
   // dragging a follower out read as a fresh unit move and the whole troop chased it,
   // silently promoting that segment to anchor.
-  if (disposition === 'outside') return false;
+  if (disposition === 'outside') {
+    warnRefused('leaveRefused');
+    return false;
+  }
 }
 
+const MOVEMENT_KEYS = ['x', 'y', 'elevation', 'level'] as const;
+
 function onPreUpdateToken(doc: TokenDocumentPF2e, changed: Record<string, unknown>, options: HookOptions): void {
-  if (options[FOLLOW_OPTION]) return;
-  if (typeof changed.x !== 'number' && typeof changed.y !== 'number') return;
+  if (options.isUndo || isFollow(options, movementOf(doc, options))) return;
+  if (!MOVEMENT_KEYS.some((key) => key in changed)) return;
   if (!troopFlags(doc)) return;
 
   // Break-formation held: this segment moves alone. Recording no prior position is what
@@ -90,67 +181,171 @@ function onPreUpdateToken(doc: TokenDocumentPF2e, changed: Record<string, unknow
   if (independentMovement()) return;
 
   const prior = (options[PRIOR_KEY] ??= {}) as PriorMap;
-  prior[doc.id] = { x: doc._source.x, y: doc._source.y };
+  prior[doc.id] = sourcePosition(doc);
 }
 
 function onUpdateToken(doc: TokenDocumentPF2e, changed: Record<string, unknown>, options: HookOptions, userId: string): void {
-  if (userId !== game.user.id || options[FOLLOW_OPTION]) return;
-  const priorMap = options[PRIOR_KEY] as PriorMap | undefined;
-  const prior = priorMap?.[doc.id];
-  if (!prior) return;
+  if (userId !== game.user.id) return;
+  const movement = movementOf(doc, options);
+  if (isFollow(options, movement)) return;
   const troop = troopFlags(doc);
   const scene = doc.parent;
   if (!troop || !scene) return;
+
+  // The area describes a move that is being taken back.
+  if (options.isUndo) {
+    if (activeArrangeTroopId() === troop.id) clearArrangeArea();
+    return;
+  }
+
+  const priorMap = options[PRIOR_KEY] as PriorMap | undefined;
+  const prior = priorMap?.[doc.id];
+  if (!prior) return;
 
   const handled = (options[MOVED_KEY] ??= {}) as Record<string, boolean>;
   if (handled[troop.id]) return;
   handled[troop.id] = true;
 
-  const movedX = typeof changed.x === 'number' && changed.x !== prior.x;
-  const movedY = typeof changed.y === 'number' && changed.y !== prior.y;
-  if (!movedX && !movedY) return;
+  const final = positionAfter(changed, prior);
+  if (samePosition(prior, final)) return;
 
-  const final = {
-    x: typeof changed.x === 'number' ? changed.x : prior.x,
-    y: typeof changed.y === 'number' ? changed.y : prior.y,
-  };
-
-  // With an area up, the only drops that reach here are reshapes — leaving it was
-  // refused in preUpdate. Everything else is a unit move: no area governs this troop.
-  if (arrangeDisposition(doc, troop.id, scene.id, final) === 'inside') {
+  // With an area up, a drop inside it is a reshape — leaving it was refused in preMove.
+  // The anchor only gets here on a later leg of its own drag, and that is still the unit
+  // moving, wherever the leg ends.
+  const anchorLeg = isContinuation(movement) && isArrangeAnchor(doc.id, scene.id);
+  if (!anchorLeg && arrangeDisposition(doc, troop.id, scene.id, final) === 'inside') {
     resetArrangeTimer();
     return;
   }
 
-  const siblings = scene.tokens.contents.filter((t) => t.id !== doc.id && troopFlags(t)?.id === troop.id);
-
   // One operation carrying several segments of the troop exists only through a
   // Break-Formation selection, so it is a manual override even if the key was released
   // before the drop: the user placed those segments — nothing follows, no area opens.
-  if (siblings.some((t) => priorMap?.[t.id])) return;
+  const movedTogether = scene.tokens.contents.some(
+    (t) => t.id !== doc.id && troopFlags(t)?.id === troop.id && priorMap?.[t.id],
+  );
+  if (movedTogether) return;
 
-  // Delta from the update payload, follower positions from _source: the document's
-  // prepared x/y lags behind _source during v14's movement pipeline, so reading it
-  // here yields the pre-move position (and a zero delta).
-  const followers = siblings.map((t) => ({ id: t.id, x: t._source.x, y: t._source.y }));
+  if (activeArrangeTroopId() === troop.id) clearArrangeArea();
 
-  // Advisory-area inputs, captured before the follow updates land: each remaining
-  // segment's budget is measured from its own pre-move origin.
-  const arrangeCtx = {
+  const leg: Leg = {
     leaderId: doc.id,
-    leaderPrior: prior,
-    leaderFinal: final,
-    origins: followers.map(({ x, y }) => ({ x, y })),
+    rootId: movement?.chain?.[0] ?? movement?.id ?? foundry.utils.randomID(),
+    prior,
+    final,
+    last: !movement || !!movement.constrained || !movement.pending?.waypoints.length,
   };
+  enqueueFollow(scene, troop.id, leg);
+}
 
-  const updates = followMoves(changed, prior, followers);
-  if (updates.length > 0) {
-    scene
-      .updateEmbeddedDocuments('Token', updates, { [FOLLOW_OPTION]: true } as never)
-      .then(() => showArrangeArea(scene, troop.id, arrangeCtx))
-      .catch((error) => console.error('pf2e-trooper | formation follow failed', error));
-  } else {
-    showArrangeArea(scene, troop.id, arrangeCtx);
+interface Leg {
+  leaderId: string;
+  /** Movement id of the drag's first leg — what ties the legs of one drag together. */
+  rootId: string;
+  prior: TokenPosition;
+  final: TokenPosition;
+  last: boolean;
+}
+
+function enqueueFollow(scene: ScenePF2e, troopId: string, leg: Leg): void {
+  const key = `${scene.id}:${troopId}`;
+  const queue = followQueues.get(key) ?? { tail: Promise.resolve(), depth: 0 };
+  followQueues.set(key, queue);
+  queue.depth++;
+  queue.tail = queue.tail
+    .then(() => followLeg(scene, troopId, key, leg, queue))
+    .catch((error) => console.error(`${MODULE_ID} | formation follow failed`, error))
+    .then(() => {
+      if (--queue.depth === 0) followQueues.delete(key);
+    });
+}
+
+async function followLeg(
+  scene: ScenePF2e,
+  troopId: string,
+  key: string,
+  leg: Leg,
+  queue: { depth: number },
+): Promise<void> {
+  // Positions come from _source, read only now: the follow queued ahead of this one has
+  // landed, where a read at hook time saw the followers a step behind.
+  const followers = scene.tokens.contents
+    .filter((t) => t.id !== leg.leaderId && troopFlags(t)?.id === troopId)
+    .map((t) => ({ id: t.id, ...sourcePosition(t) }));
+
+  let trail = trails.get(key);
+  if (trail?.rootId !== leg.rootId) {
+    // Each segment's budget is measured from where it stood before the drag began.
+    trail = { rootId: leg.rootId, path: [leg.prior], origins: followers.map(({ x, y }) => ({ x, y })) };
+    trails.set(key, trail);
+  }
+  trail.path.push(leg.final);
+  if (leg.last) trails.delete(key);
+
+  const moves = keepOnScene(scene, leg, followMoves(leg.prior, leg.final, followers));
+  if (moves.length > 0) await moveFollowers(scene, moves);
+
+  // A newer move of this troop is already queued; its own area replaces this one.
+  if (queue.depth > 1) return;
+  showArrangeArea(scene, troopId, { leaderId: leg.leaderId, leaderPath: trail.path, origins: trail.origins });
+}
+
+/**
+ * Foundry refuses any move that ends off the scene, walls ignored or not, which left that
+ * segment behind where the drag began. Those followers close up against the troop instead.
+ */
+function keepOnScene(scene: ScenePF2e, leg: Leg, moves: FollowMove[]): FollowMove[] {
+  if (!canvas.ready || canvas.scene?.id !== scene.id || canvas.grid.type !== CONST.GRID_TYPES.SQUARE) return moves;
+  const leader = scene.tokens.get(leg.leaderId);
+  if (!leader) return moves;
+
+  const bounds = canvas.dimensions.rect;
+  const px = canvas.grid.size;
+  const onScene = (rect: GridRect): boolean => {
+    const { x, y } = cellTopLeft(rect.x, rect.y);
+    return x >= bounds.x && y >= bounds.y && x + rect.w * px <= bounds.right && y + rect.h * px <= bounds.bottom;
+  };
+  const rectAt = (point: { x: number; y: number }): GridRect => ({ ...toCell(point), w: leader.width, h: leader.height });
+
+  const landings = moves.map(rectAt);
+  if (landings.every(onScene)) return moves;
+  const settled = settleLandings(rectAt(leg.final), landings, onScene);
+  return moves.map((move, i) => {
+    const rect = settled[i];
+    // Standing landings keep their exact pixels, so an unsnapped segment stays unsnapped.
+    if (!rect || rect === landings[i]) return move;
+    return { ...move, ...cellTopLeft(rect.x, rect.y) };
+  });
+}
+
+/**
+ * Followers go where the leader's shift puts them, walls or not: the leader's path was the
+ * one checked, and a follower checked alone stops at the first wall beside a doorway. A bare
+ * x/y update gets no such exemption — Foundry runs it through the same constraints as a drag.
+ */
+async function moveFollowers(scene: ScenePF2e, moves: FollowMove[]): Promise<void> {
+  const instructions: Record<string, unknown> = {};
+  const ids: string[] = [];
+  for (const { _id, ...destination } of moves) {
+    const id = foundry.utils.randomID();
+    ids.push(id);
+    followRoots.add(id);
+    instructions[_id] = {
+      waypoints: [destination],
+      id,
+      constrainOptions: { ignoreWalls: true, ignoreCost: true },
+    };
+  }
+  // Settles once every leg of every follower has landed, so the next follow reads final positions.
+  const settled = (scene as unknown as MoveTokensScene)
+    .moveTokens(instructions, { [FOLLOW_OPTION]: true })
+    .finally(() => ids.forEach((id) => followRoots.delete(id)));
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  const timeout = new Promise<void>((resolve) => (timer = setTimeout(resolve, FOLLOW_TIMEOUT_MS)));
+  try {
+    await Promise.race([settled, timeout]);
+  } finally {
+    clearTimeout(timer);
   }
 }
 
@@ -159,7 +354,11 @@ function onCanvasPointerDown(event: PointerEvent): void {
   const troopId = activeArrangeTroopId();
   if (!troopId) return;
   const hovered = (canvas.tokens as unknown as { hover: TokenPF2e | null }).hover;
-  if (hovered && troopFlags(hovered.document)?.id === troopId) pauseArrangeTimer();
+  if (!hovered || troopFlags(hovered.document)?.id !== troopId) return;
+  // The anchor cannot be rearranged, so a press on it is no reason to keep the area up —
+  // each attempt to move on would otherwise restart the countdown and extend the lock.
+  if (isArrangeAnchor(hovered.document.id, hovered.document.parent?.id)) return;
+  pauseArrangeTimer();
 }
 
 function onCanvasPointerUp(): void {

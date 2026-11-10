@@ -10,8 +10,10 @@ import {
   hpCapForStatus,
   isContiguous,
   layoutFaults,
+  lineCrossesRect,
   reachablePlacements,
   segmentsForHp,
+  settleLandings,
   sharesEdge,
   statusFromSlugs,
   syncableSystemDiff,
@@ -298,5 +300,66 @@ describe('syncableSystemDiff', () => {
     const diff = syncableSystemDiff(input);
     expect(diff).toEqual({ details: { level: { value: 3 } } });
     expect(input._migration).toEqual({ version: 1 });
+  });
+});
+
+describe('settleLandings', () => {
+  const rect = (x: number, y: number): GridRect => ({ x, y, w: 2, h: 2 });
+  const leader = rect(8, 0);
+  // A scene ten squares wide: anything past x = 10 is off it.
+  const onScene = (r: GridRect) => r.x >= 0 && r.y >= 0 && r.x + r.w <= 10;
+
+  it('leaves an allowed formation untouched', () => {
+    const landings = [rect(6, 0), rect(6, 2), rect(8, 2)];
+    expect(settleLandings(leader, landings, onScene)).toEqual(landings);
+  });
+
+  it('closes segments that would land off the scene up against the troop', () => {
+    const landings = [rect(10, 0), rect(8, 2), rect(10, 2)];
+    const settled = settleLandings(leader, landings, onScene) as GridRect[];
+    expect(settled[1]).toEqual(rect(8, 2));
+    expect(settled.every(onScene)).toBe(true);
+    expect(isContiguous([leader, ...settled])).toBe(true);
+    expect(footprintCells([leader, ...settled]).size).toBe(16);
+  });
+
+  it('resettles an allowed landing that lost its link to the leader', () => {
+    const farLeader = rect(8, 4);
+    // (8, 2) bridges (8, 0) to the leader; with the bridge refused, (8, 0) stands alone.
+    const refuseBridge = (r: GridRect) => onScene(r) && !(r.x === 8 && r.y === 2);
+    const settled = settleLandings(farLeader, [rect(8, 2), rect(8, 0)], refuseBridge) as GridRect[];
+    expect(isContiguous([farLeader, ...settled])).toBe(true);
+    expect(settled.every(refuseBridge)).toBe(true);
+  });
+
+  it('reports a follower with nowhere allowed to go', () => {
+    expect(settleLandings(leader, [rect(10, 0)], () => false)).toEqual([null]);
+  });
+});
+
+describe('lineCrossesRect', () => {
+  const rect = { x: 100, y: 100, width: 200, height: 200 };
+
+  it('reports a wall that cuts through the footprint', () => {
+    expect(lineCrossesRect({ x: 200, y: 0 }, { x: 200, y: 400 }, rect, 2)).toBe(true);
+    expect(lineCrossesRect({ x: 0, y: 150 }, { x: 400, y: 250 }, rect, 2)).toBe(true);
+  });
+
+  it('reports a wall that ends inside the footprint', () => {
+    expect(lineCrossesRect({ x: 0, y: 200 }, { x: 150, y: 200 }, rect, 2)).toBe(true);
+    expect(lineCrossesRect({ x: 150, y: 150 }, { x: 250, y: 250 }, rect, 2)).toBe(true);
+  });
+
+  it('passes a wall that runs along an edge', () => {
+    expect(lineCrossesRect({ x: 100, y: 0 }, { x: 100, y: 400 }, rect, 2)).toBe(false);
+    expect(lineCrossesRect({ x: 0, y: 300 }, { x: 400, y: 300 }, rect, 2)).toBe(false);
+  });
+
+  it('passes a wall that only touches a corner', () => {
+    expect(lineCrossesRect({ x: 0, y: 200 }, { x: 200, y: 0 }, rect, 2)).toBe(false);
+  });
+
+  it('passes a wall that stops short of the footprint', () => {
+    expect(lineCrossesRect({ x: 200, y: 0 }, { x: 200, y: 90 }, rect, 2)).toBe(false);
   });
 });

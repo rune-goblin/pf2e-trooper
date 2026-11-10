@@ -127,6 +127,52 @@ export function adjacentPlacements(cluster: GridRect[], size = 2): GridRect[] {
 }
 
 /**
+ * Final placements for followers when some formation landings are not allowed (off the
+ * scene). A landing stands if it is allowed and still chains to the leader through other
+ * standing landings. Every other follower takes the allowed open placement nearest its
+ * landing that shares an edge with the troop so far, so the result is always one
+ * edge-connected group. Null marks a follower with no such placement.
+ */
+export function settleLandings(
+  leader: GridRect,
+  landings: GridRect[],
+  allowed: (rect: GridRect) => boolean,
+): (GridRect | null)[] {
+  const settled: (GridRect | null)[] = landings.map(() => null);
+  const cluster: GridRect[] = [leader];
+
+  let grew = true;
+  while (grew) {
+    grew = false;
+    landings.forEach((landing, i) => {
+      if (settled[i] || !allowed(landing)) return;
+      if (cluster.some((r) => overlaps(r, landing)) || !cluster.some((r) => sharesEdge(r, landing))) return;
+      settled[i] = landing;
+      cluster.push(landing);
+      grew = true;
+    });
+  }
+
+  landings.forEach((landing, i) => {
+    if (settled[i]) return;
+    let best: GridRect | null = null;
+    let bestDistance = Infinity;
+    for (const candidate of adjacentPlacements(cluster, landing.w)) {
+      if (!allowed(candidate)) continue;
+      const distance = (candidate.x - landing.x) ** 2 + (candidate.y - landing.y) ** 2;
+      if (distance < bestDistance) {
+        best = candidate;
+        bestDistance = distance;
+      }
+    }
+    if (!best) return;
+    settled[i] = best;
+    cluster.push(best);
+  });
+  return settled;
+}
+
+/**
  * All size×size placements any follower could reach spending no more than `budget`
  * squares from its own origin (RAW: "none of them moves farther than the moving
  * segment"). `measure` maps a square offset to its grid distance in squares, so the
@@ -266,6 +312,46 @@ export function layoutFaults(
   return faults;
 }
 
+export interface PixelRect {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
+
+/**
+ * Whether the line a-b passes through the rect's interior. `inset` shrinks the rect first,
+ * so a line lying along an edge or clipping a corner does not count.
+ */
+export function lineCrossesRect(
+  a: { x: number; y: number },
+  b: { x: number; y: number },
+  rect: PixelRect,
+  inset = 0,
+): boolean {
+  const dx = b.x - a.x;
+  const dy = b.y - a.y;
+  let t0 = 0;
+  let t1 = 1;
+  const clips: [number, number][] = [
+    [-dx, a.x - (rect.x + inset)],
+    [dx, rect.x + rect.width - inset - a.x],
+    [-dy, a.y - (rect.y + inset)],
+    [dy, rect.y + rect.height - inset - a.y],
+  ];
+  for (const [p, q] of clips) {
+    if (p === 0) {
+      if (q < 0) return false;
+      continue;
+    }
+    const t = q / p;
+    if (p < 0) t0 = Math.max(t0, t);
+    else t1 = Math.min(t1, t);
+    if (t0 > t1) return false;
+  }
+  return true;
+}
+
 /** The set of individual grid squares ("x,y") covered by any of the given rects. */
 export function footprintCells(rects: GridRect[]): Set<string> {
   const cells = new Set<string>();
@@ -325,27 +411,63 @@ export function planItemReconcile(
   return plan;
 }
 
-export interface PointSource {
+/** Where a token stands: every field a formation has to carry to stay together. */
+export interface TokenPosition {
+  x: number;
+  y: number;
+  elevation: number;
+  level: string | null;
+}
+
+export interface FollowerSource {
   id: string;
   x: number;
   y: number;
+  elevation: number;
+}
+
+export interface FollowMove {
+  _id: string;
+  x: number;
+  y: number;
+  elevation: number;
+  level?: string;
+}
+
+export function samePosition(a: TokenPosition, b: TokenPosition): boolean {
+  return a.x === b.x && a.y === b.y && a.elevation === b.elevation && a.level === b.level;
 }
 
 /**
- * Follower position updates for a unit move. The delta comes from the update's
- * `changed` payload against the stashed prior position — never from the document's
- * prepared x/y, which lags `_source` during Foundry v14's movement pipeline (reading
- * it mid-update yields the OLD position and a zero delta).
+ * The position an update leaves a token at. Read from the update's `changed` payload over
+ * the stashed prior — never from the document's prepared x/y, which lags `_source` during
+ * Foundry v14's movement pipeline (mid-update it yields the OLD position and a zero delta).
+ */
+export function positionAfter(changed: Record<string, unknown>, prior: TokenPosition): TokenPosition {
+  return {
+    x: typeof changed.x === 'number' ? changed.x : prior.x,
+    y: typeof changed.y === 'number' ? changed.y : prior.y,
+    elevation: typeof changed.elevation === 'number' ? changed.elevation : prior.elevation,
+    level: typeof changed.level === 'string' ? changed.level : prior.level,
+  };
+}
+
+/**
+ * Follower destinations for a unit move: the leader's shift applied to each follower.
+ * Elevation shifts with x and y, and a level change carries over outright — a leader that
+ * climbs stairs or takes off would otherwise leave the troop on the floor it left.
  */
 export function followMoves(
-  changed: { x?: unknown; y?: unknown },
-  prior: { x: number; y: number },
-  followers: PointSource[],
-): { _id: string; x: number; y: number }[] {
-  const dx = (typeof changed.x === 'number' ? changed.x : prior.x) - prior.x;
-  const dy = (typeof changed.y === 'number' ? changed.y : prior.y) - prior.y;
-  if (!dx && !dy) return [];
-  return followers.map((f) => ({ _id: f.id, x: f.x + dx, y: f.y + dy }));
+  prior: TokenPosition,
+  final: TokenPosition,
+  followers: FollowerSource[],
+): FollowMove[] {
+  if (samePosition(prior, final)) return [];
+  const dx = final.x - prior.x;
+  const dy = final.y - prior.y;
+  const dz = final.elevation - prior.elevation;
+  const level = final.level !== prior.level && final.level ? { level: final.level } : {};
+  return followers.map((f) => ({ _id: f.id, x: f.x + dx, y: f.y + dy, elevation: f.elevation + dz, ...level }));
 }
 
 /**

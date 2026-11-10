@@ -40,6 +40,10 @@
     },
     "dropArt": {
       "swap": "Swap tactical / strategy art"
+    },
+    "arrange": {
+      "anchorLocked": "This troop is still arranging. The moved segment stays put until the green area fades. Dismiss the area to move on at once (Escape by default).",
+      "leaveRefused": "Segments must stay inside the arrangement area while it is up. Dismiss the area to move the troop (Escape by default)."
     }
   }
 }

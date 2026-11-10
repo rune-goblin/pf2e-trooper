@@ -11,9 +11,11 @@ import {
 import { troopFlags } from './context';
 import {
   type GridRect,
+  type PixelRect,
   attachablePlacements,
   footprintCells,
   layoutFaults,
+  lineCrossesRect,
   reachablePlacements,
 } from './logic';
 
@@ -34,16 +36,26 @@ import {
 // no other segment may leave, so a drop outside is refused and the segment springs back.
 // Once it fades, dragging any segment is an ordinary unit move again; Escape dismisses it
 // early, which is the only way out if the area's squares admit no legal arrangement.
+//
+// Walls are advisory. Followers ignore them when they follow, and a corridor may leave no
+// wall-free arrangement, so a segment with a wall through its footprint gets an orange
+// outline and nothing else: the countdown runs on and no drop is refused.
 
 /** PIXI display-object names — stable handles for e2e specs; `npm run init` rewrites the id. */
 export const AREA_NAME = 'pf2e-trooper:arrange-area';
 export const HATCH_NAME = 'pf2e-trooper:arrange-hatch';
 export const ANCHOR_LOCK_NAME = 'pf2e-trooper:arrange-anchor-lock';
+export const WALL_MARKS_NAME = 'pf2e-trooper:arrange-wall-marks';
 
 export const HATCH_COLOR = 0x2fe04a;
 /** The same saturation and weight as HATCH_COLOR so only the hue reads as the change. */
 export const INVALID_COLOR = 0xff2f2f;
 const ANCHOR_COLOR = 0xffc94d;
+/** Orange enough to read apart from the anchor's amber when both sit on one token. */
+const WALL_COLOR = 0xff6a00;
+const WALL_MARK_WIDTH = 5;
+/** Walls snap to grid lines; the inset keeps one that runs along a segment's edge from counting. */
+const WALL_INSET_PX = 2;
 const HATCH_ALPHA = 0.75;
 /** A wash under the hatching so the area reads as a filled region, not just stripes. */
 const FILL_ALPHA = 0.22;
@@ -56,10 +68,8 @@ const MAX_BUDGET_SQUARES = 30;
 
 export interface ArrangeContext {
   leaderId: string;
-  /** Leader's pre-move position, px. */
-  leaderPrior: { x: number; y: number };
-  /** Leader's final position, px. */
-  leaderFinal: { x: number; y: number };
+  /** The leader's stops in px, start first — one entry per leg of a move split at checkpoints. */
+  leaderPath: { x: number; y: number }[];
   /** The other segments' pre-move positions, px. */
   origins: { x: number; y: number }[];
 }
@@ -77,6 +87,10 @@ interface ArrangeArea {
   sprite: PIXI.TilingSprite;
   fill: PIXI.Graphics;
   borders: PIXI.Graphics;
+  /** One outline per segment a wall cuts through — above tokens, like the anchor marker. */
+  wallMarks: PIXI.Container;
+  /** The marked segments and their positions, so the outlines redraw only on change. */
+  wallSignature: string;
   faulted: boolean;
   timer: ArrangeTimer;
   /** Grid squares ("x,y") the painted area covers — the inside/outside test for drags. */
@@ -123,12 +137,17 @@ export function showArrangeArea(scene: ScenePF2e, troopId: string, ctx: ArrangeC
   if (!canvas.ready || canvas.scene?.id !== scene.id) return;
   if (canvas.grid.type !== CONST.GRID_TYPES.SQUARE) return;
 
-  const built = buildOverlay(scene, ctx);
+  const segmentIds = scene.tokens.contents.filter((t) => troopFlags(t)?.id === troopId).map((t) => t.id);
+  const built = buildOverlay(scene, ctx, segmentIds);
   if (!built) return;
   // canvas.interface sorts children by zIndex: keep the area beneath tokens, lift
   // the anchor marker above them.
   built.anchor.zIndex = ((canvas.tokens as unknown as { zIndex?: number }).zIndex ?? 100) + 1;
-  (canvas.interface as unknown as PIXI.Container).addChild(built.area, built.anchor);
+  const wallMarks = new PIXI.Container();
+  wallMarks.name = WALL_MARKS_NAME;
+  wallMarks.eventMode = 'none';
+  wallMarks.zIndex = built.anchor.zIndex;
+  (canvas.interface as unknown as PIXI.Container).addChild(built.area, built.anchor, wallMarks);
   active = {
     troopId,
     sceneId: scene.id,
@@ -138,10 +157,12 @@ export function showArrangeArea(scene: ScenePF2e, troopId: string, ctx: ArrangeC
     sprite: built.sprite,
     fill: built.fill,
     borders: built.borders,
+    wallMarks,
+    wallSignature: '',
     faulted: false,
     timer: startTimer(Date.now()),
     cells: built.cells,
-    segmentIds: scene.tokens.contents.filter((t) => troopFlags(t)?.id === troopId).map((t) => t.id),
+    segmentIds,
   };
   ensureTicker();
 }
@@ -165,6 +186,7 @@ export function clearArrangeArea(): void {
   if (!active) return;
   active.area.destroy({ children: true });
   active.anchor.destroy({ children: true });
+  active.wallMarks.destroy({ children: true });
   active = null;
 }
 
@@ -172,13 +194,13 @@ export function clearArrangeArea(): void {
 // squares anchored at the origin and a token footprint of exactly width×height. Foundry's
 // GridOffset is {i: row, j: column}, so it transposes into our "x,y" cell keys.
 
-function toCell(point: { x: number; y: number }): { x: number; y: number } {
+export function toCell(point: { x: number; y: number }): { x: number; y: number } {
   const { i, j } = canvas.grid.getOffset(point);
   return { x: j, y: i };
 }
 
 /** Inverse of toCell — the square's top-left in pixels. */
-function cellTopLeft(cx: number, cy: number): { x: number; y: number } {
+export function cellTopLeft(cx: number, cy: number): { x: number; y: number } {
   return canvas.grid.getTopLeftPoint({ i: cy, j: cx });
 }
 
@@ -226,23 +248,39 @@ interface BuiltOverlay {
   cells: Set<string>;
 }
 
-function buildOverlay(scene: ScenePF2e, ctx: ArrangeContext): BuiltOverlay | null {
+function buildOverlay(scene: ScenePF2e, ctx: ArrangeContext, segmentIds: string[]): BuiltOverlay | null {
   const leader = scene.tokens.get(ctx.leaderId);
   if (!leader || ctx.origins.length === 0) return null;
   const px = canvas.grid.size;
   const measure = offsetMeasurer();
 
-  const finalCell = toCell(ctx.leaderFinal);
-  const priorCell = toCell(ctx.leaderPrior);
-  const budget = Math.min(
-    measure(finalCell.x - priorCell.x, finalCell.y - priorCell.y),
-    MAX_BUDGET_SQUARES,
-  );
+  const path = ctx.leaderPath.map(toCell);
+  const startCell = path[0];
+  const finalCell = path[path.length - 1];
+  const shift = { x: finalCell.x - startCell.x, y: finalCell.y - startCell.y };
+  let walked = 0;
+  for (let i = 1; i < path.length; i++) walked += measure(path[i].x - path[i - 1].x, path[i].y - path[i - 1].y);
+  // 5-10-5 restarts its diagonal count on every leg, so the legs can sum to less than the
+  // straight shift the followers were carried by.
+  const budget = Math.min(Math.max(walked, measure(shift.x, shift.y)), MAX_BUDGET_SQUARES);
   if (budget <= 0) return null;
 
   const leaderRect: GridRect = { ...finalCell, w: leader.width, h: leader.height };
   const origins = ctx.origins.map(toCell);
   const reachable = reachablePlacements(origins, budget, measure, leader.width, [leaderRect]);
+  // Where the follow put each segment is legal by definition. Past the budget cap, or
+  // after a segment was resettled off the scene edge, those squares fall out of the
+  // enumeration and the area would open already faulted.
+  const known = new Set(reachable.map((r) => `${r.x},${r.y}`));
+  for (const id of segmentIds) {
+    const segment = id === ctx.leaderId ? null : scene.tokens.get(id);
+    if (!segment) continue;
+    const landing: GridRect = { ...toCell(segment._source), w: leader.width, h: leader.width };
+    const key = `${landing.x},${landing.y}`;
+    if (known.has(key) || (landing.x === leaderRect.x && landing.y === leaderRect.y)) continue;
+    known.add(key);
+    reachable.push(landing);
+  }
   // Both RAW constraints: within budget AND attached to the moved segment (chains allowed).
   const placements = attachablePlacements(leaderRect, reachable, ctx.origins.length);
   const cells = footprintCells(placements);
@@ -417,15 +455,60 @@ function draggedPositions(): Map<string, { x: number; y: number }> {
   return positions;
 }
 
+function walledSegments(
+  area: ArrangeArea,
+  overrides: Map<string, { x: number; y: number }>,
+): PixelRect[] {
+  const scene = canvas.scene;
+  if (!scene || scene.id !== area.sceneId) return [];
+  const walls = scene.walls.contents.filter(
+    (wall) =>
+      wall.move !== CONST.WALL_MOVEMENT_TYPES.NONE &&
+      !(wall.door !== CONST.WALL_DOOR_TYPES.NONE && wall.ds === CONST.WALL_DOOR_STATES.OPEN),
+  ) as unknown as { c: number[]; includedInLevel(level: string): boolean }[];
+  const walled: PixelRect[] = [];
+  for (const id of area.segmentIds) {
+    const doc = scene.tokens.get(id);
+    if (!doc) continue;
+    const at = overrides.get(id) ?? { x: doc._source.x, y: doc._source.y };
+    const rect = { x: at.x, y: at.y, ...doc.getSize() };
+    const level = (doc._source as unknown as { level?: string | null }).level;
+    const crossed = walls.some((wall) => {
+      if (level && !wall.includedInLevel(level)) return false;
+      const [x0, y0, x1, y1] = wall.c;
+      return lineCrossesRect({ x: x0, y: y0 }, { x: x1, y: y1 }, rect, WALL_INSET_PX);
+    });
+    if (crossed) walled.push(rect);
+  }
+  return walled;
+}
+
+function refreshWallMarks(area: ArrangeArea, walled: PixelRect[]): void {
+  const signature = walled.map((r) => `${r.x},${r.y},${r.width},${r.height}`).join('|');
+  if (signature === area.wallSignature) return;
+  area.wallSignature = signature;
+  for (const child of area.wallMarks.removeChildren()) child.destroy();
+  for (const rect of walled) {
+    const mark = new PIXI.Graphics();
+    mark.lineStyle(WALL_MARK_WIDTH + 4, 0x000000, BORDER_BACKING_ALPHA);
+    mark.drawRect(rect.x, rect.y, rect.width, rect.height);
+    mark.lineStyle(WALL_MARK_WIDTH, WALL_COLOR, 1);
+    mark.drawRect(rect.x, rect.y, rect.width, rect.height);
+    area.wallMarks.addChild(mark);
+  }
+}
+
 function onTick(): void {
   if (!active) return;
   const now = Date.now();
+  const dragged = draggedPositions();
+  refreshWallMarks(active, walledSegments(active, dragged));
 
   // An illegal formation holds the area open and turns it red: it stops being a
   // countdown and starts being a "you're not done yet" marker. Evaluated against the
   // in-flight drag position, so the warning tracks the segment under the cursor rather
   // than appearing only once it has landed.
-  const layout = segmentLayout(active, draggedPositions());
+  const layout = segmentLayout(active, dragged);
   const faulted =
     layout !== null && layoutFaults(layout.anchor, layout.followers, active.cells).length > 0;
   active.timer = faulted
@@ -446,6 +529,7 @@ function onTick(): void {
   }
   active.area.alpha = alpha;
   active.anchor.alpha = alpha;
+  active.wallMarks.alpha = alpha;
 }
 
 export function registerArrangeOverlay(): void {
